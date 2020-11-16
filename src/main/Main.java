@@ -10,7 +10,7 @@ public class Main {
 		
 		MainFrame mainFrame = new MainFrame(menu);
 		mainFrame.setVisible(true);
-		
-//		±êÇãºê ¿¬µ¿È®ÀÎ µÎ¹ø¤Š ÇÑ±Û È®ÀÎ ¼¼¹ÝÂ°
+
+//		í•œê¸€ ...
 	}
 }

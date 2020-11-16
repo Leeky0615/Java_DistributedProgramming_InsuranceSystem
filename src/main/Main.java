@@ -11,6 +11,6 @@ public class Main {
 		MainFrame mainFrame = new MainFrame(menu);
 		mainFrame.setVisible(true);
 		
-//		깃허브 연동확인 두번쨰 한글 확인
+//		깃허브 연동확인 두번쨰 한글 확인 세반째
 	}
 }

@@ -5,8 +5,8 @@ import java.util.Vector;
 import constants.ControlConstants.EInsuranceType;
 import constants.ControlConstants.EPaymentMethod;
 import constants.ViewConstants.EAccidentReceipt;
-import control.accidentReciept.AccidentReceipt;
-import control.accidentReciept.AccidentReceiptListImpl;
+import control.accidentReceipt.AccidentReceipt;
+import control.accidentReceipt.AccidentReceiptListImpl;
 import model.accidentReceipt.AccidentReceiptDao;
 import model.accidentReceipt.AccidentReceiptDaoImpl;
 

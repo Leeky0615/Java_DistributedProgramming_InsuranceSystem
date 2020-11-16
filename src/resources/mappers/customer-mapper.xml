@@ -19,3 +19,12 @@
         <result column="registrationstatus" property="registrationStatus" />
     </resultMap>
  
+   <select id="Select" resultMap="Customer">
+        SELECT * FROM customer
+   </select>
+   
+   
+   
+   
+</mapper>
+   

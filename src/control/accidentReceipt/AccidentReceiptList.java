@@ -1,4 +1,4 @@
-package control.accidentReciept;
+package control.accidentReceipt;
 
 
 public interface AccidentReceiptList {

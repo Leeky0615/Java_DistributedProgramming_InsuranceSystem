@@ -34,7 +34,7 @@
     <mapper resource="resources/mappers/cancerInsurance-mapper.xml"/>
     <mapper resource="resources/mappers/carInsurance-mapper.xml"/>
     <mapper resource="resources/mappers/contractCondition-mapper.xml"/>
-    <mapper resource="resources/mappers/cutomer-mapper.xml"/>
+    <mapper resource="resources/mappers/customer-mapper.xml"/>
     <mapper resource="resources/mappers/fireInsurance-mapper.xml"/>
     <mapper resource="resources/mappers/insurance-mapper.xml"/>
     <mapper resource="resources/mappers/insuranceDesign-mapper.xml"/>

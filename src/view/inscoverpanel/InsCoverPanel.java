@@ -17,7 +17,7 @@ import javax.swing.border.TitledBorder;
 
 import constants.ViewConstants.EMainFrame;
 import constants.ViewConstants.EViewFrame;
-import control.accidentReciept.AccidentReceiptListImpl;
+import control.accidentReceipt.AccidentReceiptListImpl;
 import control.insuranceCover.InsuranceCoverImpl;
 import main.Menu;
 import view.defaultClass.DefaultPanel;

@@ -2,7 +2,7 @@ package control.insuranceCover;
 
 import java.util.Vector;
 
-import control.accidentReciept.AccidentReceiptListImpl;
+import control.accidentReceipt.AccidentReceiptListImpl;
 
 public interface InsuranceCover {
 	public void acceptAccident(int accidentReceiptNum);

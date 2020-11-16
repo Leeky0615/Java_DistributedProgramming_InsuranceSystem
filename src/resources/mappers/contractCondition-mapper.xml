@@ -12,4 +12,5 @@
         <result column="period" property="period" />
         <result column="payment" property="payment" />
     </resultMap>
+</mapper>
  

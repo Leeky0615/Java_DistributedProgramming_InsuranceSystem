@@ -12,9 +12,21 @@
         <result column="carnum" property="carNum" />
         <result column="caraccidenthistory" property="carAccidentHistory"/>
         <result column="cartype" property="carType" />
-        <result column="paymentdate" property="accidentDate"/>
-        <result column="paymentmethod" property="hospitalName" />
-        <result column="insurance_id" property="deathStatus" />
-        <result column="customer_id" property="accidentPlace" />
+        <result column="paymentdate" property="paymentdate"/>
+        <result column="paymentmethod" property="paymentmethod" />
+        <result column="customer_id" property="customerId" />
+        
+        <association column="insurance_id" property="insurance" javaType="Insurance">
+        	<id column="insuranceid" property="insuranceId" />
+        	<result column="insuranceType" property="insuranceType" />
+        	<result column="insurancedescription" property="insuranceDescription" />
+        	<result column="insurancename" property="insuranceName" />
+        </association>
     </resultMap>
- 
+    
+    <select id="Select" resultMap="Car">
+        SELECT * FROM carinsurance, insurance
+		WHERE carinsurance.insurance_id = insurance.insuranceid
+		AND carinsurance.customer_id =#{customer_id}
+    </select>
+</mapper>

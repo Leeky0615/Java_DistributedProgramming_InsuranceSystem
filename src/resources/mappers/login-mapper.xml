@@ -12,3 +12,8 @@
         <result column="userType" property="userType" />
     </resultMap>
  
+    <select id="Select" resultMap="Login">
+        SELECT * FROM login
+    </select>
+</mapper>
+    

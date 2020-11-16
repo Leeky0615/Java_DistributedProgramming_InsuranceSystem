@@ -2,8 +2,8 @@ package main;
 
 import control.acceptInsuranceDesign.AcceptInsuranceDesign;
 import control.acceptInsuranceDesign.AcceptInsuranceDesignImpl;
-import control.accidentReciept.AccidentReceiptList;
-import control.accidentReciept.AccidentReceiptListImpl;
+import control.accidentReceipt.AccidentReceiptList;
+import control.accidentReceipt.AccidentReceiptListImpl;
 import control.checkCustomerInfo.CheckCustomerInfo;
 import control.checkCustomerInfo.CheckCustomerInfoImpl;
 import control.customer.CustomerList;

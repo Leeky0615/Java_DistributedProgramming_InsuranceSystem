@@ -1,11 +1,9 @@
 package model.accidentReceipt;
 
-import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.List;
 
-import constants.ControlConstants.EInsuranceType;
-import constants.ControlConstants.EPaymentMethod;
-import control.accidentReciept.AccidentReceipt;
+import control.accidentReceipt.AccidentReceipt;
 import model.Dao;
 
 public class AccidentReceiptDaoImpl extends Dao implements AccidentReceiptDao{
@@ -43,43 +41,10 @@ public class AccidentReceiptDaoImpl extends Dao implements AccidentReceiptDao{
 	}
 
 	public ArrayList<AccidentReceipt> select() {
-		ArrayList<AccidentReceipt> accidentReceiptList = new ArrayList<AccidentReceipt>();
-		try {
-			String query = "SELECT * FROM accidentreceipt;";
-			ResultSet rs = this.select(query);
-			while(rs.next()) {
-				AccidentReceipt accidentReceipt = new AccidentReceipt();
-				accidentReceipt.setAccidentReceiptId(rs.getInt("accidentReceiptid"));
-				accidentReceipt.setAccidentReceiptName(rs.getString("accidentreceiptname"));
-				accidentReceipt.setCustomerName(rs.getString("customername"));
-				accidentReceipt.setCustomerId(rs.getString("customerid"));
-				switch (rs.getString("insurancetype")) {
-				case "CAR":accidentReceipt.setInsuranceType(EInsuranceType.CAR);break; 
-				case "CANCER":accidentReceipt.setInsuranceType(EInsuranceType.CANCER);break; 
-				case "FIRE":accidentReceipt.setInsuranceType(EInsuranceType.FIRE);break; 
-				default:break;
-				}
-				switch (rs.getString("paymentmethod")) {
-				case "CASH":accidentReceipt.setPaymentMethod(EPaymentMethod.CASH);break; 
-				case "CARD":accidentReceipt.setPaymentMethod(EPaymentMethod.CARD);break; 
-				case "ACCOUNT":accidentReceipt.setPaymentMethod(EPaymentMethod.ACCOUNT);break; 
-				default:break;
-				}
-				accidentReceipt.setAccidentDate(rs.getString("accidentdate"));
-				accidentReceipt.setHospitalName(rs.getString("hospitalname"));
-				accidentReceipt.setDeathStatus(rs.getBoolean("deathstatus"));
-				accidentReceipt.setAccidentPlace(rs.getString("accidentplace"));
-				accidentReceipt.setDiagnosisName(rs.getString("diagnosisname"));
-				accidentReceipt.setDamageScale(rs.getString("damagescale"));
-				accidentReceipt.setAccidentCircumstances(rs.getString("accidentcircumstances"));
-				accidentReceipt.setMoney(rs.getInt("money"));
-				accidentReceipt.setPaymentStatus(rs.getBoolean("paymentstatus"));
-				accidentReceiptList.add(accidentReceipt);
-			}
-			rs.close();
-		} catch (Exception e) {e.printStackTrace();}
-		return accidentReceiptList;
+		List<AccidentReceipt> list = session.selectList("AccidentReceipt.Select");
+		return (ArrayList<AccidentReceipt>)list;
 	}
+	
 	public void update(boolean status, int accidentReceiptId) {
 		try {
 			System.out.println(status);

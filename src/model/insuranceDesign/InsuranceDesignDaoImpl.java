@@ -1,12 +1,9 @@
 package model.insuranceDesign;
 
-import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.List;
 
 import constants.ViewConstants.EApprovalStatus;
-import control.insurance.CancerInsurance;
-import control.insurance.CarInsurance;
-import control.insurance.FireInsurance;
 import control.insuranceDevelopment.InsuranceDesign;
 import model.Dao;
 
@@ -44,40 +41,8 @@ public class InsuranceDesignDaoImpl extends Dao implements InsuranceDesignDao{
 	}
 
 	public ArrayList<InsuranceDesign> select() {
-		ArrayList<InsuranceDesign> insuranceDesignList = new ArrayList<InsuranceDesign>();
-		try {
-			String query = "SELECT * FROM insurancedesign, insurance, contractcondition"
-					+ " WHERE insurancedesign.insurance_id = insurance.insuranceid"
-					+ " AND insurance.contractcondition_id = contractcondition.contractconditionid;";
-			ResultSet rs = this.select(query);
-			while(rs.next()) {
-				InsuranceDesign insuranceDesign = new InsuranceDesign();
-				switch (rs.getString("insuranceType")) {
-				case"CANCER":insuranceDesign.setInsurance(new CancerInsurance());break;
-				case"FIRE":insuranceDesign.setInsurance(new FireInsurance());break;
-				case"CAR":insuranceDesign.setInsurance(new CarInsurance());break;
-				default:break;
-				}
-				insuranceDesign.setInsuranceDesignId(rs.getInt("insurancedesignID"));
-				insuranceDesign.setWriter(rs.getString("writer"));
-				insuranceDesign.getInsurance().setInsuranceName(rs.getString("insuranceName"));
-				insuranceDesign.getInsurance().setInsuranceId(rs.getInt("insurancedesign.insurance_id"));
-				insuranceDesign.setMadeDate(rs.getString("madeDate"));
-				insuranceDesign.getInsurance().getContractCondition().setContractConditionID(rs.getInt("insurance.contractcondition_id"));
-				insuranceDesign.getInsurance().getContractCondition().setGuarantee(rs.getInt("guarantee"));
-				insuranceDesign.getInsurance().getContractCondition().setPayment(rs.getInt("payment"));
-				insuranceDesign.getInsurance().getContractCondition().setPeriod(rs.getInt("period"));
-				switch (rs.getString("approvalStatus")) {
-				case "RequestInsDesign":insuranceDesign.setApprovalStatus(EApprovalStatus.RequestInsDesign);break;
-				case "Approvalns":insuranceDesign.setApprovalStatus(EApprovalStatus.ApprovalIns); break;
-				case "DisApprovalIns":insuranceDesign.setApprovalStatus(EApprovalStatus.DisApprovalIns);break;
-				default:break;
-				}
-				insuranceDesignList.add(insuranceDesign);
-			}
-			rs.close();
-		} catch (Exception e) {e.printStackTrace();}
-		return insuranceDesignList;
+		List<InsuranceDesign> list = session.selectList("Design.Select");
+		return (ArrayList<InsuranceDesign>)list;
 	}
 	
 	public void update(EApprovalStatus status ,int insuranceDesignId, int insuranceId) {

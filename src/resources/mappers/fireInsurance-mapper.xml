@@ -12,9 +12,23 @@
         <result column="contractor" property="contractor" />
         <result column="unitprice" property="unitPrice"/>
         <result column="buildingtype" property="buildingType" />
-        <result column="paymentdate" property="accidentDate"/>
-        <result column="paymentmethod" property="hospitalName" />
-        <result column="insurance_id" property="deathStatus" />
-        <result column="customer_id" property="accidentPlace" />
+		<result column="paymentdate" property="paymentdate" />
+        <result column="paymentmethod" property="paymentmethod" />
+        <result column="customer_id" property="customerId" />
+        
+            <association column="insurance_id" property="insurance" javaType="Insurance">
+        	<id column="insuranceid" property="insuranceId" />
+        	<result column="insuranceType" property="insuranceType" />
+        	<result column="insurancedescription" property="insuranceDescription" />
+        	<result column="insurancename" property="insuranceName" />
+        </association>
     </resultMap>
+    
+    <select id="Select" resultMap="Fire">
+        SELECT * FROM fireinsurance, insurance
+		WHERE fireinsurance.insurance_id = insurance.insuranceid
+		AND fireinsurance.customer_id =#{customer_idid}
+    </select>
+</mapper>
+
  

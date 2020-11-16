@@ -21,6 +21,12 @@
         <result column="damagescale" property="damageScale" />
         <result column="accidentcircumstances" property="accidentCircumstances" />
         <result column="money" property="money" />
-        <result column="paymentstatus" property="paymentStatusv" />
+        <result column="paymentstatus" property="paymentStatus" />
     </resultMap>
+    
+     <select id="Select" resultMap="AccidentReceipt">
+        SELECT * FROM accidentreceipt
+    </select>    
+</mapper>
+
  

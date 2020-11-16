@@ -7,12 +7,12 @@
 <!--id : resultMap이름으로 사용될 id 설정  -->
     <resultMap type="Design" id="Design">
     <!--id : primary key로 사용되는 column / property : 해당 column의 값과 매치되는 (클래스에서 사용되는)변수이름  -->
-        <id column="insurancedesignId" property="accidentReceiptId" />
-        <result column="writer" property="accidentReceiptName" />
-        <result column="madeDate" property="customerName" />
-        <result column="approvalStatus" property="customerId" />
+        <id column="insurancedesignId" property="insuranceDesignId" />
+        <result column="writer" property="writer" />
+        <result column="madeDate" property="madeDate" />
+        <result column="approvalStatus" property="approvalStatus" />
         
-        <association column="insurance_id" property="Insurance" javaType="Insurance">
+        <association column="insurance_id" property="insurance" javaType="Insurance">
         	<id column="insuranceid" property="insuranceId" />
         	<result column="insuranceType" property="insuranceType" />
         	<result column="insurancedescription" property="insuranceDescription" />
@@ -26,4 +26,11 @@
 	        </association>
         </association>
     </resultMap>
+    <select id="Select" resultMap="Design">
+        SELECT * 
+        FROM insurancedesign, insurance, contractcondition
+		WHERE insurancedesign.insurance_id = insurance.insuranceid
+		AND insurance.contractcondition_id = contractcondition.contractconditionid
+    </select>
+</mapper>
  

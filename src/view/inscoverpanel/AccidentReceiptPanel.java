@@ -14,8 +14,8 @@ import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
 
 import constants.ViewConstants.EViewFrame;
-import control.accidentReciept.AccidentReceipt;
-import control.accidentReciept.AccidentReceiptListImpl;
+import control.accidentReceipt.AccidentReceipt;
+import control.accidentReceipt.AccidentReceiptListImpl;
 import control.insuranceCover.InsuranceCoverImpl;
 
 public class AccidentReceiptPanel extends JPanel{

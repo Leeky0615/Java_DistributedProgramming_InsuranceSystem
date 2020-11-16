@@ -20,3 +20,12 @@
         </association>
     </resultMap>
  
+    <select id="Select" resultMap="Insurance">
+        SELECT * 
+        FROM insurance, contractcondition
+		WHERE insurance.contractcondition_id = contractcondition.contractconditionid
+		AND insurance.contractcondition_id>=1000;
+    </select>
+    
+</mapper>
+    

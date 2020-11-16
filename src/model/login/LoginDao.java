@@ -5,7 +5,5 @@ import java.util.ArrayList;
 import control.login.Login;
 
 public interface LoginDao {
-
-	ArrayList<Login> select();
-
+	public ArrayList<Login> select();
 }

@@ -12,3 +12,7 @@
         <result column="phonenum" property="phonNum" />
     </resultMap>
  
+    <select id="Select" resultMap="SalesPerson">
+        SELECT * FROM salesperson
+    </select>
+</mapper>

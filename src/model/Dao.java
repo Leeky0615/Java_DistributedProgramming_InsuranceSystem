@@ -1,17 +1,26 @@
 package model;
 
+import java.io.Reader;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
+
+import org.apache.ibatis.io.Resources;
+import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import constants.ControlConstants;
 
 public class Dao {
 	protected Connection connection;
 	protected Statement statement;
+	protected SqlSession session;
 	public Dao() {
 		try {
+			Reader reader = Resources.getResourceAsReader("resources/mybatis-config.xml");
+			this.session = new SqlSessionFactoryBuilder().build(reader).openSession();
+			
 			Class.forName(ControlConstants.JDBC_DRIVER);
 			this.connection = DriverManager.getConnection(ControlConstants.DB_URL, ControlConstants.USER_NAME, ControlConstants.PASSWORD);
 			this.statement = this.connection.createStatement();

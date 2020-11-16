@@ -2,8 +2,8 @@ package view.inscoverpanel;
 
 import java.util.Vector;
 
-import control.accidentReciept.AccidentReceipt;
-import control.accidentReciept.AccidentReceiptListImpl;
+import control.accidentReceipt.AccidentReceipt;
+import control.accidentReceipt.AccidentReceiptListImpl;
 import view.defaultClass.Default_AccidnetReceiptTable;
 
 public class AccidentReceiptTable extends Default_AccidnetReceiptTable {

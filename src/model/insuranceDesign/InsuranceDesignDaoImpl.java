@@ -10,6 +10,14 @@ import model.Dao;
 public class InsuranceDesignDaoImpl extends Dao implements InsuranceDesignDao{
 	public InsuranceDesignDaoImpl() {super();}
 	
+	public ArrayList<InsuranceDesign> select() {
+		List<InsuranceDesign> list = session.selectList("Design.Select");
+		return (ArrayList<InsuranceDesign>)list;
+	}
+	
+	
+	
+// -------------------------------------------------------------------------
 	public void insert(InsuranceDesign insuranceDesign) {
 		try {
 			StringBuilder sb1 = new StringBuilder();
@@ -40,10 +48,7 @@ public class InsuranceDesignDaoImpl extends Dao implements InsuranceDesignDao{
 		} catch (Exception e) {e.getStackTrace();}
 	}
 
-	public ArrayList<InsuranceDesign> select() {
-		List<InsuranceDesign> list = session.selectList("Design.Select");
-		return (ArrayList<InsuranceDesign>)list;
-	}
+
 	
 	public void update(EApprovalStatus status ,int insuranceDesignId, int insuranceId) {
 		try {

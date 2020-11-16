@@ -32,37 +32,37 @@ public class InsuranceCoverImpl implements InsuranceCover {
 		for(EAccidentReceipt eAccidentReceipt : EAccidentReceipt.values()) {
 			String value = accidentReceiptContents.get(eAccidentReceipt.ordinal());
 			switch (eAccidentReceipt.getText()) {
-			case "»ç°íÁ¢¼ö¼­ ¹øÈ£": accidentReceipt.setAccidentReceiptId(Integer.parseInt(value));break;
-			case "»ç°íÁ¢¼ö¼­ ÀÌ¸§": accidentReceipt.setAccidentReceiptName(value);break;
-			case "°í°´ ÀÌ¸§": accidentReceipt.setCustomerName(value);break;
-			case "°í°´ ÁÖ¹Îµî·Ï¹øÈ£":accidentReceipt.setCustomerId(value);break;
-			case "º¸Çè Á¾·ù": 
+			case "ì‚¬ê³ ì ‘ìˆ˜ì„œ ë²ˆí˜¸": accidentReceipt.setAccidentReceiptId(Integer.parseInt(value));break;
+			case "ì‚¬ê³ ì ‘ìˆ˜ì„œ ì´ë¦„": accidentReceipt.setAccidentReceiptName(value);break;
+			case "ê³ ê° ì´ë¦„": accidentReceipt.setCustomerName(value);break;
+			case "ê³ ê° ì£¼ë¯¼ë“±ë¡ë²ˆí˜¸":accidentReceipt.setCustomerId(value);break;
+			case "ë³´í—˜ ì¢…ë¥˜": 
 				switch (value) {
-				case "ÀÚµ¿Â÷ º¸Çè":accidentReceipt.setInsuranceType(EInsuranceType.CAR);break;
-				case "¾Ï º¸Çè":accidentReceipt.setInsuranceType(EInsuranceType.CANCER);break;
-				case "È­Àç º¸Çè":accidentReceipt.setInsuranceType(EInsuranceType.FIRE);break;
+				case "ìë™ì°¨ ë³´í—˜":accidentReceipt.setInsuranceType(EInsuranceType.CAR);break;
+				case "ì•” ë³´í—˜":accidentReceipt.setInsuranceType(EInsuranceType.CANCER);break;
+				case "í™”ì¬ ë³´í—˜":accidentReceipt.setInsuranceType(EInsuranceType.FIRE);break;
 				default:break;
 				}
 				break;
-			case "º¸»ó ¹æ½Ä": 
+			case "ë³´ìƒ ë°©ì‹": 
 				switch (value) {
-				case "Çö±İ Áö±Ş":accidentReceipt.setPaymentMethod(EPaymentMethod.CASH);	break;
-				case "Ä«µå Áö±Ş":accidentReceipt.setPaymentMethod(EPaymentMethod.CARD);	break;
-				case "°èÁÂ ÀÌÃ¼":accidentReceipt.setPaymentMethod(EPaymentMethod.ACCOUNT);break;
+				case "í˜„ê¸ˆ ì§€ê¸‰":accidentReceipt.setPaymentMethod(EPaymentMethod.CASH);	break;
+				case "ì¹´ë“œ ì§€ê¸‰":accidentReceipt.setPaymentMethod(EPaymentMethod.CARD);	break;
+				case "ê³„ì¢Œ ì´ì²´":accidentReceipt.setPaymentMethod(EPaymentMethod.ACCOUNT);break;
 				default:break;
 				}
 				break;
-			case "»ç°í ³¯Â¥": accidentReceipt.setAccidentDate(value);break;
-			case "º´¿ø¸í": accidentReceipt.setHospitalName(value);break;
-			case "»ç¸Á ¿©ºÎ": 
-				if (value.equals("¾Æ´Ï¿À")) {accidentReceipt.setDeathStatus(false);}
+			case "ì‚¬ê³  ë‚ ì§œ": accidentReceipt.setAccidentDate(value);break;
+			case "ë³‘ì›ëª…": accidentReceipt.setHospitalName(value);break;
+			case "ì‚¬ë§ ì—¬ë¶€": 
+				if (value.equals("ì•„ë‹ˆì˜¤")) {accidentReceipt.setDeathStatus(false);}
 				else {accidentReceipt.setDeathStatus(true);}
 				break;
-			case "»ç°í Àå¼Ò": accidentReceipt.setAccidentPlace(value);break;
-			case "Áúº´¸í": accidentReceipt.setDiagnosisName(value);break;
-			case "ÇÇÇØ ±Ô¸ğ": accidentReceipt.setDamageScale(value);break;
-			case "»ç°í »óÈ²": accidentReceipt.setAccidentCircumstances(value);break;
-			case "Áö±Ş¾×": accidentReceipt.setMoney(Integer.parseInt(value));break;
+			case "ì‚¬ê³  ì¥ì†Œ": accidentReceipt.setAccidentPlace(value);break;
+			case "ì§ˆë³‘ëª…": accidentReceipt.setDiagnosisName(value);break;
+			case "í”¼í•´ ê·œëª¨": accidentReceipt.setDamageScale(value);break;
+			case "ì‚¬ê³  ìƒí™©": accidentReceipt.setAccidentCircumstances(value);break;
+			case "ì§€ê¸‰ì•¡": accidentReceipt.setMoney(Integer.parseInt(value));break;
 			default: break;
 			}
 		}

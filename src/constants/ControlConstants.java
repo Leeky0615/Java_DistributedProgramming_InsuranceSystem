@@ -17,9 +17,9 @@ public class ControlConstants {
 		public String getText();
 	}
 	public enum EInsuranceType{
-		CAR("ÀÚµ¿Â÷ º¸Çè", new CarInsurance()),
-		FIRE("È­Àç º¸Çè", new FireInsurance()),
-		CANCER("¾Ï º¸Çè",new CancerInsurance());
+		CAR("ìë™ì°¨ ë³´í—˜", new CarInsurance()),
+		FIRE("í™”ì¬ ë³´í—˜", new FireInsurance()),
+		CANCER("ì•” ë³´í—˜",new CancerInsurance());
 		private String text;
 		private Insurance insurance;
 		private EInsuranceType(String text,Insurance insurance) {
@@ -30,7 +30,7 @@ public class ControlConstants {
 		public Insurance getInsurance() {return this.insurance;}
 	}
 	public enum EPaymentMethod{
-		CASH("Çö±İ Áö±Ş"),  CARD("Ä«µå Áö±Ş"),  ACCOUNT("°èÁÂ ÀÌÃ¼");
+		CASH("í˜„ê¸ˆ ì§€ê¸‰"),  CARD("ì¹´ë“œ ì§€ê¸‰"),  ACCOUNT("ê³„ì¢Œ ì´ì²´");
 		private String text;
 		private EPaymentMethod(String text) {this.text = text;}
 		public String getText() {return this.text;}
@@ -38,29 +38,29 @@ public class ControlConstants {
 	
 	// Customer
 	public enum EJob{
-		SOLDIER("±ºÀÎ"),  POLICE("°æÂû"),  FIREMAN("¼Ò¹æ°ü"),
-		DRIVER("¿îÀü±â»ç"),NO_JOB("¹«Á÷");
+		SOLDIER("êµ°ì¸"),  POLICE("ê²½ì°°"),  FIREMAN("ì†Œë°©ê´€"),
+		DRIVER("ìš´ì „ê¸°ì‚¬"),NO_JOB("ë¬´ì§");
 		private String text;
 		private EJob(String text) {this.text = text;}
 		public String getText() {return this.text;}
 	}
 	public enum EIllHistory{
-		NOTHING("¾øÀ½"),  CANCER("¾Ï"),  BLOODPRESURE("Ç÷¾Ğ"),
-		GLYCOSURIA("´ç´¢"),ACCIDENT("»ç°í");
+		NOTHING("ì—†ìŒ"),  CANCER("ì•”"),  BLOODPRESURE("í˜ˆì••"),
+		GLYCOSURIA("ë‹¹ë‡¨"),ACCIDENT("ì‚¬ê³ ");
 		private String text;
 		private EIllHistory(String text) {this.text = text;}
 		public String getText() {return this.text;}
 	}
 	public enum ECarType{
-		SMALL("¼ÒÇüÂ÷"),  MID("ÁßÇüÂ÷"),  LARGE("´ëÇüÂ÷"),
-		MOTOR("¿ÀÅä¹ÙÀÌ");
+		SMALL("ì†Œí˜•ì°¨"),  MID("ì¤‘í˜•ì°¨"),  LARGE("ëŒ€í˜•ì°¨"),
+		MOTOR("ì˜¤í† ë°”ì´");
 		private String text;
 		private ECarType(String text) {this.text = text;}
 		public String getText() {return this.text;}
 	}
 	public enum EBuildingType{
-		APARTMENT("¾ÆÆÄÆ®"),  HOUSE("ÁÖÅÃ"),  FACTORY("°øÀå"),
-		WAREHOUSE("Ã¢°í"), BUILDING("ºôµù");
+		APARTMENT("ì•„íŒŒíŠ¸"),  HOUSE("ì£¼íƒ"),  FACTORY("ê³µì¥"),
+		WAREHOUSE("ì°½ê³ "), BUILDING("ë¹Œë”©");
 		private String text;
 		private EBuildingType(String text) {this.text = text;}
 		public String getText() {return this.text;}

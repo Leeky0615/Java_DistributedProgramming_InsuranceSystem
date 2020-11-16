@@ -13,7 +13,7 @@ public class ViewConstants {
 	public enum ETableStatus{insuranceRegistration, checkCustomer}
 	public enum ELogin{customer, salesman, underwriter, developer,assessment}
 	public enum EViewFrame{
-		eFont(new Font("ÇÑÄÄ °íµñ", Font.PLAIN, 15), null),
+		eFont(new Font("í•œì»´ ê³ ë”•", Font.PLAIN, 15), null),
 		eImg(null, new ImageIcon("img/insurance.png")),
 		eLoginImg(null, new ImageIcon("img/login.png")),
 		eLoginBtnImg(null, new ImageIcon("img/loginBtn.png"));
@@ -46,11 +46,11 @@ public class ViewConstants {
 		public String getPanel() {return this.panel;}
 	}
 	public enum EButton {
-		acceptInsBtn(new JButton("º¸Çè ½ÂÀÎ"),"AcceptInsPanel"),
-		insDevelopmentBtn(new JButton("º¸Çè °³¹ß"),"InsDevelopmentPanel"),
-		insRegistrationBtn(new JButton("º¸Çè °¡ÀÔ"),"InsRegistrationPanel"),
-		checkCustomerBtn(new JButton("°í°´ È®ÀÎ"),"CheckCustomerPanel"),
-		insCoverBtn(new JButton("º¸Çè Ã³¸®"),"InsCoverPanel");
+		acceptInsBtn(new JButton("ë³´í—˜ ìŠ¹ì¸"),"AcceptInsPanel"),
+		insDevelopmentBtn(new JButton("ë³´í—˜ ê°œë°œ"),"InsDevelopmentPanel"),
+		insRegistrationBtn(new JButton("ë³´í—˜ ê°€ì…"),"InsRegistrationPanel"),
+		checkCustomerBtn(new JButton("ê³ ê° í™•ì¸"),"CheckCustomerPanel"),
+		insCoverBtn(new JButton("ë³´í—˜ ì²˜ë¦¬"),"InsCoverPanel");
 		
 		private JButton btn;
 		private String panelName;
@@ -63,102 +63,102 @@ public class ViewConstants {
 	}
 	
 	public enum EAccidentReceiptHead{
-		receiptId("»ç°íÁ¢¼ö¼­ ¹øÈ£"),  receiptName("»ç°íÁ¢¼ö¼­ ÀÌ¸§"),  customerName("°í°´ ÀÌ¸§"),
-		type("º¸Çè Á¾·ù"), date("»ç°í ³¯Â¥"), paymentStatus("Áö±Ş ¿©ºÎ");
+		receiptId("ì‚¬ê³ ì ‘ìˆ˜ì„œ ë²ˆí˜¸"),  receiptName("ì‚¬ê³ ì ‘ìˆ˜ì„œ ì´ë¦„"),  customerName("ê³ ê° ì´ë¦„"),
+		type("ë³´í—˜ ì¢…ë¥˜"), date("ì‚¬ê³  ë‚ ì§œ"), paymentStatus("ì§€ê¸‰ ì—¬ë¶€");
 		private String text;
 		private EAccidentReceiptHead(String text) {this.text = text;}
 		public String getText() {return this.text;}
 	}
 	
 	public enum EAccidentReceipt{
-		AccidentReceiptId("»ç°íÁ¢¼ö¼­ ¹øÈ£"), AccidentReceiptName("»ç°íÁ¢¼ö¼­ ÀÌ¸§"),  CustomerName("°í°´ ÀÌ¸§"),
-		CustomerId("°í°´ ÁÖ¹Îµî·Ï¹øÈ£"), InsuranceType("º¸Çè Á¾·ù"), PaymentMethod("º¸»ó ¹æ½Ä"), 
-		AccidentDate("»ç°í ³¯Â¥"), HospitalName("º´¿ø¸í"), DeathStatus("»ç¸Á ¿©ºÎ"),
-		AccidentPlace("»ç°í Àå¼Ò"), DiagnosisName("Áúº´¸í"), DamageScale("ÇÇÇØ ±Ô¸ğ"),
-		AccidentCircumstances("»ç°í »óÈ²"), Money("Áö±Ş¾×");
+		AccidentReceiptId("ì‚¬ê³ ì ‘ìˆ˜ì„œ ë²ˆí˜¸"), AccidentReceiptName("ì‚¬ê³ ì ‘ìˆ˜ì„œ ì´ë¦„"),  CustomerName("ê³ ê° ì´ë¦„"),
+		CustomerId("ê³ ê° ì£¼ë¯¼ë“±ë¡ë²ˆí˜¸"), InsuranceType("ë³´í—˜ ì¢…ë¥˜"), PaymentMethod("ë³´ìƒ ë°©ì‹"), 
+		AccidentDate("ì‚¬ê³  ë‚ ì§œ"), HospitalName("ë³‘ì›ëª…"), DeathStatus("ì‚¬ë§ ì—¬ë¶€"),
+		AccidentPlace("ì‚¬ê³  ì¥ì†Œ"), DiagnosisName("ì§ˆë³‘ëª…"), DamageScale("í”¼í•´ ê·œëª¨"),
+		AccidentCircumstances("ì‚¬ê³  ìƒí™©"), Money("ì§€ê¸‰ì•¡");
 		private String text;
 		private EAccidentReceipt(String text) {this.text = text;}
 		public String getText() {return this.text;}
 	}
 	
 	public enum EInsuranceDesignHead{
-		insuranceDesignId("¼³°è¹øÈ£"),writer("ÀÛ¼ºÀÚ"),
-		insuranceName("º¸ÇèÀÌ¸§"),insuranceType("º¸Çè Á¾·ù"),
-		madedate("ÀÛ¼º ³¯Â¥"),  approveStatus("½ÂÀÎ ¿©ºÎ");
+		insuranceDesignId("ì„¤ê³„ë²ˆí˜¸"),writer("ì‘ì„±ì"),
+		insuranceName("ë³´í—˜ì´ë¦„"),insuranceType("ë³´í—˜ ì¢…ë¥˜"),
+		madedate("ì‘ì„± ë‚ ì§œ"),  approveStatus("ìŠ¹ì¸ ì—¬ë¶€");
 		private String text;
 		private EInsuranceDesignHead(String text) {this.text = text;}
 		public String getText() {return this.text;}
 	}
 	
 	public enum EInsuranceDesign{
-		insuranceDesignId("¼³°è¹øÈ£"), writer("ÀÛ¼ºÀÚ"),
-		insuranceName("º¸ÇèÀÌ¸§"),madedate("ÀÛ¼º ³¯Â¥"),
-	    guarantee("º¸Àå¾×"), payment("Áö±Ş¾×"),
-	    period("º¸Çè ±â°£"),insuranceType("º¸Çè Á¾·ù"),
-	    description("º¸Çè ¼³¸í");
+		insuranceDesignId("ì„¤ê³„ë²ˆí˜¸"), writer("ì‘ì„±ì"),
+		insuranceName("ë³´í—˜ì´ë¦„"),madedate("ì‘ì„± ë‚ ì§œ"),
+	    guarantee("ë³´ì¥ì•¡"), payment("ì§€ê¸‰ì•¡"),
+	    period("ë³´í—˜ ê¸°ê°„"),insuranceType("ë³´í—˜ ì¢…ë¥˜"),
+	    description("ë³´í—˜ ì„¤ëª…");
 		private String text;
 		private EInsuranceDesign(String text) {this.text = text;}
 		public String getText() {return this.text;}
 	}
 	public enum EBasicInsurance{
-		id("¼³°è ¹øÈ£"), name("º¸Çè ÀÌ¸§"), guarantee("º¸Àå¾×"), payment("³³ÀÔ¾×"),
-		period("º¸Çè ±â°£"),type("º¸Çè Á¾·ù"), description("º¸Çè ¼³¸í");
+		id("ì„¤ê³„ ë²ˆí˜¸"), name("ë³´í—˜ ì´ë¦„"), guarantee("ë³´ì¥ì•¡"), payment("ë‚©ì…ì•¡"),
+		period("ë³´í—˜ ê¸°ê°„"),type("ë³´í—˜ ì¢…ë¥˜"), description("ë³´í—˜ ì„¤ëª…");
 		private String text;
 		private EBasicInsurance(String text) {this.text = text;}
 		public String getText() {return this.text;}
 	}
 	public enum ECustomerHead{
-		name("ÀÌ¸§"), customerId("ÁÖ¹Îµî·Ï¹øÈ£"),  gender("¼ºº°"),
-		age("³ªÀÌ"), phoneNum("ÀüÈ­¹øÈ£");
+		name("ì´ë¦„"), customerId("ì£¼ë¯¼ë“±ë¡ë²ˆí˜¸"),  gender("ì„±ë³„"),
+		age("ë‚˜ì´"), phoneNum("ì „í™”ë²ˆí˜¸");
 		private String text;
 		private ECustomerHead(String text) {this.text = text;}
 		public String getText() {return this.text;}
 	}
 	
 	public enum ECustomer{
-		name("ÀÌ¸§"), customerId("ÁÖ¹Îµî·Ï¹øÈ£"),  gender("¼ºº°"),
-		age("³ªÀÌ"), phoneNum("ÀüÈ­¹øÈ£"), job("Á÷¾÷"),
-		illHistory("º´·Â"), propety("Àç»ê");
+		name("ì´ë¦„"), customerId("ì£¼ë¯¼ë“±ë¡ë²ˆí˜¸"),  gender("ì„±ë³„"),
+		age("ë‚˜ì´"), phoneNum("ì „í™”ë²ˆí˜¸"), job("ì§ì—…"),
+		illHistory("ë³‘ë ¥"), propety("ì¬ì‚°");
 		private String text;
 		private ECustomer(String text) {this.text = text;}
 		public String getText() {return this.text;}
 	}
 	
 	public enum ESalesPersonHead{
-		name("ÀÌ¸§"),  office("»ç¹«½Ç ÁÖ¼Ò"), phoneNum("ÀüÈ­¹øÈ£");
+		name("ì´ë¦„"),  office("ì‚¬ë¬´ì‹¤ ì£¼ì†Œ"), phoneNum("ì „í™”ë²ˆí˜¸");
 		private String text;
 		private ESalesPersonHead(String text) {this.text = text;}
 		public String getText() {return this.text;}
 	}
 	
 	public enum EInsuranceHead{
-		id("¹øÈ£"), name("ÀÌ¸§"),  guarantee("º¸Àå¾×"), payment("³³ÀÔ¾×"),
-		period("±â°£"), type("º¸Çè Á¾·ù");
+		id("ë²ˆí˜¸"), name("ì´ë¦„"),  guarantee("ë³´ì¥ì•¡"), payment("ë‚©ì…ì•¡"),
+		period("ê¸°ê°„"), type("ë³´í—˜ ì¢…ë¥˜");
 		private String text;
 		private EInsuranceHead(String text) {this.text = text;}
 		public String getText() {return this.text;}
 	}
 	public enum EInsuranceRequest{
-		id("»óÇ° ¹øÈ£"), name("»óÇ° ÀÌ¸§"), paymentType("³³ÀÔ ¹æ½Ä"),
-		date("³³ÀÔÀÏ");
+		id("ìƒí’ˆ ë²ˆí˜¸"), name("ìƒí’ˆ ì´ë¦„"), paymentType("ë‚©ì… ë°©ì‹"),
+		date("ë‚©ì…ì¼");
 		private String text;
 		private EInsuranceRequest(String text) {this.text = text;}
 		public String getText() {return this.text;}
 	}
 	public enum EcarInsurance{
-		type("Á¾·ù"), num("Â÷·® ¹øÈ£"),  history("»ç°í ÀÌ·Â"), age("¿¬½Ä");
+		type("ì¢…ë¥˜"), num("ì°¨ëŸ‰ ë²ˆí˜¸"),  history("ì‚¬ê³  ì´ë ¥"), age("ì—°ì‹");
 		private String text;
 		private EcarInsurance(String text) {this.text = text;}
 		public String getText() {return this.text;}
 	}
 	public enum EFireInsurance{
-		type("°Ç¹° Á¾·ù"), area("°Ç¹° ¸éÀû"), price("°Ç¹° °¡Ä¡"), age("°ÇÃà ³¯Â¥");
+		type("ê±´ë¬¼ ì¢…ë¥˜"), area("ê±´ë¬¼ ë©´ì "), price("ê±´ë¬¼ ê°€ì¹˜"), age("ê±´ì¶• ë‚ ì§œ");
 		private String text;
 		private EFireInsurance(String text) {this.text = text;}
 		public String getText() {return this.text;}
 	}
 	public enum EApprovalStatus{
-		RequestInsDesign("½ÂÀÎ ¿äÃ»"), ApprovalIns("½ÂÀÎ Çã°¡"), DisApprovalIns("½ÂÀÎ °ÅºÎ");
+		RequestInsDesign("ìŠ¹ì¸ ìš”ì²­"), ApprovalIns("ìŠ¹ì¸ í—ˆê°€"), DisApprovalIns("ìŠ¹ì¸ ê±°ë¶€");
 		private String text;
 		private EApprovalStatus(String text) {this.text = text;}
 		public String getText() {return this.text;}

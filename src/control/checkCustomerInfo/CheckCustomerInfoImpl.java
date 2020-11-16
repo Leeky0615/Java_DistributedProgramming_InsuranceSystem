@@ -26,36 +26,36 @@ public class CheckCustomerInfoImpl implements CheckCustomerInfo {
 		for(ECustomer eCustomer : ECustomer.values()) {
 			String value = customerContents.get(eCustomer.ordinal());
 			switch (eCustomer.getText()) {
-			case "ÀÌ¸§": customer.setName(value);break;
-			case "ÁÖ¹Îµî·Ï¹øÈ£": customer.setCustomerId(value);break;
-			case "¼ºº°": 
-				if (value.equals("³²¼º")) {customer.setGender(false);}
+			case "ì´ë¦„": customer.setName(value);break;
+			case "ì£¼ë¯¼ë“±ë¡ë²ˆí˜¸": customer.setCustomerId(value);break;
+			case "ì„±ë³„": 
+				if (value.equals("ë‚¨ì„±")) {customer.setGender(false);}
 				else {customer.setGender(true);}
 				break;
-			case "³ªÀÌ":customer.setAge(Integer.parseInt(value));break;
-			case "ÀüÈ­¹øÈ£": customer.setPhoneNum(value);break;
-			case "Á÷¾÷": 
+			case "ë‚˜ì´":customer.setAge(Integer.parseInt(value));break;
+			case "ì „í™”ë²ˆí˜¸": customer.setPhoneNum(value);break;
+			case "ì§ì—…": 
 				switch (value) {
-				case "±ºÀÎ":customer.setJob(EJob.SOLDIER);break;
-				case "°æÂû":customer.setJob(EJob.POLICE);break;
-				case "¼Ò¹æ°ü":customer.setJob(EJob.FIREMAN);break;
-				case "¿îÀü±â»ç":customer.setJob(EJob.DRIVER);break;
-				case "¹«Á÷":customer.setJob(EJob.NO_JOB);break;
+				case "êµ°ì¸":customer.setJob(EJob.SOLDIER);break;
+				case "ê²½ì°°":customer.setJob(EJob.POLICE);break;
+				case "ì†Œë°©ê´€":customer.setJob(EJob.FIREMAN);break;
+				case "ìš´ì „ê¸°ì‚¬":customer.setJob(EJob.DRIVER);break;
+				case "ë¬´ì§":customer.setJob(EJob.NO_JOB);break;
 				default:break;
 				}
 				break;
-			case "º´·Â": 
+			case "ë³‘ë ¥": 
 				switch (value) {
-				case "¾øÀ½":customer.setillHistory(EIllHistory.NOTHING);break;
-				case "¾Ï":customer.setillHistory(EIllHistory.CANCER);break;
-				case "Ç÷¾Ğ":customer.setillHistory(EIllHistory.BLOODPRESURE);break;
-				case "´ç´¢":customer.setillHistory(EIllHistory.GLYCOSURIA);break;
-				case "»ç°í":customer.setillHistory(EIllHistory.ACCIDENT);break;
+				case "ì—†ìŒ":customer.setillHistory(EIllHistory.NOTHING);break;
+				case "ì•”":customer.setillHistory(EIllHistory.CANCER);break;
+				case "í˜ˆì••":customer.setillHistory(EIllHistory.BLOODPRESURE);break;
+				case "ë‹¹ë‡¨":customer.setillHistory(EIllHistory.GLYCOSURIA);break;
+				case "ì‚¬ê³ ":customer.setillHistory(EIllHistory.ACCIDENT);break;
 				default:break;
 				}
 				break;
-			case "Àç»ê": customer.setProperty(Integer.parseInt(value));break;
-			case "Áö±Ş ¹æ¹ı": 
+			case "ì¬ì‚°": customer.setProperty(Integer.parseInt(value));break;
+			case "ì§€ê¸‰ ë°©ë²•": 
 			default: break;
 			}
 		}

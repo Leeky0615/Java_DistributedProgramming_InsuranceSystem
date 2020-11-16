@@ -45,31 +45,31 @@ public class AcceptRegistrationPanel extends JPanel {
 	public void createPanel() {
 		this.removeAll();
 		this.setLayout(null);
-		// Å×ÀÌºí »ı¼º
+		// í…Œì´ë¸” ìƒì„±
 		this.customerTable = new CustomerTable(this.customerList, ETableStatus.insuranceRegistration);
 		this.customerTable.addMouseListener(this.mousehandler);
 		JScrollPane scroll = new JScrollPane();
 		scroll.setBounds(12, 10, 576, 315);
-		scroll.setBorder(new TitledBorder(new LineBorder(Color.lightGray,1),"°í°´ ¸®½ºÆ®"));
+		scroll.setBorder(new TitledBorder(new LineBorder(Color.lightGray,1),"ê³ ê° ë¦¬ìŠ¤íŠ¸"));
 		scroll.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 		scroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_NEVER);
 		scroll.setViewportView(this.customerTable);
 		scroll.setPreferredSize(new Dimension(EMainFrame.eWidth.getValue(),50));
 		this.add(scroll);
 		
-		// ¹öÆ° ÆĞ³Î »ı¼º
+		// ë²„íŠ¼ íŒ¨ë„ ìƒì„±
 		JPanel panel = new JPanel();
 		panel.setLayout(null);
 		panel.setBounds(12, 335, 576, 113);
 		panel.setBorder(new TitledBorder(new LineBorder(Color.lightGray,1)));
 		this.actionHandler = new ActionHandler();
-		// º¸Çè»ó¼¼È®ÀÎÇÏ±â ¹öÆ°
-		this.detailCheckBtn = new JButton("»ó¼¼ È®ÀÎÇÏ±â");
+		// ë³´í—˜ìƒì„¸í™•ì¸í•˜ê¸° ë²„íŠ¼
+		this.detailCheckBtn = new JButton("ìƒì„¸ í™•ì¸í•˜ê¸°");
 		this.detailCheckBtn.setFont(EViewFrame.eFont.getFont());
 		this.detailCheckBtn.setBounds(12, 10, 552, 42);
 		this.detailCheckBtn.addActionListener(this.actionHandler);
 		panel.add(this.detailCheckBtn);
-		this.refresh = new JButton("»õ·Î°íÄ§");
+		this.refresh = new JButton("ìƒˆë¡œê³ ì¹¨");
 		this.refresh.setFont(EViewFrame.eFont.getFont());
 		this.refresh.setBounds(12, 62, 552, 42);
 		this.refresh.addActionListener(this.actionHandler);
@@ -81,13 +81,13 @@ public class AcceptRegistrationPanel extends JPanel {
 		panel.updateUI();
 	}
 	
-	// ¹öÆ° ActionHandler
+	// ë²„íŠ¼ ActionHandler
 	public void buttonClick(Object source) {
 		if (source.equals(this.detailCheckBtn)) {
-			// »ó¼¼Á¶È¸ÇÏ±â ¹öÆ° Å¬¸¯½Ã
+			// ìƒì„¸ì¡°íšŒí•˜ê¸° ë²„íŠ¼ í´ë¦­ì‹œ
 			if (this.customerTable.getRow() == null) {
-				// Row¸¦ ¼±ÅÃÇÏÁö ¾ÊÀº °æ¿ì
-				JOptionPane.showMessageDialog(null, "½ÂÀÎÇÒ °í°´À» ¼±ÅÃÇØÁÖ¼¼¿ä.", "°í°´ ¼±ÅÃ", JOptionPane.WARNING_MESSAGE);
+				// Rowë¥¼ ì„ íƒí•˜ì§€ ì•Šì€ ê²½ìš°
+				JOptionPane.showMessageDialog(null, "ìŠ¹ì¸í•  ê³ ê°ì„ ì„ íƒí•´ì£¼ì„¸ìš”.", "ê³ ê° ì„ íƒ", JOptionPane.WARNING_MESSAGE);
 				return;
 			}else {
 				this.removeAll();
@@ -96,7 +96,7 @@ public class AcceptRegistrationPanel extends JPanel {
 				requestAcceptCustomerPanel.createCustomerInfoPanel();
 				requestAcceptCustomerPanel.createInsuranceInfoPanel();
 				requestAcceptCustomerPanel.createButton();
-				////////////////////////°í°´ Á¤º¸//////////////////////////
+				////////////////////////ê³ ê° ì •ë³´//////////////////////////
 				this.setLayout(new GridLayout(1,1));
 				this.add(requestAcceptCustomerPanel);
 			}
@@ -112,10 +112,10 @@ public class AcceptRegistrationPanel extends JPanel {
 		}
 	}
 	
-	// Å×ÀÌºíÀ» ´õºíÅ¬¸¯ÇßÀ» ½Ã  ¹öÆ°ÀÌ ´­·Á ÆĞ³ÎÀÌ »ı¼ºµÊ.
+	// í…Œì´ë¸”ì„ ë”ë¸”í´ë¦­í–ˆì„ ì‹œ  ë²„íŠ¼ì´ ëˆŒë ¤ íŒ¨ë„ì´ ìƒì„±ë¨.
 	public void selectRow() {
 		if (this.customerTable.getRow() == null) {
-			JOptionPane.showMessageDialog(null, "°í°´À» ¼±ÅÃÇØ ÁÖ¼¼¿ä.", "°í°´ ¼±ÅÃ", JOptionPane.WARNING_MESSAGE);
+			JOptionPane.showMessageDialog(null, "ê³ ê°ì„ ì„ íƒí•´ ì£¼ì„¸ìš”.", "ê³ ê° ì„ íƒ", JOptionPane.WARNING_MESSAGE);
 			return;
 		}else{this.detailCheckBtn.doClick();}
 	}
@@ -125,3 +125,4 @@ public class AcceptRegistrationPanel extends JPanel {
 		}
 	}
 }
+

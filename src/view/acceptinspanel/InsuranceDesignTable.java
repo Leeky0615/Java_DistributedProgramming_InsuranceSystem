@@ -22,7 +22,7 @@ public class InsuranceDesignTable extends Default_InsuranceDesignTable {
 		this.rowData.clear();
 		for (InsuranceDesign insuranceDesign : this.insuranceDesignList.getInsuranceDesignList()) {
 			Vector<Object> insuranceDesigns = new Vector<Object>();
-			// ½ÂÀÎ¿äÃ» ÁßÀÎ º¸ÇèÀ» º¸¿©ÁÖ´Â Å×ÀÌºí
+			// ìŠ¹ì¸ìš”ì²­ ì¤‘ì¸ ë³´í—˜ì„ ë³´ì—¬ì£¼ëŠ” í…Œì´ë¸”
 			if (acceptState) {
 				if (insuranceDesign.getApprovalStatus().equals(EApprovalStatus.ApprovalIns) || insuranceDesign.getApprovalStatus().equals(EApprovalStatus.DisApprovalIns)) {
 					insuranceDesigns.add(insuranceDesign.getInsuranceDesignId());
@@ -33,7 +33,7 @@ public class InsuranceDesignTable extends Default_InsuranceDesignTable {
 					insuranceDesigns.add(insuranceDesign.getApprovalStatus().getText());
 					this.rowData.add(insuranceDesigns);
 				}
-			// ½ÂÀÎ °á°ú°¡ ³ª¿Â º¸ÇèÀ» º¸¿©ÁÖ´Â Å×ÀÌºí
+			// ìŠ¹ì¸ ê²°ê³¼ê°€ ë‚˜ì˜¨ ë³´í—˜ì„ ë³´ì—¬ì£¼ëŠ” í…Œì´ë¸”
 			}else {
 				System.out.println(insuranceDesign.getApprovalStatus());
 				if (insuranceDesign.getApprovalStatus().equals(EApprovalStatus.RequestInsDesign)) {

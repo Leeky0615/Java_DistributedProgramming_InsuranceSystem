@@ -23,7 +23,7 @@ import constants.ViewConstants.ECustomer;
 import constants.ViewConstants.EViewFrame;
 import control.checkCustomerInfo.CheckCustomerInfoImpl;
 
-public class AddCustomerFrame extends JFrame { //°í°´Ãß°¡ÇÏ±â¹öÆ°´©¸£´Â °æ¿ì
+public class AddCustomerFrame extends JFrame { //ê³ ê°ì¶”ê°€í•˜ê¸°ë²„íŠ¼ëˆ„ë¥´ëŠ” ê²½ìš°
 	private static final long serialVersionUID = 1L;
 	private CheckCustomerInfoImpl checkCustomerInfo;
 
@@ -37,7 +37,7 @@ public class AddCustomerFrame extends JFrame { //°í°´Ãß°¡ÇÏ±â¹öÆ°´©¸£´Â °æ¿ì
 		this.actionHandler = new ActionHandler();
 		
 		this.setSize(380, 500);
-		this.setTitle("°í°´Ãß°¡");
+		this.setTitle("ê³ ê°ì¶”ê°€");
 		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		this.setResizable(false);
 		this.setLayout(new FlowLayout());
@@ -54,7 +54,7 @@ public class AddCustomerFrame extends JFrame { //°í°´Ãß°¡ÇÏ±â¹öÆ°´©¸£´Â °æ¿ì
 	private void createInfoPanel() {
 		JPanel p = new JPanel();
 		p.setPreferredSize(new Dimension(360, 350));
-		p.setBorder(new TitledBorder(new LineBorder(Color.lightGray,1),"°í°´ Ãß°¡ÇÏ±â"));
+		p.setBorder(new TitledBorder(new LineBorder(Color.lightGray,1),"ê³ ê° ì¶”ê°€í•˜ê¸°"));
 		p.setLayout(new FlowLayout(FlowLayout.LEADING,10,10));
 		for(ECustomer customer : ECustomer.values()) {
 			JLabel label = new JLabel(customer.getText());
@@ -103,8 +103,8 @@ public class AddCustomerFrame extends JFrame { //°í°´Ãß°¡ÇÏ±â¹öÆ°´©¸£´Â °æ¿ì
 				JComboBox<String> comboBox = new JComboBox<String>();
 				comboBox.setPreferredSize(new Dimension(150,30));
 				if (customer == ECustomer.gender) {
-					comboBox.addItem("³²¼º");
-					comboBox.addItem("¿©¼º");
+					comboBox.addItem("ë‚¨ì„±");
+					comboBox.addItem("ì—¬ì„±");
 				}else if(customer == ECustomer.job) {
 					for(EJob job : EJob.values()) {comboBox.addItem(job.getText());}
 				}else if(customer == ECustomer.illHistory) {
@@ -121,10 +121,10 @@ public class AddCustomerFrame extends JFrame { //°í°´Ãß°¡ÇÏ±â¹öÆ°´©¸£´Â °æ¿ì
 		btnPanel.setPreferredSize(new Dimension(355, 60));
 		btnPanel.setLayout(new FlowLayout(FlowLayout.CENTER,10,10));
 		btnPanel.setBorder(new TitledBorder(new LineBorder(Color.lightGray,1)));
-		this.saveBtn = new JButton("ÀúÀå");
+		this.saveBtn = new JButton("ì €ì¥");
 		this.saveBtn.setPreferredSize(new Dimension(150,40));
 		this.saveBtn.setFont(EViewFrame.eFont.getFont());
-		this.cancelBtn = new JButton("Ãë¼Ò");
+		this.cancelBtn = new JButton("ì·¨ì†Œ");
 		this.cancelBtn.setPreferredSize(new Dimension(150,40));
 		this.cancelBtn.setFont(EViewFrame.eFont.getFont());
 		this.saveBtn.addActionListener(this.actionHandler);
@@ -134,7 +134,7 @@ public class AddCustomerFrame extends JFrame { //°í°´Ãß°¡ÇÏ±â¹öÆ°´©¸£´Â °æ¿ì
 		this.add(btnPanel);
 	}
 	public void buttonclick(Object source) {
-		// ÀúÀåÇÏ±â ¹öÆ° Å¬¸¯½Ã
+		// ì €ì¥í•˜ê¸° ë²„íŠ¼ í´ë¦­ì‹œ
 		if (source.equals(this.saveBtn)) {
 			Vector<String> customerContents = new Vector<String>();
 			for (ECustomer customer : ECustomer.values()) {
@@ -164,9 +164,9 @@ public class AddCustomerFrame extends JFrame { //°í°´Ãß°¡ÇÏ±â¹öÆ°´©¸£´Â °æ¿ì
 				}
 			}
 			this.checkCustomerInfo.addNewCustomerInformation(customerContents);
-			JOptionPane.showMessageDialog(this, "½Å±Ô°í°´ Ãß°¡°¡ ¿Ï·áµÇ¾ú½À´Ï´Ù.");
+			JOptionPane.showMessageDialog(this, "ì‹ ê·œê³ ê° ì¶”ê°€ê°€ ì™„ë£Œë˜ì—ˆìŠµë‹ˆë‹¤.");
 			this.dispose();
-		// Ãë¼Ò¹öÆ° Å¬¸¯½Ã
+		// ì·¨ì†Œë²„íŠ¼ í´ë¦­ì‹œ
 		}else if(source.equals(this.cancelBtn)) {
 			this.dispose();
 		}

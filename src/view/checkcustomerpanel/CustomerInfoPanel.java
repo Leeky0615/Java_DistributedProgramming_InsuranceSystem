@@ -39,12 +39,12 @@ public class CustomerInfoPanel extends JPanel {
 	public Customer setSelectedRow(Vector<Object> vector, String customerName, String customerId) {
 		this.objects = vector;
 		for(Customer customer : this.customerList.getCustomerList()) {
-			// ÆÄ¶ó¹ÌÅÍ·Î Row°¡ ¿Â°æ¿ì
+			// íŒŒë¼ë¯¸í„°ë¡œ Rowê°€ ì˜¨ê²½ìš°
 			if (this.objects != null) {
-				if (customer.getCustomerId().equals(this.objects.get(1))) {this.customer = customer;}
-			// ÆÄ¶ó¹ÌÅÍ·Î Name,Id °¡ ¿Â°æ¿ì
+				if (customer.getCustomerSID().equals(this.objects.get(1))) {this.customer = customer;}
+			// íŒŒë¼ë¯¸í„°ë¡œ Name,Id ê°€ ì˜¨ê²½ìš°
 			}else {
-				if (customer.getCustomerId().equals(customerId) && customer.getName().equals(customerName)) {
+				if (customer.getCustomerSID().equals(customerId) && customer.getName().equals(customerName)) {
 					this.customer = customer;
 				}
 			}		
@@ -56,47 +56,47 @@ public class CustomerInfoPanel extends JPanel {
 		information = new JPanel();
 		information.setLocation(12, 10);
 		information.setSize(576, 383);
-		information.setBorder(new TitledBorder(new LineBorder(Color.lightGray,1),"°í°´ »ó¼¼Á¤º¸"));
+		information.setBorder(new TitledBorder(new LineBorder(Color.lightGray,1),"ê³ ê° ìƒì„¸ì •ë³´"));
 		information.setLayout(null);
 		JLabel jLabel = new JLabel();
 		jLabel.setBounds(5, 19, 275, 45);
 		jLabel.setFont(EViewFrame.eFont.getFont());
-		jLabel.setText("ÀÌ¸§ : "+this.customer.getName());
+		jLabel.setText("ì´ë¦„ : "+this.customer.getName());
 		information.add(jLabel);
 		JLabel jLabel1 = new JLabel();
 		jLabel1.setBounds(5, 54, 275, 45);
 		jLabel1.setFont(EViewFrame.eFont.getFont());
-		jLabel1.setText("ÁÖ¹Îµî·Ï¹øÈ£ : "+this.customer.getCustomerId());
+		jLabel1.setText("ì£¼ë¯¼ë“±ë¡ë²ˆí˜¸ : "+this.customer.getCustomerSID());
 		information.add(jLabel1);
 		JLabel jLabel2 = new JLabel();
 		jLabel2.setBounds(5, 88, 275, 45);
 		jLabel2.setFont(EViewFrame.eFont.getFont());
-		jLabel2.setText("¼ºº° : "+this.customer.isGender());
+		jLabel2.setText("ì„±ë³„ : "+this.customer.isGender());
 		information.add(jLabel2);
 		JLabel jLabel3_1 = new JLabel();
-		jLabel3_1.setText("³ªÀÌ : "+this.customer.getAge());
+		jLabel3_1.setText("ë‚˜ì´ : "+this.customer.getAge());
 		jLabel3_1.setFont(EViewFrame.eFont.getFont());
 		jLabel3_1.setBounds(5, 123, 275, 45);
 		information.add(jLabel3_1);
 		JLabel jLabel3 = new JLabel();
 		jLabel3.setBounds(5, 199, 275, 45);
 		jLabel3.setFont(EViewFrame.eFont.getFont());
-		jLabel3.setText("ÀüÈ­¹øÈ£ : "+this.customer.getPhoneNum());
+		jLabel3.setText("ì „í™”ë²ˆí˜¸ : "+this.customer.getPhoneNum());
 		information.add(jLabel3);
 		JLabel jLabel4 = new JLabel();
 		jLabel4.setBounds(5, 160, 275, 45);
 		jLabel4.setFont(EViewFrame.eFont.getFont());
-		jLabel4.setText("Á÷¾÷ : "+this.customer.getJob());
+		jLabel4.setText("ì§ì—… : "+this.customer.getJob());
 		information.add(jLabel4);
 		JLabel jLabel5 = new JLabel();
 		jLabel5.setBounds(5, 237, 275, 45);
 		jLabel5.setFont(EViewFrame.eFont.getFont());
-		jLabel5.setText("º´·Â : "+this.customer.getillHistory());
+		jLabel5.setText("ë³‘ë ¥ : "+this.customer.getillHistory());
 		information.add(jLabel5);
 		JLabel jLabel7 = new JLabel();
 		jLabel7.setBounds(5, 281, 275, 45);
 		jLabel7.setFont(EViewFrame.eFont.getFont());
-		jLabel7.setText("Àç»ê : "+this.customer.getProperty());
+		jLabel7.setText("ì¬ì‚° : "+this.customer.getProperty());
 		information.add(jLabel7);
 		this.add(information);
 	}
@@ -107,7 +107,7 @@ public class CustomerInfoPanel extends JPanel {
 		btnPanel.setLayout(null);
 		btnPanel.setBounds(12, 414, 576, 76);
 		btnPanel.setBorder(new TitledBorder(new LineBorder(Color.lightGray,1)));
-		back = new JButton("µ¹¾Æ°¡±â");
+		back = new JButton("ëŒì•„ê°€ê¸°");
 		back.setFont(EViewFrame.eFont.getFont());
 		back.setBounds(12, 19, 552, 42);
 		back.addActionListener(actionHandler);

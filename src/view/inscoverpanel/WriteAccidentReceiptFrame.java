@@ -1,7 +1,7 @@
 package view.inscoverpanel;
 
 import java.awt.Color;
-import java.awt.Label;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Vector;
@@ -20,7 +20,6 @@ import constants.ControlConstants.EInsuranceType;
 import constants.ControlConstants.EPaymentMethod;
 import constants.ViewConstants.EViewFrame;
 import control.insuranceCover.InsuranceCoverImpl;
-import java.awt.Font;
 
 public class WriteAccidentReceiptFrame extends JFrame {
 	private static final long serialVersionUID = 1L;
@@ -52,16 +51,16 @@ public class WriteAccidentReceiptFrame extends JFrame {
 		
 		this.actionHandler = new ActionHandler();
 		setSize(550, 430);
-		setTitle("»ç°íÁ¢¼ö¼­ ÀÛ¼ºÇÏ±â");
+		setTitle("ì‚¬ê³ ì ‘ìˆ˜ì„œ ì‘ì„±í•˜ê¸°");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
 		JPanel p = new JPanel();
 		p.setBounds(0, 0, 492, 461);
-		p.setBorder(new TitledBorder(new LineBorder(Color.lightGray,1),"»ç°íÁ¢¼ö¼­ ÀÛ¼ºÇÏ±â"));
+		p.setBorder(new TitledBorder(new LineBorder(Color.lightGray,1),"ì‚¬ê³ ì ‘ìˆ˜ì„œ ì‘ì„±í•˜ê¸°"));
 		p.setLayout(null);
 		
-		// »ç°í Á¢¼ö¼­ ¹øÈ£
-		JLabel receiptId_l = new JLabel("»ç°íÁ¢¼ö¼­ ¹øÈ£");
+		// ì‚¬ê³  ì ‘ìˆ˜ì„œ ë²ˆí˜¸
+		JLabel receiptId_l = new JLabel("ì‚¬ê³ ì ‘ìˆ˜ì„œ ë²ˆí˜¸");
 		receiptId_l.setBounds(10, 22, 118, 25);
 		receiptId_l.setFont(EViewFrame.eFont.getFont());
 		p.add(receiptId_l);
@@ -70,8 +69,8 @@ public class WriteAccidentReceiptFrame extends JFrame {
 		p.add(receiptId_t);
 		receiptId_t.setBounds(134, 22, 121, 25);
 		
-		// »ç°íÁ¢¼ö¼­ ÀÌ¸§
-		JLabel receiptName_l = new JLabel("»ç°íÁ¢¼ö¼­ ÀÌ¸§");
+		// ì‚¬ê³ ì ‘ìˆ˜ì„œ ì´ë¦„
+		JLabel receiptName_l = new JLabel("ì‚¬ê³ ì ‘ìˆ˜ì„œ ì´ë¦„");
 		receiptName_l.setBounds(261, 22, 109, 25);
 		receiptName_l.setFont(EViewFrame.eFont.getFont());
 		p.add(receiptName_l);
@@ -80,8 +79,8 @@ public class WriteAccidentReceiptFrame extends JFrame {
 		receiptName_t.setBounds(379, 22, 148, 25);
 		p.add(receiptName_t);
 		
-		// °í°´ ÀÌ¸§
-		JLabel CustomerName_l = new JLabel("°í°´ ÀÌ¸§");
+		// ê³ ê° ì´ë¦„
+		JLabel CustomerName_l = new JLabel("ê³ ê° ì´ë¦„");
 		CustomerName_l.setBounds(10, 51, 104, 25);
 		CustomerName_l.setFont(EViewFrame.eFont.getFont());
 		p.add(CustomerName_l);
@@ -90,8 +89,8 @@ public class WriteAccidentReceiptFrame extends JFrame {
 		CustomerName_t.setBounds(134, 51, 121, 25);
 		p.add(CustomerName_t);
 
-		// °í°´ ÁÖ¹Îµî·Ï¹øÈ£
-		JLabel customerId_l = new JLabel("ÁÖ¹Îµî·Ï¹øÈ£");
+		// ê³ ê° ì£¼ë¯¼ë“±ë¡ë²ˆí˜¸
+		JLabel customerId_l = new JLabel("ì£¼ë¯¼ë“±ë¡ë²ˆí˜¸");
 		customerId_l.setBounds(261, 51, 109, 25);
 		customerId_l.setFont(EViewFrame.eFont.getFont());
 		p.add(customerId_l);
@@ -107,8 +106,8 @@ public class WriteAccidentReceiptFrame extends JFrame {
 		hyphen.setBounds(450, 57, 18, 15);
 		p.add(hyphen);
 		
-		// º¸Çè Á¾·ù
-		JLabel insType_l = new JLabel("º¸Çè Á¾·ù");
+		// ë³´í—˜ ì¢…ë¥˜
+		JLabel insType_l = new JLabel("ë³´í—˜ ì¢…ë¥˜");
 		insType_l.setBounds(10, 80, 104, 25);
 		insType_l.setFont(EViewFrame.eFont.getFont());
 		p.add(insType_l);
@@ -119,10 +118,10 @@ public class WriteAccidentReceiptFrame extends JFrame {
 		insType_t.setBounds(134, 80, 121, 25);
 		p.add(insType_t);
 
-		// º¸»ó ¹æ½Ä
-		JLabel payType_l = new JLabel("º¸»ó ¹æ½Ä");
+		// ë³´ìƒ ë°©ì‹
+		JLabel payType_l = new JLabel("ë³´ìƒ ë°©ì‹");
 		payType_l.setBounds(261, 80, 100, 25);
-		payType_l.setFont(new Font("ÇÑÄÄ °íµñ", Font.PLAIN, 15));
+		payType_l.setFont(new Font("í•œì»´ ê³ ë”•", Font.PLAIN, 15));
 		p.add(payType_l);
 		
 		payType_t = new JComboBox<String>();
@@ -131,8 +130,8 @@ public class WriteAccidentReceiptFrame extends JFrame {
 		payType_t.setBounds(379, 80, 148, 25);
 		p.add(payType_t);
 
-		// »ç°í³¯Â¥
-		JLabel date_l = new JLabel("»ç°í ³¯Â¥");
+		// ì‚¬ê³ ë‚ ì§œ
+		JLabel date_l = new JLabel("ì‚¬ê³  ë‚ ì§œ");
 		date_l.setBounds(10, 108, 104, 25);
 		date_l.setFont(EViewFrame.eFont.getFont());
 		p.add(date_l);
@@ -141,8 +140,8 @@ public class WriteAccidentReceiptFrame extends JFrame {
 		date_t.setBounds(134, 109, 121, 25);
 		p.add(date_t);		
 		
-		// º´¿ø¸í
-		JLabel hospital_l = new JLabel("º´¿ø¸í");
+		// ë³‘ì›ëª…
+		JLabel hospital_l = new JLabel("ë³‘ì›ëª…");
 		hospital_l.setBounds(10, 137, 104, 25);
 		hospital_l.setFont(EViewFrame.eFont.getFont());
 		p.add(hospital_l);
@@ -151,21 +150,21 @@ public class WriteAccidentReceiptFrame extends JFrame {
 		hospital_t.setBounds(134, 137, 121, 25);
 		p.add(hospital_t);
 		
-		// »ç¸Á¿©ºÎ
-		JLabel death_l = new JLabel("»ç¸Á ¿©ºÎ");
+		// ì‚¬ë§ì—¬ë¶€
+		JLabel death_l = new JLabel("ì‚¬ë§ ì—¬ë¶€");
 		death_l.setBounds(10, 166, 104, 25);
 		death_l.setFont(EViewFrame.eFont.getFont());
 		p.add(death_l);
 		
 		death_t = new JComboBox<String>();
-		death_t.addItem("¾Æ´Ï¿À");
-		death_t.addItem("¿¹");
+		death_t.addItem("ì•„ë‹ˆì˜¤");
+		death_t.addItem("ì˜ˆ");
 		death_t.setSelectedIndex(0);
 		death_t.setBounds(134, 166, 121, 25);
 		p.add(death_t);
 		
-		// »ç°íÀå¼Ò
-		JLabel place_l = new JLabel("»ç°í Àå¼Ò");
+		// ì‚¬ê³ ì¥ì†Œ
+		JLabel place_l = new JLabel("ì‚¬ê³  ì¥ì†Œ");
 		place_l.setBounds(261, 108, 100, 25);
 		place_l.setFont(EViewFrame.eFont.getFont());
 		p.add(place_l);
@@ -174,8 +173,8 @@ public class WriteAccidentReceiptFrame extends JFrame {
 		place_t.setBounds(379, 108, 148, 25);
 		p.add(place_t);
 		
-		// Áúº´¸í
-		JLabel diagnos_l = new JLabel("Áúº´¸í");
+		// ì§ˆë³‘ëª…
+		JLabel diagnos_l = new JLabel("ì§ˆë³‘ëª…");
 		diagnos_l.setBounds(261, 137, 100, 25);
 		diagnos_l.setFont(EViewFrame.eFont.getFont());
 		p.add(diagnos_l);
@@ -185,8 +184,8 @@ public class WriteAccidentReceiptFrame extends JFrame {
 		p.add(diagnos_t);
 		
 		
-		// ÇÇÇØ±Ô¸ğ
-		JLabel damage_l = new JLabel("ÇÇÇØ ±Ô¸ğ");
+		// í”¼í•´ê·œëª¨
+		JLabel damage_l = new JLabel("í”¼í•´ ê·œëª¨");
 		damage_l.setBounds(261, 166, 100, 25);
 		damage_l.setFont(EViewFrame.eFont.getFont());
 		p.add(damage_l);
@@ -195,8 +194,8 @@ public class WriteAccidentReceiptFrame extends JFrame {
 		damage_t.setBounds(379, 166, 148, 25);
 		p.add(damage_t);
 		
-		// »ç°í»óÈ²
-		JLabel circumstace_l = new JLabel("»ç°í »óÈ²");
+		// ì‚¬ê³ ìƒí™©
+		JLabel circumstace_l = new JLabel("ì‚¬ê³  ìƒí™©");
 		circumstace_l.setBounds(10, 243, 104, 25);
 		circumstace_l.setFont(EViewFrame.eFont.getFont());
 		p.add(circumstace_l);
@@ -205,8 +204,8 @@ public class WriteAccidentReceiptFrame extends JFrame {
 		circumstace_t.setBounds(134, 243, 393, 84);
 		p.add(circumstace_t);
 		
-		// Áö±Ş¾×
-		JLabel money_l = new JLabel("º¸Çè ¹è´ç±İ");
+		// ì§€ê¸‰ì•¡
+		JLabel money_l = new JLabel("ë³´í—˜ ë°°ë‹¹ê¸ˆ");
 		money_l.setBounds(10, 195, 104, 25);
 		money_l.setFont(EViewFrame.eFont.getFont());
 		p.add(money_l);
@@ -215,14 +214,14 @@ public class WriteAccidentReceiptFrame extends JFrame {
 		money_t.setBounds(134, 195, 121, 25);
 		p.add(money_t);
 		
-		// ¹öÆ°
-		this.saveBtn = new JButton("ÀúÀå");
+		// ë²„íŠ¼
+		this.saveBtn = new JButton("ì €ì¥");
 		this.saveBtn.setFont(EViewFrame.eFont.getFont());
 		this.saveBtn.setBounds(157, 337, 80, 30);
 		this.saveBtn.addActionListener(this.actionHandler);
 		p.add(saveBtn);
 		
-		this.cancelBtn = new JButton("Ãë¼Ò");
+		this.cancelBtn = new JButton("ì·¨ì†Œ");
 		this.cancelBtn.setFont(EViewFrame.eFont.getFont());
 		this.cancelBtn.setBounds(272, 337, 80, 30);
 		this.cancelBtn.addActionListener(this.actionHandler);
@@ -253,7 +252,7 @@ public class WriteAccidentReceiptFrame extends JFrame {
 			accidentReceiptContents.add(this.circumstace_t.getText());
 			accidentReceiptContents.add(this.money_t.getText());
 			this.insuranceCover.writeAccientReceipt(accidentReceiptContents);
-			JOptionPane.showMessageDialog(this, "»ç°í Á¢¼ö¼­ µî·ÏÀÌ ¿Ï·áµÇ¾ú½À´Ï´Ù.");
+			JOptionPane.showMessageDialog(this, "ì‚¬ê³  ì ‘ìˆ˜ì„œ ë“±ë¡ì´ ì™„ë£Œë˜ì—ˆìŠµë‹ˆë‹¤.");
 			this.dispose();
 		}else if(source.equals(this.cancelBtn)) {
 			this.dispose();

@@ -49,7 +49,7 @@ public class InsCoverPanel extends DefaultPanel{
 		this.accidentReceiptTable.addMouseListener(this.mousehandler);
 		JScrollPane scroll = new JScrollPane();
 		scroll.setBounds(12, 10, 576, 302);
-		scroll.setBorder(new TitledBorder(new LineBorder(Color.lightGray,1),"��������� ����Ʈ"));
+		scroll.setBorder(new TitledBorder(new LineBorder(Color.lightGray,1),"사고접수서 리스트"));
 		scroll.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 		scroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_NEVER);
 		scroll.setViewportView(this.accidentReceiptTable);
@@ -59,16 +59,16 @@ public class InsCoverPanel extends DefaultPanel{
 		JPanel panel = new JPanel();
 		panel.setBounds(12, 322, 576, 168);
 		panel.setBorder(new TitledBorder(new LineBorder(Color.lightGray,1)));
-		this.detailCheckBtn = new JButton("��������� �� Ȯ���ϱ�");
+		this.detailCheckBtn = new JButton("사고접수서 상세 확인하기");
 		this.detailCheckBtn.setFont(EViewFrame.eFont.getFont());
 		this.detailCheckBtn.setBounds(12, 62, 552, 42);
 		this.detailCheckBtn.addActionListener(actionHandler);
-		this.writeAccidentReceiptBtn = new JButton("��������� �ۼ��ϱ�");
+		this.writeAccidentReceiptBtn = new JButton("사고접수서 작성하기");
 		this.writeAccidentReceiptBtn.setFont(EViewFrame.eFont.getFont());
 		this.writeAccidentReceiptBtn.setBounds(12, 10, 552, 42);
 		this.writeAccidentReceiptBtn.addActionListener(actionHandler);
 		panel.add(this.writeAccidentReceiptBtn);
-		this.refreshBtn = new JButton("���� ��ħ");
+		this.refreshBtn = new JButton("새로 고침");
 		this.refreshBtn.setFont(EViewFrame.eFont.getFont());
 		this.refreshBtn.setBounds(12, 114, 552, 42);
 		this.refreshBtn.addActionListener(actionHandler);
@@ -84,7 +84,7 @@ public class InsCoverPanel extends DefaultPanel{
 	public void buttonClick(Object source) {
 		if (source.equals(this.detailCheckBtn)) {
 			if (this.accidentReceiptTable.getRow() == null) {
-				JOptionPane.showMessageDialog(null, "����������� ������ �ּ���.", "��� ������ ����", JOptionPane.WARNING_MESSAGE);
+				JOptionPane.showMessageDialog(null, "사고접수서를 선택해 주세요.", "사고 접수서 선택", JOptionPane.WARNING_MESSAGE);
 				return;
 			}else {
 				this.removeAll();
@@ -107,10 +107,10 @@ public class InsCoverPanel extends DefaultPanel{
 		}
 	}
 	
-	// ���̺��� ����Ŭ������ �� ���� ����ȸ�ϱ� ��ư�� ���� �������ȸ�ϱ��г��� ������.
+	// 테이블을 더블클릭했을 시 보험 상세조회하기 버튼이 눌려 보험상세조회하기패널이 생성됨.
 	public void selectRow() {
 		if (this.accidentReceiptTable.getRow() == null) {
-			JOptionPane.showMessageDialog(null, "����������� ������ �ּ���.", "��� ������ ����", JOptionPane.WARNING_MESSAGE);
+			JOptionPane.showMessageDialog(null, "사고접수서를 선택해 주세요.", "사고 접수서 선택", JOptionPane.WARNING_MESSAGE);
 			return;
 		}else{this.detailCheckBtn.doClick();}
 	}

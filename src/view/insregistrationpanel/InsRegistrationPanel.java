@@ -43,12 +43,12 @@ public class InsRegistrationPanel extends DefaultPanel {
 		this.jTabbedPane = new JTabbedPane();
 		if (MainFrame.user == ELogin.underwriter) {
 			this.acceptRegistrationPanel = new AcceptRegistrationPanel(this.insuranceRegistration,this.customerListImpl);
-			this.jTabbedPane.add("°¡ÀÔ ½ÂÀÎ",this.acceptRegistrationPanel);
+			this.jTabbedPane.add("ê°€ì… ìŠ¹ì¸",this.acceptRegistrationPanel);
 		}else {
 			this.requestpanel = new RequestPanel(this.salesPersonList);
-			this.jTabbedPane.add("¸é´ã ¿äÃ»",this.requestpanel);
+			this.jTabbedPane.add("ë©´ë‹´ ìš”ì²­",this.requestpanel);
 			this.searchInsurancePanel = new SearchInsurancePanel(this.insuranceRegistration, this.insuranceList,"Registration");
-			this.jTabbedPane.add("º¸Çè °¡ÀÔ",this.searchInsurancePanel);
+			this.jTabbedPane.add("ë³´í—˜ ê°€ì…",this.searchInsurancePanel);
 		}
 		
 		this.add(jTabbedPane, BorderLayout.CENTER);		

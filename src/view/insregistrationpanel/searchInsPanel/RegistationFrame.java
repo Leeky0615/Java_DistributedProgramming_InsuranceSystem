@@ -29,7 +29,7 @@ public class RegistationFrame extends JFrame{
 		this.requestInsurance = insurance;
 		
 		this.setSize(500, 280);
-		this.setTitle("°í°´Ãß°¡");
+		this.setTitle("ê³ ê°ì¶”ê°€");
 		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		this.add(this.createPanel(),BorderLayout.CENTER);
 		this.createBtnPanel();
@@ -52,9 +52,9 @@ public class RegistationFrame extends JFrame{
 	private void createBtnPanel() {
 		JPanel panel = new JPanel();
 		this.actionHandler = new ActionHandler();
-		this.okBtn = new JButton("°¡ÀÔ ½ÅÃ»");
+		this.okBtn = new JButton("ê°€ì… ì‹ ì²­");
 		this.okBtn.addActionListener(this.actionHandler);
-		this.cancelBtn = new JButton("Ãë¼Ò");
+		this.cancelBtn = new JButton("ì·¨ì†Œ");
 		this.cancelBtn.addActionListener(this.actionHandler);
 		panel.add(okBtn);
 		panel.add(cancelBtn);
@@ -84,7 +84,7 @@ public class RegistationFrame extends JFrame{
 			}
 			this.insuranceRegistration.writeInsuranceInformation(this.requestInsurance, type,infos);
 			this.insuranceRegistration.request();
-			JOptionPane.showMessageDialog(this, "°¡ÀÔ ¿äÃ»ÀÌ ¿Ï·áµÇ¾ú½À´Ï´Ù.");
+			JOptionPane.showMessageDialog(this, "ê°€ì… ìš”ì²­ì´ ì™„ë£Œë˜ì—ˆìŠµë‹ˆë‹¤.");
 			this.dispose();
 		}else {
 			this.dispose();

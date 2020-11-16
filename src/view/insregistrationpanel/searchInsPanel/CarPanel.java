@@ -22,7 +22,7 @@ public class CarPanel extends JPanel {
 	
 	public CarPanel() {
 		this.setLayout(null);
-		this.setBorder(new TitledBorder(new LineBorder(Color.lightGray,1),"ÀÚµ¿Â÷º¸Çè °¡ÀÔ"));
+		this.setBorder(new TitledBorder(new LineBorder(Color.lightGray,1),"ìë™ì°¨ë³´í—˜ ê°€ì…"));
 		
 		JPanel panel = new JPanel();
 		panel.setBounds(12, 20, 96, 176);
@@ -75,15 +75,15 @@ public class CarPanel extends JPanel {
 		history_t = new JComboBox<String>();
 		history_t.setBounds(12, 134, 116, 30);
 		history_t.setFont(EViewFrame.eFont.getFont());
-		history_t.addItem("ÀÖÀ½");
-		history_t.addItem("¾øÀ½");
+		history_t.addItem("ìˆìŒ");
+		history_t.addItem("ì—†ìŒ");
 		history_t.setSelectedIndex(0);
 		panel_1.add(history_t);
 		
 		this.add(panel);
 		this.add(panel_1);
 		
-		JLabel paymentMethod_l = new JLabel("³³ÀÔ¹æ½Ä");
+		JLabel paymentMethod_l = new JLabel("ë‚©ì…ë°©ì‹");
 		paymentMethod_l.setBounds(265, 39, 56, 20);
 		paymentMethod_l.setFont(EViewFrame.eFont.getFont());
 		paymentMethod_l.setHorizontalAlignment(SwingConstants.LEFT);
@@ -102,7 +102,7 @@ public class CarPanel extends JPanel {
 		paymentDate_t.setColumns(10);
 		add(paymentDate_t);
 		
-		JLabel paymentDate_l = new JLabel("¸Å¿ù ³³ÀÔÀÏ");
+		JLabel paymentDate_l = new JLabel("ë§¤ì›” ë‚©ì…ì¼");
 		paymentDate_l.setBounds(247, 79, 74, 20);
 		paymentDate_l.setFont(EViewFrame.eFont.getFont());
 		paymentDate_l.setHorizontalAlignment(SwingConstants.LEFT);
@@ -120,7 +120,7 @@ public class CarPanel extends JPanel {
 		return null;
 	}
 	public boolean getHistory_t() {
-		if (history_t.getSelectedItem().toString().equals("ÀÖÀ½")) {
+		if (history_t.getSelectedItem().toString().equals("ìˆìŒ")) {
 			return true;
 		}
 		return false;

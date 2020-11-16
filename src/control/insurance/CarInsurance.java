@@ -1,40 +1,44 @@
 package control.insurance;
 
 import constants.ControlConstants.ECarType;
-import constants.ControlConstants.EInsuranceType;
+import constants.ControlConstants.EPaymentMethod;
 import control.customer.Customer;
 
-public class CarInsurance extends Insurance {
+public class CarInsurance extends Insurance{
 	
-	private boolean carAccidentHistory;
+	private int age;
 	private int carNum;
-	private ECarType carType;
-	private int Age;
-	
-	private String damage;
 	private String driver;
-	private int numOfPassengers;
-
-	public CarInsurance(){
-		super();
-		this.insuranceType = EInsuranceType.CAR;
-	}
+	private boolean carAccidentHistory;
+	private ECarType carType;
 	
-	public int getAge() {return Age;}
-	public void setAge(int age) {Age = age;}
-	public boolean getCarAccidentHistory() {return carAccidentHistory;}
-	public void setCarAccidentHistory(boolean carAccidentHistory) {this.carAccidentHistory = carAccidentHistory;}
+	private int paymentDate;
+	private EPaymentMethod paymentMethod;
+	private int insuranceId;
+	private int customerId;
+	
+	public CarInsurance(){}
+	
+	public int getAge() {return this.age;}
+	public void setAge(int age) {this.age = age;}
 	public int getCarNum() {return carNum;}
 	public void setCarNum(int carNum) {this.carNum = carNum;}
-	public ECarType getCarType() {return carType;}
-	public void setCarType(ECarType carType) {this.carType = carType;}
-	public String getDamage() {return damage;}
-	public void setDamage(String damage) {this.damage = damage;}
 	public String getDriver() {return driver;}
 	public void setDriver(String driver) {this.driver = driver;}
-	public int getNumOfPassengers() {return numOfPassengers;}
-	public void setNumOfPassengers(int numOfPassengers) {this.numOfPassengers = numOfPassengers;}
+	public boolean getCarAccidentHistory() {return carAccidentHistory;}
+	public void setCarAccidentHistory(boolean carAccidentHistory) {this.carAccidentHistory = carAccidentHistory;}
+	public ECarType getCarType() {return carType;}
+	public void setCarType(ECarType carType) {this.carType = carType;}
 	
+	public int getPaymentDate() {return paymentDate;}
+	public void setPaymentDate(int paymentDate) {this.paymentDate = paymentDate;}
+	public EPaymentMethod getPaymentMethod() {return paymentMethod;}
+	public void setPaymentMethod(EPaymentMethod paymentMethod) {this.paymentMethod = paymentMethod;}
+	public int getInsuranceId() {return insuranceId;}
+	public void setInsuranceId(int insuranceId) {this.insuranceId = insuranceId;}
+	public int getCustomerId() {return customerId;}
+	public void setCustomerId(int customerId) {this.customerId = customerId;}
+
 	public float calculateRate(Customer targetCustomer) {
 		float rate = 0;
 		if(targetCustomer.getAge()<10) {rate*=0.5;}

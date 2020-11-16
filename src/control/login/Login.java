@@ -3,16 +3,16 @@ package control.login;
 import constants.ViewConstants.ELogin;
 
 public class Login {
-	private String Id;
+	private String userId;
 	private String password;
-	private ELogin login;
+	private ELogin userType;
+	
 	public Login() {}
 	
-	public String getId() {return Id;}
-	public void setId(String id) {Id = id;}
+	public String getId() {return userId;}
+	public void setId(String userId) {this.userId = userId;}
 	public String getPassword() {return password;}
 	public void setPassword(String password) {this.password = password;}
-	public ELogin getLogin() {return login;}
-	public void setLogin(ELogin login) {this.login = login;}
-	
+	public ELogin getLogin() {return userType;}
+	public void setLogin(ELogin userType) {this.userType = userType;}
 }

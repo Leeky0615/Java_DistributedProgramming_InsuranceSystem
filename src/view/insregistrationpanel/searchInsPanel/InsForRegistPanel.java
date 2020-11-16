@@ -51,10 +51,10 @@ public class InsForRegistPanel extends JPanel{
 		this.detailInfoPanel = new JPanel();
 		this.detailInfoPanel.setLayout(null);
 		this.detailInfoPanel.setBounds(12, 10, 576, 121);
-		this.detailInfoPanel.setBorder(new TitledBorder(new LineBorder(Color.lightGray,1),"∞Ì∞¥ ¡§∫∏ ¿‘∑¬"));
+		this.detailInfoPanel.setBorder(new TitledBorder(new LineBorder(Color.lightGray,1),"Í≥†Í∞ù Ï†ïÎ≥¥ ÏûÖÎ†•"));
 		
-		// ∞Ì∞¥ ¿Ã∏ß
-		JLabel customerName_l = new JLabel("¿Ã∏ß");
+		// Í≥†Í∞ù Ïù¥Î¶Ñ
+		JLabel customerName_l = new JLabel("Ïù¥Î¶Ñ");
 		customerName_l.setHorizontalAlignment(SwingConstants.CENTER);
 		customerName_l.setFont(EViewFrame.eFont.getFont());
 		customerName_l.setBounds(13, 30, 159, 30);
@@ -66,8 +66,8 @@ public class InsForRegistPanel extends JPanel{
 		this.detailInfoPanel.add(customerName_t);
 		customerName_t.setColumns(10);
 		
-		// ∞Ì∞¥ ¡÷πŒµÓ∑œπ¯»£
-		JLabel customerId_l = new JLabel("¡÷πŒµÓ∑œπ¯»£");
+		// Í≥†Í∞ù Ï£ºÎØºÎì±Î°ùÎ≤àÌò∏
+		JLabel customerId_l = new JLabel("Ï£ºÎØºÎì±Î°ùÎ≤àÌò∏");
 		customerId_l.setHorizontalAlignment(SwingConstants.CENTER);
 		customerId_l.setFont(EViewFrame.eFont.getFont());
 		customerId_l.setBounds(13, 69, 159, 30);
@@ -89,8 +89,8 @@ public class InsForRegistPanel extends JPanel{
 		customerId_t2.setBounds(307, 70, 99, 30);
 		this.detailInfoPanel.add(customerId_t2);
 		
-		// ∞Àªˆ πˆ∆∞
-		registrationBtn = new JButton("ªÛ«∞ ∞°¿‘");
+		// Í≤ÄÏÉâ Î≤ÑÌäº
+		registrationBtn = new JButton("ÏÉÅÌíà Í∞ÄÏûÖ");
 		registrationBtn.setFont(EViewFrame.eFont.getFont());
 		registrationBtn.setBounds(440, 30, 107, 69);
 		registrationBtn.addActionListener(this.actionHandler);
@@ -101,11 +101,11 @@ public class InsForRegistPanel extends JPanel{
 		this.basicInfoPanel = new JPanel();
 		this.basicInfoPanel.setLayout(null);
 		this.basicInfoPanel.setBounds(12, 153, 576, 270);
-		this.basicInfoPanel.setBorder(new TitledBorder(new LineBorder(Color.lightGray,1),"∫∏«Ë ±‚∫ª¡§∫∏"));
+		this.basicInfoPanel.setBorder(new TitledBorder(new LineBorder(Color.lightGray,1),"Î≥¥Ìóò Í∏∞Î≥∏Ï†ïÎ≥¥"));
 		
 		JLabel description_l = new JLabel();
 		description_l.setForeground(Color.BLUE);
-		description_l.setFont(new Font("±º∏≤", Font.ITALIC, 15));
+		description_l.setFont(new Font("Íµ¥Î¶º", Font.ITALIC, 15));
 		description_l.setBorder(new TitledBorder(new LineBorder(Color.lightGray,1)));
 		description_l.setBounds(12, 105, 552, 141);
 		description_l.setText(this.insurance.getInsuranceDescription());
@@ -113,61 +113,61 @@ public class InsForRegistPanel extends JPanel{
 
 		JLabel num_l = new JLabel(EInsuranceHead.id.getText()+" : ");
 		num_l.setHorizontalAlignment(SwingConstants.RIGHT);
-		num_l.setFont(new Font("±º∏≤", Font.PLAIN, 14));
+		num_l.setFont(new Font("Íµ¥Î¶º", Font.PLAIN, 14));
 		num_l.setBounds(12, 35, 57, 20);
 		basicInfoPanel.add(num_l);
 		JLabel num_l_1 = new JLabel(Integer.toString(this.insurance.getInsuranceId()));
-		num_l_1.setFont(new Font("±º∏≤", Font.PLAIN, 14));
+		num_l_1.setFont(new Font("Íµ¥Î¶º", Font.PLAIN, 14));
 		num_l_1.setBounds(81, 35, 100, 20);
 		basicInfoPanel.add(num_l_1);
 		
 		JLabel name_l = new JLabel(EInsuranceHead.name.getText()+" : ");
 		name_l.setHorizontalAlignment(SwingConstants.RIGHT);
-		name_l.setFont(new Font("±º∏≤", Font.PLAIN, 14));
+		name_l.setFont(new Font("Íµ¥Î¶º", Font.PLAIN, 14));
 		name_l.setBounds(193, 35, 57, 20);
 		basicInfoPanel.add(name_l);
 		JLabel name_l_1 = new JLabel(this.insurance.getInsuranceName());
-		name_l_1.setFont(new Font("±º∏≤", Font.PLAIN, 14));
+		name_l_1.setFont(new Font("Íµ¥Î¶º", Font.PLAIN, 14));
 		name_l_1.setBounds(262, 35, 100, 20);
 		basicInfoPanel.add(name_l_1);
 		
 		JLabel gaurantee = new JLabel(EInsuranceHead.guarantee.getText()+" : ");
 		gaurantee.setHorizontalAlignment(SwingConstants.RIGHT);
-		gaurantee.setFont(new Font("±º∏≤", Font.PLAIN, 14));
+		gaurantee.setFont(new Font("Íµ¥Î¶º", Font.PLAIN, 14));
 		gaurantee.setBounds(12, 75, 57, 20);
 		basicInfoPanel.add(gaurantee);
-		JLabel gaurantee_1 = new JLabel(this.insurance.getContractCondition().getGuarantee()+"ø¯");
-		gaurantee_1.setFont(new Font("±º∏≤", Font.PLAIN, 14));
+		JLabel gaurantee_1 = new JLabel(this.insurance.getContractCondition().getGuarantee()+"Ïõê");
+		gaurantee_1.setFont(new Font("Íµ¥Î¶º", Font.PLAIN, 14));
 		gaurantee_1.setBounds(81, 75, 100, 20);
 		basicInfoPanel.add(gaurantee_1);
 		
 		JLabel payment = new JLabel(EInsuranceHead.payment.getText()+" : ");
 		payment.setHorizontalAlignment(SwingConstants.RIGHT);
-		payment.setFont(new Font("±º∏≤", Font.PLAIN, 14));
+		payment.setFont(new Font("Íµ¥Î¶º", Font.PLAIN, 14));
 		payment.setBounds(193, 75, 57, 20);
 		basicInfoPanel.add(payment);
-		JLabel payment_1 = new JLabel(this.insurance.getContractCondition().getPayment()+"ø¯");
-		payment_1.setFont(new Font("±º∏≤", Font.PLAIN, 14));
+		JLabel payment_1 = new JLabel(this.insurance.getContractCondition().getPayment()+"Ïõê");
+		payment_1.setFont(new Font("Íµ¥Î¶º", Font.PLAIN, 14));
 		payment_1.setBounds(262, 75, 100, 20);
 		basicInfoPanel.add(payment_1);
 		
 		JLabel period_l = new JLabel(EInsuranceHead.period.getText()+" : ");
 		period_l.setHorizontalAlignment(SwingConstants.RIGHT);
-		period_l.setFont(new Font("±º∏≤", Font.PLAIN, 14));
+		period_l.setFont(new Font("Íµ¥Î¶º", Font.PLAIN, 14));
 		period_l.setBounds(404, 35, 57, 20);
 		basicInfoPanel.add(period_l);
-		JLabel period_l_1 = new JLabel(this.insurance.getContractCondition().getPeriod()+"≥‚");
-		period_l_1.setFont(new Font("±º∏≤", Font.PLAIN, 14));
+		JLabel period_l_1 = new JLabel(this.insurance.getContractCondition().getPeriod()+"ÎÖÑ");
+		period_l_1.setFont(new Font("Íµ¥Î¶º", Font.PLAIN, 14));
 		period_l_1.setBounds(465, 35, 99, 20);
 		basicInfoPanel.add(period_l_1);
 		
 		JLabel type_l = new JLabel(EInsuranceHead.type.getText()+" : ");
 		type_l.setHorizontalAlignment(SwingConstants.RIGHT);
-		type_l.setFont(new Font("±º∏≤", Font.PLAIN, 14));
+		type_l.setFont(new Font("Íµ¥Î¶º", Font.PLAIN, 14));
 		type_l.setBounds(381, 75, 80, 20);
 		basicInfoPanel.add(type_l);
 		JLabel type_l_1 = new JLabel(this.selectedRow.get(5).toString());
-		type_l_1.setFont(new Font("±º∏≤", Font.PLAIN, 14));
+		type_l_1.setFont(new Font("Íµ¥Î¶º", Font.PLAIN, 14));
 		type_l_1.setBounds(465, 75, 99, 20);
 		basicInfoPanel.add(type_l_1);
 		this.add(this.basicInfoPanel);
@@ -180,7 +180,7 @@ public class InsForRegistPanel extends JPanel{
 		btnPanel.setBounds(12, 433, 576, 37);
 		btnPanel.setBorder(new TitledBorder(new LineBorder(Color.lightGray,1)));
 		
-		backBtn = new JButton("µπæ∆∞°±‚");
+		backBtn = new JButton("ÎèåÏïÑÍ∞ÄÍ∏∞");
 		backBtn.setBounds(12, 1, 552, 35);
 		backBtn.setFont(EViewFrame.eFont.getFont());
 		backBtn.addActionListener(actionHandler);
@@ -196,7 +196,7 @@ public class InsForRegistPanel extends JPanel{
 				RegistationFrame registrationFrame = new RegistationFrame(this.insuranceRegistration, this.insurance);
 				registrationFrame.setVisible(true);
 			}else {
-				JOptionPane.showMessageDialog(null, "»∏ø¯ ¡§∫∏∞° ¿œƒ°«œ¡ˆ æ Ω¿¥œ¥Ÿ. ¥ŸΩ√ »Æ¿Œ«ÿ¡÷ººø‰", "»∏ø¯ ¡§∫∏ »Æ¿Œ", JOptionPane.WARNING_MESSAGE);
+				JOptionPane.showMessageDialog(null, "ÌöåÏõê Ï†ïÎ≥¥Í∞Ä ÏùºÏπòÌïòÏßÄ ÏïäÏäµÎãàÎã§. Îã§Ïãú ÌôïÏù∏Ìï¥Ï£ºÏÑ∏Ïöî", "ÌöåÏõê Ï†ïÎ≥¥ ÌôïÏù∏", JOptionPane.WARNING_MESSAGE);
 				return;
 			}
 		}else if(source.equals(this.backBtn)){
@@ -211,3 +211,4 @@ public class InsForRegistPanel extends JPanel{
 		}
 	}
 }
+

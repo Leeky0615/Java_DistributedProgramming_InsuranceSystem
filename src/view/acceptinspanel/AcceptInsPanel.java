@@ -46,31 +46,31 @@ public class AcceptInsPanel extends DefaultPanel {
 	public void createPanel() {
 		this.removeAll();
 		this.setLayout(null);
-		// Å×ÀÌºí »ı¼º
+		// í…Œì´ë¸” ìƒì„±
 		this.insuranceDesignTable = new InsuranceDesignTable((InsuranceDesignListImpl) this.insuranceDesignList, false);
 		this.insuranceDesignTable.addMouseListener(mousehandler);
 		JScrollPane scroll = new JScrollPane();
 		scroll.setBounds(12, 10, 576, 364);
-		scroll.setBorder(new TitledBorder(new LineBorder(Color.lightGray,1),"º¸Çè ¼³°è¼­ ½ÂÀÎ ´ë±â ³»¿ª"));
+		scroll.setBorder(new TitledBorder(new LineBorder(Color.lightGray,1),"ë³´í—˜ ì„¤ê³„ì„œ ìŠ¹ì¸ ëŒ€ê¸° ë‚´ì—­"));
 		scroll.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 		scroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_NEVER);
 		scroll.setViewportView(this.insuranceDesignTable);
 		scroll.setPreferredSize(new Dimension(EMainFrame.eWidth.getValue(),50));
 		this.add(scroll);
 		
-		// ¹öÆ° ÆĞ³Î »ı¼º
+		// ë²„íŠ¼ íŒ¨ë„ ìƒì„±
 		JPanel panel = new JPanel();
 		panel.setLayout(null);
 		panel.setBounds(12, 384, 576, 116);
 		panel.setBorder(new TitledBorder(new LineBorder(Color.lightGray,1)));
 		this.actionHandler = new ActionHandler();
-		// º¸Çè»ó¼¼È®ÀÎÇÏ±â ¹öÆ°
-		this.detailCheckBtn = new JButton("º¸Çè »ó¼¼ È®ÀÎÇÏ±â");
+		// ë³´í—˜ìƒì„¸í™•ì¸í•˜ê¸° ë²„íŠ¼
+		this.detailCheckBtn = new JButton("ë³´í—˜ ìƒì„¸ í™•ì¸í•˜ê¸°");
 		this.detailCheckBtn.setFont(EViewFrame.eFont.getFont());
 		this.detailCheckBtn.setBounds(12, 10, 552, 42);
 		this.detailCheckBtn.addActionListener(this.actionHandler);
-		// ½ÂÀÎµÈ º¸Çè¼³°è¼­ ¸®½ºÆ® È®ÀÎÇÏ±â ¹öÆ°
-		this.acceptedInsBtn = new JButton("½ÂÀÎµÈ º¸Çè¼³°è¼­ ¸®½ºÆ® È®ÀÎÇÏ±â");
+		// ìŠ¹ì¸ëœ ë³´í—˜ì„¤ê³„ì„œ ë¦¬ìŠ¤íŠ¸ í™•ì¸í•˜ê¸° ë²„íŠ¼
+		this.acceptedInsBtn = new JButton("ìŠ¹ì¸ëœ ë³´í—˜ì„¤ê³„ì„œ ë¦¬ìŠ¤íŠ¸ í™•ì¸í•˜ê¸°");
 		this.acceptedInsBtn.setFont(EViewFrame.eFont.getFont());
 		this.acceptedInsBtn.setBounds(12, 62, 552, 42);
 		this.acceptedInsBtn.addActionListener(this.actionHandler);
@@ -82,23 +82,23 @@ public class AcceptInsPanel extends DefaultPanel {
 		panel.updateUI();
 	}
 	
-	// ¹öÆ° ActionHandler
+	// ë²„íŠ¼ ActionHandler
 	public void buttonClick(Object source) {
 		if (source.equals(this.detailCheckBtn)) {
-			// »ó¼¼Á¶È¸ÇÏ±â ¹öÆ° Å¬¸¯½Ã
+			// ìƒì„¸ì¡°íšŒí•˜ê¸° ë²„íŠ¼ í´ë¦­ì‹œ
 			if (this.insuranceDesignTable.getRow() == null) {
-				// Row¸¦ ¼±ÅÃÇÏÁö ¾ÊÀº °æ¿ì
-				JOptionPane.showMessageDialog(null, "½ÂÀÎÇÒ º¸ÇèÀ» ¼±ÅÃÇØÁÖ¼¼¿ä.", "¼³°èÇÑ º¸Çè ¼±ÅÃ", JOptionPane.WARNING_MESSAGE);
+				// Rowë¥¼ ì„ íƒí•˜ì§€ ì•Šì€ ê²½ìš°
+				JOptionPane.showMessageDialog(null, "ìŠ¹ì¸í•  ë³´í—˜ì„ ì„ íƒí•´ì£¼ì„¸ìš”.", "ì„¤ê³„í•œ ë³´í—˜ ì„ íƒ", JOptionPane.WARNING_MESSAGE);
 				return;
 			}else {
-				// º¸Çè¼³°è¼­ ÆĞ³ÎÀ» º¸¿©ÁÜ
+				// ë³´í—˜ì„¤ê³„ì„œ íŒ¨ë„ì„ ë³´ì—¬ì¤Œ
 				this.removeAll();
 				InsuranceDesignPanel insuranceDesignPanel = new InsuranceDesignPanel(this,this.AcceptInsuranceDesign,this.insuranceDesignList,this.insuranceDesignTable.getRow());
 				this.setLayout(new GridLayout(1,1));
 				this.add(insuranceDesignPanel);
 			}
 		}else if(source.equals(this.acceptedInsBtn)){
-			// ½ÂÀÎµÈ º¸Çè¼³°è¼­ ³»¿ªÀ» Å¬¸¯ÇÏ´Â °æ¿ì, ½ÂÀÎµÈ º¸Çè¼³°è¼­ ÆĞ³ÎÀ» º¸¿©ÁÜ
+			// ìŠ¹ì¸ëœ ë³´í—˜ì„¤ê³„ì„œ ë‚´ì—­ì„ í´ë¦­í•˜ëŠ” ê²½ìš°, ìŠ¹ì¸ëœ ë³´í—˜ì„¤ê³„ì„œ íŒ¨ë„ì„ ë³´ì—¬ì¤Œ
 			this.removeAll();
 			AcceptedInsPanel acceptedInsPanel = new AcceptedInsPanel(this,this.insuranceDesignList);
 			this.setLayout(new GridLayout(1,1));
@@ -112,10 +112,10 @@ public class AcceptInsPanel extends DefaultPanel {
 		}
 	}
 	
-	// Å×ÀÌºíÀ» ´õºíÅ¬¸¯ÇßÀ» ½Ã  ¹öÆ°ÀÌ ´­·Á ÆĞ³ÎÀÌ »ı¼ºµÊ.
+	// í…Œì´ë¸”ì„ ë”ë¸”í´ë¦­í–ˆì„ ì‹œ  ë²„íŠ¼ì´ ëˆŒë ¤ íŒ¨ë„ì´ ìƒì„±ë¨.
 	public void selectRow() {
 		if (this.insuranceDesignTable.getRow() == null) {
-			JOptionPane.showMessageDialog(null, "º¸Çè¼³°è¼­¸¦ ¼±ÅÃÇØ ÁÖ¼¼¿ä.", "º¸Çè¼³°è¼­ ¼±ÅÃ", JOptionPane.WARNING_MESSAGE);
+			JOptionPane.showMessageDialog(null, "ë³´í—˜ì„¤ê³„ì„œë¥¼ ì„ íƒí•´ ì£¼ì„¸ìš”.", "ë³´í—˜ì„¤ê³„ì„œ ì„ íƒ", JOptionPane.WARNING_MESSAGE);
 			return;
 		}else{this.detailCheckBtn.doClick();}
 	}

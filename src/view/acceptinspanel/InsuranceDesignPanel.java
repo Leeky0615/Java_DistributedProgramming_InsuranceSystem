@@ -37,7 +37,7 @@ private static final long serialVersionUID = 1L;
 	private JPanel btnPanel;
 
 	private Vector<JLabel> labels;
-	// º¸Çè½ÂÀÎÇÏ±â(AcceptInsPanel) ÆĞ³Î¿¡¼­ º¸Çè »ó¼¼Á¶È¸¸¦ Å¬¸¯½Ã »ı¼ºµÇ´Â Constructor
+	// ë³´í—˜ìŠ¹ì¸í•˜ê¸°(AcceptInsPanel) íŒ¨ë„ì—ì„œ ë³´í—˜ ìƒì„¸ì¡°íšŒë¥¼ í´ë¦­ì‹œ ìƒì„±ë˜ëŠ” Constructor
 	public InsuranceDesignPanel(AcceptInsPanel acceptInsPanel, AcceptInsuranceDesignImpl acceptInsuranceDesign, InsuranceDesignListImpl insuranceDesignList, Vector<Object> vector) {
 		setPreferredSize(new Dimension(601, 521));
 		setLayout(null);
@@ -53,17 +53,17 @@ private static final long serialVersionUID = 1L;
 		btnPanel.setLayout(null);
 		btnPanel.setBounds(12, 384, 576, 116);
 		btnPanel.setBorder(new TitledBorder(new LineBorder(Color.lightGray,1)));
-		approve = new JButton("º¸Çè¼³°è¼­ ½ÂÀÎ");
+		approve = new JButton("ë³´í—˜ì„¤ê³„ì„œ ìŠ¹ì¸");
 		approve.setFont(EViewFrame.eFont.getFont());
 		approve.setBounds(9, 15, 253, 38);
 		approve.addActionListener(actionHandler);
 		
-		disApprove = new JButton("º¸Çè¼³°è¼­ ¹Ì½ÂÀÎ");
+		disApprove = new JButton("ë³´í—˜ì„¤ê³„ì„œ ë¯¸ìŠ¹ì¸");
 		disApprove.setFont(EViewFrame.eFont.getFont());
 		disApprove.setBounds(292, 15, 253, 38);
 		disApprove.addActionListener(actionHandler);
 		
-		back = new JButton("µ¹¾Æ°¡±â");
+		back = new JButton("ëŒì•„ê°€ê¸°");
 		back.setFont(EViewFrame.eFont.getFont());
 		back.setBounds(9, 63, 536, 38);
 		back.addActionListener(actionHandler);
@@ -74,7 +74,7 @@ private static final long serialVersionUID = 1L;
 		this.add(btnPanel);
 	}
 	
-	// ½ÂÀÎµÈ º¸Çè Á¶È¸ÇÏ±â(AcceptedInsPanel) ÆĞ³Î¿¡¼­ º¸Çè »ó¼¼Á¶È¸¸¦ Å¬¸¯½Ã »ı¼ºµÇ´Â Constructor
+	// ìŠ¹ì¸ëœ ë³´í—˜ ì¡°íšŒí•˜ê¸°(AcceptedInsPanel) íŒ¨ë„ì—ì„œ ë³´í—˜ ìƒì„¸ì¡°íšŒë¥¼ í´ë¦­ì‹œ ìƒì„±ë˜ëŠ” Constructor
 	public InsuranceDesignPanel(AcceptedInsPanel acceptedInsPanel, InsuranceDesignListImpl insuranceDesignList, Vector<Object> vector) {
 		setPreferredSize(new Dimension(601, 521));
 		setLayout(null);
@@ -90,7 +90,7 @@ private static final long serialVersionUID = 1L;
 		btnPanel.setBounds(12, 384, 576, 116);
 		btnPanel.setBorder(new TitledBorder(new LineBorder(Color.lightGray,1)));
 		
-		back = new JButton("µ¹¾Æ°¡±â");
+		back = new JButton("ëŒì•„ê°€ê¸°");
 		back.setFont(EViewFrame.eFont.getFont());
 		back.setBounds(9, 10, 552, 42);
 		back.addActionListener(actionHandler);
@@ -116,13 +116,13 @@ private static final long serialVersionUID = 1L;
 		infos.add(this.insuranceDesign.getInsurance().getInsuranceDescription());
 		return infos;
 	}
-	// ±âº» ÆĞ³Î³»¿ëÀ» »ı¼ºÇÏ´Â ¸Ş¼­µå
+	// ê¸°ë³¸ íŒ¨ë„ë‚´ìš©ì„ ìƒì„±í•˜ëŠ” ë©”ì„œë“œ
 	public void createDefaultPanel() {
 		this.labels= new Vector<JLabel>(); 
 		information = new JPanel();
 		information.setLocation(12, 10);
 		information.setSize(576, 364);
-		information.setBorder(new TitledBorder(new LineBorder(Color.lightGray,1),"º¸Çè »ó¼¼Á¤º¸"));
+		information.setBorder(new TitledBorder(new LineBorder(Color.lightGray,1),"ë³´í—˜ ìƒì„¸ì •ë³´"));
 		information.setLayout(new FlowLayout(FlowLayout.LEADING,10,5));
 		
 		Vector<String> infos  = setInsuranceInfo();
@@ -142,24 +142,24 @@ private static final long serialVersionUID = 1L;
 		this.add(information);
 	}
 	
-	// ¹öÆ° Å¬¸¯½Ã ½ÇÇàµÇ´Â ¸Ş¼­µå
+	// ë²„íŠ¼ í´ë¦­ì‹œ ì‹¤í–‰ë˜ëŠ” ë©”ì„œë“œ
 	public void buttonClick(Object source) {
 		if (source.equals(this.approve)) {
-			// º¸Çè ½ÂÀÎ ¹öÆ° Å¬¸¯½Ã
+			// ë³´í—˜ ìŠ¹ì¸ ë²„íŠ¼ í´ë¦­ì‹œ
 			this.acceptInsuranceDesign.approve(this.insuranceDesign.getInsuranceDesignId());
-			JOptionPane.showMessageDialog(this, "ÇØ´ç º¸Çè¼³°è¼­°¡ ½ÂÀÎµÇ¾ú½À´Ï´Ù.");
+			JOptionPane.showMessageDialog(this, "í•´ë‹¹ ë³´í—˜ì„¤ê³„ì„œê°€ ìŠ¹ì¸ë˜ì—ˆìŠµë‹ˆë‹¤.");
 		}else if (source.equals(this.disApprove)) {
-			// º¸Çè ¹Ì½ÂÀÎ¹öÆ° Å¬¸¯½Ã
+			// ë³´í—˜ ë¯¸ìŠ¹ì¸ë²„íŠ¼ í´ë¦­ì‹œ
 			this.acceptInsuranceDesign.disapprove(this.insuranceDesign.getInsuranceDesignId());
-			JOptionPane.showMessageDialog(this, "ÇØ´ç º¸Çè¼³°è¼­°¡ ¹Ì½ÂÀÎµÇ¾ú½À´Ï´Ù.");
+			JOptionPane.showMessageDialog(this, "í•´ë‹¹ ë³´í—˜ì„¤ê³„ì„œê°€ ë¯¸ìŠ¹ì¸ë˜ì—ˆìŠµë‹ˆë‹¤.");
 		}else if(source.equals(this.back)){
-			// µÚ·Î°¡±â ¹öÆ° Å¬¸¯½Ã
+			// ë’¤ë¡œê°€ê¸° ë²„íŠ¼ í´ë¦­ì‹œ
 			this.information.setVisible(false);
 			this.btnPanel.setVisible(false);
 			this.removeAll();
-			// º¸Çè ½ÂÀÎÇÏ±â ÆĞ³Î(AcceptInsPanel)À¸·Î ºÎÅÍ »ı¼ºµÈ ÆĞ³Î¿¡¼­  µÚ·Î°¡±â ¹öÆ°À» ´­·µÀ» °æ¿ì
+			// ë³´í—˜ ìŠ¹ì¸í•˜ê¸° íŒ¨ë„(AcceptInsPanel)ìœ¼ë¡œ ë¶€í„° ìƒì„±ëœ íŒ¨ë„ì—ì„œ  ë’¤ë¡œê°€ê¸° ë²„íŠ¼ì„ ëˆŒëŸ¿ì„ ê²½ìš°
 			if (this.acceptInsPanel != null) {this.acceptInsPanel.createPanel();}
-			// ½ÂÀÎµÈ º¸Çè »ó¼¼Á¶È¸ÇÏ±â ÆĞ³Î(AcceptedInsPanel)À¸·Î ºÎÅÍ »ı¼ºµÈ ÆĞ³Î¿¡¼­ µÚ·Î°¡±â ¹öÆ°À» ´­·µÀ» °æ¿ì
+			// ìŠ¹ì¸ëœ ë³´í—˜ ìƒì„¸ì¡°íšŒí•˜ê¸° íŒ¨ë„(AcceptedInsPanel)ìœ¼ë¡œ ë¶€í„° ìƒì„±ëœ íŒ¨ë„ì—ì„œ ë’¤ë¡œê°€ê¸° ë²„íŠ¼ì„ ëˆŒëŸ¿ì„ ê²½ìš°
 			if(acceptedInsPanel != null){this.acceptedInsPanel.createDefaultPanel();}
 		}
 		repaint();

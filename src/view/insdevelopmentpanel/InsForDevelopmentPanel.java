@@ -48,11 +48,11 @@ public class InsForDevelopmentPanel extends JPanel{
 		this.basicInfoPanel = new JPanel();
 		this.basicInfoPanel.setLayout(null);
 		this.basicInfoPanel.setBounds(12, 10, 576, 379);
-		this.basicInfoPanel.setBorder(new TitledBorder(new LineBorder(Color.lightGray,1),"∫∏«Ë ±‚∫ª¡§∫∏"));
+		this.basicInfoPanel.setBorder(new TitledBorder(new LineBorder(Color.lightGray,1),"Î≥¥Ìóò Í∏∞Î≥∏Ï†ïÎ≥¥"));
 		
 		JLabel description_l = new JLabel();
 		description_l.setForeground(Color.BLUE);
-		description_l.setFont(new Font("±º∏≤", Font.ITALIC, 15));
+		description_l.setFont(new Font("Íµ¥Î¶º", Font.ITALIC, 15));
 		description_l.setBorder(new TitledBorder(new LineBorder(Color.lightGray,1)));
 		description_l.setBounds(12, 188, 552, 170);
 		description_l.setText(this.insurance.getInsuranceDescription());
@@ -83,7 +83,7 @@ public class InsForDevelopmentPanel extends JPanel{
 		gaurantee.setFont(EViewFrame.eFont.getFont());
 		gaurantee.setBounds(12, 111, 57, 20);
 		basicInfoPanel.add(gaurantee);
-		JLabel gaurantee_1 = new JLabel(this.insurance.getContractCondition().getGuarantee()+"ø¯");
+		JLabel gaurantee_1 = new JLabel(this.insurance.getContractCondition().getGuarantee()+"Ïõê");
 		gaurantee_1.setFont(EViewFrame.eFont.getFont());
 		gaurantee_1.setBounds(81, 111, 100, 20);
 		basicInfoPanel.add(gaurantee_1);
@@ -93,7 +93,7 @@ public class InsForDevelopmentPanel extends JPanel{
 		payment.setFont(EViewFrame.eFont.getFont());
 		payment.setBounds(193, 111, 57, 20);
 		basicInfoPanel.add(payment);
-		JLabel payment_1 = new JLabel(this.insurance.getContractCondition().getPayment()+"ø¯");
+		JLabel payment_1 = new JLabel(this.insurance.getContractCondition().getPayment()+"Ïõê");
 		payment_1.setFont(EViewFrame.eFont.getFont());
 		payment_1.setBounds(262, 111, 100, 20);
 		basicInfoPanel.add(payment_1);
@@ -103,7 +103,7 @@ public class InsForDevelopmentPanel extends JPanel{
 		period_l.setFont(EViewFrame.eFont.getFont());
 		period_l.setBounds(404, 50, 57, 20);
 		basicInfoPanel.add(period_l);
-		JLabel period_l_1 = new JLabel(this.insurance.getContractCondition().getPeriod()+"≥‚");
+		JLabel period_l_1 = new JLabel(this.insurance.getContractCondition().getPeriod()+"ÎÖÑ");
 		period_l_1.setFont(EViewFrame.eFont.getFont());
 		period_l_1.setBounds(465, 50, 99, 20);
 		basicInfoPanel.add(period_l_1);
@@ -119,7 +119,7 @@ public class InsForDevelopmentPanel extends JPanel{
 		basicInfoPanel.add(type_l_1);
 		this.add(this.basicInfoPanel);
 		
-		JLabel lblNewLabel = new JLabel("∫∏«Ë º≥∏Ì");
+		JLabel lblNewLabel = new JLabel("Î≥¥Ìóò ÏÑ§Î™Ö");
 		lblNewLabel.setFont(EViewFrame.eFont.getFont());
 		lblNewLabel.setBounds(12, 161, 100, 27);
 		basicInfoPanel.add(lblNewLabel);
@@ -130,7 +130,7 @@ public class InsForDevelopmentPanel extends JPanel{
 		btnPanel.setBounds(12, 409, 576, 63);
 		btnPanel.setBorder(new TitledBorder(new LineBorder(Color.lightGray,1)));
 		
-		backBtn = new JButton("µπæ∆∞°±‚");
+		backBtn = new JButton("ÎèåÏïÑÍ∞ÄÍ∏∞");
 		backBtn.setBounds(12, 10, 552, 43);
 		backBtn.setFont(EViewFrame.eFont.getFont());
 		backBtn.addActionListener(actionHandler);

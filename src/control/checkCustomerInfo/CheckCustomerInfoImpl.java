@@ -27,7 +27,7 @@ public class CheckCustomerInfoImpl implements CheckCustomerInfo {
 			String value = customerContents.get(eCustomer.ordinal());
 			switch (eCustomer.getText()) {
 			case "이름": customer.setName(value);break;
-			case "주민등록번호": customer.setCustomerId(value);break;
+			case "주민등록번호": customer.setCustomerSID(value);break;
 			case "성별": 
 				if (value.equals("남성")) {customer.setGender(false);}
 				else {customer.setGender(true);}

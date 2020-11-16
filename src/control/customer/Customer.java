@@ -7,15 +7,16 @@ import control.insurance.InsuranceListImpl;
 public class Customer {
 	
 	private int id;
-	private int age;
-	private String customerId;
+	private String name;
+	private String customerSID;
 	private boolean gender;
+	private int age;
+	private String phoneNum;
 	private EJob job;
 	private EIllHistory illHistory;
-	private String name;
-	private String phoneNum;
 	private int property;
 	private boolean registrationStatus;
+	
 	private InsuranceListImpl InsuranceList;
 	
 	public Customer(){
@@ -23,32 +24,31 @@ public class Customer {
 	
 	public int getId() {return id;}
 	public void setId(int id) {this.id = id;}
-	public boolean isRegistrationStatus() {return registrationStatus;}
-	public void setRegistrationStatus(boolean registrationStatus) {this.registrationStatus = registrationStatus;}
-	public InsuranceListImpl getInsuranceList() {return InsuranceList;}
-	public void setInsuranceList(InsuranceListImpl insuranceList) {InsuranceList = insuranceList;}
-
-	public EJob getJob() {return job;}
-	public void setJob(EJob job) {this.job = job;}
-	public int getAge() {return age;}
-	public void setAge(int age) {this.age = age;}
-	public void setProperty(int property) {this.property = property;}
-	public int getProperty() {return property;}
-	public String getCustomerId() {return customerId;}
-	public void setCustomerId(String customerId) {this.customerId = customerId;}
+	public String getName() {return name;}
+	public void setName(String name) {this.name = name;}
+	public String getCustomerSID() {return customerSID;}
+	public void setCustomerSID(String customerSID) {this.customerSID = customerSID;}
 	public int getGender() {
 		if (gender) {return 1;}
 		else {return 0;}
 	}
 	public String isGender() {
-		if (gender) {return "¿©¼º";}
-		else {return "³²¼º";}
+		if (gender) {return "ì—¬ì„±";}
+		else {return "ë‚¨ì„±";}
 	}
 	public void setGender(boolean gender) {this.gender = gender;}
-	public EIllHistory getillHistory() {return illHistory;}
-	public void setillHistory(EIllHistory illHistory) {this.illHistory = illHistory;}
-	public String getName() {return name;}
-	public void setName(String name) {this.name = name;}
+	public int getAge() {return age;}
+	public void setAge(int age) {this.age = age;}
 	public String getPhoneNum() {return phoneNum;}
 	public void setPhoneNum(String phoneNum) {this.phoneNum = phoneNum;}
+	public EJob getJob() {return job;}
+	public void setJob(EJob job) {this.job = job;}
+	public EIllHistory getillHistory() {return illHistory;}
+	public void setillHistory(EIllHistory illHistory) {this.illHistory = illHistory;}
+	public void setProperty(int property) {this.property = property;}
+	public int getProperty() {return property;}
+	public boolean isRegistrationStatus() {return registrationStatus;}
+	public void setRegistrationStatus(boolean registrationStatus) {this.registrationStatus = registrationStatus;}
+	public InsuranceListImpl getInsuranceList() {return InsuranceList;}
+	public void setInsuranceList(InsuranceListImpl insuranceList) {InsuranceList = insuranceList;}
 }

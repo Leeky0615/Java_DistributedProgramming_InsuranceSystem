@@ -26,8 +26,8 @@ public class AccidentReceiptTable extends Default_AccidnetReceiptTable {
 			accidentReceipts.add(accidentReceipt.getCustomerName());
 			accidentReceipts.add(accidentReceipt.getInsuranceType());
 			accidentReceipts.add(accidentReceipt.getAccidentDate());
-			if (accidentReceipt.isPaymentStatus()) {accidentReceipts.add("���޿Ϸ�");}
-			else {accidentReceipts.add("������");}
+			if (accidentReceipt.isPaymentStatus()) {accidentReceipts.add("지급완료");}
+			else {accidentReceipts.add("미지급");}
 			this.rowData.add(accidentReceipts);
 		}
 		this.updateUI();

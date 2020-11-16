@@ -27,7 +27,7 @@ public class FirePanel extends JPanel {
 	
 	public FirePanel() {
 		this.setLayout(null);
-		this.setBorder(new TitledBorder(new LineBorder(Color.lightGray,1),"È­Àçº¸Çè °¡ÀÔ"));
+		this.setBorder(new TitledBorder(new LineBorder(Color.lightGray,1),"í™”ì¬ë³´í—˜ ê°€ì…"));
 		
 		JPanel panel = new JPanel();
 		panel.setBounds(12, 20, 85, 176);
@@ -85,7 +85,7 @@ public class FirePanel extends JPanel {
 		this.add(panel);
 		this.add(panel_1);
 		
-		JLabel paymentMethod_l = new JLabel("³³ÀÔ¹æ½Ä");
+		JLabel paymentMethod_l = new JLabel("ë‚©ì…ë°©ì‹");
 		paymentMethod_l.setBounds(265, 39, 56, 20);
 		paymentMethod_l.setFont(EViewFrame.eFont.getFont());
 		paymentMethod_l.setHorizontalAlignment(SwingConstants.LEFT);
@@ -104,7 +104,7 @@ public class FirePanel extends JPanel {
 		paymentDate_t.setColumns(10);
 		add(paymentDate_t);
 		
-		JLabel paymentDate_l = new JLabel("¸Å¿ù ³³ÀÔÀÏ");
+		JLabel paymentDate_l = new JLabel("ë§¤ì›” ë‚©ì…ì¼");
 		paymentDate_l.setBounds(247, 79, 74, 20);
 		paymentDate_l.setFont(EViewFrame.eFont.getFont());
 		paymentDate_l.setHorizontalAlignment(SwingConstants.LEFT);

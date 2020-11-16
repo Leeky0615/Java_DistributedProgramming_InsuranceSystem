@@ -16,7 +16,7 @@ public class ButtonPanel extends JPanel {
 	
 	private Vector<JButton> buttons;
 	
-	// ¸ŞÀÎ ÇÁ·¹ÀÓ¿¡¼­ »ç¿ëµÇ´Â ¹öÆ° ÆĞ³Î
+	// ë©”ì¸ í”„ë ˆì„ì—ì„œ ì‚¬ìš©ë˜ëŠ” ë²„íŠ¼ íŒ¨ë„
 	public ButtonPanel(ActionHandler actionHandler) {
 		this.setBackground(new Color(94,175,164));
 		this.buttons = new Vector<JButton>();

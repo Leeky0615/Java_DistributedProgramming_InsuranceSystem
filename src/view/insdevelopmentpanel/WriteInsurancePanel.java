@@ -38,7 +38,7 @@ public class WriteInsurancePanel extends JPanel  {
 	public WriteInsurancePanel(InsuranceDevelopmentImpl insuranceDevelopment) {
 		this.insuranceDevelopment = insuranceDevelopment;
 		
-		this.setBorder(new TitledBorder(new LineBorder(Color.lightGray,1),"º¸Çè ¼³°èÇÏ±â"));
+		this.setBorder(new TitledBorder(new LineBorder(Color.lightGray,1),"ë³´í—˜ ì„¤ê³„í•˜ê¸°"));
 		
 		this.labels = new Vector<JLabel>();
 		this.fields = new Vector<JTextField>();
@@ -84,7 +84,7 @@ public class WriteInsurancePanel extends JPanel  {
 	}
 	
 	public void createBtnPanel() {
-		this.newInsBtn = new JButton("½Å±Ôº¸Çè»óÇ° µî·Ï ½ÅÃ»ÇÏ±â");
+		this.newInsBtn = new JButton("ì‹ ê·œë³´í—˜ìƒí’ˆ ë“±ë¡ ì‹ ì²­í•˜ê¸°");
 		this.newInsBtn.setFont(EViewFrame.eFont.getFont());
 		this.newInsBtn.addActionListener(actionHandler);
 		this.newInsBtn.setPreferredSize(new Dimension(555, 50));
@@ -101,7 +101,7 @@ public class WriteInsurancePanel extends JPanel  {
 	public void buttonClick(Object name) {
 		if (name.equals(this.newInsBtn)){
 			this.insuranceDevelopment.designInsurance(this.getInfos());
-			JOptionPane.showMessageDialog(this, "½ÂÀÎ ¿äÃ»ÀÌ ¿Ï·áµÇ¾ú½À´Ï´Ù.");
+			JOptionPane.showMessageDialog(this, "ìŠ¹ì¸ ìš”ì²­ì´ ì™„ë£Œë˜ì—ˆìŠµë‹ˆë‹¤.");
 		}
 	}
 

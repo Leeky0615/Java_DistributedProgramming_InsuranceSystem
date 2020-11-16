@@ -28,10 +28,10 @@ public class RequestPanel extends JPanel {
 		this.setLayout(new BorderLayout());
 		
 		JPanel panel = new JPanel();
-		JLabel jlabel = new JLabel("º¸Çè¿µ¾÷ÀÚ¿¡°Ô ¸é´ãÀ» ¿äÃ»ÇÏ½Ã°Ú½À´Ï±î?");
+		JLabel jlabel = new JLabel("ë³´í—˜ì˜ì—…ìì—ê²Œ ë©´ë‹´ì„ ìš”ì²­í•˜ì‹œê² ìŠµë‹ˆê¹Œ?");
 		panel.add(jlabel);
 		this.actionListener = new ActionHandler();
-		this.yes = new JButton("¿¹");
+		this.yes = new JButton("ì˜ˆ");
 		this.yes.addActionListener(actionListener);
 		panel.add(yes);
 		this.add(panel, BorderLayout.NORTH);
@@ -39,7 +39,7 @@ public class RequestPanel extends JPanel {
         this.salesPersonTable = new SalesPersonTable(this.salesPersonList);
 		JScrollPane scroll = new JScrollPane();
    		scroll.setBounds(12, 127, 576, 185);
-   		scroll.setBorder(new TitledBorder(new LineBorder(Color.lightGray,1),"ÁÖº¯ º¸Çè¿µ¾÷ÀÚ  ¸®½ºÆ®"));
+   		scroll.setBorder(new TitledBorder(new LineBorder(Color.lightGray,1),"ì£¼ë³€ ë³´í—˜ì˜ì—…ì  ë¦¬ìŠ¤íŠ¸"));
    		scroll.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
    		scroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_NEVER);
    		scroll.setViewportView(this.salesPersonTable);
@@ -49,7 +49,7 @@ public class RequestPanel extends JPanel {
 	
 	private void buttonclick(Object source) {
 		if (source.equals(this.yes)) {
-			JOptionPane.showMessageDialog(this, "¸é´ã ½ÅÃ»ÀÌ ¿Ï·áµÇ¾ú½À´Ï´Ù.");
+			JOptionPane.showMessageDialog(this, "ë©´ë‹´ ì‹ ì²­ì´ ì™„ë£Œë˜ì—ˆìŠµë‹ˆë‹¤.");
 		}
 	}
 	private class ActionHandler implements ActionListener{

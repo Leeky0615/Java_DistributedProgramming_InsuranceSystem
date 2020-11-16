@@ -39,12 +39,12 @@ public class LoginPanel extends JPanel {
 		loginTextField.setBounds(285, 192, 100, 30);
 		layeredPane.add(loginTextField);
 		 
-		// ÆĞ½º¿öµå
+		// íŒ¨ìŠ¤ì›Œë“œ
 		passwordField = new JPasswordField(15);
 		passwordField.setBounds(285, 247, 100, 30);
 		layeredPane.add(passwordField);
 		 
-		// ·Î±×ÀÎ¹öÆ° Ãß°¡
+		// ë¡œê·¸ì¸ë²„íŠ¼ ì¶”ê°€
 		bt = new JButton(setImage(EViewFrame.eLoginBtnImg,100,30));
 		bt.setBounds(235, 310, 104, 30);
 		layeredPane.add(bt);
@@ -52,10 +52,10 @@ public class LoginPanel extends JPanel {
 		
 		loginTextField.setOpaque(false);
 		loginTextField.setFont(EViewFrame.eFont.getFont());
-		//ºñ¹Ğ¹øÈ£ ³»¿ë
+		//ë¹„ë°€ë²ˆí˜¸ ë‚´ìš©
 		passwordField.setOpaque(false);
 		passwordField.setFont(EViewFrame.eFont.getFont());
-		// ¹öÆ° Åõ¸íÃ³¸®
+		// ë²„íŠ¼ íˆ¬ëª…ì²˜ë¦¬
 		bt.setContentAreaFilled(false);
 		bt.addActionListener(actionHandler);
 		bt.setActionCommand("login");

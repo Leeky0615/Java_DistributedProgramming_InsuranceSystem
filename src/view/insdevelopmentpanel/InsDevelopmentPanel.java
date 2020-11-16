@@ -33,9 +33,9 @@ public class InsDevelopmentPanel extends DefaultPanel{
 		this.jTabbedPane = new JTabbedPane();
 
 		this.writeInsurancePanel = new WriteInsurancePanel(this.insuranceDevelopment);
-		this.jTabbedPane.add("º¸Çè¼³°è¼­ ÀÛ¼ºÇÏ±â",this.writeInsurancePanel);
+		this.jTabbedPane.add("ë³´í—˜ì„¤ê³„ì„œ ì‘ì„±í•˜ê¸°",this.writeInsurancePanel);
 		this.searchInsurancePanel = new SearchInsurancePanel(this.insuranceRegistration,this.insuranceList,"Development");
-		this.jTabbedPane.add("º¸Çè »ó¼¼Á¶È¸",this.searchInsurancePanel);
+		this.jTabbedPane.add("ë³´í—˜ ìƒì„¸ì¡°íšŒ",this.searchInsurancePanel);
 		this.add(jTabbedPane, BorderLayout.CENTER);		
 		updateUI();
 	}

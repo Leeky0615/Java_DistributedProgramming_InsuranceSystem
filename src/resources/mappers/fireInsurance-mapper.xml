@@ -2,25 +2,19 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="AccidentReceipt">
+<mapper namespace="Fire">
 <!--type : 사용될 클래스(mybatis-config.xml에서 alias해줌) -> ex) control.accidentReceipt.AccidentReceipt = AccidentReceipt  -->
 <!--id : resultMap이름으로 사용될 id 설정  -->
-    <resultMap type="AccidentReceipt" id="AccidentReceipt">
+    <resultMap type="Fire" id="Fire">
     <!--id : primary key로 사용되는 column / property : 해당 column의 값과 매치되는 (클래스에서 사용되는)변수이름  -->
-        <id column="accidentReceiptid" property="accidentReceiptId" />
-        <result column="accidentreceiptname" property="accidentReceiptName" />
-        <result column="customername" property="customerName" />
-        <result column="customerid" property="customerId" />
-        <result column="insurancetype" property="insuranceType"/>
-        <result column="paymentmethod" property="paymentMethod" />
-        <result column="accidentdate" property="accidentDate"/>
-        <result column="hospitalname" property="hospitalName" />
-        <result column="deathstatus" property="deathStatus" />
-        <result column="accidentplace" property="accidentPlace" />
-        <result column="diagnosisname" property="diagnosisName" />
-        <result column="damagescale" property="damageScale" />
-        <result column="accidentcircumstances" property="accidentCircumstances" />
-        <result column="money" property="money" />
-        <result column="paymentstatus" property="paymentStatusv" />
+        <result column="age" property="age" />
+        <result column="area" property="area" />
+        <result column="contractor" property="contractor" />
+        <result column="unitprice" property="unitPrice"/>
+        <result column="buildingtype" property="buildingType" />
+        <result column="paymentdate" property="accidentDate"/>
+        <result column="paymentmethod" property="hospitalName" />
+        <result column="insurance_id" property="deathStatus" />
+        <result column="customer_id" property="accidentPlace" />
     </resultMap>
  

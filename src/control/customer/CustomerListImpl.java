@@ -36,9 +36,9 @@ public class CustomerListImpl implements CustomerList {
 		}
 		return null;
 	}
-	public Customer searchById(String customerId){
+	public Customer searchById(String customerSID){
 		for(Customer customer : this.customerList) {
-			if (customer.getCustomerId().equals(customerId)) {return customer;}
+			if (customer.getCustomerSID().equals(customerSID)) {return customer;}
 		}
 		return null;
 	}

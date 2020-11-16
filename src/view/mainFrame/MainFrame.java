@@ -41,7 +41,7 @@ public class MainFrame extends JFrame {
 	public MainFrame(Menu menu) {
 		super();
 		this.setThema();
-		this.setTitle("º¸Çè ½Ã½ºÅÛ");
+		this.setTitle("ë³´í—˜ ì‹œìŠ¤í…œ");
 		this.setSize(new Dimension(611,580));
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setResizable(false);
@@ -57,14 +57,14 @@ public class MainFrame extends JFrame {
 		this.createButtonPanel();
 	}
 	
-	// Å×¸¶ ¼³Á¤ ¸Ş¼Òµå
+	// í…Œë§ˆ ì„¤ì • ë©”ì†Œë“œ
 	public void setThema() {
 		try {
 		    UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
 		    JFrame.setDefaultLookAndFeelDecorated(true);
 		} catch (Exception e) {}
 	}
-	// ¸ŞÀÎÇÁ·¹ÀÓ¿¡ ±âº» ÆĞ³ÎµéÀ» ¸¸µå´Â ¸Ş¼Òµå
+	// ë©”ì¸í”„ë ˆì„ì— ê¸°ë³¸ íŒ¨ë„ë“¤ì„ ë§Œë“œëŠ” ë©”ì†Œë“œ
 	private void createLoginPanel() {
 		this.loginPanel = new LoginPanel(this.actionHandler);
 		this.add(this.loginPanel, BorderLayout.CENTER);
@@ -79,11 +79,11 @@ public class MainFrame extends JFrame {
 		this.imageLabel = new JLabel(setImage());
 		this.add(this.imageLabel, BorderLayout.CENTER);
 		
-		// ÇÁ·Î±×·¥¿¡¼­ »ç¿ëµÇ´Â ÆĞ³ÎµéÀ» »ç¿ëÇÏ±âÀ§ÇØ ÆĞ³Îº¤ÅÍ¸¦ ¸¸µé¾î ³Ö¾î³ğ.
+		// í”„ë¡œê·¸ë¨ì—ì„œ ì‚¬ìš©ë˜ëŠ” íŒ¨ë„ë“¤ì„ ì‚¬ìš©í•˜ê¸°ìœ„í•´ íŒ¨ë„ë²¡í„°ë¥¼ ë§Œë“¤ì–´ ë„£ì–´ë†ˆ.
 		for(EPanels ePanel : EPanels.values()) {this.panels.add(this.createPanel(ePanel.getPanel()));}
 	}
 	
-	// ¸ŞÀÎÇÁ·¹ÀÓÀÇ imagelabel¿¡ ÀÌ¹ÌÁö¸¦ ³Ö±âÀ§ÇØ ÀÌ¹ÌÁöÆÄÀÏÀ» µî·ÏÇÏ´Â ¸Ş¼Òµå
+	// ë©”ì¸í”„ë ˆì„ì˜ imagelabelì— ì´ë¯¸ì§€ë¥¼ ë„£ê¸°ìœ„í•´ ì´ë¯¸ì§€íŒŒì¼ì„ ë“±ë¡í•˜ëŠ” ë©”ì†Œë“œ
 	public ImageIcon setImage() {
 		ImageIcon icon = EViewFrame.eImg.getImageIcon();
 		Image originImg = icon.getImage(); 
@@ -92,7 +92,7 @@ public class MainFrame extends JFrame {
 		return changedicon;
 	}
 	
-	// ReflectionÀ» ÀÌ¿ëÇØ ÆĞ³ÎÀ» ¸¸µé¾îÁÖ´Â ¸Ş¼Òµå
+	// Reflectionì„ ì´ìš©í•´ íŒ¨ë„ì„ ë§Œë“¤ì–´ì£¼ëŠ” ë©”ì†Œë“œ
 	@SuppressWarnings("rawtypes")
 	public DefaultPanel createPanel(String name) {
 		try{
@@ -114,12 +114,12 @@ public class MainFrame extends JFrame {
 		MainFrame.user = userType;
 		return userType;
 	}
-	// ¹öÆ°ÀÌ Å¬¸¯½Ã ½ÇÇàµÇ´Â ¸Ş¼Òµå
+	// ë²„íŠ¼ì´ í´ë¦­ì‹œ ì‹¤í–‰ë˜ëŠ” ë©”ì†Œë“œ
 	public void buttonClick(String name) {
 		Vector<JButton> buttons = this.buttonPanel.getButtons();
 		if(name.equals("login")){
 			if(logincheck() == null){
-				JOptionPane.showMessageDialog(null, "µî·ÏµÇÁö ¾ÊÀº »ç¿ëÀÚÀÔ´Ï´Ù. ´Ù½Ã È®ÀÎÇØ ÁÖ¼¼¿ä.", "µî·ÏµÇÁö ¾ÊÀº »ç¿ëÀÚ", JOptionPane.WARNING_MESSAGE);
+				JOptionPane.showMessageDialog(null, "ë“±ë¡ë˜ì§€ ì•Šì€ ì‚¬ìš©ìì…ë‹ˆë‹¤. ë‹¤ì‹œ í™•ì¸í•´ ì£¼ì„¸ìš”.", "ë“±ë¡ë˜ì§€ ì•Šì€ ì‚¬ìš©ì", JOptionPane.WARNING_MESSAGE);
 				return;
 			}else {
 				if (logincheck() == ELogin.developer) {
@@ -171,7 +171,7 @@ public class MainFrame extends JFrame {
 			}
 		}
 		else if (name.equals("backToMain")) {
-			// Ã³À½È­¸éÀ¸·Î °¡±â : ÇöÀç ÇÁ·¹ÀÓÀ» ÃÊ±âÈ­ÇÏ°í ÆĞ³Îº¤ÅÍ¿¡¼­ ÇöÀçÆĞ³ÎÀ» »èÁ¦ÇÔ.
+			// ì²˜ìŒí™”ë©´ìœ¼ë¡œ ê°€ê¸° : í˜„ì¬ í”„ë ˆì„ì„ ì´ˆê¸°í™”í•˜ê³  íŒ¨ë„ë²¡í„°ì—ì„œ í˜„ì¬íŒ¨ë„ì„ ì‚­ì œí•¨.
 			this.remove(currentPanel);
 			this.createDefaultPanels();
 			this.createButtonPanel();
@@ -193,15 +193,15 @@ public class MainFrame extends JFrame {
 			this.repaint();
 			this.revalidate();
 		}else {
-			// ¹öÆ°ÆĞ³Î¿¡ ÀÖ´Â ¹öÆ° Å¬¸¯½Ã
+			// ë²„íŠ¼íŒ¨ë„ì— ìˆëŠ” ë²„íŠ¼ í´ë¦­ì‹œ
 			this.backBtnPanel.setVisible(true);
 			this.remove(this.imageLabel);
 			this.remove(this.buttonPanel);
-			// ÆĞ³ÎÀÇ Å©±â°¡ 4ÀÌ¸é ¼±ÅÃµÈ ÆĞ³Î¹öÆ°ÀÇ ÆĞ³ÎÀ» Ãß°¡
+			// íŒ¨ë„ì˜ í¬ê¸°ê°€ 4ì´ë©´ ì„ íƒëœ íŒ¨ë„ë²„íŠ¼ì˜ íŒ¨ë„ì„ ì¶”ê°€
 			if (this.panels.size() == 4) {this.panels.add(createPanel(name));}
 			/* 
-			 * À§¿¡¼­ ¸¸µé¾îÁØ ÆĞ³Î º¤ÅÍ¿¡¼­ °ªÀ» ÇÏ³ª¾¿ ºñ±³ÇØ 
-			 * ¼±ÅÃµÈ ÆĞ³ÎÀÇ ÀÌ¸§°ú °°À» ½Ã  ¸ŞÀÎÇÁ·¹ÀÓ¿¡ ÆĞ³ÎÀ» ºÙ¿©ÁÖ°í ÇöÀçÆĞ³Î·Î ¼³Á¤ 
+			 * ìœ„ì—ì„œ ë§Œë“¤ì–´ì¤€ íŒ¨ë„ ë²¡í„°ì—ì„œ ê°’ì„ í•˜ë‚˜ì”© ë¹„êµí•´ 
+			 * ì„ íƒëœ íŒ¨ë„ì˜ ì´ë¦„ê³¼ ê°™ì„ ì‹œ  ë©”ì¸í”„ë ˆì„ì— íŒ¨ë„ì„ ë¶™ì—¬ì£¼ê³  í˜„ì¬íŒ¨ë„ë¡œ ì„¤ì • 
 			*/
 			for (DefaultPanel panel : this.panels) {
 				if (panel.getClass().getName().equals("view." + name.toLowerCase() + "." + name)) {
@@ -218,3 +218,4 @@ public class MainFrame extends JFrame {
 		}
 	}
 }
+

@@ -15,14 +15,14 @@ public class BackBtnPanel extends JPanel{
 
 	public BackBtnPanel(ActionHandler actionHandler) {
 		this.setLayout(new GridLayout(0,2));
-		this.backbtn = new JButton("Ã³À½È­¸éÀ¸·Î");
+		this.backbtn = new JButton("ì²˜ìŒí™”ë©´ìœ¼ë¡œ");
 		this.backbtn.setFont(EViewFrame.eFont.getFont());
 		this.backbtn.setHorizontalTextPosition(SwingConstants.CENTER);
 		this.backbtn.addActionListener(actionHandler);
 		this.backbtn.setActionCommand("backToMain");
 		this.add(backbtn);
 		
-		this.logoutbtn = new JButton("·Î±×¾Æ¿ô");
+		this.logoutbtn = new JButton("ë¡œê·¸ì•„ì›ƒ");
 		this.logoutbtn.setFont(EViewFrame.eFont.getFont());
 		this.logoutbtn.setHorizontalTextPosition(SwingConstants.CENTER);
 		this.logoutbtn.addActionListener(actionHandler);

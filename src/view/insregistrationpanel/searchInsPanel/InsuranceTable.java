@@ -20,9 +20,9 @@ public class InsuranceTable extends Default_InsuranceTable{
 		Vector<Object> insuranceRow = new Vector<Object>();
 		insuranceRow.add(insurance.getInsuranceId());
 		insuranceRow.add(insurance.getInsuranceName());
-		insuranceRow.add(insurance.getContractCondition().getGuarantee()+"¿ø");
-		insuranceRow.add(insurance.getContractCondition().getPayment()+"¿ø");
-		insuranceRow.add(insurance.getContractCondition().getPeriod()+"³â");
+		insuranceRow.add(insurance.getContractCondition().getGuarantee()+"ì›");
+		insuranceRow.add(insurance.getContractCondition().getPayment()+"ì›");
+		insuranceRow.add(insurance.getContractCondition().getPeriod()+"ë…„");
 		insuranceRow.add(insurance.getInsuranceType().getText());
 		this.rowData.add(insuranceRow);
 	}
@@ -30,7 +30,7 @@ public class InsuranceTable extends Default_InsuranceTable{
 	public void refresh(String insuranceType) {
 		this.rowData.clear();
 		for (Insurance insurance : this.insuranceList.getInsuranceList()) {
-			if (insuranceType.equals("ÀüÃ¼")) {this.addRowData(insurance);}
+			if (insuranceType.equals("ì „ì²´")) {this.addRowData(insurance);}
 			else {
 				if (insurance.getInsuranceType().getText().equals(insuranceType)) {this.addRowData(insurance);}
 			}

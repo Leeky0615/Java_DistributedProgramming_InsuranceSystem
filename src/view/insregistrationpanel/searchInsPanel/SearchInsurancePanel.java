@@ -59,23 +59,23 @@ public class SearchInsurancePanel extends JPanel {
 		this.removeAll();
 		this.setLayout(new BorderLayout());
 		JPanel selectPanel = new JPanel();
-		selectPanel.setBorder(new TitledBorder(new LineBorder(Color.lightGray,1),"º¸Çè Á¶È¸"));
+		selectPanel.setBorder(new TitledBorder(new LineBorder(Color.lightGray,1),"ë³´í—˜ ì¡°íšŒ"));
 		selectPanel.setLayout(new GridLayout(0, 3, 20, 0));
 		
-		this.detailCheckBtn = new JButton("º¸Çè »ó¼¼ Á¶È¸");
+		this.detailCheckBtn = new JButton("ë³´í—˜ ìƒì„¸ ì¡°íšŒ");
 		this.detailCheckBtn.setFont(EViewFrame.eFont.getFont());
 		this.detailCheckBtn.addActionListener(this.actionHandler);
 		selectPanel.add(this.detailCheckBtn);
 		
 		this.add(selectPanel, BorderLayout.NORTH);
 		
-		JLabel label = new JLabel("º¸Çè Á¾·ù");
+		JLabel label = new JLabel("ë³´í—˜ ì¢…ë¥˜");
 		label.setHorizontalAlignment(SwingConstants.RIGHT);
 		label.setFont(EViewFrame.eFont.getFont());
 		selectPanel.add(label);
 		
 		this.insType_t = new JComboBox<String>();
-		this.insType_t.addItem("ÀüÃ¼");
+		this.insType_t.addItem("ì „ì²´");
 		for(EInsuranceType insuranceType : EInsuranceType.values()) {insType_t.addItem(insuranceType.getText());}
 		this.insType_t.setFont(EViewFrame.eFont.getFont());
 		this.insType_t.addActionListener(this.actionHandler);
@@ -86,7 +86,7 @@ public class SearchInsurancePanel extends JPanel {
 		this.insuranceTable = new InsuranceTable(this.insuranceList, insType_t.getSelectedItem().toString());
 		this.insuranceTable.addMouseListener(this.mousehandler);
 		JScrollPane scroll = new JScrollPane();
-   		scroll.setBorder(new TitledBorder(new LineBorder(Color.lightGray,1),"º¸Çè ¸®½ºÆ®"));
+   		scroll.setBorder(new TitledBorder(new LineBorder(Color.lightGray,1),"ë³´í—˜ ë¦¬ìŠ¤íŠ¸"));
    		scroll.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
    		scroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_NEVER);
    		scroll.setViewportView(this.insuranceTable);
@@ -98,17 +98,17 @@ public class SearchInsurancePanel extends JPanel {
 	public void buttonClick(Object source) {
 		if (source.equals(this.detailCheckBtn)) {
 			if (this.insuranceTable.getRow() == null) {
-				JOptionPane.showMessageDialog(null, "º¸Çè»óÇ°À» ¼±ÅÃÇØ ÁÖ¼¼¿ä.", "º¸Çè»óÇ° ¼±ÅÃ", JOptionPane.WARNING_MESSAGE);
+				JOptionPane.showMessageDialog(null, "ë³´í—˜ìƒí’ˆì„ ì„ íƒí•´ ì£¼ì„¸ìš”.", "ë³´í—˜ìƒí’ˆ ì„ íƒ", JOptionPane.WARNING_MESSAGE);
 				return;
 			}else {
 				this.removeAll();
 				this.setLayout(new GridLayout(1,1));
 				if (menuName.equals("Registration")) {
-					// º¸Çè °¡ÀÔ È­¸é¿¡¼­ º¸Çè »ó¼¼Á¤º¸¸¦ Å¬¸¯ÇßÀ»¶§ ³ª¿À´Â ÆĞ³Î
+					// ë³´í—˜ ê°€ì… í™”ë©´ì—ì„œ ë³´í—˜ ìƒì„¸ì •ë³´ë¥¼ í´ë¦­í–ˆì„ë•Œ ë‚˜ì˜¤ëŠ” íŒ¨ë„
 					InsForRegistPanel insuranceForRegistPanel = new InsForRegistPanel(this,this.insuranceRegistration, this.insuranceTable.getRow());
 					this.add(insuranceForRegistPanel);
 				}else {
-					// º¸Çè ¼³°è È­¸é¿¡¼­ º¸Çè »ó¼¼Á¤º¸¸¦ Å¬¸¯ÇßÀ»¶§ ³ª¿À´Â ÆĞ³Î
+					// ë³´í—˜ ì„¤ê³„ í™”ë©´ì—ì„œ ë³´í—˜ ìƒì„¸ì •ë³´ë¥¼ í´ë¦­í–ˆì„ë•Œ ë‚˜ì˜¤ëŠ” íŒ¨ë„
 					InsForDevelopmentPanel insuranceForDevelopmentPanel = new InsForDevelopmentPanel(this, this.insuranceRegistration, this.insuranceTable.getRow());
 					this.add(insuranceForDevelopmentPanel);
 				}
@@ -132,7 +132,7 @@ public class SearchInsurancePanel extends JPanel {
 	
 	public void selectRow() {
 		if (this.insuranceTable.getRow() == null) {
-			JOptionPane.showMessageDialog(null, "º¸Çè»óÇ°À» ¼±ÅÃÇØ ÁÖ¼¼¿ä.", "º¸Çè»óÇ° ¼±ÅÃ", JOptionPane.WARNING_MESSAGE);
+			JOptionPane.showMessageDialog(null, "ë³´í—˜ìƒí’ˆì„ ì„ íƒí•´ ì£¼ì„¸ìš”.", "ë³´í—˜ìƒí’ˆ ì„ íƒ", JOptionPane.WARNING_MESSAGE);
 			return;
 		}else{this.detailCheckBtn.doClick();}
 	}

@@ -5,10 +5,7 @@ import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 
-import constants.ControlConstants.EBuildingType;
-import constants.ControlConstants.ECarType;
 import constants.ControlConstants.EInsuranceType;
-import constants.ControlConstants.EPaymentMethod;
 import constants.ViewConstants.EApprovalStatus;
 import control.customer.Customer;
 import control.insurance.CancerInsurance;
@@ -33,8 +30,8 @@ public class InsuranceRegistrationDaoImpl extends Dao implements InsuranceRegist
 				if (((CarInsurance)insuracne).getCarAccidentHistory()) {sb.append(1+"', '");}
 				else {sb.append(0+"', '");}
 				sb.append(((CarInsurance)insuracne).getCarType().name()+"', '");
-				sb.append(insuracne.getContractCondition().getPaymentDate()+"', '");
-				sb.append(insuracne.getContractCondition().getPaymentType().name()+"', '");
+				sb.append(((CarInsurance)insuracne).getPaymentDate()+"', '");
+				sb.append(((CarInsurance)insuracne).getPaymentMethod().name()+"', '");
 				sb.append(insuracne.getInsuranceId()+"', '");
 				sb.append(customer.getId()+"');");
 				break;
@@ -46,16 +43,16 @@ public class InsuranceRegistrationDaoImpl extends Dao implements InsuranceRegist
 				sb.append(((FireInsurance)insuracne).getContractor()+"', '");
 				sb.append(((FireInsurance)insuracne).getUnitPrice()+"', '");
 				sb.append(((FireInsurance)insuracne).getBuildingType().name()+"', '");
-				sb.append(insuracne.getContractCondition().getPaymentDate()+"', '");
-				sb.append(insuracne.getContractCondition().getPaymentType().name()+"', '");
+				sb.append(((FireInsurance)insuracne).getPaymentDate()+"', '");
+				sb.append(((FireInsurance)insuracne).getPaymentMethod().name()+"', '");
 				sb.append(insuracne.getInsuranceId()+"', '");
 				sb.append(customer.getId()+"');");
 				break;
 			case CANCER:
 				sb.append("INSERT INTO cancerinsurance (`id`, `paymentdate`, `paymentmethod`, `insurance_id`, `customer_id`) VALUES ('");
 				sb.append(customer.getId()+"', '");
-				sb.append(insuracne.getContractCondition().getPaymentDate()+"', '");
-				sb.append(insuracne.getContractCondition().getPaymentType().name()+"', '");
+				sb.append(((CancerInsurance)insuracne).getPaymentDate()+"', '");
+				sb.append(((CancerInsurance)insuracne).getPaymentMethod().name()+"', '");
 				sb.append(insuracne.getInsuranceId()+"', '");
 				sb.append(customer.getId()+"');");
 				System.out.println(sb.toString());
@@ -64,7 +61,7 @@ public class InsuranceRegistrationDaoImpl extends Dao implements InsuranceRegist
 			}
 			super.insert(sb.toString());
 		} catch (Exception e) {
-			JOptionPane.showMessageDialog(null, "ÀÌ¹Ì °¡ÀÔ½ÅÃ»µÇ¾ú°Å³ª °¡ÀÔµÈ º¸Çè »óÇ°ÀÔ´Ï´Ù.", "Áßº¹ °¡ÀÔ", JOptionPane.WARNING_MESSAGE);
+			JOptionPane.showMessageDialog(null, "ï¿½Ì¹ï¿½ ï¿½ï¿½ï¿½Ô½ï¿½Ã»ï¿½Ç¾ï¿½ï¿½Å³ï¿½ ï¿½ï¿½ï¿½Ôµï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ç°ï¿½Ô´Ï´ï¿½.", "ï¿½ßºï¿½ ï¿½ï¿½ï¿½ï¿½", JOptionPane.WARNING_MESSAGE);
 			return;
 		}
 	}
@@ -118,91 +115,90 @@ public class InsuranceRegistrationDaoImpl extends Dao implements InsuranceRegist
 	}
 	public Insurance selectByCarInsurance(int id) {
 		Insurance insurance = new CarInsurance();
-		try {
-			String query =  "SELECT * FROM carinsurance,insurance "
-					+ "WHERE carinsurance.insurance_id = insurance.insuranceid "
-					+ "AND carinsurance.customer_id ="+id+";";
-			ResultSet rs = this.select(query);
-			while(rs.next()) {
-				insurance.setInsuranceId(rs.getInt("insurance.insuranceid"));
-				insurance.setInsuranceName(rs.getString("insurancename"));
-				insurance.getContractCondition().setPaymentDate(rs.getInt("paymentdate"));
-				switch (rs.getString("paymentmethod")) {
-				case "CASH":insurance.getContractCondition().setPaymentType(EPaymentMethod.CASH);break; 
-				case "CARD":insurance.getContractCondition().setPaymentType(EPaymentMethod.CARD);break; 
-				case "ACCOUNT":insurance.getContractCondition().setPaymentType(EPaymentMethod.ACCOUNT);break; 
-				default:break;
-				}
-				switch (rs.getString("cartype")) {
-				case "SMALL":((CarInsurance)insurance).setCarType(ECarType.SMALL);break; 
-				case "MID":((CarInsurance)insurance).setCarType(ECarType.MID);break; 
-				case "LARGE":((CarInsurance)insurance).setCarType(ECarType.LARGE);break; 
-				case "MOTOR":((CarInsurance)insurance).setCarType(ECarType.MOTOR);break; 
-				default:break;
-				}
-				((CarInsurance)insurance).setCarNum(rs.getInt("carnum"));
-				((CarInsurance)insurance).setCarAccidentHistory(rs.getBoolean("caraccidenthistory"));
-				((CarInsurance)insurance).setAge(rs.getInt("age"));
-			}
-			rs.close();
-		} catch (Exception e) {e.getStackTrace();}
+//		try {
+//			String query =  "SELECT * FROM carinsurance,insurance "
+//					+ "WHERE carinsurance.insurance_id = insurance.insuranceid "
+//					+ "AND carinsurance.customer_id ="+id+";";
+//			ResultSet rs = this.select(query);
+//			while(rs.next()) {
+//				insurance.setInsuranceId(rs.getInt("insurance.insuranceid"));
+//				insurance.setInsuranceName(rs.getString("insurancename"));
+//				insurance.getContractCondition().setPaymentDate(rs.getInt("paymentdate"));
+//				switch (rs.getString("paymentmethod")) {
+//				case "CASH":insurance.getContractCondition().setPaymentType(EPaymentMethod.CASH);break; 
+//				case "CARD":insurance.getContractCondition().setPaymentType(EPaymentMethod.CARD);break; 
+//				case "ACCOUNT":insurance.getContractCondition().setPaymentType(EPaymentMethod.ACCOUNT);break; 
+//				default:break;
+//				}
+//				switch (rs.getString("cartype")) {
+//				case "SMALL":((CarInsurance)insurance).setCarType(ECarType.SMALL);break; 
+//				case "MID":((CarInsurance)insurance).setCarType(ECarType.MID);break; 
+//				case "LARGE":((CarInsurance)insurance).setCarType(ECarType.LARGE);break; 
+//				case "MOTOR":((CarInsurance)insurance).setCarType(ECarType.MOTOR);break; 
+//				default:break;
+//				}
+//				((CarInsurance)insurance).setCarNum(rs.getInt("carnum"));
+//				((CarInsurance)insurance).setCarAccidentHistory(rs.getBoolean("caraccidenthistory"));
+//				((CarInsurance)insurance).setAge(rs.getInt("age"));
+//			}
+//			rs.close();
+//		} catch (Exception e) {e.getStackTrace();}
 		return insurance;
 	}
 	public Insurance selectByFireInsurance(int id) {
 		Insurance insurance = new FireInsurance();
-		try {
-			String query =  "SELECT * FROM fireinsurance,insurance "
-					+ "WHERE fireinsurance.insurance_id = insurance.insuranceid "
-					+ "AND fireinsurance.customer_id ="+id+";";
-			ResultSet rs = this.select(query);
-			while(rs.next()) {
-				insurance.setInsuranceId(rs.getInt("insurance.insuranceid"));
-				insurance.setInsuranceName(rs.getString("insurancename"));
-				insurance.getContractCondition().setPaymentDate(rs.getInt("paymentdate"));
-				switch (rs.getString("paymentmethod")) {
-				case "CASH":insurance.getContractCondition().setPaymentType(EPaymentMethod.CASH);break; 
-				case "CARD":insurance.getContractCondition().setPaymentType(EPaymentMethod.CARD);break; 
-				case "ACCOUNT":insurance.getContractCondition().setPaymentType(EPaymentMethod.ACCOUNT);break; 
-				default:break;
-				}
-				((FireInsurance)insurance).setArea(rs.getInt("area"));
-				switch (rs.getString("buildingtype")) {
-				case "Apartment":((FireInsurance)insurance).setBuildingType(EBuildingType.APARTMENT);break; 
-				case "Factory":((FireInsurance)insurance).setBuildingType(EBuildingType.FACTORY);break; 
-				case "House":((FireInsurance)insurance).setBuildingType(EBuildingType.HOUSE);break; 
-				case "WareHouse":((FireInsurance)insurance).setBuildingType(EBuildingType.WAREHOUSE);break; 
-				case "building":((FireInsurance)insurance).setBuildingType(EBuildingType.BUILDING);break; 
-				default:break;
-				}
-				((FireInsurance)insurance).setContractor(rs.getString("contractor"));
-				((FireInsurance)insurance).setAge(rs.getInt("age"));
-				((FireInsurance)insurance).setUnitPrice(rs.getInt("unitprice"));
-			}
-			rs.close();
-		} catch (Exception e) {e.getStackTrace();}
+//		try {
+//			String query =  "SELECT * FROM fireinsurance,insurance "
+//					+ "WHERE fireinsurance.insurance_id = insurance.insuranceid "
+//					+ "AND fireinsurance.customer_id ="+id+";";
+//			ResultSet rs = this.select(query);
+//			while(rs.next()) {
+//				insurance.setInsuranceId(rs.getInt("insurance.insuranceid"));
+//				insurance.setInsuranceName(rs.getString("insurancename"));
+//				insurance.getContractCondition().setPaymentDate(rs.getInt("paymentdate"));
+//				switch (rs.getString("paymentmethod")) {
+//				case "CASH":insurance.getContractCondition().setPaymentType(EPaymentMethod.CASH);break; 
+//				case "CARD":insurance.getContractCondition().setPaymentType(EPaymentMethod.CARD);break; 
+//				case "ACCOUNT":insurance.getContractCondition().setPaymentType(EPaymentMethod.ACCOUNT);break; 
+//				default:break;
+//				}
+//				((FireInsurance)insurance).setArea(rs.getInt("area"));
+//				switch (rs.getString("buildingtype")) {
+//				case "Apartment":((FireInsurance)insurance).setBuildingType(EBuildingType.APARTMENT);break; 
+//				case "Factory":((FireInsurance)insurance).setBuildingType(EBuildingType.FACTORY);break; 
+//				case "House":((FireInsurance)insurance).setBuildingType(EBuildingType.HOUSE);break; 
+//				case "WareHouse":((FireInsurance)insurance).setBuildingType(EBuildingType.WAREHOUSE);break; 
+//				case "building":((FireInsurance)insurance).setBuildingType(EBuildingType.BUILDING);break; 
+//				default:break;
+//				}
+//				((FireInsurance)insurance).setContractor(rs.getString("contractor"));
+//				((FireInsurance)insurance).setAge(rs.getInt("age"));
+//				((FireInsurance)insurance).setUnitPrice(rs.getInt("unitprice"));
+//			}
+//			rs.close();
+//		} catch (Exception e) {e.getStackTrace();}
 		return insurance;
 	}
 	public Insurance selectByCancerInsurance(int id) {
-		System.out.println("asd");
 		Insurance insurance = new CancerInsurance();
-		try {
-			String query =  "SELECT * FROM cancerinsurance,insurance "
-					+ "WHERE cancerinsurance.insurance_id = insurance.insuranceid "
-					+ "AND cancerinsurance.customer_id ="+id+";";
-			ResultSet rs = this.select(query);
-			while(rs.next()) {
-				insurance.setInsuranceId(rs.getInt("insurance.insuranceid"));
-				insurance.setInsuranceName(rs.getString("insurancename"));
-				insurance.getContractCondition().setPaymentDate(rs.getInt("paymentdate"));
-				switch (rs.getString("paymentmethod")) {
-				case "CASH":insurance.getContractCondition().setPaymentType(EPaymentMethod.CASH);break; 
-				case "CARD":insurance.getContractCondition().setPaymentType(EPaymentMethod.CARD);break; 
-				case "ACCOUNT":insurance.getContractCondition().setPaymentType(EPaymentMethod.ACCOUNT);break; 
-				default:break;
-				}
-			}
-			rs.close();
-		} catch (Exception e) {e.getStackTrace();}
+//		try {
+//			String query =  "SELECT * FROM cancerinsurance,insurance "
+//					+ "WHERE cancerinsurance.insurance_id = insurance.insuranceid "
+//					+ "AND cancerinsurance.customer_id ="+id+";";
+//			ResultSet rs = this.select(query);
+//			while(rs.next()) {
+//				insurance.setInsuranceId(rs.getInt("insurance.insuranceid"));
+//				insurance.setInsuranceName(rs.getString("insurancename"));
+//				insurance.getContractCondition().setPaymentDate(rs.getInt("paymentdate"));
+//				switch (rs.getString("paymentmethod")) {
+//				case "CASH":insurance.getContractCondition().setPaymentType(EPaymentMethod.CASH);break; 
+//				case "CARD":insurance.getContractCondition().setPaymentType(EPaymentMethod.CARD);break; 
+//				case "ACCOUNT":insurance.getContractCondition().setPaymentType(EPaymentMethod.ACCOUNT);break; 
+//				default:break;
+//				}
+//			}
+//			rs.close();
+//		} catch (Exception e) {e.getStackTrace();}
 		return insurance;
 	}
 	public void delete(EInsuranceType eInsuranceType, int customerId) {

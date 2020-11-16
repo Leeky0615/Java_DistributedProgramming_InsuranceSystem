@@ -53,9 +53,9 @@ public class InsuranceRegistrationImpl implements InsuranceRegistration {
 		this.insuranceRegistrationDao.update(true, this.customer.getId());
 	}
 	
-	public boolean writeCustomerInfomation(String customerName, String customerId){
+	public boolean writeCustomerInfomation(String customerName, String customerSID){
 		for (Customer customer : this.customerList.getCustomerList()) {
-			if (customer.getName().equals(customerName) && customer.getCustomerId().equals(customerId)) {
+			if (customer.getName().equals(customerName) && customer.getCustomerSID().equals(customerSID)) {
 				this.setCustomer(customer);
 				return true;
 			}
@@ -65,13 +65,13 @@ public class InsuranceRegistrationImpl implements InsuranceRegistration {
 	public void writeInsuranceInformation(Insurance insurance, EInsuranceType type, Vector<Object> infos){
 		if (type == EInsuranceType.CANCER) {
 			CancerInsurance cancerInsurance = (CancerInsurance)insurance;
-			cancerInsurance.getContractCondition().setPaymentType((EPaymentMethod) infos.get(0));
-			cancerInsurance.getContractCondition().setPaymentDate((int) infos.get(1));
+			cancerInsurance.setPaymentMethod((EPaymentMethod) infos.get(0));
+			cancerInsurance.setPaymentDate((int) infos.get(1));
 			this.insuranceRegistrationDao.insert(this.customer, cancerInsurance);
 		}else if(type == EInsuranceType.CAR) {
 			CarInsurance carInsurance = (CarInsurance)insurance;
-			carInsurance.getContractCondition().setPaymentType((EPaymentMethod) infos.get(0));
-			carInsurance.getContractCondition().setPaymentDate((int) infos.get(1));
+			carInsurance.setPaymentMethod((EPaymentMethod) infos.get(0));
+			carInsurance.setPaymentDate((int) infos.get(1));
 			carInsurance.setCarNum((int) infos.get(2));
 			carInsurance.setAge((int) infos.get(3));
 			carInsurance.setCarType((ECarType) infos.get(4));
@@ -80,8 +80,8 @@ public class InsuranceRegistrationImpl implements InsuranceRegistration {
 			this.insuranceRegistrationDao.insert(this.customer, carInsurance);
 		}else if(type == EInsuranceType.FIRE) {
 			FireInsurance fireInsurance = (FireInsurance)insurance;
-			fireInsurance.getContractCondition().setPaymentType((EPaymentMethod) infos.get(0));
-			fireInsurance.getContractCondition().setPaymentDate((int) infos.get(1));
+			fireInsurance.setPaymentMethod((EPaymentMethod) infos.get(0));
+			fireInsurance.setPaymentDate((int) infos.get(1));
 			fireInsurance.setArea((int) infos.get(2));
 			fireInsurance.setAge((int) infos.get(3));
 			fireInsurance.setBuildingType((EBuildingType) infos.get(4));

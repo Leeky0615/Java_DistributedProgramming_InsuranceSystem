@@ -20,9 +20,9 @@ public class CancerPanel extends JPanel {
 	private JTextField paymentDate_t;
 	public CancerPanel() {
 		this.setLayout(null);
-		this.setBorder(new TitledBorder(new LineBorder(Color.lightGray,1),"¾Ïº¸Çè °¡ÀÔ"));
+		this.setBorder(new TitledBorder(new LineBorder(Color.lightGray,1),"ì•”ë³´í—˜ ê°€ì…"));
 
-		JLabel paymentMethod_l = new JLabel("³³ÀÔ¹æ½Ä");
+		JLabel paymentMethod_l = new JLabel("ë‚©ì…ë°©ì‹");
 		paymentMethod_l.setBounds(12, 43, 56, 20);
 		paymentMethod_l.setFont(EViewFrame.eFont.getFont());
 		paymentMethod_l.setHorizontalAlignment(SwingConstants.LEFT);
@@ -41,14 +41,14 @@ public class CancerPanel extends JPanel {
 		paymentDate_t.setColumns(10);
 		add(paymentDate_t);
 		
-		JLabel paymentDate_l = new JLabel("¸Å¿ù ³³ÀÔÀÏ");
+		JLabel paymentDate_l = new JLabel("ë§¤ì›” ë‚©ì…ì¼");
 		paymentDate_l.setBounds(220, 41, 74, 20);
 		paymentDate_l.setFont(EViewFrame.eFont.getFont());
 		paymentDate_l.setHorizontalAlignment(SwingConstants.LEFT);
 		add(paymentDate_l);
 		
-		JLabel lblNewLabel = new JLabel("¼±ÅÃÇÏ½Å ¾Ïº¸Çè¿¡ °¡ÀÔ ¿äÃ»À» ÇÏ½Ã°Ú½À´Ï±î?");
-		lblNewLabel.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 18));
+		JLabel lblNewLabel = new JLabel("ì„ íƒí•˜ì‹  ì•”ë³´í—˜ì— ê°€ì… ìš”ì²­ì„ í•˜ì‹œê² ìŠµë‹ˆê¹Œ?");
+		lblNewLabel.setFont(new Font("ë§‘ì€ ê³ ë”•", Font.BOLD, 18));
 		lblNewLabel.setBounds(12, 87, 426, 76);
 		add(lblNewLabel);
 		

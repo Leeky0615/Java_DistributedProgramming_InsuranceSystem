@@ -41,31 +41,31 @@ public class AcceptedInsPanel extends JPanel {
 		this.removeAll();
 		this.setLayout(null);
 		
-		// º¸Çè¼³°è¼­ ¸®½ºÆ® Å×ÀÌºí
+		// ë³´í—˜ì„¤ê³„ì„œ ë¦¬ìŠ¤íŠ¸ í…Œì´ë¸”
 		this.insuranceDesignTable = new InsuranceDesignTable((InsuranceDesignListImpl) this.insuranceDesignList, true);
 		this.insuranceDesignTable.addMouseListener(mousehandler);
 		JScrollPane scroll = new JScrollPane();
 		scroll.setBounds(12, 10, 576, 364);
-		scroll.setBorder(new TitledBorder(new LineBorder(Color.lightGray,1),"½ÂÀÎµÈ º¸Çè¼³°è¼­ ¸®½ºÆ®"));
+		scroll.setBorder(new TitledBorder(new LineBorder(Color.lightGray,1),"ìŠ¹ì¸ëœ ë³´í—˜ì„¤ê³„ì„œ ë¦¬ìŠ¤íŠ¸"));
 		scroll.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 		scroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_NEVER);
 		scroll.setViewportView(this.insuranceDesignTable);
 		scroll.setPreferredSize(new Dimension(EMainFrame.eWidth.getValue(),50));
 		this.add(scroll);
 		
-		// ¹öÆ°ÀÌ ´ã±ä ÆĞ³Î »ı¼º
+		// ë²„íŠ¼ì´ ë‹´ê¸´ íŒ¨ë„ ìƒì„±
 		JPanel panel = new JPanel();
 		panel.setLayout(null);
 		panel.setBounds(12, 384, 576, 116);
 		panel.setBorder(new TitledBorder(new LineBorder(Color.lightGray,1)));
 		this.actionHandler = new ActionHandler();
 		
-		this.detailCheckBtn = new JButton("º¸Çè »ó¼¼ È®ÀÎÇÏ±â");
+		this.detailCheckBtn = new JButton("ë³´í—˜ ìƒì„¸ í™•ì¸í•˜ê¸°");
 		this.detailCheckBtn.setFont(EViewFrame.eFont.getFont());
 		this.detailCheckBtn.setBounds(12, 10, 552, 42);
 		this.detailCheckBtn.addActionListener(this.actionHandler);
 		
-		this.backBtn = new JButton("µÚ·Î°¡±â");
+		this.backBtn = new JButton("ë’¤ë¡œê°€ê¸°");
 		this.backBtn.setFont(EViewFrame.eFont.getFont());
 		this.backBtn.setBounds(12, 62, 552, 42);
 		this.backBtn.addActionListener(this.actionHandler);
@@ -76,16 +76,16 @@ public class AcceptedInsPanel extends JPanel {
 		updateUI();
 	}
 	
-	// ¹öÆ° Å¬¸¯½Ã ½ÇÇàµÇ´Â ¸Ş¼Òµå
+	// ë²„íŠ¼ í´ë¦­ì‹œ ì‹¤í–‰ë˜ëŠ” ë©”ì†Œë“œ
 	public void buttonClick(Object source) {
 		if (source.equals(this.backBtn)) {
-			// µÚ·Î°¡±â ¹öÆ°Å¬¸¯½Ã ÇöÀç ÆĞ³ÎÀ» ÃÊ±âÈ­ÇÏ°í ÀÌÀü ÆĞ³ÎÀ» »ı¼º
+			// ë’¤ë¡œê°€ê¸° ë²„íŠ¼í´ë¦­ì‹œ í˜„ì¬ íŒ¨ë„ì„ ì´ˆê¸°í™”í•˜ê³  ì´ì „ íŒ¨ë„ì„ ìƒì„±
 			this.removeAll();
 			this.acceptInsPanel.createPanel();
 			this.insuranceDesignTable.setVisible(false);
 			this.backBtn.setVisible(false);
 		}else if(source.equals(this.detailCheckBtn)){
-			// »ó¼¼Á¶È¸ ¹öÆ°Å¬¸¯½Ã »ó¼¼Á¶È¸ÆĞ³ÎÀ» »ı¼º
+			// ìƒì„¸ì¡°íšŒ ë²„íŠ¼í´ë¦­ì‹œ ìƒì„¸ì¡°íšŒíŒ¨ë„ì„ ìƒì„±
 			this.removeAll();
 			InsuranceDesignPanel insuranceDesignPanel = new InsuranceDesignPanel(this,this.insuranceDesignList,this.insuranceDesignTable.getRow());
 			this.setLayout(new GridLayout(1,1));
@@ -95,16 +95,16 @@ public class AcceptedInsPanel extends JPanel {
 		revalidate();
 	}
 	
-	// ¹öÆ°Å¬¸¯½Ã »ç¿ëµÇ´Â Handler
+	// ë²„íŠ¼í´ë¦­ì‹œ ì‚¬ìš©ë˜ëŠ” Handler
 	private class ActionHandler implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			buttonClick(e.getSource());
 		}
 	}
-	// Å×ÀÌºíÀ» ´õºíÅ¬¸¯ÇßÀ» ½Ã  ¹öÆ°ÀÌ ´­·Á ÆĞ³ÎÀÌ »ı¼ºµÊ.
+	// í…Œì´ë¸”ì„ ë”ë¸”í´ë¦­í–ˆì„ ì‹œ  ë²„íŠ¼ì´ ëˆŒë ¤ íŒ¨ë„ì´ ìƒì„±ë¨.
 		public void selectRow() {
 			if (this.insuranceDesignTable.getRow() == null) {
-				JOptionPane.showMessageDialog(null, "º¸Çè¼³°è¼­¸¦ ¼±ÅÃÇØ ÁÖ¼¼¿ä.", "º¸Çè¼³°è¼­ ¼±ÅÃ", JOptionPane.WARNING_MESSAGE);
+				JOptionPane.showMessageDialog(null, "ë³´í—˜ì„¤ê³„ì„œë¥¼ ì„ íƒí•´ ì£¼ì„¸ìš”.", "ë³´í—˜ì„¤ê³„ì„œ ì„ íƒ", JOptionPane.WARNING_MESSAGE);
 				return;
 			}else{this.detailCheckBtn.doClick();}
 		}

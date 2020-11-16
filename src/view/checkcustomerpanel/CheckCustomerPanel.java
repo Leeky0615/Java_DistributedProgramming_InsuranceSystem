@@ -53,10 +53,10 @@ public class CheckCustomerPanel extends DefaultPanel {
 		JPanel searchPanel = new JPanel();
 		searchPanel.setBounds(12, 10, 576, 107);
 		searchPanel.setLayout(null);
-		searchPanel.setBorder(new TitledBorder(new LineBorder(Color.lightGray,1),"°í°´ °Ë»öÇÏ±â"));
+		searchPanel.setBorder(new TitledBorder(new LineBorder(Color.lightGray,1),"ê³ ê° ê²€ìƒ‰í•˜ê¸°"));
 		
-		// °í°´ ÀÌ¸§
-		JLabel customerName_l = new JLabel("ÀÌ¸§");
+		// ê³ ê° ì´ë¦„
+		JLabel customerName_l = new JLabel("ì´ë¦„");
 		customerName_l.setHorizontalAlignment(SwingConstants.CENTER);
 		customerName_l.setFont(EViewFrame.eFont.getFont());
 		customerName_l.setBounds(12, 27, 159, 30);
@@ -68,8 +68,8 @@ public class CheckCustomerPanel extends DefaultPanel {
 		searchPanel.add(customerName_t);
 		customerName_t.setColumns(10);
 		
-		// °í°´ ÁÖ¹Îµî·Ï¹øÈ£
-		JLabel customerId_l = new JLabel("ÁÖ¹Îµî·Ï¹øÈ£");
+		// ê³ ê° ì£¼ë¯¼ë“±ë¡ë²ˆí˜¸
+		JLabel customerId_l = new JLabel("ì£¼ë¯¼ë“±ë¡ë²ˆí˜¸");
 		customerId_l.setHorizontalAlignment(SwingConstants.CENTER);
 		customerId_l.setFont(EViewFrame.eFont.getFont());
 		customerId_l.setBounds(12, 66, 159, 30);
@@ -91,39 +91,39 @@ public class CheckCustomerPanel extends DefaultPanel {
 		customerId_t2.setBounds(306, 67, 99, 30);
 		searchPanel.add(customerId_t2);
 		
-		// °Ë»ö ¹öÆ°
-		searchButton = new JButton("°Ë»ö");
+		// ê²€ìƒ‰ ë²„íŠ¼
+		searchButton = new JButton("ê²€ìƒ‰");
 		searchButton.setFont(EViewFrame.eFont.getFont());
 		searchButton.setBounds(447, 25, 98, 71);
 		searchButton.addActionListener(this.actionHandler);
 		searchPanel.add(searchButton);
 		this.add(searchPanel);
 		
-		// °í°´ ¸®½ºÆ® Å×ÀÌºí
+		// ê³ ê° ë¦¬ìŠ¤íŠ¸ í…Œì´ë¸”
 		this.customerTable = new CustomerTable(this.customerList, ETableStatus.checkCustomer);
 		this.customerTable.addMouseListener(this.mousehandler);
 		JScrollPane scroll = new JScrollPane();
 		scroll.setBounds(12, 127, 576, 185);
-		scroll.setBorder(new TitledBorder(new LineBorder(Color.lightGray,1),"°í°´ ¸®½ºÆ®"));
+		scroll.setBorder(new TitledBorder(new LineBorder(Color.lightGray,1),"ê³ ê° ë¦¬ìŠ¤íŠ¸"));
 		scroll.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 		scroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_NEVER);
 		scroll.setViewportView(this.customerTable);
 		scroll.setPreferredSize(new Dimension(EMainFrame.eWidth.getValue(),50));
 		this.add(scroll);
 		
-		// ¹öÆ° ÆĞ³Î
+		// ë²„íŠ¼ íŒ¨ë„
 		JPanel panel = new JPanel();
 		panel.setBounds(12, 322, 576, 168);
 		panel.setBorder(new TitledBorder(new LineBorder(Color.lightGray,1)));
-		this.detailCheckBtn = new JButton("°í°´ Á¤º¸ È®ÀÎÇÏ±â");
+		this.detailCheckBtn = new JButton("ê³ ê° ì •ë³´ í™•ì¸í•˜ê¸°");
 		this.detailCheckBtn.setFont(EViewFrame.eFont.getFont());
 		this.detailCheckBtn.setBounds(12, 62, 552, 42);
 		this.detailCheckBtn.addActionListener(actionHandler);
-		this.addCustomerBtn = new JButton("°í°´ Á¤º¸ Ãß°¡ÇÏ±â");
+		this.addCustomerBtn = new JButton("ê³ ê° ì •ë³´ ì¶”ê°€í•˜ê¸°");
 		this.addCustomerBtn.setFont(EViewFrame.eFont.getFont());
 		this.addCustomerBtn.setBounds(12, 10, 552, 42);
 		this.addCustomerBtn.addActionListener(actionHandler);
-		this.refreshBtn = new JButton("»õ·Î °íÄ§");
+		this.refreshBtn = new JButton("ìƒˆë¡œ ê³ ì¹¨");
 		this.refreshBtn.setFont(EViewFrame.eFont.getFont());
 		this.refreshBtn.setBounds(12, 114, 552, 42);
 		this.refreshBtn.addActionListener(actionHandler);
@@ -137,17 +137,17 @@ public class CheckCustomerPanel extends DefaultPanel {
 	}
 	
 	public void buttonClick(Object source) {
-		// °í°´ »ó¼¼Á¶È¸ ¹öÆ° Å¬¸¯½Ã
+		// ê³ ê° ìƒì„¸ì¡°íšŒ ë²„íŠ¼ í´ë¦­ì‹œ
 		if (source.equals(this.detailCheckBtn)) {
-			// ¼±ÅÃµÈ Row°¡ ¾ø´Â °æ¿ì
+			// ì„ íƒëœ Rowê°€ ì—†ëŠ” ê²½ìš°
 			if (this.customerTable.getRow() == null) {
-				JOptionPane.showMessageDialog(null, "°í°´À» ¼±ÅÃÇØÁÖ¼¼¿ä.", "°í°´ ¼±ÅÃ", JOptionPane.WARNING_MESSAGE);
+				JOptionPane.showMessageDialog(null, "ê³ ê°ì„ ì„ íƒí•´ì£¼ì„¸ìš”.", "ê³ ê° ì„ íƒ", JOptionPane.WARNING_MESSAGE);
 				return;
-			// ÇöÀç ÆĞ³ÎÀ» ÃÊ±âÈ­ ÇÏ°í °í°´Á¤º¸ ÆĞ³ÎÀ» »ı¼º
+			// í˜„ì¬ íŒ¨ë„ì„ ì´ˆê¸°í™” í•˜ê³  ê³ ê°ì •ë³´ íŒ¨ë„ì„ ìƒì„±
 			}else {
 				this.removeAll();
 				CustomerInfoPanel customerInfoPanel = new CustomerInfoPanel(this, this.customerList);
-				// °í°´À» Á¶È¸ÇÒ¶§ ÆÄ¶ó¹ÌÅÍ·Î Row¸¦ ÁÖ´Â °æ¿ì
+				// ê³ ê°ì„ ì¡°íšŒí• ë•Œ íŒŒë¼ë¯¸í„°ë¡œ Rowë¥¼ ì£¼ëŠ” ê²½ìš°
 				if(customerInfoPanel.setSelectedRow(this.customerTable.getRow(), null, null) != null) {
 					customerInfoPanel.createDefaultPanel();
 					customerInfoPanel.createButton();
@@ -155,17 +155,17 @@ public class CheckCustomerPanel extends DefaultPanel {
 					this.add(customerInfoPanel);
 				}else {this.createPanel();}
 			}
-		// °í°´ Ãß°¡ÇÏ±â ¹öÆ°Å¬¸¯½Ã
+		// ê³ ê° ì¶”ê°€í•˜ê¸° ë²„íŠ¼í´ë¦­ì‹œ
 		}else if(source.equals(this.addCustomerBtn)) {
 			AddCustomerFrame addCustomerFrame = new AddCustomerFrame(this.checkCustomerInfo);
 			addCustomerFrame.setVisible(true);
 			if (!(addCustomerFrame.isFocusable())) {this.createPanel();}
-		// °Ë»ö ¹öÆ° Å¬¸¯½Ã 
+		// ê²€ìƒ‰ ë²„íŠ¼ í´ë¦­ì‹œ 
 		}else if(source.equals(this.searchButton)){
 			String customerName = this.customerName_t.getText();
 			String customerId = this.customerId_t1.getText()+"-"+this.customerId_t2.getText();
 			this.removeAll();
-			// °í°´À» Á¶È¸ÇÒ¶§ ÆÄ¶ó¹ÌÅÍ·Î °í°´ÀÌ¸§°ú ÁÖ¹Îµî·Ï¹øÈ£¸¦ ÁÖ´Â °æ¿ì
+			// ê³ ê°ì„ ì¡°íšŒí• ë•Œ íŒŒë¼ë¯¸í„°ë¡œ ê³ ê°ì´ë¦„ê³¼ ì£¼ë¯¼ë“±ë¡ë²ˆí˜¸ë¥¼ ì£¼ëŠ” ê²½ìš°
 			CustomerInfoPanel customerInfoPanel = new CustomerInfoPanel(this, this.customerList);
 			if (customerInfoPanel.setSelectedRow(null,customerName,customerId) != null) {
 				customerInfoPanel.createDefaultPanel();
@@ -173,10 +173,10 @@ public class CheckCustomerPanel extends DefaultPanel {
 				this.setLayout(new GridLayout(1,1));
 				this.add(customerInfoPanel);
 			}else {
-				JOptionPane.showMessageDialog(null, "µî·ÏµÇÁö ¾ÊÀº °í°´ÀÔ´Ï´Ù. ´Ù½Ã È®ÀÎÇØ ÁÖ¼¼¿ä.", "µî·ÏµÇÁö ¾ÊÀº °í°´", JOptionPane.WARNING_MESSAGE);
+				JOptionPane.showMessageDialog(null, "ë“±ë¡ë˜ì§€ ì•Šì€ ê³ ê°ì…ë‹ˆë‹¤. ë‹¤ì‹œ í™•ì¸í•´ ì£¼ì„¸ìš”.", "ë“±ë¡ë˜ì§€ ì•Šì€ ê³ ê°", JOptionPane.WARNING_MESSAGE);
 				this.createPanel();
 			}
-		// »õ·Î°íÄ§ ¹öÆ° Å¬¸¯½Ã	
+		// ìƒˆë¡œê³ ì¹¨ ë²„íŠ¼ í´ë¦­ì‹œ	
 		}else if (source.equals(this.refreshBtn)) {this.createPanel();}
 		this.updateUI();
 	}
@@ -187,7 +187,7 @@ public class CheckCustomerPanel extends DefaultPanel {
 	}
 	public void selectRow() {
 		if (this.customerTable.getRow() == null) {
-			JOptionPane.showMessageDialog(null, "°í°´À» ¼±ÅÃÇØ ÁÖ¼¼¿ä.", "°í°´ ¼±ÅÃ", JOptionPane.WARNING_MESSAGE);
+			JOptionPane.showMessageDialog(null, "ê³ ê°ì„ ì„ íƒí•´ ì£¼ì„¸ìš”.", "ê³ ê° ì„ íƒ", JOptionPane.WARNING_MESSAGE);
 			return;
 		}else{this.detailCheckBtn.doClick();}
 	}

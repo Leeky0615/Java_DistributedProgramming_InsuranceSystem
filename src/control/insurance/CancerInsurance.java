@@ -1,45 +1,30 @@
 package control.insurance;
 
-import constants.ControlConstants.EInsuranceType;
+import constants.ControlConstants.EPaymentMethod;
 import control.customer.Customer;
 
-public class CancerInsurance extends Insurance {
+public class CancerInsurance extends Insurance{
 
-	private int anticancerTreatmentCost;
-	private boolean caregiverStatus;
-	private int diagnosisExpense;
-	private int hospitalizationFee;
-	private float incidenceProbability;
-	private int payRenewalStatus;
-	private int surgeryExpenseStatus;
-	private String cancerType;
+	private int paymentDate;
+	private EPaymentMethod paymentMethod;
+	private int insuranceId;
+	private int customerId;
 	
-	public CancerInsurance(){
-		super();
-		this.insuranceType = EInsuranceType.CANCER;
-	}
+	public CancerInsurance(){}
 
-	public int getAnticancerTreatmentCost() {return anticancerTreatmentCost;}
-	public void setAnticancerTreatmentCost(int anticancerTreatmentCost) {this.anticancerTreatmentCost = anticancerTreatmentCost;}
-	public boolean isCaregiverStatus() {return caregiverStatus;}
-	public void setCaregiverStatus(boolean caregiverStatus) {this.caregiverStatus = caregiverStatus;}
-	public int getDiagnosisExpense() {return diagnosisExpense;}
-	public void setDiagnosisExpense(int diagnosisExpense) {this.diagnosisExpense = diagnosisExpense;}
-	public int getHospitalizationFee() {return hospitalizationFee;}
-	public void setHospitalizationFee(int hospitalizationFee) {this.hospitalizationFee = hospitalizationFee;}
-	public float getIncidenceProbability() {return incidenceProbability;}
-	public void setIncidenceProbability(float incidenceProbability) {this.incidenceProbability = incidenceProbability;}
-	public int getPayRenewalStatus() {return payRenewalStatus;}
-	public void setPayRenewalStatus(int payRenewalStatus) {this.payRenewalStatus = payRenewalStatus;}
-	public int getSurgeryExpenseStatus() {return surgeryExpenseStatus;}
-	public void setSurgeryExpenseStatus(int surgeryExpenseStatus) {this.surgeryExpenseStatus = surgeryExpenseStatus;}
-	public String getCancerType() {return cancerType;}
-	public void setCancerType(String cancerType) {this.cancerType = cancerType;}
+	public int getPaymentDate() {return paymentDate;}
+	public void setPaymentDate(int paymentDate) {this.paymentDate = paymentDate;}
+	public EPaymentMethod getPaymentMethod() {return paymentMethod;}
+	public void setPaymentMethod(EPaymentMethod paymentMethod) {this.paymentMethod = paymentMethod;}
+	public int getInsuranceId() {return insuranceId;}
+	public void setInsuranceId(int insuranceId) {this.insuranceId = insuranceId;}
+	public int getCustomerId() {return customerId;}
+	public void setCustomerId(int customerId) {this.customerId = customerId;}
 	
 	public float calculateRate(Customer targetCustomer) {
 		float rate =0;
 		
-		if(targetCustomer.isGender().equals("¿©¼º")) {rate*=0.9;}
+		if(targetCustomer.isGender().equals("ï¿½ï¿½ï¿½ï¿½")) {rate*=0.9;}
 		else {rate*=1.1;}
 		
 		if(targetCustomer.getAge()<10) {rate*=0.5;

@@ -17,7 +17,7 @@ public class CustomerDaoImpl extends Dao implements CustomerDao{
 			StringBuilder sb1 = new StringBuilder();
 			sb1.append("INSERT INTO customer (`name`, `customerid`, `gender`, `age`, `phoneNum`, `job`, `illHistory`, `property`, `registrationstatus`) VALUES ('");
 			sb1.append(customer.getName()+"', '");
-			sb1.append(customer.getCustomerId()+"', '");
+			sb1.append(customer.getCustomerSID()+"', '");
 			sb1.append(customer.getGender()+"', '");
 			sb1.append(customer.getAge()+"', '");
 			sb1.append(customer.getPhoneNum()+"', '");
@@ -38,7 +38,7 @@ public class CustomerDaoImpl extends Dao implements CustomerDao{
 				Customer customer = new Customer();
 				customer.setId(rs.getInt("id"));
 				customer.setName(rs.getString("name"));
-				customer.setCustomerId(rs.getString("customerid"));
+				customer.setCustomerSID(rs.getString("customerSID"));
 				customer.setGender(rs.getBoolean("gender"));
 				customer.setAge(rs.getInt("age"));
 				customer.setPhoneNum(rs.getString("phoneNum"));

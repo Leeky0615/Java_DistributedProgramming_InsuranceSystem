@@ -21,6 +21,7 @@ import constants.ViewConstants.EViewFrame;
 import constants.ViewConstants.EcarInsurance;
 import control.customer.Customer;
 import control.customer.CustomerListImpl;
+import control.insurance.CancerInsurance;
 import control.insurance.CarInsurance;
 import control.insurance.FireInsurance;
 import control.insurance.Insurance;
@@ -48,14 +49,14 @@ public class RequestAcceptCustomerPanel extends JPanel {
 	
 	public void setSelectedRow(Vector<Object> vector) {
 		for(Customer customer : this.customerList.getCustomerList()) {
-			if (customer.getCustomerId().equals(vector.get(1))) {this.customer = customer;}
+			if (customer.getCustomerSID().equals(vector.get(1))) {this.customer = customer;}
 		}
 	}
 	
 	public Vector<Object> setCustomerInfos() {
 		Vector<Object> infos = new Vector<Object>();
 		infos.add(this.customer.getName());
-		infos.add(this.customer.getCustomerId());
+		infos.add(this.customer.getCustomerSID());
 		infos.add(this.customer.isGender());
 		infos.add(this.customer.getAge());
 		infos.add(this.customer.getPhoneNum());
@@ -70,17 +71,21 @@ public class RequestAcceptCustomerPanel extends JPanel {
 		Vector<Object> infos = new Vector<Object>();
 		infos.add(insurance.getInsuranceId());
 		infos.add(insurance.getInsuranceName());
-		infos.add(insurance.getContractCondition().getPaymentType().getText());
-		infos.add(insurance.getContractCondition().getPaymentDate());
 		switch(insurance.getInsuranceType()) {
-		case CANCER:break;
+		case CANCER:
+			infos.add(((CancerInsurance)insurance).getPaymentMethod().getText());
+			infos.add(((CancerInsurance)insurance).getPaymentDate());
+			break;
 		case CAR:
+			infos.add(((CarInsurance)insurance).getPaymentMethod().getText());
+			infos.add(((CarInsurance)insurance).getPaymentDate());
 			infos.add(((CarInsurance)insurance).getCarType().getText());
 			infos.add(((CarInsurance)insurance).getCarNum());
-			infos.add(((CarInsurance)insurance).getDamage());
 			infos.add(((CarInsurance)insurance).getAge());
 			break;
 		case FIRE:
+			infos.add(((FireInsurance)insurance).getPaymentMethod().getText());
+			infos.add(((FireInsurance)insurance).getPaymentDate());
 			infos.add(((FireInsurance)insurance).getBuildingType().getText());
 			infos.add(((FireInsurance)insurance).getArea());
 			infos.add(((FireInsurance)insurance).getUnitPrice());
@@ -94,7 +99,7 @@ public class RequestAcceptCustomerPanel extends JPanel {
 	public void createCustomerInfoPanel() {
 		JPanel customerInfoPanel = new JPanel();
 		customerInfoPanel.setPreferredSize(new Dimension(600, 180));
-		customerInfoPanel.setBorder(new TitledBorder(new LineBorder(Color.lightGray,1),"°í°´ »ó¼¼Á¤º¸"));
+		customerInfoPanel.setBorder(new TitledBorder(new LineBorder(Color.lightGray,1),"ê³ ê° ìƒì„¸ì •ë³´"));
 		customerInfoPanel.setLayout(new FlowLayout());
 		
 		Vector<Object> infos = setCustomerInfos();
@@ -112,7 +117,7 @@ public class RequestAcceptCustomerPanel extends JPanel {
 		JPanel insuranceInfoPanel = new JPanel();
 		insuranceInfoPanel.setPreferredSize(new Dimension(600, 180));
 		insuranceInfoPanel.setLayout(new FlowLayout());
-		insuranceInfoPanel.setBorder(new TitledBorder(new LineBorder(Color.lightGray,1),"º¸Çè »ó¼¼Á¤º¸"));
+		insuranceInfoPanel.setBorder(new TitledBorder(new LineBorder(Color.lightGray,1),"ë³´í—˜ ìƒì„¸ì •ë³´"));
 		add(insuranceInfoPanel);
 		
 		Vector<Object> infos = setInsuranceInfos();
@@ -155,19 +160,19 @@ public class RequestAcceptCustomerPanel extends JPanel {
 		btnPanel.setLayout(new FlowLayout());
 		btnPanel.setPreferredSize(new Dimension(600, 100));
 		
-		approve = new JButton("»óÇ° °¡ÀÔ ½ÂÀÎ");
+		approve = new JButton("ìƒí’ˆ ê°€ì… ìŠ¹ì¸");
 		approve.setFont(EViewFrame.eFont.getFont());
 		approve.setPreferredSize(new Dimension(270, 40));
 		approve.addActionListener(actionHandler);
 		btnPanel.add(approve);
 		
-		disApprove = new JButton("»óÇ° °¡ÀÔ ¹Ì½ÂÀÎ");
+		disApprove = new JButton("ìƒí’ˆ ê°€ì… ë¯¸ìŠ¹ì¸");
 		disApprove.setFont(EViewFrame.eFont.getFont());
 		disApprove.setPreferredSize(new Dimension(270, 40));
 		disApprove.addActionListener(actionHandler);
 		btnPanel.add(disApprove);
 		
-		back = new JButton("µ¹¾Æ°¡±â");
+		back = new JButton("ëŒì•„ê°€ê¸°");
 		back.setFont(EViewFrame.eFont.getFont());
 		back.setPreferredSize(new Dimension(550, 40));
 		back.addActionListener(actionHandler);
@@ -182,10 +187,10 @@ public class RequestAcceptCustomerPanel extends JPanel {
 			this.setVisible(false);
 		}else if(source.equals(this.approve)) {
 			this.insuranceRegistration.approve(this.customer);
-			JOptionPane.showMessageDialog(this, "ÇØ´ç »óÇ°¿¡ °¡ÀÔµÇ¾ú½À´Ï´Ù.");
+			JOptionPane.showMessageDialog(this, "í•´ë‹¹ ìƒí’ˆì— ê°€ì…ë˜ì—ˆìŠµë‹ˆë‹¤.");
 		}else if(source.equals(this.disApprove)) {
 			this.insuranceRegistration.disApprove(insurance.getInsuranceType(),this.customer);
-			JOptionPane.showMessageDialog(this, "º¸Çè °¡ÀÔÀÌ ½ÂÀÎµÇÁö ¾Ê¾Ò½À´Ï´Ù.");
+			JOptionPane.showMessageDialog(this, "ë³´í—˜ ê°€ì…ì´ ìŠ¹ì¸ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤.");
 		}
 	}
 	protected class ActionHandler implements ActionListener {
@@ -194,3 +199,4 @@ public class RequestAcceptCustomerPanel extends JPanel {
 		}
 	}
 }
+

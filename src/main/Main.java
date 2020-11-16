@@ -10,5 +10,7 @@ public class Main {
 		
 		MainFrame mainFrame = new MainFrame(menu);
 		mainFrame.setVisible(true);
+		
+//		깃허브 연동확인
 	}
 }

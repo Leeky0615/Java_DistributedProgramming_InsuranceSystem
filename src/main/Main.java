@@ -10,7 +10,5 @@ public class Main {
 		
 		MainFrame mainFrame = new MainFrame(menu);
 		mainFrame.setVisible(true);
-
-//		한글 ...
 	}
 }

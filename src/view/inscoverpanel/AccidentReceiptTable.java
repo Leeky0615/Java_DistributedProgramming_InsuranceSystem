@@ -2,8 +2,8 @@ package view.inscoverpanel;
 
 import java.util.Vector;
 
-import control.accidentRecipt.AccidentReceipt;
-import control.accidentRecipt.AccidentReceiptListImpl;
+import control.accidentReciept.AccidentReceipt;
+import control.accidentReciept.AccidentReceiptListImpl;
 import view.defaultClass.Default_AccidnetReceiptTable;
 
 public class AccidentReceiptTable extends Default_AccidnetReceiptTable {
@@ -26,8 +26,8 @@ public class AccidentReceiptTable extends Default_AccidnetReceiptTable {
 			accidentReceipts.add(accidentReceipt.getCustomerName());
 			accidentReceipts.add(accidentReceipt.getInsuranceType());
 			accidentReceipts.add(accidentReceipt.getAccidentDate());
-			if (accidentReceipt.isPaymentStatus()) {accidentReceipts.add("Áö±Þ¿Ï·á");}
-			else {accidentReceipts.add("¹ÌÁö±Þ");}
+			if (accidentReceipt.isPaymentStatus()) {accidentReceipts.add("ï¿½ï¿½ï¿½Þ¿Ï·ï¿½");}
+			else {accidentReceipts.add("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");}
 			this.rowData.add(accidentReceipts);
 		}
 		this.updateUI();

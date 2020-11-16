@@ -17,7 +17,7 @@ import javax.swing.border.TitledBorder;
 
 import constants.ViewConstants.EMainFrame;
 import constants.ViewConstants.EViewFrame;
-import control.accidentRecipt.AccidentReceiptListImpl;
+import control.accidentReciept.AccidentReceiptListImpl;
 import control.insuranceCover.InsuranceCoverImpl;
 import main.Menu;
 import view.defaultClass.DefaultPanel;
@@ -49,7 +49,7 @@ public class InsCoverPanel extends DefaultPanel{
 		this.accidentReceiptTable.addMouseListener(this.mousehandler);
 		JScrollPane scroll = new JScrollPane();
 		scroll.setBounds(12, 10, 576, 302);
-		scroll.setBorder(new TitledBorder(new LineBorder(Color.lightGray,1),"»ç°íÁ¢¼ö¼­ ¸®½ºÆ®"));
+		scroll.setBorder(new TitledBorder(new LineBorder(Color.lightGray,1),"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®"));
 		scroll.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 		scroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_NEVER);
 		scroll.setViewportView(this.accidentReceiptTable);
@@ -59,16 +59,16 @@ public class InsCoverPanel extends DefaultPanel{
 		JPanel panel = new JPanel();
 		panel.setBounds(12, 322, 576, 168);
 		panel.setBorder(new TitledBorder(new LineBorder(Color.lightGray,1)));
-		this.detailCheckBtn = new JButton("»ç°íÁ¢¼ö¼­ »ó¼¼ È®ÀÎÇÏ±â");
+		this.detailCheckBtn = new JButton("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ È®ï¿½ï¿½ï¿½Ï±ï¿½");
 		this.detailCheckBtn.setFont(EViewFrame.eFont.getFont());
 		this.detailCheckBtn.setBounds(12, 62, 552, 42);
 		this.detailCheckBtn.addActionListener(actionHandler);
-		this.writeAccidentReceiptBtn = new JButton("»ç°íÁ¢¼ö¼­ ÀÛ¼ºÇÏ±â");
+		this.writeAccidentReceiptBtn = new JButton("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Û¼ï¿½ï¿½Ï±ï¿½");
 		this.writeAccidentReceiptBtn.setFont(EViewFrame.eFont.getFont());
 		this.writeAccidentReceiptBtn.setBounds(12, 10, 552, 42);
 		this.writeAccidentReceiptBtn.addActionListener(actionHandler);
 		panel.add(this.writeAccidentReceiptBtn);
-		this.refreshBtn = new JButton("»õ·Î °íÄ§");
+		this.refreshBtn = new JButton("ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä§");
 		this.refreshBtn.setFont(EViewFrame.eFont.getFont());
 		this.refreshBtn.setBounds(12, 114, 552, 42);
 		this.refreshBtn.addActionListener(actionHandler);
@@ -84,7 +84,7 @@ public class InsCoverPanel extends DefaultPanel{
 	public void buttonClick(Object source) {
 		if (source.equals(this.detailCheckBtn)) {
 			if (this.accidentReceiptTable.getRow() == null) {
-				JOptionPane.showMessageDialog(null, "»ç°íÁ¢¼ö¼­¸¦ ¼±ÅÃÇØ ÁÖ¼¼¿ä.", "»ç°í Á¢¼ö¼­ ¼±ÅÃ", JOptionPane.WARNING_MESSAGE);
+				JOptionPane.showMessageDialog(null, "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö¼ï¿½ï¿½ï¿½.", "ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½", JOptionPane.WARNING_MESSAGE);
 				return;
 			}else {
 				this.removeAll();
@@ -107,10 +107,10 @@ public class InsCoverPanel extends DefaultPanel{
 		}
 	}
 	
-	// Å×ÀÌºíÀ» ´õºíÅ¬¸¯ÇßÀ» ½Ã º¸Çè »ó¼¼Á¶È¸ÇÏ±â ¹öÆ°ÀÌ ´­·Á º¸Çè»ó¼¼Á¶È¸ÇÏ±âÆÐ³ÎÀÌ »ý¼ºµÊ.
+	// ï¿½ï¿½ï¿½Ìºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Å¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½È¸ï¿½Ï±ï¿½ ï¿½ï¿½Æ°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¸ï¿½Ï±ï¿½ï¿½Ð³ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
 	public void selectRow() {
 		if (this.accidentReceiptTable.getRow() == null) {
-			JOptionPane.showMessageDialog(null, "»ç°íÁ¢¼ö¼­¸¦ ¼±ÅÃÇØ ÁÖ¼¼¿ä.", "»ç°í Á¢¼ö¼­ ¼±ÅÃ", JOptionPane.WARNING_MESSAGE);
+			JOptionPane.showMessageDialog(null, "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö¼ï¿½ï¿½ï¿½.", "ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½", JOptionPane.WARNING_MESSAGE);
 			return;
 		}else{this.detailCheckBtn.doClick();}
 	}

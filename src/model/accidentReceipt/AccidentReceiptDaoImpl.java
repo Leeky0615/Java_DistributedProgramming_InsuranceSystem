@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 import constants.ControlConstants.EInsuranceType;
 import constants.ControlConstants.EPaymentMethod;
-import control.accidentRecipt.AccidentReceipt;
+import control.accidentReciept.AccidentReceipt;
 import model.Dao;
 
 public class AccidentReceiptDaoImpl extends Dao implements AccidentReceiptDao{

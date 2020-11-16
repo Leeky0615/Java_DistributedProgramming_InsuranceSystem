@@ -1,4 +1,4 @@
-package control.accidentRecipt;
+package control.accidentReciept;
 
 import constants.ControlConstants.EInsuranceType;
 import constants.ControlConstants.EPaymentMethod;
@@ -7,8 +7,8 @@ public class AccidentReceipt {
 
 	private int accidentReceiptId;
 	private String accidentReceiptName;
-	private String CustomerName;
-	private String CustomerId;
+	private String customerName;
+	private String customerId;
 	private EInsuranceType insuranceType;
 	private EPaymentMethod paymentMethod;
 	private String accidentDate;
@@ -18,20 +18,19 @@ public class AccidentReceipt {
 	private String diagnosisName;
 	private String damageScale;
 	private String accidentCircumstances;
-	private boolean paymentStatus;
 	private int money;
+	private boolean paymentStatus;
 
-	public AccidentReceipt(){
-	}
+	public AccidentReceipt(){}
 
 	public String getAccidentReceiptName() {return accidentReceiptName;}
 	public void setAccidentReceiptName(String accidentReceiptName) {this.accidentReceiptName = accidentReceiptName;}
 	public int getAccidentReceiptId() {return accidentReceiptId;}
 	public void setAccidentReceiptId(int accidentReceiptId) {this.accidentReceiptId = accidentReceiptId;}
-	public String getCustomerName() {return CustomerName;}
-	public void setCustomerName(String CustomerName) {this.CustomerName = CustomerName;}
-	public String getCustomerId() {return CustomerId;}
-	public void setCustomerId(String customerId) {CustomerId = customerId;}
+	public String getCustomerName() {return customerName;}
+	public void setCustomerName(String CustomerName) {this.customerName = CustomerName;}
+	public String getCustomerId() {return customerId;}
+	public void setCustomerId(String customerId) {this.customerId = customerId;}
 	public EInsuranceType getInsuranceType() {return insuranceType;}
 	public void setInsuranceType(EInsuranceType insuranceType) {this.insuranceType = insuranceType;}
 	public EPaymentMethod getPaymentMethod() {return paymentMethod;}

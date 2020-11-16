@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import constants.ControlConstants.EInsuranceType;
+import control.customer.Customer;
 import control.insurance.CancerInsurance;
 import control.insurance.CarInsurance;
 import control.insurance.FireInsurance;
@@ -51,29 +52,16 @@ public class InsuranceRegistrationDaoImpl extends Dao implements InsuranceRegist
 	 */
 	public void insert(Insurance insurance) {super.insert(insurance.getClass().getSimpleName(), insurance);}
 	
-	public void update(boolean status ,int customerId) {
-		try {
-			StringBuilder sb1 = new StringBuilder();
-			sb1.append("UPDATE customer SET `registrationstatus` = '");
-			if (status) {sb1.append(1+"' WHERE (`id` = '");}
-			else {sb1.append(0+"' WHERE (`id` = '");}
-			sb1.append(customerId+"');");
-			super.update(sb1.toString());
-		} catch (Exception e) {e.getStackTrace();}
-	}
+	public void update(Customer customer) {super.update(customer.getClass().getSimpleName(), customer);}
 	
 	public void delete(EInsuranceType eInsuranceType, int customerId) {
-		try {
-			String query = "";
 			if (eInsuranceType == EInsuranceType.CANCER) {
-				query = "DELETE FROM cancerinsurance WHERE (`customer_id' = '"+customerId+"');";
+				super.update(CancerInsurance.class.getSimpleName(), customerId);
 			}else if(eInsuranceType == EInsuranceType.CAR) {
-				query = "DELETE FROM carinsurance WHERE (`customer_id' = '"+customerId+"');";
+				super.update(CarInsurance.class.getSimpleName(), customerId);
 			}else if(eInsuranceType == EInsuranceType.FIRE) {
-				query = "DELETE FROM fireinsurance WHERE (`customer_id' = '"+customerId+"');";
+				super.update(FireInsurance.class.getSimpleName(), customerId);
 			}
-			super.delete(query);
-		} catch (Exception e) {e.getStackTrace();}
 	}
 }
 	

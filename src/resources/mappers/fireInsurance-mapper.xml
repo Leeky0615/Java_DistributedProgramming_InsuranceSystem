@@ -35,6 +35,11 @@
 		VALUES (#{age}, #{area}, #{contractor}, #{unitPrice}, #{buildingType},
 		 #{paymentDate}, #{paymentMethod}, #{insuranceId}, #{customerId})
     </insert>
+    
+    <delete id="Delete" parameterType="int">
+    	DELETE FROM fireinsurance
+    	WHERE customer_id = #{customer_id}
+    </delete>   
 </mapper>
 
  

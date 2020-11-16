@@ -23,8 +23,7 @@ public class InsuranceCoverImpl implements InsuranceCover {
 	public void acceptAccident(int accidentReceiptId){
 		AccidentReceipt accidentReceipt = this.accidentReceiptList.searchById(accidentReceiptId);
 		accidentReceipt.setPaymentStatus(true);
-		this.accidentReceiptDao.update(true,accidentReceiptId);
-		System.out.println(accidentReceipt.isPaymentStatus());
+		this.accidentReceiptDao.update(accidentReceipt);
 	}
 	
 	public void writeAccientReceipt(Vector<String> accidentReceiptContents){

@@ -24,14 +24,18 @@ public class AcceptInsuranceDesignImpl implements AcceptInsuranceDesign {
 				int insuranceId = insuranceDesignId+(insuranceDesign.getInsurance().getInsuranceType().ordinal()+1)*1000;
 				insuranceDesign.getInsurance().setInsuranceId(insuranceId);
 				this.insuranceList.add(insuranceDesign.getInsurance());
-				this.insuranceDesignDao.update(EApprovalStatus.ApprovalIns, insuranceDesignId, insuranceId);
+				insuranceDesign.setApprovalStatus(EApprovalStatus.ApprovalIns);
+				this.insuranceDesignDao.update(insuranceDesign);
 			}
 		}
 	}
 	public void disapprove(int insuranceDesignId){
 		for(InsuranceDesign insuranceDesign : this.insuranceDesignList.getInsuranceDesignList()) {
 			if (insuranceDesign.getInsuranceDesignId() == insuranceDesignId) {
-				this.insuranceDesignDao.update(EApprovalStatus.DisApprovalIns, insuranceDesignId, insuranceDesign.getInsurance().getInsuranceType().ordinal()*1000+insuranceDesignId);
+				int insuranceId = insuranceDesignId+(insuranceDesign.getInsurance().getInsuranceType().ordinal()+1)*1000;
+				insuranceDesign.getInsurance().setInsuranceId(insuranceId);
+				insuranceDesign.setApprovalStatus(EApprovalStatus.DisApprovalIns);
+				this.insuranceDesignDao.update(insuranceDesign);
 				this.insuranceDesignDao.delete(insuranceDesignId);
 				this.insuranceDesignList.searchById(insuranceDesignId).setApprovalStatus(EApprovalStatus.DisApprovalIns);
 			}

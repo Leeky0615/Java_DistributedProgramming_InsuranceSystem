@@ -45,7 +45,7 @@
     <update id="Update" parameterType="Design">
     	UPDATE insurancedesign
     	SET approvalStatus = #{approvalStatus}
-    	WHERE insurancedesignId = #{insuranceDesignId}
+    	WHERE insuranceDesignId = #{insuranceDesignId}
     </update>
 </mapper>
  

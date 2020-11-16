@@ -41,16 +41,16 @@ public class InsuranceRegistrationImpl implements InsuranceRegistration {
 	public Insurance searchInsurance(int insuranceId) {return this.insuranceList.searchById(insuranceId);}
 	public void approve(Customer customer){
 		customer.setRegistrationStatus(false);
-		this.insuranceRegistrationDao.update(false, customer.getId());
+		this.insuranceRegistrationDao.update(customer);
 	}
 	public void disApprove(EInsuranceType eInsuranceType, Customer customer) {
 		customer.setRegistrationStatus(false);
-		this.insuranceRegistrationDao.update(false, customer.getId());
-		this.insuranceRegistrationDao.delete(eInsuranceType, customer.getId());
+		this.insuranceRegistrationDao.update(customer);
+		this.insuranceRegistrationDao.delete(eInsuranceType,customer.getId());
 	}
 	public void request(){
 		customer.setRegistrationStatus(true);
-		this.insuranceRegistrationDao.update(true, this.customer.getId());
+		this.insuranceRegistrationDao.update(customer);
 	}
 	
 	public boolean writeCustomerInfomation(String customerName, String customerSID){

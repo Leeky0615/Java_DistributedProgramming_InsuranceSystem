@@ -29,5 +29,10 @@
     	INSERT INTO cancerinsurance 
 		VALUES (#{paymentDate}, #{paymentMethod}, #{insuranceId}, #{customerId})
     </insert>
+    
+    <delete id="Delete" parameterType="int">
+    	DELETE FROM cancerinsurance
+    	WHERE customer_id = #{customer_id}
+    </delete>   
 </mapper>
  

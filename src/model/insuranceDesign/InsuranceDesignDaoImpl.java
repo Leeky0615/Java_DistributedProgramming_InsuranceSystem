@@ -35,40 +35,46 @@ public class InsuranceDesignDaoImpl extends Dao implements InsuranceDesignDao{
 		super.insert(insuranceDesign.getClass().getSimpleName(), insuranceDesign);
 	}
 
-// -------------------------------------------------------------------------
-
-	
-	public void update(EApprovalStatus status ,int insuranceDesignId, int insuranceId) {
-		try {
-			StringBuilder sb1 = new StringBuilder();
-
-			int eNum = status.ordinal() +1;
-			sb1.append("UPDATE `insurance`.`insurancedesign` SET `approvalStatus` = '");
-			sb1.append(eNum+"' WHERE (`insurancedesignID` = '");
-			sb1.append(insuranceDesignId+"');");
-			super.insert(sb1.toString());
-			if (status == EApprovalStatus.ApprovalIns) {
-				StringBuilder sb2 = new StringBuilder();
-				sb2.append("UPDATE insurance SET `insuranceid` = '");
-				sb2.append(insuranceId+"' WHERE (`insuranceid` = '");
-				sb2.append(insuranceDesignId*10+"');");
-				super.insert(sb2.toString());
-				
-				StringBuilder sb3 = new StringBuilder();
-				sb3.append("UPDATE contractcondition SET `contractconditionid` = '");
-				sb3.append(insuranceId+"' WHERE (`contractconditionid` = '");
-				sb3.append(insuranceDesignId*10+"');");
-				super.insert(sb3.toString());
-			}
-		} catch (Exception e) {e.getStackTrace();}
-	}
 	public void delete(int insuranceDesignId) {
-		try {
-			String query = "DELETE FROM insurance WHERE (`insuranceid` = '"+insuranceDesignId*10+"');";
-			String query1 = "DELETE FROM contractcondition WHERE (`contractconditionid` = '"+insuranceDesignId*10+"');";
-			super.delete(query);
-			super.delete(query1);
-		} catch (Exception e) {e.getStackTrace();}
+		super.update(Insurance.class.getSimpleName(), insuranceDesignId*10);
+		super.update(ContractCondition.class.getSimpleName(), insuranceDesignId*10);
 	}
+// -------------------------------------------------------------------------
+// 이거만남음.....
+	
+	public void update(InsuranceDesign insuranceDesign) {
+		super.update(insuranceDesign.getClass().getSimpleName(), insuranceDesign);
+		if (insuranceDesign.getApprovalStatus() == EApprovalStatus.ApprovalIns) {
+			Insurance insurance = insuranceDesign.getInsurance();
+			ContractCondition contractCondition = insurance.getContractCondition();
+			
+			super.update(insurance.getClass().getSimpleName(), insurance);
+			super.update(contractCondition.getClass().getSimpleName(), contractCondition);
+		}
 
+//		try {
+//			StringBuilder sb1 = new StringBuilder();
+//
+//			int eNum = status.ordinal() +1;
+//			sb1.append("UPDATE `insurance`.`insurancedesign` SET `approvalStatus` = '");
+//			sb1.append(eNum+"' WHERE (`insurancedesignID` = '");
+//			sb1.append(insuranceDesignId+"');");
+//			super.insert(sb1.toString());
+//			if (status == EApprovalStatus.ApprovalIns) {
+//				StringBuilder sb2 = new StringBuilder();
+//				sb2.append("UPDATE insurance SET `insuranceid` = '");
+//				sb2.append(insuranceId+"' WHERE (`insuranceid` = '");
+//				sb2.append(insuranceDesignId*10+"');");
+//				super.insert(sb2.toString());
+//				
+//				StringBuilder sb3 = new StringBuilder();
+//				sb3.append("UPDATE contractcondition SET `contractconditionid` = '");
+//				sb3.append(insuranceId+"' WHERE (`contractconditionid` = '");
+//				sb3.append(insuranceDesignId*10+"');");
+//				super.insert(sb3.toString());
+//			}
+//		} catch (Exception e) {e.getStackTrace();}
+	}
+	
+	
 }

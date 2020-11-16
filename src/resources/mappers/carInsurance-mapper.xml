@@ -35,4 +35,9 @@
 		VALUES (#{age}, #{driver}, #{carNum}, #{carAccidentHistory}, #{carType},
 		 #{paymentDate}, #{paymentMethod}, #{insuranceId}, #{customerId})
     </insert>
+    
+    <delete id="Delete" parameterType="int">
+    	DELETE FROM carinsurance
+    	WHERE customer_id = #{customer_id}
+    </delete>   
 </mapper>

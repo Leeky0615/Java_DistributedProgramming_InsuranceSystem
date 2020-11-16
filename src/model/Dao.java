@@ -47,17 +47,9 @@ public class Dao {
 	// session의 insert함수 호출 -> 파라미터로 매핑된 클래스.태그 와 객체(DB에 들어갈 데이터가 담김)를 사용
 	public void insert(String query, Object object) {session.insert(query+".Insert",object);}
 	
-	// 마이바티스로 바꾸면서 없어질 부분
-	public void update(String query) {
-		try {
-			statement = connection.createStatement();
-			statement.executeUpdate(query);
-		} catch (Exception e) {e.printStackTrace();}
-	}
-	public void delete(String query) {
-		try {
-			statement = connection.createStatement();
-			statement.executeUpdate(query);
-		} catch (Exception e) {e.printStackTrace();}
-	}
+	// session의 update함수 호출 -> 파라미터로 매핑된 클래스.태그 와 객체(DB에 들어갈 데이터가 담김)를 사용
+	public void update(String query, Object object) {session.update(query+".Update",object);}
+	
+	// session의 delete함수 호출 -> 파라미터로 매핑된 클래스.태그 와 객체(DB에 들어갈 데이터가 담김)를 사용
+	public void delete(String query, Object object) {session.insert(query+".Delete",object);}
 }

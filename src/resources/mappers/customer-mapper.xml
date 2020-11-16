@@ -29,6 +29,10 @@
 		#{phoneNum}, #{job}, #{illHistory}, #{property}, #{registrationStatus})
    </insert>    
    
-   
+   <update id="Update" parameterType="Customer">
+    	UPDATE customer
+    	SET registrationstatus = #{registrationStatus}
+    	WHERE id = #{id}
+    </update>
 </mapper>
    

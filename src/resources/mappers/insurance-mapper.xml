@@ -33,5 +33,16 @@
     	INSERT INTO insurance 
 		VALUES (#{insuranceId}, #{insuranceType}, #{insuranceDescription}, #{insuranceName}, #{contractConditionId})
     </insert>
+    
+    <update id="Update" parameterType="Insurance">
+    	UPDATE insurance
+    	SET insuranceid = #{insuranceId}
+    	WHERE insuranceid = #{insuranceDesignId}
+    </update>
+    
+    <delete id="Delete" parameterType="int">
+    	DELETE FROM insurance
+    	WHERE insuranceid = #{insuranceid}
+    </delete>
 </mapper>
     

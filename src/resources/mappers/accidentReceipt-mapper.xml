@@ -33,7 +33,13 @@
 		VALUES (#{accidentReceiptId}, #{accidentReceiptName}, #{customerName}, #{customerId}, 
 		#{insuranceType}, #{paymentMethod}, #{accidentDate}, #{hospitalName}, #{deathStatus}, 
 		#{accidentPlace}, #{diagnosisName}, #{damageScale}, #{accidentCircumstances}, #{money}, #{paymentStatus})
-    </insert>    
+    </insert>
+    
+    <update id="Update" parameterType="AccidentReceipt">
+    	UPDATE accidentreceipt
+    	SET paymentstatus = #{paymentStatus}
+    	WHERE accidentReceiptid = #{accidentReceiptId}
+    </update>    
 </mapper>
 
  

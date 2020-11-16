@@ -17,6 +17,10 @@
     	INSERT INTO contractcondition 
 		VALUES (#{contractConditionId}, #{guarantee}, #{period}, #{payment})
     </insert>
-        
+    
+    <delete id="Delete" parameterType="int">
+    	DELETE FROM contractcondition
+    	WHERE contractconditionid = #{contractconditionid}
+    </delete>    
 </mapper>
  

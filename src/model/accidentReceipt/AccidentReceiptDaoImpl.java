@@ -24,16 +24,6 @@ public class AccidentReceiptDaoImpl extends Dao implements AccidentReceiptDao{
 	public void insert(AccidentReceipt accidentReceipt) {super.insert(accidentReceipt.getClass().getSimpleName(), accidentReceipt);}
 //-----------------------------------------------------------------------------------------------
 
-	public void update(boolean status, int accidentReceiptId) {
-		try {
-			System.out.println(status);
-			StringBuilder sb1 = new StringBuilder();
-			sb1.append("UPDATE accidentreceipt SET `paymentstatus` = '");
-			if (status) {sb1.append(1+"' WHERE (`accidentReceiptid` = '");}
-			else {sb1.append(0+"' WHERE (`accidentReceiptid` = '");}
-			sb1.append(accidentReceiptId+"');");
-			super.update(sb1.toString());
-		} catch (Exception e) {e.getStackTrace();}
-	}
+	public void update(AccidentReceipt accidentReceipt) {super.update(accidentReceipt.getClass().getSimpleName(), accidentReceipt);}
 	
 }

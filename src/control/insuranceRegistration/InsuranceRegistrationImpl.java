@@ -64,30 +64,30 @@ public class InsuranceRegistrationImpl implements InsuranceRegistration {
 	}
 	public void writeInsuranceInformation(Insurance insurance, EInsuranceType type, Vector<Object> infos){
 		if (type == EInsuranceType.CANCER) {
-			CancerInsurance cancerInsurance = (CancerInsurance)insurance;
-			cancerInsurance.setPaymentMethod((EPaymentMethod) infos.get(0));
-			cancerInsurance.setPaymentDate((int) infos.get(1));
-			this.insuranceRegistrationDao.insert(this.customer, cancerInsurance);
+			insurance = new CancerInsurance();
+			((CancerInsurance) insurance).setPaymentMethod((EPaymentMethod) infos.get(0));
+			((CancerInsurance) insurance).setPaymentDate((int) infos.get(1));
+			this.insuranceRegistrationDao.insert((CancerInsurance) insurance);
 		}else if(type == EInsuranceType.CAR) {
-			CarInsurance carInsurance = (CarInsurance)insurance;
-			carInsurance.setPaymentMethod((EPaymentMethod) infos.get(0));
-			carInsurance.setPaymentDate((int) infos.get(1));
-			carInsurance.setCarNum((int) infos.get(2));
-			carInsurance.setAge((int) infos.get(3));
-			carInsurance.setCarType((ECarType) infos.get(4));
-			carInsurance.setCarAccidentHistory((boolean) infos.get(5));
-			carInsurance.setDriver(this.customer.getName());
-			this.insuranceRegistrationDao.insert(this.customer, carInsurance);
+			insurance = new CarInsurance();
+			((CarInsurance) insurance).setPaymentMethod((EPaymentMethod) infos.get(0));
+			((CarInsurance) insurance).setPaymentDate((int) infos.get(1));
+			((CarInsurance) insurance).setCarNum((int) infos.get(2));
+			((CarInsurance) insurance).setAge((int) infos.get(3));
+			((CarInsurance) insurance).setCarType((ECarType) infos.get(4));
+			((CarInsurance) insurance).setCarAccidentHistory((boolean) infos.get(5));
+			((CarInsurance) insurance).setDriver(this.customer.getName());
+			this.insuranceRegistrationDao.insert((CarInsurance) insurance);
 		}else if(type == EInsuranceType.FIRE) {
-			FireInsurance fireInsurance = (FireInsurance)insurance;
-			fireInsurance.setPaymentMethod((EPaymentMethod) infos.get(0));
-			fireInsurance.setPaymentDate((int) infos.get(1));
-			fireInsurance.setArea((int) infos.get(2));
-			fireInsurance.setAge((int) infos.get(3));
-			fireInsurance.setBuildingType((EBuildingType) infos.get(4));
-			fireInsurance.setUnitPrice((int) infos.get(5));
-			fireInsurance.setContractor(this.customer.getName());
-			this.insuranceRegistrationDao.insert(this.customer, fireInsurance);
+			insurance = new FireInsurance();
+			((FireInsurance) insurance).setPaymentMethod((EPaymentMethod) infos.get(0));
+			((FireInsurance) insurance).setPaymentDate((int) infos.get(1));
+			((FireInsurance) insurance).setArea((int) infos.get(2));
+			((FireInsurance) insurance).setAge((int) infos.get(3));
+			((FireInsurance) insurance).setBuildingType((EBuildingType) infos.get(4));
+			((FireInsurance) insurance).setUnitPrice((int) infos.get(5));
+			((FireInsurance) insurance).setContractor(this.customer.getName());
+			this.insuranceRegistrationDao.insert((FireInsurance) insurance);
 		}
 	}
 	public Insurance getReadyInsurance(int id) {

@@ -9,6 +9,7 @@ public class InsuranceDesign {
 	private String writer;
 	private String madeDate;
 	private EApprovalStatus approvalStatus;
+	private int insuranceId;
 	
 	private Insurance insurance;
 	
@@ -22,6 +23,8 @@ public class InsuranceDesign {
 	public void setMadeDate(String madeDate) {this.madeDate = madeDate;}
 	public EApprovalStatus getApprovalStatus() {return approvalStatus;}
 	public void setApprovalStatus(EApprovalStatus approvalStatus) {this.approvalStatus = approvalStatus;}
+	public int getInsuranceId() {return insuranceId;}
+	public void setInsuranceId(int insuranceId) {this.insuranceId = insuranceId;}
 	
 	public Insurance getInsurance() {return insurance;}
 	public void setInsurance(Insurance insurance) {this.insurance = insurance;}

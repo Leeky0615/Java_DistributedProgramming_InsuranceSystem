@@ -7,8 +7,8 @@
 <!--id : resultMap이름으로 사용될 id 설정  -->
     <resultMap type="Cancer" id="Cancer">
     <!--id : primary key로 사용되는 column / property : 해당 column의 값과 매치되는 (클래스에서 사용되는)변수이름  -->
-        <result column="paymentdate" property="paymentdate" />
-        <result column="paymentmethod" property="paymentmethod" />
+        <result column="paymentdate" property="paymentDate" />
+        <result column="paymentmethod" property="paymentMethod" />
         <result column="customer_id" property="customerId" />
         
         <association column="insurance_id" property="insurance" javaType="Insurance">
@@ -24,5 +24,10 @@
 		WHERE cancerinsurance.insurance_id = insurance.insuranceid
 		AND cancerinsurance.customer_id =#{customer_id}
     </select>
+    
+    <insert id="Insert" parameterType="Cancer">
+    	INSERT INTO cancerinsurance 
+		VALUES (#{paymentDate}, #{paymentMethod}, #{insuranceId}, #{customerId})
+    </insert>
 </mapper>
  

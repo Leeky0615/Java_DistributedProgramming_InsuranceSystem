@@ -33,7 +33,7 @@ public class Dao {
 			 *  빌드-> build(reader)하고 
 			 *  세션을 열어준다. -> openSession()
 			 */
-			this.session = new SqlSessionFactoryBuilder().build(reader).openSession();
+			this.session = new SqlSessionFactoryBuilder().build(reader).openSession(true);
 			
 			// new Map
 			this.param = new HashMap<String,Object>();
@@ -44,14 +44,9 @@ public class Dao {
 			this.statement = this.connection.createStatement();
 		} catch (Exception e) {e.printStackTrace();}
 	}
-	@SuppressWarnings("unused")
-	public void invokeMethod(String className, String metohdName) {
-		try {
-			Class<?> clazz = Class.forName(className);
-			clazz.getClass().getMethod(metohdName).invoke(clazz);
-		}
-		catch (Exception e) {e.printStackTrace();}
-	}
+	// session의 insert함수 호출 -> 파라미터로 매핑된 클래스.태그 와 객체(DB에 들어갈 데이터가 담김)를 사용
+	public void insert(String query, Object object) {session.insert(query+".Insert",object);}
+	
 	// 마이바티스로 바꾸면서 없어질 부분
 	public void update(String query) {
 		try {
@@ -63,12 +58,6 @@ public class Dao {
 		try {
 			statement = connection.createStatement();
 			statement.executeUpdate(query);
-		} catch (Exception e) {e.printStackTrace();}
-	}
-	public void insert(String query) {
-		try {
-			statement = connection.createStatement();
-			statement.execute(query);
 		} catch (Exception e) {e.printStackTrace();}
 	}
 }

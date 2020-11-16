@@ -29,5 +29,9 @@
 		AND insurance.contractcondition_id>=1000;
     </select>
     
+    <insert id="Insert" parameterType="Insurance">
+    	INSERT INTO insurance 
+		VALUES (#{insuranceId}, #{insuranceType}, #{insuranceDescription}, #{insuranceName}, #{contractConditionId})
+    </insert>
 </mapper>
     

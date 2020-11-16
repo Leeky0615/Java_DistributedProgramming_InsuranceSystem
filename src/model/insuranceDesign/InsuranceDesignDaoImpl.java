@@ -4,50 +4,38 @@ import java.util.ArrayList;
 import java.util.List;
 
 import constants.ViewConstants.EApprovalStatus;
+import control.insurance.ContractCondition;
+import control.insurance.Insurance;
 import control.insuranceDevelopment.InsuranceDesign;
 import model.Dao;
 
 public class InsuranceDesignDaoImpl extends Dao implements InsuranceDesignDao{
 	public InsuranceDesignDaoImpl() {super();}
 	
+	/*  super클래스(Dao클래스)에서 선언한 session(인스턴스변수)의 
+	 *  함수 selectList()를 사용 -> 테이블에 있는 모든 값을 list에 담음
+	 *  selectList()에 있는 파라미터는 mapper.xml파일에서 
+	 *  미리 정해둔 Select태그를 이용 -> mapper이름+사용할 태그이름
+	 */
 	public ArrayList<InsuranceDesign> select() {
 		List<InsuranceDesign> list = session.selectList("Design.Select");
 		return (ArrayList<InsuranceDesign>)list;
 	}
 	
-	
-	
-// -------------------------------------------------------------------------
+	/*
+	 *  super클래스(Dao클래스)의 insert()함수 호출
+	 *  -> 파라미터로 객체의 이름과 객체를 보냄.
+	 */
 	public void insert(InsuranceDesign insuranceDesign) {
-		try {
-			StringBuilder sb1 = new StringBuilder();
-			sb1.append("INSERT INTO contractcondition (`contractconditionid`, `guarantee`, `period`, `payment`) VALUES ('");
-			sb1.append(insuranceDesign.getInsurance().getContractCondition().getContractConditionID()+"', '");
-			sb1.append(insuranceDesign.getInsurance().getContractCondition().getGuarantee()+"', '");
-			sb1.append(insuranceDesign.getInsurance().getContractCondition().getPeriod()+"', '");
-			sb1.append(insuranceDesign.getInsurance().getContractCondition().getPayment()+"');");
-			super.insert(sb1.toString());
-
-			StringBuilder sb2 = new StringBuilder();
-			sb2.append("INSERT INTO insurance (`insuranceid`, `insuranceType`,`insurancedescription`,`insurancename`, `contractcondition_id`) VALUES ('");
-			sb2.append(insuranceDesign.getInsurance().getInsuranceId()+"', '");
-			sb2.append(insuranceDesign.getInsurance().getInsuranceType()+"', '");
-			sb2.append(insuranceDesign.getInsurance().getInsuranceDescription()+"', '");
-			sb2.append(insuranceDesign.getInsurance().getInsuranceName()+"', '");
-			sb2.append(insuranceDesign.getInsurance().getContractCondition().getContractConditionID()+"');");
-			super.insert(sb2.toString());
-			
-			StringBuilder sb3 = new StringBuilder();
-			sb3.append("INSERT INTO insurancedesign (`insurancedesignID`, `writer`, `madeDate`,`insurance_id`,`approvalStatus`) VALUES ('");
-			sb3.append(insuranceDesign.getInsuranceDesignId()+"', '");
-			sb3.append(insuranceDesign.getWriter()+"', '");
-			sb3.append(insuranceDesign.getMadeDate()+"', '");
-			sb3.append(insuranceDesign.getInsurance().getInsuranceId()+"', '");
-			sb3.append("RequestInsDesign');");
-			super.insert(sb3.toString());
-		} catch (Exception e) {e.getStackTrace();}
+		Insurance insurance = insuranceDesign.getInsurance();
+		ContractCondition contractCondition = insurance.getContractCondition();
+		
+		super.insert(contractCondition.getClass().getSimpleName(), contractCondition);
+		super.insert(insurance.getClass().getSimpleName(), insurance);
+		super.insert(insuranceDesign.getClass().getSimpleName(), insuranceDesign);
 	}
 
+// -------------------------------------------------------------------------
 
 	
 	public void update(EApprovalStatus status ,int insuranceDesignId, int insuranceId) {

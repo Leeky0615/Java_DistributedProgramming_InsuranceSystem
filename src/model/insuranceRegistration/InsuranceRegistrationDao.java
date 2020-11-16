@@ -8,7 +8,7 @@ import control.insurance.Insurance;
 import control.insuranceDevelopment.InsuranceDesign;
 
 public interface InsuranceRegistrationDao {
-	public void insert(Customer customer, Insurance insuracne);
+	public void insert(Insurance insuracne);
 	public ArrayList<InsuranceDesign> select();
 	public void update(boolean status ,int customerId);
 	public Insurance selectByCancerInsurance(int customerId);

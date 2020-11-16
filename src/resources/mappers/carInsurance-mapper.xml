@@ -12,8 +12,8 @@
         <result column="carnum" property="carNum" />
         <result column="caraccidenthistory" property="carAccidentHistory"/>
         <result column="cartype" property="carType" />
-        <result column="paymentdate" property="paymentdate"/>
-        <result column="paymentmethod" property="paymentmethod" />
+        <result column="paymentdate" property="paymentDate"/>
+        <result column="paymentmethod" property="paymentMethod" />
         <result column="customer_id" property="customerId" />
         
         <association column="insurance_id" property="insurance" javaType="Insurance">
@@ -29,4 +29,10 @@
 		WHERE carinsurance.insurance_id = insurance.insuranceid
 		AND carinsurance.customer_id =#{customer_id}
     </select>
+    
+    <insert id="Insert" parameterType="Car">
+    	INSERT INTO carinsurance 
+		VALUES (#{age}, #{driver}, #{carNum}, #{carAccidentHistory}, #{carType},
+		 #{paymentDate}, #{paymentMethod}, #{insuranceId}, #{customerId})
+    </insert>
 </mapper>

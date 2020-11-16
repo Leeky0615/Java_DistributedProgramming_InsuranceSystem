@@ -12,8 +12,8 @@
         <result column="contractor" property="contractor" />
         <result column="unitprice" property="unitPrice"/>
         <result column="buildingtype" property="buildingType" />
-		<result column="paymentdate" property="paymentdate" />
-        <result column="paymentmethod" property="paymentmethod" />
+		<result column="paymentdate" property="paymentDate" />
+        <result column="paymentmethod" property="paymentMethod" />
         <result column="customer_id" property="customerId" />
         
             <association column="insurance_id" property="insurance" javaType="Insurance">
@@ -29,6 +29,12 @@
 		WHERE fireinsurance.insurance_id = insurance.insuranceid
 		AND fireinsurance.customer_id =#{customer_idid}
     </select>
+    
+    <insert id="Insert" parameterType="Fire">
+    	INSERT INTO fireinsurance 
+		VALUES (#{age}, #{area}, #{contractor}, #{unitPrice}, #{buildingType},
+		 #{paymentDate}, #{paymentMethod}, #{insuranceId}, #{customerId})
+    </insert>
 </mapper>
 
  

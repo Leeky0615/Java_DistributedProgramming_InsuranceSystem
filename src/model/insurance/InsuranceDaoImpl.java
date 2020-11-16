@@ -19,17 +19,10 @@ public class InsuranceDaoImpl extends Dao implements InsuranceDao{
 		return (ArrayList<Insurance>)list;
 	}
 	
-	
-// -------------------------------------------------------------------------
-	public void insert(Insurance insurance) {
-		try {
-			String query = "insert into contractCondition (guaranteeAmount, insurancePeriod, payment) values ("
-					+ insurance.getContractCondition().getGuarantee()+","
-					+ insurance.getContractCondition().getPeriod()+","
-					+ insurance.getContractCondition().getPayment()+",);"
-					;
-			super.insert(query);
-		} catch (Exception e) {}
-	}
+	/*
+	 *  super클래스(Dao클래스)의 insert()함수 호출
+	 *  -> 파라미터로 객체의 이름과 객체를 보냄.
+	 */
+	public void insert(Insurance insurance) {super.insert(insurance.getClass().getSimpleName(), insurance);}
 	
 }

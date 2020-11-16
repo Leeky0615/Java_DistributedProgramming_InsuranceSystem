@@ -19,23 +19,9 @@ public class CustomerDaoImpl extends Dao implements CustomerDao{
 		return (ArrayList<Customer>)list;
 	}
 	
-	
-//-------------------------------------------------------------------------------------------
-	public void insert(Customer customer) {
-		try {
-			StringBuilder sb1 = new StringBuilder();
-			sb1.append("INSERT INTO customer (`name`, `customerid`, `gender`, `age`, `phoneNum`, `job`, `illHistory`, `property`, `registrationstatus`) VALUES ('");
-			sb1.append(customer.getName()+"', '");
-			sb1.append(customer.getCustomerSID()+"', '");
-			sb1.append(customer.getGender()+"', '");
-			sb1.append(customer.getAge()+"', '");
-			sb1.append(customer.getPhoneNum()+"', '");
-			sb1.append(customer.getJob()+"', '");
-			sb1.append(customer.getillHistory()+"', '");
-			sb1.append(customer.getProperty()+"', '");
-			sb1.append(0+"');");
-			super.insert(sb1.toString());
-		} catch (Exception e) {e.printStackTrace();}
-	}
-	
+	/*
+	 *  super클래스(Dao클래스)의 insert()함수 호출
+	 *  -> 파라미터로 객체의 이름과 객체를 보냄.
+	 */
+	public void insert(Customer customer) {super.insert(customer.getClass().getSimpleName(), customer);}
 }

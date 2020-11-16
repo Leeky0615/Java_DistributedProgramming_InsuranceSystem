@@ -14,21 +14,18 @@ public class InsuranceDevelopmentImpl implements InsuranceDevelopment{
 	private InsuranceDesignDaoImpl insuranceDesignDao;
 	private InsuranceDesignList insuranceDesignList;
 
-	public InsuranceDevelopmentImpl(){
-		this.insuranceDesignDao = new InsuranceDesignDaoImpl();
-	}
-	public void associate(InsuranceDesignListImpl insuranceDesignList) {
-		this.insuranceDesignList = insuranceDesignList;
-	}
+	public InsuranceDevelopmentImpl(){this.insuranceDesignDao = new InsuranceDesignDaoImpl();}
+	
+	public void associate(InsuranceDesignListImpl insuranceDesignList) {this.insuranceDesignList = insuranceDesignList;}
 
 	public void designInsurance(Vector<String> infos){
 		InsuranceDesign insuranceDesign = new InsuranceDesign();
 		String insType = infos.get(EInsuranceDesign.insuranceType.ordinal());
-		// º¸Çè Á¾·ù¿¡ µû¶ó º¸ÇèÀ»¸¸µë
+		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		if (insType.equals(EInsuranceType.CANCER.getText())) {insuranceDesign.setInsurance(new CancerInsurance());}
 		else if(insType.equals(EInsuranceType.CAR.getText())) {insuranceDesign.setInsurance(new CarInsurance());}
 		else {insuranceDesign.setInsurance(new FireInsurance());}
-		// º¸Çè¼³°è¼­¿¡ º¸Çè Á¤º¸¿Í ¼³°èÁ¤º¸¸¦ ¼¼ÆÃÇÔ
+		// ï¿½ï¿½ï¿½è¼³ï¿½è¼­ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		insuranceDesign.setInsuranceDesignId(Integer.parseInt(infos.get(EInsuranceDesign.insuranceDesignId.ordinal())));
 		insuranceDesign.setWriter(infos.get(EInsuranceDesign.writer.ordinal()));
 		insuranceDesign.getInsurance().setInsuranceName(infos.get(EInsuranceDesign.insuranceName.ordinal()));
@@ -40,12 +37,10 @@ public class InsuranceDevelopmentImpl implements InsuranceDevelopment{
 		insuranceDesign.getInsurance().setInsuranceId(insuranceDesign.getInsuranceDesignId()*10);
 		insuranceDesign.getInsurance().getContractCondition().setContractConditionID(insuranceDesign.getInsuranceDesignId()*10);
 		insuranceDesign.setApprovalStatus(this.requestApproval());
-		// º¸Çè¼³°è¼­ ¸®½ºÆ®¿¡ º¸Çè¼³°è¼­¸¦ ³ÖÀ½
+		// ï¿½ï¿½ï¿½è¼³ï¿½è¼­ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½è¼³ï¿½è¼­ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		this.insuranceDesignList.add(insuranceDesign);
 		this.insuranceDesignDao.insert(insuranceDesign);
 	}
 	
-	public EApprovalStatus requestApproval(){
-		return EApprovalStatus.RequestInsDesign;
-	}
+	public EApprovalStatus requestApproval(){return EApprovalStatus.RequestInsDesign;}
 }

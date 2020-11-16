@@ -12,5 +12,11 @@
         <result column="period" property="period" />
         <result column="payment" property="payment" />
     </resultMap>
+    
+    <insert id="Insert" parameterType="ContractCondition">
+    	INSERT INTO contractcondition 
+		VALUES (#{contractConditionId}, #{guarantee}, #{period}, #{payment})
+    </insert>
+        
 </mapper>
  

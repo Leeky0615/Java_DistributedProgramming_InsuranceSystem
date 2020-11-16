@@ -7,6 +7,7 @@ public class Insurance {
 	private EInsuranceType insuranceType;
 	private String insuranceDescription;
 	private String insuranceName;
+	private int contractConditionId;
 	
 	private ContractCondition contractCondition;
 
@@ -22,6 +23,8 @@ public class Insurance {
 	public void setInsuranceDescription(String insuranceDescription) {this.insuranceDescription = insuranceDescription;}
 	public String getInsuranceName() {return insuranceName;}
 	public void setInsuranceName(String insuranceName) {this.insuranceName = insuranceName;}
+	public int getContractConditionId() {return contractConditionId;}
+	public void setContractConditionId(int contractConditionId) {this.contractConditionId = contractConditionId;}
 	
 	public ContractCondition getContractCondition() {return contractCondition;}
 	public void setContractCondition(ContractCondition contractCondition) {this.contractCondition = contractCondition;}

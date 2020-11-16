@@ -29,10 +29,7 @@
     </select>
     
     <insert id="Insert" parameterType="AccidentReceipt">
-    	INSERT INTO accidentreceipt (accidentReceiptid, accidentreceiptname, customername, 
-					customerid, insurancetype, paymentmethod, accidentdate,
-					hospitalname, deathstatus, accidentplace, diagnosisname,
-					damagescale, accidentcircumstances, money, paymentstatus)
+    	INSERT INTO accidentreceipt 
 		VALUES (#{accidentReceiptId}, #{accidentReceiptName}, #{customerName}, #{customerId}, 
 		#{insuranceType}, #{paymentMethod}, #{accidentDate}, #{hospitalName}, #{deathStatus}, 
 		#{accidentPlace}, #{diagnosisName}, #{damageScale}, #{accidentCircumstances}, #{money}, #{paymentStatus})

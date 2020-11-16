@@ -29,11 +29,23 @@
 	        </association>
         </association>
     </resultMap>
+    
     <select id="Select" resultMap="Design">
         SELECT * 
         FROM insurancedesign, insurance, contractcondition
 		WHERE insurancedesign.insurance_id = insurance.insuranceid
 		AND insurance.contractcondition_id = contractcondition.contractconditionid
     </select>
+    
+    <insert id="Insert" parameterType="Design">
+    	INSERT INTO insurancedesign 
+		VALUES (#{insuranceDesignId}, #{writer}, #{madeDate}, #{approvalStatus}, #{insuranceId})
+    </insert>
+    
+    <update id="Update" parameterType="Design">
+    	UPDATE insurancedesign
+    	SET approvalStatus = #{approvalStatus}
+    	WHERE insurancedesignId = #{insuranceDesignId}
+    </update>
 </mapper>
  

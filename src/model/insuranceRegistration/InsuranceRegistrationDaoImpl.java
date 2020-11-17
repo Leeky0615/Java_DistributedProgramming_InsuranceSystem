@@ -21,7 +21,7 @@ public class InsuranceRegistrationDaoImpl extends Dao implements InsuranceRegist
 	 *  미리 정해둔 Select태그를 이용 -> mapper이름+사용할 태그이름
 	 */
 	public ArrayList<InsuranceDesign> select() {
-		List<InsuranceDesign> list = session.selectList("Design.Select");
+		List<InsuranceDesign> list = session.selectList("InsuranceDesign.Select");
 		return (ArrayList<InsuranceDesign>)list;
 	}
 	

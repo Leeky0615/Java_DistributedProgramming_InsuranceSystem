@@ -6,13 +6,13 @@
 <!-- vo 객체들의 풀 네임을 사용하기 번거롭기 때문에 별칭을 등록하는 부분 -->
 <typeAliases>
 		<typeAlias type="control.accidentReceipt.AccidentReceipt" alias="AccidentReceipt"/>
-		<typeAlias type="control.insurance.CancerInsurance" alias="Cancer"/>
-		<typeAlias type="control.insurance.CarInsurance" alias="Car"/>
+		<typeAlias type="control.insurance.CancerInsurance" alias="CancerInsurance"/>
+		<typeAlias type="control.insurance.CarInsurance" alias="CarInsurance"/>
 		<typeAlias type="control.insurance.ContractCondition" alias="ContractCondition"/>
 		<typeAlias type="control.customer.Customer" alias="Customer"/>
-		<typeAlias type="control.insurance.FireInsurance" alias="Fire"/>
+		<typeAlias type="control.insurance.FireInsurance" alias="FireInsurance"/>
 		<typeAlias type="control.insurance.Insurance" alias="Insurance"/>
-		<typeAlias type="control.insuranceDevelopment.InsuranceDesign" alias="Design"/>
+		<typeAlias type="control.insuranceDevelopment.InsuranceDesign" alias="InsuranceDesign"/>
 		<typeAlias type="control.login.Login" alias="Login"/>
 		<typeAlias type="control.salesPerson.SalesPerson" alias="SalesPerson"/>
 	</typeAliases>

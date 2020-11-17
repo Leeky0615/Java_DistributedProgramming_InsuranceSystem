@@ -40,7 +40,7 @@
     	WHERE insuranceid = #{insuranceDesignId}
     </update>
     
-    <delete id="Delete" parameterType="int">
+    <delete id="Delete" parameterType="Integer">
     	DELETE FROM insurance
     	WHERE insuranceid = #{insuranceid}
     </delete>

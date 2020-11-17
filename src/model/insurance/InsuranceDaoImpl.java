@@ -24,5 +24,4 @@ public class InsuranceDaoImpl extends Dao implements InsuranceDao{
 	 *  -> 파라미터로 객체의 이름과 객체를 보냄.
 	 */
 	public void insert(Insurance insurance) {super.insert(insurance.getClass().getSimpleName(), insurance);}
-	
 }

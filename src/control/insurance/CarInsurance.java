@@ -6,6 +6,15 @@ import control.customer.Customer;
 
 public class CarInsurance extends Insurance{
 	
+	private int id;
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
 	private int age;
 	private int carNum;
 	private String driver;

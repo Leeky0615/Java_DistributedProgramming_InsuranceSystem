@@ -22,7 +22,6 @@ public class AccidentReceiptDaoImpl extends Dao implements AccidentReceiptDao{
 	}
 	
 	public void insert(AccidentReceipt accidentReceipt) {super.insert(accidentReceipt.getClass().getSimpleName(), accidentReceipt);}
-//-----------------------------------------------------------------------------------------------
 
 	public void update(AccidentReceipt accidentReceipt) {super.update(accidentReceipt.getClass().getSimpleName(), accidentReceipt);}
 	

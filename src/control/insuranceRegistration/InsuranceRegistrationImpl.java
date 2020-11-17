@@ -67,9 +67,11 @@ public class InsuranceRegistrationImpl implements InsuranceRegistration {
 			insurance = new CancerInsurance();
 			((CancerInsurance) insurance).setPaymentMethod((EPaymentMethod) infos.get(0));
 			((CancerInsurance) insurance).setPaymentDate((int) infos.get(1));
+			((CancerInsurance) insurance).setInsuranceId(3000);
 			this.insuranceRegistrationDao.insert((CancerInsurance) insurance);
 		}else if(type == EInsuranceType.CAR) {
 			insurance = new CarInsurance();
+			System.out.println("insuranceRegistrationDaoImpl : "+insurance.getInsuranceId());
 			((CarInsurance) insurance).setPaymentMethod((EPaymentMethod) infos.get(0));
 			((CarInsurance) insurance).setPaymentDate((int) infos.get(1));
 			((CarInsurance) insurance).setCarNum((int) infos.get(2));
@@ -77,6 +79,7 @@ public class InsuranceRegistrationImpl implements InsuranceRegistration {
 			((CarInsurance) insurance).setCarType((ECarType) infos.get(4));
 			((CarInsurance) insurance).setCarAccidentHistory((boolean) infos.get(5));
 			((CarInsurance) insurance).setDriver(this.customer.getName());
+			((CarInsurance) insurance).setInsuranceId(1000);
 			this.insuranceRegistrationDao.insert((CarInsurance) insurance);
 		}else if(type == EInsuranceType.FIRE) {
 			insurance = new FireInsurance();
@@ -87,6 +90,7 @@ public class InsuranceRegistrationImpl implements InsuranceRegistration {
 			((FireInsurance) insurance).setBuildingType((EBuildingType) infos.get(4));
 			((FireInsurance) insurance).setUnitPrice((int) infos.get(5));
 			((FireInsurance) insurance).setContractor(this.customer.getName());
+			((FireInsurance) insurance).setInsuranceId(2000);
 			this.insuranceRegistrationDao.insert((FireInsurance) insurance);
 		}
 	}

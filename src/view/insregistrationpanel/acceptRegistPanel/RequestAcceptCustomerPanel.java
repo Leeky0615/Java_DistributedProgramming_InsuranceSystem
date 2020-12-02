@@ -14,41 +14,43 @@ import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
 
+import constants.ControllerConstants.EController;
 import constants.ViewConstants.ECustomer;
 import constants.ViewConstants.EFireInsurance;
 import constants.ViewConstants.EInsuranceRequest;
 import constants.ViewConstants.EViewFrame;
 import constants.ViewConstants.EcarInsurance;
+import controller.FrontController;
+import controller.customer.CustomerControllerImpl;
+import controller.insuranceRegistration.InsuranceRegistrationControllerImpl;
 import model.dto.CancerInsurance;
 import model.dto.CarInsurance;
 import model.dto.Customer;
 import model.dto.FireInsurance;
 import model.dto.Insurance;
-import model.service.customer.CustomerListImpl;
-import model.service.insuranceRegistration.InsuranceRegistrationImpl;
 
 public class RequestAcceptCustomerPanel extends JPanel {
 	private static final long serialVersionUID = 1L;
 	private AcceptRegistrationPanel acceptRegistrationPanel;
-	private InsuranceRegistrationImpl insuranceRegistration;
-	private CustomerListImpl customerList;
+	private InsuranceRegistrationControllerImpl insuranceRegistrationController;
+	private CustomerControllerImpl customerController;
 	private Customer customer;
 	private ActionHandler actionHandler;
 	
 	private Insurance insurance;
 	private JButton back,approve,disApprove;
 
-	public RequestAcceptCustomerPanel(AcceptRegistrationPanel acceptRegistrationPanel, InsuranceRegistrationImpl insuranceRegistration, CustomerListImpl customerList) {
+	public RequestAcceptCustomerPanel(AcceptRegistrationPanel acceptRegistrationPanel, FrontController frontController) {
 		setPreferredSize(new Dimension(600, 500));
 		setLayout(new FlowLayout());
 		
 		this.acceptRegistrationPanel = acceptRegistrationPanel;
-		this.insuranceRegistration = insuranceRegistration;
-		this.customerList = customerList;
+		this.insuranceRegistrationController = (InsuranceRegistrationControllerImpl) frontController.mappingController(EController.InsuranceRegistrationController.getControllerName());
+		this.customerController = (CustomerControllerImpl) frontController.mappingController(EController.CustomerController.getControllerName());
 	}
 	
 	public void setSelectedRow(Vector<Object> vector) {
-		for(Customer customer : this.customerList.getCustomerList()) {
+		for(Customer customer : this.customerController.getCustomerList()) {
 			if (customer.getCustomerSID().equals(vector.get(1))) {this.customer = customer;}
 		}
 	}
@@ -67,7 +69,7 @@ public class RequestAcceptCustomerPanel extends JPanel {
 	}
 	
 	public Vector<Object> setInsuranceInfos() {
-		insurance = this.insuranceRegistration.getReadyInsurance(this.customer.getId());
+		insurance = this.insuranceRegistrationController.getReadyInsurance(this.customer.getId());
 		Vector<Object> infos = new Vector<Object>();
 		infos.add(insurance.getInsuranceId());
 		infos.add(insurance.getInsuranceName());
@@ -186,10 +188,10 @@ public class RequestAcceptCustomerPanel extends JPanel {
 			this.acceptRegistrationPanel.createPanel();
 			this.setVisible(false);
 		}else if(source.equals(this.approve)) {
-			this.insuranceRegistration.approve(this.customer);
+			this.insuranceRegistrationController.approve(this.customer);
 			JOptionPane.showMessageDialog(this, "해당 상품에 가입되었습니다.");
 		}else if(source.equals(this.disApprove)) {
-			this.insuranceRegistration.disApprove(insurance.getInsuranceType(),this.customer);
+			this.insuranceRegistrationController.disApprove(insurance.getInsuranceType(),this.customer);
 			JOptionPane.showMessageDialog(this, "보험 가입이 승인되지 않았습니다.");
 		}
 	}

@@ -17,25 +17,18 @@ import javax.swing.border.TitledBorder;
 
 import constants.ViewConstants.EMainFrame;
 import constants.ViewConstants.EViewFrame;
-import main.Menu;
-import model.service.accidentReceipt.AccidentReceiptListImpl;
-import model.service.insuranceCover.InsuranceCoverImpl;
+import controller.FrontController;
 import view.defaultClass.DefaultPanel;
 
 public class InsCoverPanel extends DefaultPanel{
 	private static final long serialVersionUID = 1L;
 	
-	private AccidentReceiptListImpl accidentReceiptList;
-	private InsuranceCoverImpl insuranceCover;
-	
 	private AccidentReceiptTable accidentReceiptTable;
 	private JButton detailCheckBtn, writeAccidentReceiptBtn,refreshBtn;
 	private ActionHandler actionHandler;
 	private MouseHandler mousehandler;
-	public InsCoverPanel(Menu menu) {
-		super(menu);
-		this.accidentReceiptList = (AccidentReceiptListImpl)this.menu.getAccidentReceiptList();
-		this.insuranceCover = (InsuranceCoverImpl)this.menu.getInsuranceCover();
+	public InsCoverPanel(FrontController frontController) {
+		super(frontController);
 		this.actionHandler = new ActionHandler();
 		this.mousehandler = new MouseHandler();
 		
@@ -45,7 +38,7 @@ public class InsCoverPanel extends DefaultPanel{
 	public void createPanel() {
 		this.removeAll();
 		this.setLayout(null);
-		this.accidentReceiptTable = new AccidentReceiptTable(this.accidentReceiptList);
+		this.accidentReceiptTable = new AccidentReceiptTable(this.frontController);
 		this.accidentReceiptTable.addMouseListener(this.mousehandler);
 		JScrollPane scroll = new JScrollPane();
 		scroll.setBounds(12, 10, 576, 302);
@@ -88,12 +81,12 @@ public class InsCoverPanel extends DefaultPanel{
 				return;
 			}else {
 				this.removeAll();
-				AccidentReceiptPanel accidentReceiptPanel = new AccidentReceiptPanel(this, this.insuranceCover,this.accidentReceiptList,this.accidentReceiptTable.getRow());
+				AccidentReceiptPanel accidentReceiptPanel = new AccidentReceiptPanel(this, this.frontController,this.accidentReceiptTable.getRow());
 				this.setLayout(new GridLayout(1,1));
 				this.add(accidentReceiptPanel);
 			}
 		}else if(source.equals(this.writeAccidentReceiptBtn)) {
-			WriteAccidentReceiptFrame accidentReceiptFrame = new WriteAccidentReceiptFrame(this.insuranceCover);
+			WriteAccidentReceiptFrame accidentReceiptFrame = new WriteAccidentReceiptFrame(this.frontController);
 			accidentReceiptFrame.setVisible(true);
 			if (!(accidentReceiptFrame.isFocusable())) {this.createPanel();}
 		}else {this.createPanel();}

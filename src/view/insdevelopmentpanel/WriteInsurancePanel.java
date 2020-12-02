@@ -19,13 +19,15 @@ import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
 
 import constants.ControlConstants.EInsuranceType;
+import constants.ControllerConstants.EController;
 import constants.ViewConstants.EInsuranceDesign;
 import constants.ViewConstants.EViewFrame;
-import model.service.insuranceDevelopment.InsuranceDevelopmentImpl;
+import controller.FrontController;
+import controller.insuranceDevelopment.InsuranceDevelopmentControllerImpl;
 
 public class WriteInsurancePanel extends JPanel  {
 	private static final long serialVersionUID = 1L;
-	private InsuranceDevelopmentImpl insuranceDevelopment;
+	private InsuranceDevelopmentControllerImpl insuranceDevelopmentController;
 	
 	private JTextArea description_t;
 	private Vector<JLabel> labels;
@@ -35,8 +37,8 @@ public class WriteInsurancePanel extends JPanel  {
 	private ActionListener actionHandler;
 	private JButton newInsBtn;
 
-	public WriteInsurancePanel(InsuranceDevelopmentImpl insuranceDevelopment) {
-		this.insuranceDevelopment = insuranceDevelopment;
+	public WriteInsurancePanel(FrontController frontController) {
+		this.insuranceDevelopmentController = (InsuranceDevelopmentControllerImpl) frontController.mappingController(EController.InsuranceDevelopmentController.getControllerName());
 		
 		this.setBorder(new TitledBorder(new LineBorder(Color.lightGray,1),"보험 설계하기"));
 		
@@ -100,7 +102,7 @@ public class WriteInsurancePanel extends JPanel  {
 	}
 	public void buttonClick(Object name) {
 		if (name.equals(this.newInsBtn)){
-			this.insuranceDevelopment.designInsurance(this.getInfos());
+			this.insuranceDevelopmentController.designInsurance(this.getInfos());
 			JOptionPane.showMessageDialog(this, "승인 요청이 완료되었습니다.");
 		}
 	}

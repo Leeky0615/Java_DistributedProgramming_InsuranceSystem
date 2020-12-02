@@ -22,14 +22,12 @@ import javax.swing.border.TitledBorder;
 import constants.ControlConstants.EInsuranceType;
 import constants.ViewConstants.EMainFrame;
 import constants.ViewConstants.EViewFrame;
-import model.service.insurance.InsuranceListImpl;
-import model.service.insuranceRegistration.InsuranceRegistrationImpl;
+import controller.FrontController;
 import view.insdevelopmentpanel.InsForDevelopmentPanel;
 
 public class SearchInsurancePanel extends JPanel {
 	private static final long serialVersionUID = 1L;
-	private InsuranceListImpl insuranceList;
-	private InsuranceRegistrationImpl insuranceRegistration;
+	private FrontController frontController;
 	
 	private String menuName;
 	
@@ -40,10 +38,8 @@ public class SearchInsurancePanel extends JPanel {
 	private ActionHandler actionHandler;
 	private MouseHandler mousehandler;
 
-	public SearchInsurancePanel(InsuranceRegistrationImpl insuranceRegistration, InsuranceListImpl insuranceList,String menuName) {
-		this.insuranceRegistration = insuranceRegistration;
-		this.insuranceList = insuranceList;
-		
+	public SearchInsurancePanel(FrontController frontController,String menuName) {
+		this.frontController = frontController;
 		this.menuName = menuName;
 		
 		setLayout(new BorderLayout());
@@ -83,7 +79,7 @@ public class SearchInsurancePanel extends JPanel {
 		this.updateUI();
 	}
 	public void createTable() {
-		this.insuranceTable = new InsuranceTable(this.insuranceList, insType_t.getSelectedItem().toString());
+		this.insuranceTable = new InsuranceTable(this.frontController, insType_t.getSelectedItem().toString());
 		this.insuranceTable.addMouseListener(this.mousehandler);
 		JScrollPane scroll = new JScrollPane();
    		scroll.setBorder(new TitledBorder(new LineBorder(Color.lightGray,1),"보험 리스트"));
@@ -105,11 +101,11 @@ public class SearchInsurancePanel extends JPanel {
 				this.setLayout(new GridLayout(1,1));
 				if (menuName.equals("Registration")) {
 					// 보험 가입 화면에서 보험 상세정보를 클릭했을때 나오는 패널
-					InsForRegistPanel insuranceForRegistPanel = new InsForRegistPanel(this,this.insuranceRegistration, this.insuranceTable.getRow());
+					InsForRegistPanel insuranceForRegistPanel = new InsForRegistPanel(this,this.frontController, this.insuranceTable.getRow());
 					this.add(insuranceForRegistPanel);
 				}else {
 					// 보험 설계 화면에서 보험 상세정보를 클릭했을때 나오는 패널
-					InsForDevelopmentPanel insuranceForDevelopmentPanel = new InsForDevelopmentPanel(this, this.insuranceRegistration, this.insuranceTable.getRow());
+					InsForDevelopmentPanel insuranceForDevelopmentPanel = new InsForDevelopmentPanel(this, this.frontController, this.insuranceTable.getRow());
 					this.add(insuranceForDevelopmentPanel);
 				}
 			}

@@ -13,17 +13,19 @@ import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
 
+import constants.ControllerConstants.EController;
 import constants.ViewConstants.EViewFrame;
+import controller.FrontController;
+import controller.accidentReceipt.AccidentReceiptControllerImpl;
+import controller.insuranceCover.InsuranceCoverControllerImpl;
 import model.dto.AccidentReceipt;
-import model.service.accidentReceipt.AccidentReceiptListImpl;
-import model.service.insuranceCover.InsuranceCoverImpl;
 
 public class AccidentReceiptPanel extends JPanel{
 	private static final long serialVersionUID = 1L;
 	
 	private Vector<Object> objects;
-	private InsuranceCoverImpl insuranceCover;
-	private AccidentReceiptListImpl accidentReceiptList;
+	private InsuranceCoverControllerImpl insuranceCoverController;
+	private AccidentReceiptControllerImpl accidentReceiptController;
 	private AccidentReceipt accidentReceipt;
 	private InsCoverPanel insCoverPanel;
 	
@@ -33,16 +35,16 @@ public class AccidentReceiptPanel extends JPanel{
 
 	private JPanel btnPanel;
 	
-	public AccidentReceiptPanel(InsCoverPanel insCoverPanel, InsuranceCoverImpl insuranceCover, AccidentReceiptListImpl accidentReceiptList, Vector<Object> vector) {
+	public AccidentReceiptPanel(InsCoverPanel insCoverPanel, FrontController frontController, Vector<Object> vector) {
 		setPreferredSize(new Dimension(600, 500));
 		setLayout(null);
 		
 		this.insCoverPanel = insCoverPanel;
-		this.insuranceCover = insuranceCover;
-		this.accidentReceiptList = accidentReceiptList;
+		this.insuranceCoverController = (InsuranceCoverControllerImpl) frontController.mappingController(EController.InsuranceCoverController.getControllerName());
+		this.accidentReceiptController = (AccidentReceiptControllerImpl) frontController.mappingController(EController.AccidentReceiptController.getControllerName());
 		
 		this.objects = vector;
-		for(AccidentReceipt accidentReceipt : this.accidentReceiptList.getAccidentReceiptList()) {
+		for(AccidentReceipt accidentReceipt : this.accidentReceiptController.getAccidentReceiptList()) {
 			if (accidentReceipt.getAccidentReceiptId() == (Integer)this.objects.get(0)) {
 				this.accidentReceipt = accidentReceipt;
 			}
@@ -140,7 +142,7 @@ public class AccidentReceiptPanel extends JPanel{
 	
 	public void buttonClick(Object source) {
 		if (source.equals(this.pay)) {
-			this.insuranceCover.acceptAccident(this.accidentReceipt.getAccidentReceiptId());
+			this.insuranceCoverController.acceptAccident(this.accidentReceipt.getAccidentReceiptId());
 			JOptionPane.showMessageDialog(this, "보험금 지급이 완료되었습니다.");
 		}else {
 			this.removeAll();

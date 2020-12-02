@@ -18,15 +18,14 @@ import javax.swing.border.TitledBorder;
 import constants.ViewConstants.EMainFrame;
 import constants.ViewConstants.ETableStatus;
 import constants.ViewConstants.EViewFrame;
+import controller.FrontController;
 import model.service.customer.CustomerListImpl;
 import model.service.insuranceRegistration.InsuranceRegistrationImpl;
 import view.checkcustomerpanel.CustomerTable;
 
 public class AcceptRegistrationPanel extends JPanel {
 	private static final long serialVersionUID = 1L;
-	private InsuranceRegistrationImpl insuranceRegistration;
-	private CustomerListImpl customerList;
-
+	private FrontController frontController;
 	private ActionHandler actionHandler;
 	private MouseHandler mousehandler;
 	
@@ -34,11 +33,9 @@ public class AcceptRegistrationPanel extends JPanel {
 	private JButton detailCheckBtn;
 	private JButton refresh;
 
-	public AcceptRegistrationPanel(InsuranceRegistrationImpl insuranceRegistration, CustomerListImpl customerList) {
-		this.insuranceRegistration = insuranceRegistration;
-		this.customerList = customerList;
+	public AcceptRegistrationPanel(FrontController frontController) {
+		this.frontController = frontController;
 		this.mousehandler = new MouseHandler();
-
 		this.createPanel();
 	}
 	
@@ -46,7 +43,7 @@ public class AcceptRegistrationPanel extends JPanel {
 		this.removeAll();
 		this.setLayout(null);
 		// 테이블 생성
-		this.customerTable = new CustomerTable(this.customerList, ETableStatus.insuranceRegistration);
+		this.customerTable = new CustomerTable(this.frontController, ETableStatus.insuranceRegistration);
 		this.customerTable.addMouseListener(this.mousehandler);
 		JScrollPane scroll = new JScrollPane();
 		scroll.setBounds(12, 10, 576, 315);
@@ -91,7 +88,7 @@ public class AcceptRegistrationPanel extends JPanel {
 				return;
 			}else {
 				this.removeAll();
-				RequestAcceptCustomerPanel requestAcceptCustomerPanel = new RequestAcceptCustomerPanel(this, this.insuranceRegistration,this.customerList);
+				RequestAcceptCustomerPanel requestAcceptCustomerPanel = new RequestAcceptCustomerPanel(this, this.frontController);
 				requestAcceptCustomerPanel.setSelectedRow(this.customerTable.getRow());
 				requestAcceptCustomerPanel.createCustomerInfoPanel();
 				requestAcceptCustomerPanel.createInsuranceInfoPanel();

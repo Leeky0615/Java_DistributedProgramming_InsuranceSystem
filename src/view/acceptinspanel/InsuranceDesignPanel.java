@@ -14,19 +14,21 @@ import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
 
+import constants.ControllerConstants.EController;
 import constants.ViewConstants.EInsuranceDesign;
 import constants.ViewConstants.EViewFrame;
-import controller.acceptInsuranceDesign.AcceoptInsuranceDesignControl;
+import controller.FrontController;
+import controller.acceptInsuranceDesign.AcceptInsDesignControllerImpl;
+import controller.insuranceDesign.InsuranceDesignControllerImpl;
 import model.dto.InsuranceDesign;
-import model.service.acceptInsuranceDesign.AcceptInsuranceDesignImpl;
-import model.service.insuranceDevelopment.InsuranceDesignListImpl;
+import model.service.insuranceDesign.InsuranceDesignListImpl;
 
 public class InsuranceDesignPanel extends JPanel{
 private static final long serialVersionUID = 1L;
 	
 	private Vector<Object> objects;
-	private InsuranceDesignListImpl insuranceDesignList;
-	private AcceptInsuranceDesignImpl acceptInsuranceDesign;
+	private InsuranceDesignControllerImpl insuranceDesignController;
+	private AcceptInsDesignControllerImpl acceptInsDesignController;
 	private InsuranceDesign insuranceDesign;
 	private AcceptInsPanel acceptInsPanel;
 	private AcceptedInsPanel acceptedInsPanel;
@@ -39,13 +41,13 @@ private static final long serialVersionUID = 1L;
 
 	private Vector<JLabel> labels;
 	// 보험승인하기(AcceptInsPanel) 패널에서 보험 상세조회를 클릭시 생성되는 Constructor
-	public InsuranceDesignPanel(AcceptInsPanel acceptInsPanel, #AcceptInsuranceDesignImpl acceptInsuranceDesign, InsuranceDesignListImpl insuranceDesignList, Vector<Object> vector) {
+	public InsuranceDesignPanel(AcceptInsPanel acceptInsPanel, FrontController frontController, Vector<Object> vector) {
 		setPreferredSize(new Dimension(601, 521));
 		setLayout(null);
 		
 		this.acceptInsPanel = acceptInsPanel;	
-		this.acceptInsuranceDesign = acceptInsuranceDesign;	
-		this.insuranceDesignList = insuranceDesignList;
+		this.insuranceDesignController = (InsuranceDesignControllerImpl) frontController.mappingController(EController.InsuranceDesignController.getControllerName());
+		this.acceptInsDesignController = (AcceptInsDesignControllerImpl) frontController.mappingController(EController.AcceptInsDesignController.getControllerName());	
 		this.objects = vector;
 		this.createDefaultPanel();
 		this.actionHandler = new ActionHandler();
@@ -76,12 +78,12 @@ private static final long serialVersionUID = 1L;
 	}
 	
 	// 승인된 보험 조회하기(AcceptedInsPanel) 패널에서 보험 상세조회를 클릭시 생성되는 Constructor
-	public InsuranceDesignPanel(AcceptedInsPanel acceptedInsPanel, InsuranceDesignListImpl insuranceDesignList, Vector<Object> vector) {
+	public InsuranceDesignPanel(AcceptedInsPanel acceptedInsPanel,FrontController frontController, Vector<Object> vector) {
 		setPreferredSize(new Dimension(601, 521));
 		setLayout(null);
 		
 		this.acceptedInsPanel = acceptedInsPanel;	
-		this.insuranceDesignList = insuranceDesignList;
+		this.insuranceDesignController = (InsuranceDesignControllerImpl) frontController.mappingController(EController.InsuranceDesignController.getControllerName());
 		this.objects = vector;
 		this.createDefaultPanel();
 		
@@ -99,23 +101,8 @@ private static final long serialVersionUID = 1L;
 		btnPanel.add(back);
 		this.add(btnPanel);
 	}
-	public Vector<String> setInsuranceInfo(){
-		for(InsuranceDesign insuranceDesign : this.insuranceDesignList.getInsuranceDesignList()) {
-			if (insuranceDesign.getInsuranceDesignId() == (Integer)this.objects.get(0)) {
-				this.insuranceDesign = insuranceDesign;
-			}
-		}
-		Vector<String> infos = new Vector<String>();
-		infos.add(Integer.toString(this.insuranceDesign.getInsuranceDesignId()));
-		infos.add(this.insuranceDesign.getWriter());
-		infos.add(this.insuranceDesign.getInsurance().getInsuranceName());
-		infos.add(this.insuranceDesign.getMadeDate());
-		infos.add(Integer.toString(this.insuranceDesign.getInsurance().getContractCondition().getGuarantee()));
-		infos.add(Integer.toString(this.insuranceDesign.getInsurance().getContractCondition().getPayment()));
-		infos.add(Integer.toString(this.insuranceDesign.getInsurance().getContractCondition().getPeriod()));
-		infos.add(this.insuranceDesign.getInsurance().getInsuranceType().getText());
-		infos.add(this.insuranceDesign.getInsurance().getInsuranceDescription());
-		return infos;
+	public Vector<String> getInsuranceInfo(){
+		return this.insuranceDesignController.setInsuranceInfo((Integer)this.objects.get(0));
 	}
 	// 기본 패널내용을 생성하는 메서드
 	public void createDefaultPanel() {
@@ -126,7 +113,7 @@ private static final long serialVersionUID = 1L;
 		information.setBorder(new TitledBorder(new LineBorder(Color.lightGray,1),"보험 상세정보"));
 		information.setLayout(new FlowLayout(FlowLayout.LEADING,10,5));
 		
-		Vector<String> infos  = setInsuranceInfo();
+		Vector<String> infos  = getInsuranceInfo();
 		for (EInsuranceDesign insuranceDesign : EInsuranceDesign.values()) {
 			JLabel label = new JLabel();
 			if (insuranceDesign.name().equals("description")) {
@@ -147,11 +134,11 @@ private static final long serialVersionUID = 1L;
 	public void buttonClick(Object source) {
 		if (source.equals(this.approve)) {
 			// 보험 승인 버튼 클릭시
-			this.acceptInsuranceDesign.approve(this.insuranceDesign.getInsuranceDesignId());
+			this.acceptInsDesignController.approve(this.insuranceDesign.getInsuranceDesignId());
 			JOptionPane.showMessageDialog(this, "해당 보험설계서가 승인되었습니다.");
 		}else if (source.equals(this.disApprove)) {
 			// 보험 미승인버튼 클릭시
-			this.acceptInsuranceDesign.disapprove(this.insuranceDesign.getInsuranceDesignId());
+			this.acceptInsDesignController.disapprove(this.insuranceDesign.getInsuranceDesignId());
 			JOptionPane.showMessageDialog(this, "해당 보험설계서가 미승인되었습니다.");
 		}else if(source.equals(this.back)){
 			// 뒤로가기 버튼 클릭시

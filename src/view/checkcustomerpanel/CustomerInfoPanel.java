@@ -12,15 +12,17 @@ import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
 
+import constants.ControllerConstants.EController;
 import constants.ViewConstants.EViewFrame;
+import controller.FrontController;
+import controller.customer.CustomerControllerImpl;
 import model.dto.Customer;
-import model.service.customer.CustomerListImpl;
 
 public class CustomerInfoPanel extends JPanel {
 	private static final long serialVersionUID = 1L;
 	private Vector<Object> objects;
 	private CheckCustomerPanel checkCustomerPanel;
-	private CustomerListImpl customerList;
+	private CustomerControllerImpl customerController;
 	private Customer customer;
 	
 	private JPanel information;
@@ -28,17 +30,17 @@ public class CustomerInfoPanel extends JPanel {
 	private JButton back;
 
 	private JPanel btnPanel;
-	public CustomerInfoPanel(CheckCustomerPanel checkCustomerPanel, CustomerListImpl customerList) {
+	public CustomerInfoPanel(CheckCustomerPanel checkCustomerPanel, FrontController frontController) {
 		setPreferredSize(new Dimension(600, 500));
 		setLayout(null);
 		
-		this.customerList = customerList;
+		this.customerController = (CustomerControllerImpl) frontController.mappingController(EController.CustomerController.getControllerName());
 		this.checkCustomerPanel = checkCustomerPanel;
 	}
 	
 	public Customer setSelectedRow(Vector<Object> vector, String customerName, String customerId) {
 		this.objects = vector;
-		for(Customer customer : this.customerList.getCustomerList()) {
+		for(Customer customer : this.customerController.getCustomerList()) {
 			// 파라미터로 Row가 온경우
 			if (this.objects != null) {
 				if (customer.getCustomerSID().equals(this.objects.get(1))) {this.customer = customer;}

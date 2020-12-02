@@ -19,21 +19,24 @@ import javax.swing.border.TitledBorder;
 
 import constants.ControlConstants.EIllHistory;
 import constants.ControlConstants.EJob;
+import constants.ControllerConstants.EController;
 import constants.ViewConstants.ECustomer;
 import constants.ViewConstants.EViewFrame;
+import controller.FrontController;
+import controller.checkCustomerInfo.CheckCustomerInfoControllerImpl;
 import model.service.checkCustomerInfo.CheckCustomerInfoImpl;
 
 public class AddCustomerFrame extends JFrame { //고객추가하기버튼누르는 경우
 	private static final long serialVersionUID = 1L;
-	private CheckCustomerInfoImpl checkCustomerInfo;
+	private CheckCustomerInfoControllerImpl CheckCustomerInfoController;
 
 	private JButton saveBtn, cancelBtn;
 	private ActionHandler actionHandler;
 	
 	private Vector<JTextField> fields,IdFields, phoneFields;
 	private Vector<JComboBox<String>> combos;
-	public AddCustomerFrame(CheckCustomerInfoImpl checkCustomerInfo) {
-		this.checkCustomerInfo = checkCustomerInfo;
+	public AddCustomerFrame(FrontController frontController) {
+		this.CheckCustomerInfoController = (CheckCustomerInfoControllerImpl) frontController.mappingController(EController.CheckCustomerInfoController.getControllerName());
 		this.actionHandler = new ActionHandler();
 		
 		this.setSize(380, 500);
@@ -163,7 +166,7 @@ public class AddCustomerFrame extends JFrame { //고객추가하기버튼누르�
 				default:break;
 				}
 			}
-			this.checkCustomerInfo.addNewCustomerInformation(customerContents);
+			this.CheckCustomerInfoController.addNewCustomerInformation(customerContents);
 			JOptionPane.showMessageDialog(this, "신규고객 추가가 완료되었습니다.");
 			this.dispose();
 		// 취소버튼 클릭시

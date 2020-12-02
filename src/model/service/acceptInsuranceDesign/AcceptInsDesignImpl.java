@@ -5,7 +5,7 @@ import model.dao.insuranceDesign.InsuranceDesignDao;
 import model.dao.insuranceDesign.InsuranceDesignDaoImpl;
 import model.dto.InsuranceDesign;
 import model.service.insurance.InsuranceListImpl;
-import model.service.insuranceDevelopment.InsuranceDesignListImpl;
+import model.service.insuranceDesign.InsuranceDesignListImpl;
 
 public class AcceptInsDesignImpl implements AcceptInsDesign {
 	private InsuranceDesignListImpl insuranceDesignList;

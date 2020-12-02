@@ -2,12 +2,15 @@ package view.defaultClass;
 
 import javax.swing.JPanel;
 
-import main.Menu;
+import controller.FrontController;
 
-// »ç¿ëµÇ´Â ÆÐ³ÎµéÀÇ SuperClass
+// ï¿½ï¿½ï¿½Ç´ï¿½ ï¿½Ð³Îµï¿½ï¿½ï¿½ SuperClass
 public abstract class DefaultPanel extends JPanel{
 	private static final long serialVersionUID = 1L;
-	protected Menu menu;
-	public DefaultPanel(Menu menu) {this.menu = menu;}
+	protected FrontController frontController;
+	public DefaultPanel(FrontController frontController) {this.frontController = frontController;}
+	
+	public Object setController(String claseeName) {return this.frontController.setController(claseeName);}
+	
 	public abstract void createPanel();
 }

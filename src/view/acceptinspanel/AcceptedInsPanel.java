@@ -15,24 +15,27 @@ import javax.swing.JScrollPane;
 import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
 
+import constants.ControllerConstants;
+import constants.ControllerConstants.EController;
 import constants.ViewConstants.EMainFrame;
 import constants.ViewConstants.EViewFrame;
-import model.service.insuranceDevelopment.InsuranceDesignListImpl;
+import controller.FrontController;
+import controller.insuranceDesign.InsuranceDesignControllerImpl;
+import model.service.insuranceDesign.InsuranceDesignListImpl;
 
 public class AcceptedInsPanel extends JPanel {
 	private static final long serialVersionUID = 1L;
 	
-	private InsuranceDesignListImpl insuranceDesignList;
 	private AcceptInsPanel acceptInsPanel;
-
+	private FrontController frontController;
 	private InsuranceDesignTable insuranceDesignTable;
 	private JButton detailCheckBtn,backBtn;
 	private ActionHandler actionHandler;
 	private MouseHandler mousehandler;
 
-	public AcceptedInsPanel(AcceptInsPanel acceptInsPanel, InsuranceDesignListImpl insuranceDesignList) {
+	public AcceptedInsPanel(AcceptInsPanel acceptInsPanel, FrontController frontController) {
 		this.acceptInsPanel = acceptInsPanel;
-		this.insuranceDesignList = insuranceDesignList;
+		this.frontController = frontController;
 		this.mousehandler = new MouseHandler();
 
 		this.createDefaultPanel();
@@ -42,7 +45,7 @@ public class AcceptedInsPanel extends JPanel {
 		this.setLayout(null);
 		
 		// 보험설계서 리스트 테이블
-		this.insuranceDesignTable = new InsuranceDesignTable((InsuranceDesignListImpl) this.insuranceDesignList, true);
+		this.insuranceDesignTable = new InsuranceDesignTable(this.frontController, true);
 		this.insuranceDesignTable.addMouseListener(mousehandler);
 		JScrollPane scroll = new JScrollPane();
 		scroll.setBounds(12, 10, 576, 364);
@@ -87,7 +90,7 @@ public class AcceptedInsPanel extends JPanel {
 		}else if(source.equals(this.detailCheckBtn)){
 			// 상세조회 버튼클릭시 상세조회패널을 생성
 			this.removeAll();
-			InsuranceDesignPanel insuranceDesignPanel = new InsuranceDesignPanel(this,this.insuranceDesignList,this.insuranceDesignTable.getRow());
+			InsuranceDesignPanel insuranceDesignPanel = new InsuranceDesignPanel(this,this.frontController,this.insuranceDesignTable.getRow());
 			this.setLayout(new GridLayout(1,1));
 			this.add(insuranceDesignPanel);
 		}

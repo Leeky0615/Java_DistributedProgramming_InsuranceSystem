@@ -2,25 +2,27 @@ package view.checkcustomerpanel;
 
 import java.util.Vector;
 
+import constants.ControllerConstants.EController;
 import constants.ViewConstants.ETableStatus;
+import controller.FrontController;
+import controller.customer.CustomerControllerImpl;
 import model.dto.Customer;
-import model.service.customer.CustomerListImpl;
 import view.defaultClass.Default_CustomerTable;
 
 public class CustomerTable extends Default_CustomerTable{
 	private static final long serialVersionUID = 1L;
-	private CustomerListImpl customerList;
+	private CustomerControllerImpl customerController;
 	
-	public CustomerTable(CustomerListImpl customerList, ETableStatus insuranceregistration) {
+	public CustomerTable(FrontController frontController, ETableStatus insuranceregistration) {
 		super();
 		this.status = insuranceregistration;
-		this.customerList = customerList;
+		this.customerController = (CustomerControllerImpl) frontController.mappingController(EController.CustomerController.getControllerName());
 		this.refresh();
 	}
 	
 	public void refresh() {
 		this.rowData.clear();
-		for (Customer customer : this.customerList.getCustomerList()) {
+		for (Customer customer : this.customerController.getCustomerList()) {
 			Vector<Object> customers = new Vector<Object>();
 			customers.add(customer.getName());
 			customers.add(customer.getCustomerSID());

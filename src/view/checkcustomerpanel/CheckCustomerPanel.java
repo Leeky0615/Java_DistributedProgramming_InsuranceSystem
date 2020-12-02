@@ -3,6 +3,7 @@ package view.checkcustomerpanel;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridLayout;
+import java.awt.Menu;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
@@ -18,19 +19,18 @@ import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
 
+import constants.ControllerConstants.EController;
 import constants.ViewConstants.EMainFrame;
 import constants.ViewConstants.ETableStatus;
 import constants.ViewConstants.EViewFrame;
-import main.Menu;
-import model.service.checkCustomerInfo.CheckCustomerInfoImpl;
-import model.service.customer.CustomerListImpl;
+import controller.FrontController;
+import controller.checkCustomerInfo.CheckCustomerInfoControllerImpl;
+import controller.customer.CustomerControllerImpl;
 import view.defaultClass.DefaultPanel;
 
 public class CheckCustomerPanel extends DefaultPanel {
 	private static final long serialVersionUID = 1L;
 	
-	private CustomerListImpl customerList;
-	private CheckCustomerInfoImpl checkCustomerInfo;
 	private JTextField customerName_t,customerId_t1,customerId_t2;
 	private CustomerTable customerTable;
 	private ActionHandler actionHandler;
@@ -38,10 +38,8 @@ public class CheckCustomerPanel extends DefaultPanel {
 
 	private JButton searchButton,detailCheckBtn, addCustomerBtn,refreshBtn;
 
-	public CheckCustomerPanel(Menu menu) {
-		super(menu);
-		this.customerList = (CustomerListImpl)this.menu.getCustomerList();
-		this.checkCustomerInfo = (CheckCustomerInfoImpl) this.menu.getCheckCustomerInfo();
+	public CheckCustomerPanel(FrontController frontController) {
+		super(frontController);
 		this.actionHandler = new ActionHandler();
 		this.mousehandler = new MouseHandler();
 		this.createPanel();
@@ -100,7 +98,7 @@ public class CheckCustomerPanel extends DefaultPanel {
 		this.add(searchPanel);
 		
 		// 고객 리스트 테이블
-		this.customerTable = new CustomerTable(this.customerList, ETableStatus.checkCustomer);
+		this.customerTable = new CustomerTable(this.frontController, ETableStatus.checkCustomer);
 		this.customerTable.addMouseListener(this.mousehandler);
 		JScrollPane scroll = new JScrollPane();
 		scroll.setBounds(12, 127, 576, 185);
@@ -146,7 +144,7 @@ public class CheckCustomerPanel extends DefaultPanel {
 			// 현재 패널을 초기화 하고 고객정보 패널을 생성
 			}else {
 				this.removeAll();
-				CustomerInfoPanel customerInfoPanel = new CustomerInfoPanel(this, this.customerList);
+				CustomerInfoPanel customerInfoPanel = new CustomerInfoPanel(this, this.frontController);
 				// 고객을 조회할때 파라미터로 Row를 주는 경우
 				if(customerInfoPanel.setSelectedRow(this.customerTable.getRow(), null, null) != null) {
 					customerInfoPanel.createDefaultPanel();
@@ -157,7 +155,7 @@ public class CheckCustomerPanel extends DefaultPanel {
 			}
 		// 고객 추가하기 버튼클릭시
 		}else if(source.equals(this.addCustomerBtn)) {
-			AddCustomerFrame addCustomerFrame = new AddCustomerFrame(this.checkCustomerInfo);
+			AddCustomerFrame addCustomerFrame = new AddCustomerFrame(this.frontController);
 			addCustomerFrame.setVisible(true);
 			if (!(addCustomerFrame.isFocusable())) {this.createPanel();}
 		// 검색 버튼 클릭시 
@@ -166,7 +164,7 @@ public class CheckCustomerPanel extends DefaultPanel {
 			String customerId = this.customerId_t1.getText()+"-"+this.customerId_t2.getText();
 			this.removeAll();
 			// 고객을 조회할때 파라미터로 고객이름과 주민등록번호를 주는 경우
-			CustomerInfoPanel customerInfoPanel = new CustomerInfoPanel(this, this.customerList);
+			CustomerInfoPanel customerInfoPanel = new CustomerInfoPanel(this, this.frontController);
 			if (customerInfoPanel.setSelectedRow(null,customerName,customerId) != null) {
 				customerInfoPanel.createDefaultPanel();
 				customerInfoPanel.createButton();

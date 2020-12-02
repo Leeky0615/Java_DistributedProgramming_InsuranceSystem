@@ -10,6 +10,8 @@ import model.dto.CancerInsurance;
 import model.dto.CarInsurance;
 import model.dto.FireInsurance;
 import model.dto.InsuranceDesign;
+import model.service.insuranceDesign.InsuranceDesignList;
+import model.service.insuranceDesign.InsuranceDesignListImpl;
 
 public class InsuranceDevelopmentImpl implements InsuranceDevelopment{
 	private InsuranceDesignDaoImpl insuranceDesignDao;

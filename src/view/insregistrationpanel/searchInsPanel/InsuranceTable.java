@@ -2,17 +2,19 @@ package view.insregistrationpanel.searchInsPanel;
 
 import java.util.Vector;
 
+import constants.ControllerConstants.EController;
+import controller.FrontController;
+import controller.insurance.InsuranceControllerImpl;
 import model.dto.Insurance;
-import model.service.insurance.InsuranceListImpl;
 import view.defaultClass.Default_InsuranceTable;
 
 public class InsuranceTable extends Default_InsuranceTable{
 	private static final long serialVersionUID = 1L;
-	private InsuranceListImpl insuranceList;
+	private InsuranceControllerImpl insuranceController;
 	
-	public InsuranceTable(InsuranceListImpl insurancerList, String insuranceType) {
+	public InsuranceTable(FrontController frontController, String insuranceType) {
 		super();
-		this.insuranceList = insurancerList;
+		this.insuranceController = (InsuranceControllerImpl) frontController.mappingController(EController.InsuranceController.getControllerName());
 		this.refresh(insuranceType);
 	}
 	
@@ -29,7 +31,7 @@ public class InsuranceTable extends Default_InsuranceTable{
 	
 	public void refresh(String insuranceType) {
 		this.rowData.clear();
-		for (Insurance insurance : this.insuranceList.getInsuranceList()) {
+		for (Insurance insurance : this.insuranceController.getInsuranceList()) {
 			if (insuranceType.equals("전체")) {this.addRowData(insurance);}
 			else {
 				if (insurance.getInsuranceType().getText().equals(insuranceType)) {this.addRowData(insurance);}

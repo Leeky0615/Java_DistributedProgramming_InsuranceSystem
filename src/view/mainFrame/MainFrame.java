@@ -15,14 +15,13 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 
+import constants.ControllerConstants.EController;
 import constants.ViewConstants.EButton;
 import constants.ViewConstants.ELogin;
 import constants.ViewConstants.EPanels;
 import constants.ViewConstants.EViewFrame;
-import main.Menu;
-import model.dto.Login;
-import model.service.login.LoginList;
-import model.service.login.LoginListImpl;
+import controller.FrontController;
+import controller.login.LoginControllerImpl;
 import view.defaultClass.DefaultPanel;
 
 public class MainFrame extends JFrame {
@@ -34,11 +33,11 @@ public class MainFrame extends JFrame {
 	private BackBtnPanel backBtnPanel;
 	private DefaultPanel currentPanel;
 	private ActionHandler actionHandler;
-	private Menu menu;
+	private FrontController frontController;
+	private LoginControllerImpl loginController;
 	private JLabel imageLabel;
-	private LoginList loginList;
 	
-	public MainFrame(Menu menu) {
+	public MainFrame(FrontController frontController) {
 		super();
 		this.setThema();
 		this.setTitle("보험 시스템");
@@ -47,8 +46,8 @@ public class MainFrame extends JFrame {
 		this.setResizable(false);
 		this.setBackground(new Color(94,175,164));
 		this.setLayout(new BorderLayout());
-		this.menu = menu;
-		this.loginList = (LoginListImpl) menu.getLoginlist();
+		this.frontController = frontController;
+		this.loginController = (LoginControllerImpl) frontController.mappingController(EController.LoginController.getControllerName());
 		
 		this.actionHandler = new ActionHandler();
 		this.panels = new Vector<DefaultPanel>();
@@ -97,22 +96,18 @@ public class MainFrame extends JFrame {
 	public DefaultPanel createPanel(String name) {
 		try{
 			Class<?> clazz = Class.forName("view."+name.toLowerCase()+"."+name);
-			Class arg = Menu.class;
-			Object newPanel = clazz.getConstructor(arg).newInstance(this.menu);
+			Class arg = FrontController.class;
+			Object newPanel = clazz.getConstructor(arg).newInstance(this.frontController);
 			return (DefaultPanel) newPanel;
 		}catch (Exception e) {e.printStackTrace();}
 		return null;
 	}
+	
 	@SuppressWarnings("deprecation")
 	public ELogin logincheck() {
-		ELogin userType = null;
-		for(Login login : this.loginList.getLoginList()) {
-			if (login.getId().equals(this.loginPanel.getLoginTextField().getText()) && login.getPassword().equals(this.loginPanel.getPasswordField().getText())) {
-				userType = login.getLogin();
-			}
-		}
-		MainFrame.user = userType;
-		return userType;
+		// loginController의 logincheck함수를 실행.
+		MainFrame.user = this.loginController.loginCheck(this.loginPanel.getLoginTextField().getText(), this.loginPanel.getPasswordField().getText());
+		return MainFrame.user;
 	}
 	// 버튼이 클릭시 실행되는 메소드
 	public void buttonClick(String name) {
@@ -124,43 +119,29 @@ public class MainFrame extends JFrame {
 			}else {
 				if (logincheck() == ELogin.developer) {
 					for(JButton button : buttons) {
-						if (button.equals(buttons.get(EButton.insDevelopmentBtn.ordinal()))) {
-							button.setVisible(true);
-						}else {
-							button.setVisible(false);
-						}
+						if (button.equals(buttons.get(EButton.insDevelopmentBtn.ordinal()))) {button.setVisible(true);}
+						else {button.setVisible(false);}
 					}
 				}else if(logincheck() == ELogin.customer) {
 					for(JButton button : buttons) {
-						if (button.equals(buttons.get(EButton.insRegistrationBtn.ordinal()))) {
-							button.setVisible(true);
-						}else {
-							button.setVisible(false);
-						}
+						if (button.equals(buttons.get(EButton.insRegistrationBtn.ordinal()))) {button.setVisible(true);}
+						else {button.setVisible(false);}
 					}
 				}else if(logincheck() == ELogin.salesman) {
 					for(JButton button : buttons) {
-						if (button.equals(buttons.get(EButton.checkCustomerBtn.ordinal()))) {
-							button.setVisible(true);
-						}else {
-							button.setVisible(false);
-						}
+						if (button.equals(buttons.get(EButton.checkCustomerBtn.ordinal()))) {button.setVisible(true);}
+						else {button.setVisible(false);}
 					}
 				}else if(logincheck() == ELogin.underwriter) {
 					for(JButton button : buttons) {
 						if (button.equals(buttons.get(EButton.acceptInsBtn.ordinal())) || button.equals(buttons.get(EButton.insRegistrationBtn.ordinal()))) {
 							button.setVisible(true);
-						}else {
-							button.setVisible(false);
-						}
+						}else {button.setVisible(false);}
 					}
 				}else if(logincheck() == ELogin.assessment) {
 					for(JButton button : buttons) {
-						if (button.equals(buttons.get(EButton.insCoverBtn.ordinal()))) {
-							button.setVisible(true);
-						}else {
-							button.setVisible(false);
-						}
+						if (button.equals(buttons.get(EButton.insCoverBtn.ordinal()))) {button.setVisible(true);}
+						else {button.setVisible(false);}
 					}
 				}
 				this.createDefaultPanels();

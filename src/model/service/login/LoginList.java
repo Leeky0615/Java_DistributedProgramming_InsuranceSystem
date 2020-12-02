@@ -1,9 +1,7 @@
 package model.service.login;
 
-import java.util.ArrayList;
-
-import model.dto.Login;
+import constants.ViewConstants.ELogin;
 
 public interface LoginList {
-	public ArrayList<Login> getLoginList();
+	public ELogin loginCheck(String id,String password);
 }

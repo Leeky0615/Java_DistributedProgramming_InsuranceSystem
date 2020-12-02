@@ -17,15 +17,11 @@ import javax.swing.border.TitledBorder;
 
 import constants.ViewConstants.EMainFrame;
 import constants.ViewConstants.EViewFrame;
-import main.Menu;
-import model.service.acceptInsuranceDesign.AcceptInsDesignImpl;
-import model.service.insuranceDevelopment.InsuranceDesignListImpl;
+import controller.FrontController;
 import view.defaultClass.DefaultPanel;
 
 public class AcceptInsPanel extends DefaultPanel {
 	private static final long serialVersionUID = 1L;
-	private InsuranceDesignListImpl insuranceDesignList;
-	private AcceptInsDesignImpl AcceptInsuranceDesign;
 	
 	private InsuranceDesignTable insuranceDesignTable;
 	private JButton detailCheckBtn,acceptedInsBtn;
@@ -34,10 +30,8 @@ public class AcceptInsPanel extends DefaultPanel {
 	private MouseHandler mousehandler;
 
 
-	public AcceptInsPanel(Menu menu) {
-		super(menu);
-		this.insuranceDesignList = (InsuranceDesignListImpl)this.menu.getInsuranceDesignList();
-		this.AcceptInsuranceDesign= (AcceptInsDesignImpl)this.menu.getAcceptInsuranceDesign();
+	public AcceptInsPanel(FrontController frontController) {
+		super(frontController);
 		this.mousehandler = new MouseHandler();
 
 		this.createPanel();
@@ -47,7 +41,7 @@ public class AcceptInsPanel extends DefaultPanel {
 		this.removeAll();
 		this.setLayout(null);
 		// 테이블 생성
-		this.insuranceDesignTable = new InsuranceDesignTable((InsuranceDesignListImpl) this.insuranceDesignList, false);
+		this.insuranceDesignTable = new InsuranceDesignTable(super.frontController, false);
 		this.insuranceDesignTable.addMouseListener(mousehandler);
 		JScrollPane scroll = new JScrollPane();
 		scroll.setBounds(12, 10, 576, 364);
@@ -93,14 +87,14 @@ public class AcceptInsPanel extends DefaultPanel {
 			}else {
 				// 보험설계서 패널을 보여줌
 				this.removeAll();
-				InsuranceDesignPanel insuranceDesignPanel = new InsuranceDesignPanel(this,this.AcceptInsuranceDesign,this.insuranceDesignList,this.insuranceDesignTable.getRow());
+				InsuranceDesignPanel insuranceDesignPanel = new InsuranceDesignPanel(this,super.frontController,this.insuranceDesignTable.getRow());
 				this.setLayout(new GridLayout(1,1));
 				this.add(insuranceDesignPanel);
 			}
 		}else if(source.equals(this.acceptedInsBtn)){
 			// 승인된 보험설계서 내역을 클릭하는 경우, 승인된 보험설계서 패널을 보여줌
 			this.removeAll();
-			AcceptedInsPanel acceptedInsPanel = new AcceptedInsPanel(this,this.insuranceDesignList);
+			AcceptedInsPanel acceptedInsPanel = new AcceptedInsPanel(this,super.frontController);
 			this.setLayout(new GridLayout(1,1));
 			this.add(acceptedInsPanel);
 		}

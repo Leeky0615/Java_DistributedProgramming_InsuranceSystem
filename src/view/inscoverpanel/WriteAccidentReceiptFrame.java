@@ -18,13 +18,16 @@ import javax.swing.border.TitledBorder;
 
 import constants.ControlConstants.EInsuranceType;
 import constants.ControlConstants.EPaymentMethod;
+import constants.ControllerConstants.EController;
 import constants.ViewConstants.EViewFrame;
+import controller.FrontController;
+import controller.insuranceCover.InsuranceCoverControllerImpl;
 import model.service.insuranceCover.InsuranceCoverImpl;
 
 public class WriteAccidentReceiptFrame extends JFrame {
 	private static final long serialVersionUID = 1L;
 	
-	private InsuranceCoverImpl insuranceCover;
+	private InsuranceCoverControllerImpl InsuranceCoverController;
 	
 	private JButton saveBtn, cancelBtn;
 	private ActionHandler actionHandler;
@@ -46,8 +49,8 @@ public class WriteAccidentReceiptFrame extends JFrame {
 	private JTextField money_t;
 
 	
-	public WriteAccidentReceiptFrame(InsuranceCoverImpl insuranceCover) {
-		this.insuranceCover = insuranceCover;
+	public WriteAccidentReceiptFrame(FrontController frontController) {
+		this.InsuranceCoverController = (InsuranceCoverControllerImpl) frontController.mappingController(EController.InsuranceCoverController.getControllerName());
 		
 		this.actionHandler = new ActionHandler();
 		setSize(550, 430);
@@ -251,7 +254,7 @@ public class WriteAccidentReceiptFrame extends JFrame {
 			accidentReceiptContents.add(this.damage_t.getText());
 			accidentReceiptContents.add(this.circumstace_t.getText());
 			accidentReceiptContents.add(this.money_t.getText());
-			this.insuranceCover.writeAccientReceipt(accidentReceiptContents);
+			this.InsuranceCoverController.writeAccientReceipt(accidentReceiptContents);
 			JOptionPane.showMessageDialog(this, "사고 접수서 등록이 완료되었습니다.");
 			this.dispose();
 		}else if(source.equals(this.cancelBtn)) {

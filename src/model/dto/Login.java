@@ -13,6 +13,6 @@ public class Login {
 	public void setId(String userId) {this.userId = userId;}
 	public String getPassword() {return password;}
 	public void setPassword(String password) {this.password = password;}
-	public ELogin getLogin() {return userType;}
-	public void setLogin(ELogin userType) {this.userType = userType;}
+	public ELogin getUserType() {return userType;}
+	public void setUserType(ELogin userType) {this.userType = userType;}
 }

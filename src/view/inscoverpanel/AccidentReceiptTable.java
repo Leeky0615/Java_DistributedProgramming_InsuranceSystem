@@ -2,24 +2,26 @@ package view.inscoverpanel;
 
 import java.util.Vector;
 
+import constants.ControllerConstants.EController;
+import controller.FrontController;
+import controller.accidentReceipt.AccidentReceiptControllerImpl;
 import model.dto.AccidentReceipt;
-import model.service.accidentReceipt.AccidentReceiptListImpl;
 import view.defaultClass.Default_AccidnetReceiptTable;
 
 public class AccidentReceiptTable extends Default_AccidnetReceiptTable {
 	private static final long serialVersionUID = 1L;
 	
-	private AccidentReceiptListImpl accidentReceiptList;
+	private AccidentReceiptControllerImpl accidentReceiptController;
 	
-	public AccidentReceiptTable(AccidentReceiptListImpl accidentReceiptList) {
+	public AccidentReceiptTable(FrontController frontController) {
 		super();
-		this.accidentReceiptList = accidentReceiptList;
+		this.accidentReceiptController = (AccidentReceiptControllerImpl) frontController.mappingController(EController.AccidentReceiptController.getControllerName());
 		this.refresh();
 	}
 
 	public void refresh() {
 		this.rowData.clear();
-		for (AccidentReceipt accidentReceipt : this.accidentReceiptList.getAccidentReceiptList()) {
+		for (AccidentReceipt accidentReceipt : this.accidentReceiptController.getAccidentReceiptList()) {
 			Vector<Object> accidentReceipts = new Vector<Object>();
 			accidentReceipts.add(accidentReceipt.getAccidentReceiptId());
 			accidentReceipts.add(accidentReceipt.getAccidentReceiptName());

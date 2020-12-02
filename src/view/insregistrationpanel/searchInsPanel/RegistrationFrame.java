@@ -11,12 +11,14 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import constants.ControlConstants.EInsuranceType;
+import constants.ControllerConstants.EController;
+import controller.FrontController;
+import controller.insuranceRegistration.InsuranceRegistrationControllerImpl;
 import model.dto.Insurance;
-import model.service.insuranceRegistration.InsuranceRegistrationImpl;
 
-public class RegistationFrame extends JFrame{
+public class RegistrationFrame extends JFrame{
 	private static final long serialVersionUID = 1L;
-	private InsuranceRegistrationImpl insuranceRegistration;
+	private InsuranceRegistrationControllerImpl insuranceRegistrationController;
 	private Insurance requestInsurance;
 	
 	private JButton okBtn,cancelBtn;
@@ -24,8 +26,8 @@ public class RegistationFrame extends JFrame{
 	private CancerPanel cancerPanel;
 	private CarPanel carPanel;
 	private FirePanel firePanel;
-	public RegistationFrame(InsuranceRegistrationImpl insuranceRegistration, Insurance insurance) {
-		this.insuranceRegistration = insuranceRegistration;
+	public RegistrationFrame(FrontController frontController, Insurance insurance) {
+		this.insuranceRegistrationController = (InsuranceRegistrationControllerImpl) frontController.mappingController(EController.InsuranceRegistrationController.getControllerName());
 		this.requestInsurance = insurance;
 		
 		this.setSize(500, 280);
@@ -82,8 +84,8 @@ public class RegistationFrame extends JFrame{
 				infos.add(this.firePanel.getType_t());
 				infos.add(this.firePanel.getPrice_t());
 			}
-			this.insuranceRegistration.writeInsuranceInformation(this.requestInsurance, type,infos);
-			this.insuranceRegistration.request();
+			this.insuranceRegistrationController.writeInsuranceInformation(this.requestInsurance, type,infos);
+			this.insuranceRegistrationController.request();
 			JOptionPane.showMessageDialog(this, "가입 요청이 완료되었습니다.");
 			this.dispose();
 		}else {

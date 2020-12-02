@@ -14,17 +14,19 @@ import javax.swing.JScrollPane;
 import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
 
+import constants.ControllerConstants.EController;
 import constants.ViewConstants.EMainFrame;
-import model.service.salesPerson.SalesPersonListImpl;
+import controller.FrontController;
+import controller.salesPerson.SalesPersonControllerImpl;
 
 public class RequestPanel extends JPanel {
 	private static final long serialVersionUID = 1L;
 	private ActionListener actionListener;
-	private SalesPersonListImpl salesPersonList;
+	private FrontController frontController;
 	private SalesPersonTable salesPersonTable;
 	private JButton yes;
-	public RequestPanel(SalesPersonListImpl salesPersonList) {
-		this.salesPersonList = salesPersonList;
+	public RequestPanel(FrontController frontController) {
+		this.frontController = frontController;
 		this.setLayout(new BorderLayout());
 		
 		JPanel panel = new JPanel();
@@ -36,7 +38,7 @@ public class RequestPanel extends JPanel {
 		panel.add(yes);
 		this.add(panel, BorderLayout.NORTH);
 		
-        this.salesPersonTable = new SalesPersonTable(this.salesPersonList);
+        this.salesPersonTable = new SalesPersonTable(this.frontController);
 		JScrollPane scroll = new JScrollPane();
    		scroll.setBounds(12, 127, 576, 185);
    		scroll.setBorder(new TitledBorder(new LineBorder(Color.lightGray,1),"주변 보험영업자  리스트"));

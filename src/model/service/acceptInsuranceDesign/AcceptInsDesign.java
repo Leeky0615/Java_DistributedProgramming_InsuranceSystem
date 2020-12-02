@@ -1,7 +1,7 @@
 package model.service.acceptInsuranceDesign;
 
 import model.service.insurance.InsuranceListImpl;
-import model.service.insuranceDevelopment.InsuranceDesignListImpl;
+import model.service.insuranceDesign.InsuranceDesignListImpl;
 
 public interface AcceptInsDesign {
 	public void approve(int insuranceDesignId);

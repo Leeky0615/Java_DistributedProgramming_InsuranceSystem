@@ -2,25 +2,28 @@ package view.acceptinspanel;
 
 import java.util.Vector;
 
+import constants.ControllerConstants.EController;
 import constants.ViewConstants.EApprovalStatus;
+import controller.FrontController;
+import controller.insuranceDesign.InsuranceDesignControllerImpl;
 import model.dto.InsuranceDesign;
-import model.service.insuranceDevelopment.InsuranceDesignListImpl;
+import model.service.insuranceDesign.InsuranceDesignListImpl;
 import view.defaultClass.Default_InsuranceDesignTable;
 
 public class InsuranceDesignTable extends Default_InsuranceDesignTable {
 	private static final long serialVersionUID = 1L;
 	
-	private InsuranceDesignListImpl insuranceDesignList;
+	private InsuranceDesignControllerImpl insuranceDesignController;
 
-	public InsuranceDesignTable(InsuranceDesignListImpl insuranceDesignList, boolean acceptState) {
+	public InsuranceDesignTable(FrontController frontController, boolean acceptState) {
 		super();
-		this.insuranceDesignList = insuranceDesignList;
+		this.insuranceDesignController = (InsuranceDesignControllerImpl) frontController.mappingController(EController.InsuranceDesignController.getControllerName());
 		this.refresh(acceptState);
 	}
 
 	public void refresh(boolean acceptState) {
 		this.rowData.clear();
-		for (InsuranceDesign insuranceDesign : this.insuranceDesignList.getInsuranceDesignList()) {
+		for (InsuranceDesign insuranceDesign : this.insuranceDesignController.getInsuranceDesignList()) {
 			Vector<Object> insuranceDesigns = new Vector<Object>();
 			// 승인요청 중인 보험을 보여주는 테이블
 			if (acceptState) {

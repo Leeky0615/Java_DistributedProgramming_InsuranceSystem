@@ -2,24 +2,26 @@ package view.insregistrationpanel.requestPanel;
 
 import java.util.Vector;
 
+import constants.ControllerConstants.EController;
+import controller.FrontController;
+import controller.salesPerson.SalesPersonControllerImpl;
 import model.dto.SalesPerson;
-import model.service.salesPerson.SalesPersonListImpl;
 import view.defaultClass.Default_SalesPersonTable;
 
 public class SalesPersonTable extends Default_SalesPersonTable{
 	private static final long serialVersionUID = 1L;
 	
-	private SalesPersonListImpl salesPersonList;
+	private SalesPersonControllerImpl salesPersonController;
 	
-	public SalesPersonTable(SalesPersonListImpl salesPersonList) {
+	public SalesPersonTable(FrontController frontController) {
 		super();
-		this.salesPersonList = salesPersonList;
+		this.salesPersonController = (SalesPersonControllerImpl) frontController.mappingController(EController.SalesPersonController.getControllerName());
 		this.refresh();
 	}
 
 	public void refresh() {
 		this.rowData.clear();
-		for (SalesPerson salesPerson : this.salesPersonList.getSalesPersonlist()) {
+		for (SalesPerson salesPerson : this.salesPersonController.getSalesPersonlist()) {
 			Vector<Object> salesPersonList = new Vector<Object>();
 			salesPersonList.add(salesPerson.getName());
 			salesPersonList.add(salesPerson.getPhoneNum());

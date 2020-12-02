@@ -13,16 +13,18 @@ import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
 
+import constants.ControllerConstants.EController;
 import constants.ViewConstants.EInsuranceHead;
 import constants.ViewConstants.EViewFrame;
+import controller.FrontController;
+import controller.insuranceRegistration.InsuranceRegistrationControllerImpl;
 import model.dto.Insurance;
-import model.service.insuranceRegistration.InsuranceRegistrationImpl;
 import view.insregistrationpanel.searchInsPanel.SearchInsurancePanel;
 
 public class InsForDevelopmentPanel extends JPanel{
 	private static final long serialVersionUID = 1L;
 	private SearchInsurancePanel searchInsurancePanel;
-	private InsuranceRegistrationImpl insuranceRegistration;
+	private InsuranceRegistrationControllerImpl insuranceRegistrationController;
 	
 	private Vector<Object> selectedRow;
 	private Insurance insurance;
@@ -31,8 +33,8 @@ public class InsForDevelopmentPanel extends JPanel{
 	private JPanel basicInfoPanel, btnPanel;
 	private JButton backBtn;
 	
-	public InsForDevelopmentPanel(SearchInsurancePanel searchInsurancePanel, InsuranceRegistrationImpl insuranceRegistration, Vector<Object> selectedRow) {
-		this.insuranceRegistration = insuranceRegistration;
+	public InsForDevelopmentPanel(SearchInsurancePanel searchInsurancePanel, FrontController frontController, Vector<Object> selectedRow) {
+		this.insuranceRegistrationController = (InsuranceRegistrationControllerImpl) frontController.mappingController(EController.InsuranceRegistrationController.getControllerName());
 		this.selectedRow = selectedRow;
 		this.searchInsurancePanel = searchInsurancePanel;
 		
@@ -140,7 +142,7 @@ public class InsForDevelopmentPanel extends JPanel{
 	}
 	
 	public void setInsurance(int insuranceId) {
-		this.insurance = this.insuranceRegistration.searchInsurance(insuranceId);
+		this.insurance = this.insuranceRegistrationController.searchInsurance(insuranceId);
 	}
 	
 	public void buttonClick() {

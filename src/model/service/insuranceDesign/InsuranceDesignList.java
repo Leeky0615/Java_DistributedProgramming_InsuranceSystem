@@ -1,4 +1,4 @@
-package model.service.insuranceDevelopment;
+package model.service.insuranceDesign;
 
 import java.util.ArrayList;
 

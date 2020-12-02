@@ -26,10 +26,9 @@ import model.service.insuranceDesign.InsuranceDesignListImpl;
 public class InsuranceDesignPanel extends JPanel{
 private static final long serialVersionUID = 1L;
 	
-	private Vector<Object> objects;
+	private int selectedId;
 	private InsuranceDesignControllerImpl insuranceDesignController;
 	private AcceptInsDesignControllerImpl acceptInsDesignController;
-	private InsuranceDesign insuranceDesign;
 	private AcceptInsPanel acceptInsPanel;
 	private AcceptedInsPanel acceptedInsPanel;
 	
@@ -41,14 +40,14 @@ private static final long serialVersionUID = 1L;
 
 	private Vector<JLabel> labels;
 	// 보험승인하기(AcceptInsPanel) 패널에서 보험 상세조회를 클릭시 생성되는 Constructor
-	public InsuranceDesignPanel(AcceptInsPanel acceptInsPanel, FrontController frontController, Vector<Object> vector) {
+	public InsuranceDesignPanel(AcceptInsPanel acceptInsPanel, FrontController frontController, int insuranceDesignId) {
 		setPreferredSize(new Dimension(601, 521));
 		setLayout(null);
 		
 		this.acceptInsPanel = acceptInsPanel;	
 		this.insuranceDesignController = (InsuranceDesignControllerImpl) frontController.mappingController(EController.InsuranceDesignController.getControllerName());
 		this.acceptInsDesignController = (AcceptInsDesignControllerImpl) frontController.mappingController(EController.AcceptInsDesignController.getControllerName());	
-		this.objects = vector;
+		this.selectedId = insuranceDesignId;
 		this.createDefaultPanel();
 		this.actionHandler = new ActionHandler();
 		
@@ -78,13 +77,13 @@ private static final long serialVersionUID = 1L;
 	}
 	
 	// 승인된 보험 조회하기(AcceptedInsPanel) 패널에서 보험 상세조회를 클릭시 생성되는 Constructor
-	public InsuranceDesignPanel(AcceptedInsPanel acceptedInsPanel,FrontController frontController, Vector<Object> vector) {
+	public InsuranceDesignPanel(AcceptedInsPanel acceptedInsPanel,FrontController frontController, int insuranceDesignId) {
 		setPreferredSize(new Dimension(601, 521));
 		setLayout(null);
 		
 		this.acceptedInsPanel = acceptedInsPanel;	
 		this.insuranceDesignController = (InsuranceDesignControllerImpl) frontController.mappingController(EController.InsuranceDesignController.getControllerName());
-		this.objects = vector;
+		this.selectedId = insuranceDesignId;
 		this.createDefaultPanel();
 		
 		this.actionHandler = new ActionHandler();
@@ -102,8 +101,9 @@ private static final long serialVersionUID = 1L;
 		this.add(btnPanel);
 	}
 	public Vector<String> getInsuranceInfo(){
-		return this.insuranceDesignController.setInsuranceInfo((Integer)this.objects.get(0));
+		return this.insuranceDesignController.getInsuranceInfo(this.selectedId);
 	}
+	
 	// 기본 패널내용을 생성하는 메서드
 	public void createDefaultPanel() {
 		this.labels= new Vector<JLabel>(); 
@@ -134,11 +134,11 @@ private static final long serialVersionUID = 1L;
 	public void buttonClick(Object source) {
 		if (source.equals(this.approve)) {
 			// 보험 승인 버튼 클릭시
-			this.acceptInsDesignController.approve(this.insuranceDesign.getInsuranceDesignId());
+			this.acceptInsDesignController.approve(this.selectedId);
 			JOptionPane.showMessageDialog(this, "해당 보험설계서가 승인되었습니다.");
 		}else if (source.equals(this.disApprove)) {
 			// 보험 미승인버튼 클릭시
-			this.acceptInsDesignController.disapprove(this.insuranceDesign.getInsuranceDesignId());
+			this.acceptInsDesignController.disapprove(this.selectedId);
 			JOptionPane.showMessageDialog(this, "해당 보험설계서가 미승인되었습니다.");
 		}else if(source.equals(this.back)){
 			// 뒤로가기 버튼 클릭시

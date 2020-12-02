@@ -6,9 +6,13 @@ import view.mainFrame.MainFrame;
 public class Main {
 
 	public static void main(String[] args) {
-		FrontController menu = new FrontController();
+		MainServices mainServices = new MainServices();
+		mainServices.initialize();
+		FrontController frontController = new FrontController();
+		frontController.associate(mainServices);
+		frontController.connectCtoS();
 		
-		MainFrame mainFrame = new MainFrame(menu);
+		MainFrame mainFrame = new MainFrame(frontController);
 		mainFrame.setVisible(true);
 	}
 }

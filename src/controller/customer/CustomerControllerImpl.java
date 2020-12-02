@@ -1,5 +1,15 @@
 package controller.customer;
 
-public class CustomerControllerImpl implements CustomerController {
+import model.service.customer.CustomerListImpl;
 
+public class CustomerControllerImpl implements CustomerController {
+	private CustomerListImpl customerList;
+
+	public CustomerControllerImpl() {
+		
+	}
+
+	public void connectCtoS(CustomerListImpl customerList) {
+		this.customerList = customerList;
+	}
 }

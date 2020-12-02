@@ -15,6 +15,7 @@ import javax.swing.JScrollPane;
 import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
 
+import constants.ViewConstants.EInsuranceDesign;
 import constants.ViewConstants.EMainFrame;
 import constants.ViewConstants.EViewFrame;
 import controller.FrontController;
@@ -87,7 +88,9 @@ public class AcceptInsPanel extends DefaultPanel {
 			}else {
 				// 보험설계서 패널을 보여줌
 				this.removeAll();
-				InsuranceDesignPanel insuranceDesignPanel = new InsuranceDesignPanel(this,super.frontController,this.insuranceDesignTable.getRow());
+				// 선택된 row의 보험설계서 정보를 insuranceDesignPanel로 넘김.
+				int insuranceDesignId = (int)this.insuranceDesignTable.getRow().get(EInsuranceDesign.insuranceDesignId.ordinal());
+				InsuranceDesignPanel insuranceDesignPanel = new InsuranceDesignPanel(this,super.frontController,insuranceDesignId);
 				this.setLayout(new GridLayout(1,1));
 				this.add(insuranceDesignPanel);
 			}

@@ -17,6 +17,7 @@ import javax.swing.border.TitledBorder;
 
 import constants.ControllerConstants;
 import constants.ControllerConstants.EController;
+import constants.ViewConstants.EInsuranceDesign;
 import constants.ViewConstants.EMainFrame;
 import constants.ViewConstants.EViewFrame;
 import controller.FrontController;
@@ -90,7 +91,8 @@ public class AcceptedInsPanel extends JPanel {
 		}else if(source.equals(this.detailCheckBtn)){
 			// 상세조회 버튼클릭시 상세조회패널을 생성
 			this.removeAll();
-			InsuranceDesignPanel insuranceDesignPanel = new InsuranceDesignPanel(this,this.frontController,this.insuranceDesignTable.getRow());
+			int insuranceDesignId = (int)this.insuranceDesignTable.getRow().get(EInsuranceDesign.insuranceDesignId.ordinal());
+			InsuranceDesignPanel insuranceDesignPanel = new InsuranceDesignPanel(this,this.frontController,insuranceDesignId);
 			this.setLayout(new GridLayout(1,1));
 			this.add(insuranceDesignPanel);
 		}

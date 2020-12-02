@@ -25,6 +25,7 @@ import model.dto.Insurance;
 public class InsForRegistPanel extends JPanel{
 	private static final long serialVersionUID = 1L;
 	private SearchInsurancePanel searchInsurancePanel;
+	private FrontController frontController;
 	private InsuranceRegistrationControllerImpl insuranceRegistrationController;
 	
 	private Vector<Object> selectedRow;
@@ -36,6 +37,7 @@ public class InsForRegistPanel extends JPanel{
 	private JButton registrationBtn,backBtn;
 	
 	public InsForRegistPanel(SearchInsurancePanel searchInsurancePanel, FrontController frontController, Vector<Object> selectedRow) {
+		this.frontController = frontController;
 		this.insuranceRegistrationController = (InsuranceRegistrationControllerImpl) frontController.mappingController(EController.InsuranceRegistrationController.getControllerName());
 		this.selectedRow = selectedRow;
 		this.searchInsurancePanel = searchInsurancePanel;
@@ -195,7 +197,7 @@ public class InsForRegistPanel extends JPanel{
 			String customerName = this.customerName_t.getText();
 			String customerId = this.customerId_t1.getText()+"-"+this.customerId_t2.getText();
 			if (this.insuranceRegistrationController.writeCustomerInfomation(customerName, customerId)) {
-				RegistrationFrame registrationFrame = new RegistrationFrame(this.frontcontroller, this.insurance);
+				RegistrationFrame registrationFrame = new RegistrationFrame(this.frontController, this.insurance);
 				registrationFrame.setVisible(true);
 			}else {
 				JOptionPane.showMessageDialog(null, "회원 정보가 일치하지 않습니다. 다시 확인해주세요", "회원 정보 확인", JOptionPane.WARNING_MESSAGE);

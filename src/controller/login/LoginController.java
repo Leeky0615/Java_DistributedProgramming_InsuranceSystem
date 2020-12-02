@@ -1,5 +1,7 @@
 package controller.login;
 
-public interface LoginController {
+import model.service.login.LoginListImpl;
 
+public interface LoginController {
+	public void connectCtoS(LoginListImpl loginlist);
 }

@@ -17,4 +17,8 @@ public class InsuranceCoverControllerImpl implements InsuranceCoverController {
 	public void writeAccientReceipt(Vector<String> accidentReceiptContents) {
 		this.insuranceCover.writeAccientReceipt(accidentReceiptContents);
 	}
+
+	public void acceptAccident(int accidentReceiptId) {
+		this.insuranceCover.acceptAccident(accidentReceiptId);
+	}
 }

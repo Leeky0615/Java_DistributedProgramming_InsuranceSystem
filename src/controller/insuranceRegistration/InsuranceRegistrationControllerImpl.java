@@ -25,4 +25,8 @@ public class InsuranceRegistrationControllerImpl implements InsuranceRegistratio
 		this.insuranceRegistration.writeInsuranceInformation(requestInsurance, type, infos);
 	}
 
+	public void request() {
+		this.insuranceRegistration.request();
+	}
+
 }

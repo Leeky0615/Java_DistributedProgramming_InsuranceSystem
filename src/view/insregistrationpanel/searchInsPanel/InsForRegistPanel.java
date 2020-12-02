@@ -197,7 +197,7 @@ public class InsForRegistPanel extends JPanel{
 			String customerName = this.customerName_t.getText();
 			String customerId = this.customerId_t1.getText()+"-"+this.customerId_t2.getText();
 			if (this.insuranceRegistrationController.writeCustomerInfomation(customerName, customerId)) {
-				RegistrationFrame registrationFrame = new RegistrationFrame(this.frontController, this.insurance);
+				RegistrationFrame registrationFrame = new RegistrationFrame(this.frontcontroller, this.insurance);
 				registrationFrame.setVisible(true);
 			}else {
 				JOptionPane.showMessageDialog(null, "회원 정보가 일치하지 않습니다. 다시 확인해주세요", "회원 정보 확인", JOptionPane.WARNING_MESSAGE);

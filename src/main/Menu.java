@@ -37,6 +37,19 @@ public class Menu {
 	private CheckCustomerInfo checkCustomerInfo;
 	private InsuranceCover insuranceCover;
 	
+	private InsuranceDesignController insuranceDesignController;
+	private CustomerController customerController;
+	private InsuranceController insuranceController;
+	private AccidentReceiptController accidentReceiptController;
+	private SalesPersonController salesPersonController;
+	private LoginController loginController;
+	
+	private AcceptInsDesignController acceptInsuranceDesignController;
+	private InsuranceDevelopmentController insuranceDevelopmentController;
+	private InsuranceRegistrationController insuranceRegistrationController;
+	private CheckCustomerInfController checkCustomerInfoController;
+	private InsuranceCoverController insuranceCoverController;
+	
 	
 	public Menu(){
 		this.insuranceDesignList = new InsuranceDesignListImpl();

@@ -16,7 +16,7 @@ import javax.swing.border.TitledBorder;
 
 import constants.ViewConstants.EInsuranceDesign;
 import constants.ViewConstants.EViewFrame;
-import controller.AcceoptInsuranceDesignControl;
+import controller.acceptInsuranceDesign.AcceoptInsuranceDesignControl;
 import model.dto.InsuranceDesign;
 import model.service.acceptInsuranceDesign.AcceptInsuranceDesignImpl;
 import model.service.insuranceDevelopment.InsuranceDesignListImpl;

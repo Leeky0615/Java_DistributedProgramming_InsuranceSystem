@@ -1,7 +1,7 @@
 package main;
 
-import model.service.acceptInsuranceDesign.AcceptInsuranceDesign;
-import model.service.acceptInsuranceDesign.AcceptInsuranceDesignImpl;
+import model.service.acceptInsuranceDesign.AcceptInsDesign;
+import model.service.acceptInsuranceDesign.AcceptInsDesignImpl;
 import model.service.accidentReceipt.AccidentReceiptList;
 import model.service.accidentReceipt.AccidentReceiptListImpl;
 import model.service.checkCustomerInfo.CheckCustomerInfo;
@@ -31,7 +31,7 @@ public class Menu {
 	private SalesPersonList salesPersonList;
 	private LoginList loginlist;
 	
-	private AcceptInsuranceDesign acceptInsuranceDesign;
+	private AcceptInsDesign acceptInsuranceDesign;
 	private InsuranceDevelopment insuranceDevelopment;
 	private InsuranceRegistration insuranceRegistration;
 	private CheckCustomerInfo checkCustomerInfo;
@@ -46,7 +46,7 @@ public class Menu {
 		this.salesPersonList = new SalesPersonListImpl();
 		this.loginlist = new LoginListImpl();
 		
-		this.acceptInsuranceDesign = new AcceptInsuranceDesignImpl();
+		this.acceptInsuranceDesign = new AcceptInsDesignImpl();
 		this.insuranceDevelopment = new InsuranceDevelopmentImpl();
 		this.insuranceRegistration = new InsuranceRegistrationImpl();
 		this.checkCustomerInfo = new CheckCustomerInfoImpl();
@@ -64,8 +64,8 @@ public class Menu {
 	public void setInsuranceList(InsuranceList insuranceList) {this.insuranceList = insuranceList;}
 	public AccidentReceiptList getAccidentReceiptList() {return accidentReceiptList;}
 	public void setAccidentReceiptList(AccidentReceiptList accidentReceiptList) {this.accidentReceiptList = accidentReceiptList;}
-	public AcceptInsuranceDesign getAcceptInsuranceDesign() {return acceptInsuranceDesign;}
-	public void setAcceptInsuranceDesign(AcceptInsuranceDesign acceptInsuranceDesign) {this.acceptInsuranceDesign = acceptInsuranceDesign;}
+	public AcceptInsDesign getAcceptInsuranceDesign() {return acceptInsuranceDesign;}
+	public void setAcceptInsuranceDesign(AcceptInsDesign acceptInsuranceDesign) {this.acceptInsuranceDesign = acceptInsuranceDesign;}
 	public SalesPersonList getSalesPersonList() {return salesPersonList;}
 	public void setSalesPersonList(SalesPersonList salesPersonList) {this.salesPersonList = salesPersonList;}
 	public InsuranceDevelopment getInsuranceDevelopment() {return insuranceDevelopment;}

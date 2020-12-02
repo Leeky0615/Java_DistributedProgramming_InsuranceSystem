@@ -7,12 +7,12 @@ import model.dto.InsuranceDesign;
 import model.service.insurance.InsuranceListImpl;
 import model.service.insuranceDevelopment.InsuranceDesignListImpl;
 
-public class AcceptInsuranceDesignImpl implements AcceptInsuranceDesign {
+public class AcceptInsDesignImpl implements AcceptInsDesign {
 	private InsuranceDesignListImpl insuranceDesignList;
 	private InsuranceListImpl insuranceList;
 	private InsuranceDesignDao insuranceDesignDao;
 	
-	public AcceptInsuranceDesignImpl(){}
+	public AcceptInsDesignImpl(){}
 	public void associate(InsuranceDesignListImpl insuranceDesignList, InsuranceListImpl insuranceList) {
 		this.insuranceDesignDao = new InsuranceDesignDaoImpl();
 		this.insuranceDesignList = insuranceDesignList;

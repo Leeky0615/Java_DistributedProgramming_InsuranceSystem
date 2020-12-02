@@ -18,14 +18,14 @@ import javax.swing.border.TitledBorder;
 import constants.ViewConstants.EMainFrame;
 import constants.ViewConstants.EViewFrame;
 import main.Menu;
-import model.service.acceptInsuranceDesign.AcceptInsuranceDesignImpl;
+import model.service.acceptInsuranceDesign.AcceptInsDesignImpl;
 import model.service.insuranceDevelopment.InsuranceDesignListImpl;
 import view.defaultClass.DefaultPanel;
 
 public class AcceptInsPanel extends DefaultPanel {
 	private static final long serialVersionUID = 1L;
 	private InsuranceDesignListImpl insuranceDesignList;
-	private AcceptInsuranceDesignImpl AcceptInsuranceDesign;
+	private AcceptInsDesignImpl AcceptInsuranceDesign;
 	
 	private InsuranceDesignTable insuranceDesignTable;
 	private JButton detailCheckBtn,acceptedInsBtn;
@@ -37,7 +37,7 @@ public class AcceptInsPanel extends DefaultPanel {
 	public AcceptInsPanel(Menu menu) {
 		super(menu);
 		this.insuranceDesignList = (InsuranceDesignListImpl)this.menu.getInsuranceDesignList();
-		this.AcceptInsuranceDesign= (AcceptInsuranceDesignImpl)this.menu.getAcceptInsuranceDesign();
+		this.AcceptInsuranceDesign= (AcceptInsDesignImpl)this.menu.getAcceptInsuranceDesign();
 		this.mousehandler = new MouseHandler();
 
 		this.createPanel();

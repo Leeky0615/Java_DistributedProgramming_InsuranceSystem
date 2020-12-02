@@ -6,10 +6,6 @@ import control.insurance.FireInsurance;
 import control.insurance.Insurance;
 
 public class ControlConstants {
-	public static String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
-	public static String DB_URL = "jdbc:mysql://localhost:3306/insurance?serverTimezone=UTC";
-	public static String USER_NAME = "root";
-	public static String PASSWORD = "1234";
 	public ControlConstants() {}
 	
 	// Accident Receipt & ContractCondition

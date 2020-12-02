@@ -25,8 +25,8 @@ import view.defaultClass.DefaultPanel;
 public class InsCoverPanel extends DefaultPanel{
 	private static final long serialVersionUID = 1L;
 	
-	private AccidentReceiptListImpl accidentReceiptList;
-	private InsuranceCoverImpl insuranceCover;
+	#private AccidentReceiptListImpl accidentReceiptList;
+	#private InsuranceCoverImpl insuranceCover;
 	
 	private AccidentReceiptTable accidentReceiptTable;
 	private JButton detailCheckBtn, writeAccidentReceiptBtn,refreshBtn;
@@ -34,8 +34,8 @@ public class InsCoverPanel extends DefaultPanel{
 	private MouseHandler mousehandler;
 	public InsCoverPanel(Menu menu) {
 		super(menu);
-		this.accidentReceiptList = (AccidentReceiptListImpl)this.menu.getAccidentReceiptList();
-		this.insuranceCover = (InsuranceCoverImpl)this.menu.getInsuranceCover();
+		#this.accidentReceiptList = (AccidentReceiptListImpl)this.menu.getAccidentReceiptList();
+		#this.insuranceCover = (InsuranceCoverImpl)this.menu.getInsuranceCover();
 		this.actionHandler = new ActionHandler();
 		this.mousehandler = new MouseHandler();
 		

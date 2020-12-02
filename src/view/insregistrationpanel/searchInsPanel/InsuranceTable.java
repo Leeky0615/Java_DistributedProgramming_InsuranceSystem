@@ -8,9 +8,9 @@ import view.defaultClass.Default_InsuranceTable;
 
 public class InsuranceTable extends Default_InsuranceTable{
 	private static final long serialVersionUID = 1L;
-	private InsuranceListImpl insuranceList;
+	#private InsuranceListImpl insuranceList;
 	
-	public InsuranceTable(InsuranceListImpl insurancerList, String insuranceType) {
+	public InsuranceTable(#InsuranceListImpl insurancerList, String insuranceType) {
 		super();
 		this.insuranceList = insurancerList;
 		this.refresh(insuranceType);

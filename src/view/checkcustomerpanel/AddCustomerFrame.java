@@ -25,15 +25,15 @@ import model.service.checkCustomerInfo.CheckCustomerInfoImpl;
 
 public class AddCustomerFrame extends JFrame { //고객추가하기버튼누르는 경우
 	private static final long serialVersionUID = 1L;
-	private CheckCustomerInfoImpl checkCustomerInfo;
+	#private CheckCustomerInfoImpl checkCustomerInfo;
 
 	private JButton saveBtn, cancelBtn;
 	private ActionHandler actionHandler;
 	
 	private Vector<JTextField> fields,IdFields, phoneFields;
 	private Vector<JComboBox<String>> combos;
-	public AddCustomerFrame(CheckCustomerInfoImpl checkCustomerInfo) {
-		this.checkCustomerInfo = checkCustomerInfo;
+	public AddCustomerFrame(#CheckCustomerInfoImpl checkCustomerInfo) {
+		#this.checkCustomerInfo = checkCustomerInfo;
 		this.actionHandler = new ActionHandler();
 		
 		this.setSize(380, 500);

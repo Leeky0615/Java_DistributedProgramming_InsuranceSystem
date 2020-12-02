@@ -22,7 +22,7 @@ import model.service.insuranceDevelopment.InsuranceDesignListImpl;
 public class AcceptedInsPanel extends JPanel {
 	private static final long serialVersionUID = 1L;
 	
-	private InsuranceDesignListImpl insuranceDesignList;
+	#private InsuranceDesignListImpl insuranceDesignList;
 	private AcceptInsPanel acceptInsPanel;
 
 	private InsuranceDesignTable insuranceDesignTable;
@@ -30,7 +30,7 @@ public class AcceptedInsPanel extends JPanel {
 	private ActionHandler actionHandler;
 	private MouseHandler mousehandler;
 
-	public AcceptedInsPanel(AcceptInsPanel acceptInsPanel, InsuranceDesignListImpl insuranceDesignList) {
+	public AcceptedInsPanel(#AcceptInsPanel acceptInsPanel, #InsuranceDesignListImpl insuranceDesignList) {
 		this.acceptInsPanel = acceptInsPanel;
 		this.insuranceDesignList = insuranceDesignList;
 		this.mousehandler = new MouseHandler();
@@ -42,7 +42,7 @@ public class AcceptedInsPanel extends JPanel {
 		this.setLayout(null);
 		
 		// 보험설계서 리스트 테이블
-		this.insuranceDesignTable = new InsuranceDesignTable((InsuranceDesignListImpl) this.insuranceDesignList, true);
+		this.insuranceDesignTable = new InsuranceDesignTable(#(InsuranceDesignListImpl) this.insuranceDesignList, true);
 		this.insuranceDesignTable.addMouseListener(mousehandler);
 		JScrollPane scroll = new JScrollPane();
 		scroll.setBounds(12, 10, 576, 364);

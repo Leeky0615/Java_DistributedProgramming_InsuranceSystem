@@ -22,9 +22,9 @@ public class AccidentReceiptPanel extends JPanel{
 	private static final long serialVersionUID = 1L;
 	
 	private Vector<Object> objects;
-	private InsuranceCoverImpl insuranceCover;
-	private AccidentReceiptListImpl accidentReceiptList;
-	private AccidentReceipt accidentReceipt;
+	#private InsuranceCoverImpl insuranceCover;
+	#private AccidentReceiptListImpl accidentReceiptList;
+	#private AccidentReceipt accidentReceipt;
 	private InsCoverPanel insCoverPanel;
 	
 	private JPanel information;
@@ -33,13 +33,13 @@ public class AccidentReceiptPanel extends JPanel{
 
 	private JPanel btnPanel;
 	
-	public AccidentReceiptPanel(InsCoverPanel insCoverPanel, InsuranceCoverImpl insuranceCover, AccidentReceiptListImpl accidentReceiptList, Vector<Object> vector) {
+	public AccidentReceiptPanel(InsCoverPanel insCoverPanel, #InsuranceCoverImpl insuranceCover, #AccidentReceiptListImpl accidentReceiptList, Vector<Object> vector) {
 		setPreferredSize(new Dimension(600, 500));
 		setLayout(null);
 		
 		this.insCoverPanel = insCoverPanel;
 		this.insuranceCover = insuranceCover;
-		this.accidentReceiptList = accidentReceiptList;
+		#this.accidentReceiptList = accidentReceiptList;
 		
 		this.objects = vector;
 		for(AccidentReceipt accidentReceipt : this.accidentReceiptList.getAccidentReceiptList()) {

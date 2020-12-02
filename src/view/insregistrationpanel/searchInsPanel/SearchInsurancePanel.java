@@ -28,8 +28,8 @@ import view.insdevelopmentpanel.InsForDevelopmentPanel;
 
 public class SearchInsurancePanel extends JPanel {
 	private static final long serialVersionUID = 1L;
-	private InsuranceListImpl insuranceList;
-	private InsuranceRegistrationImpl insuranceRegistration;
+	#private InsuranceListImpl insuranceList;
+	#private InsuranceRegistrationImpl insuranceRegistration;
 	
 	private String menuName;
 	
@@ -40,7 +40,7 @@ public class SearchInsurancePanel extends JPanel {
 	private ActionHandler actionHandler;
 	private MouseHandler mousehandler;
 
-	public SearchInsurancePanel(InsuranceRegistrationImpl insuranceRegistration, InsuranceListImpl insuranceList,String menuName) {
+	public SearchInsurancePanel(#InsuranceRegistrationImpl insuranceRegistration, #InsuranceListImpl insuranceList,String menuName) {
 		this.insuranceRegistration = insuranceRegistration;
 		this.insuranceList = insuranceList;
 		

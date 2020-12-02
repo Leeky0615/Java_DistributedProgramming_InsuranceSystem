@@ -16,7 +16,7 @@ import model.service.insuranceRegistration.InsuranceRegistrationImpl;
 
 public class RegistationFrame extends JFrame{
 	private static final long serialVersionUID = 1L;
-	private InsuranceRegistrationImpl insuranceRegistration;
+	#private InsuranceRegistrationImpl insuranceRegistration;
 	private Insurance requestInsurance;
 	
 	private JButton okBtn,cancelBtn;
@@ -24,7 +24,7 @@ public class RegistationFrame extends JFrame{
 	private CancerPanel cancerPanel;
 	private CarPanel carPanel;
 	private FirePanel firePanel;
-	public RegistationFrame(InsuranceRegistrationImpl insuranceRegistration, Insurance insurance) {
+	public RegistationFrame(#InsuranceRegistrationImpl insuranceRegistration, Insurance insurance) {
 		this.insuranceRegistration = insuranceRegistration;
 		this.requestInsurance = insurance;
 		

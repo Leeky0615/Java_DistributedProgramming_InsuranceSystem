@@ -24,8 +24,8 @@ import view.defaultClass.DefaultPanel;
 
 public class AcceptInsPanel extends DefaultPanel {
 	private static final long serialVersionUID = 1L;
-	private InsuranceDesignListImpl insuranceDesignList;
-	private AcceptInsuranceDesignImpl AcceptInsuranceDesign;
+	#private InsuranceDesignListImpl insuranceDesignList;
+	#private AcceptInsuranceDesignImpl AcceptInsuranceDesign;
 	
 	private InsuranceDesignTable insuranceDesignTable;
 	private JButton detailCheckBtn,acceptedInsBtn;
@@ -47,7 +47,7 @@ public class AcceptInsPanel extends DefaultPanel {
 		this.removeAll();
 		this.setLayout(null);
 		// 테이블 생성
-		this.insuranceDesignTable = new InsuranceDesignTable((InsuranceDesignListImpl) this.insuranceDesignList, false);
+		this.insuranceDesignTable = new InsuranceDesignTable(#(InsuranceDesignListImpl) this.insuranceDesignList, false);
 		this.insuranceDesignTable.addMouseListener(mousehandler);
 		JScrollPane scroll = new JScrollPane();
 		scroll.setBounds(12, 10, 576, 364);

@@ -20,7 +20,7 @@ public class CustomerInfoPanel extends JPanel {
 	private static final long serialVersionUID = 1L;
 	private Vector<Object> objects;
 	private CheckCustomerPanel checkCustomerPanel;
-	private CustomerListImpl customerList;
+	#private CustomerListImpl customerList;
 	private Customer customer;
 	
 	private JPanel information;
@@ -28,11 +28,11 @@ public class CustomerInfoPanel extends JPanel {
 	private JButton back;
 
 	private JPanel btnPanel;
-	public CustomerInfoPanel(CheckCustomerPanel checkCustomerPanel, CustomerListImpl customerList) {
+	public CustomerInfoPanel(CheckCustomerPanel checkCustomerPanel, #CustomerListImpl customerList) {
 		setPreferredSize(new Dimension(600, 500));
 		setLayout(null);
 		
-		this.customerList = customerList;
+		#this.customerList = customerList;
 		this.checkCustomerPanel = checkCustomerPanel;
 	}
 	

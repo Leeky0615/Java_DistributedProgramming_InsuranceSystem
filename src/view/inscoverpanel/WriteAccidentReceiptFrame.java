@@ -24,7 +24,7 @@ import model.service.insuranceCover.InsuranceCoverImpl;
 public class WriteAccidentReceiptFrame extends JFrame {
 	private static final long serialVersionUID = 1L;
 	
-	private InsuranceCoverImpl insuranceCover;
+	#private InsuranceCoverImpl insuranceCover;
 	
 	private JButton saveBtn, cancelBtn;
 	private ActionHandler actionHandler;

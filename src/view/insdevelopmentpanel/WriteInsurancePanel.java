@@ -25,7 +25,7 @@ import model.service.insuranceDevelopment.InsuranceDevelopmentImpl;
 
 public class WriteInsurancePanel extends JPanel  {
 	private static final long serialVersionUID = 1L;
-	private InsuranceDevelopmentImpl insuranceDevelopment;
+	#private InsuranceDevelopmentImpl insuranceDevelopment;
 	
 	private JTextArea description_t;
 	private Vector<JLabel> labels;
@@ -35,7 +35,7 @@ public class WriteInsurancePanel extends JPanel  {
 	private ActionListener actionHandler;
 	private JButton newInsBtn;
 
-	public WriteInsurancePanel(InsuranceDevelopmentImpl insuranceDevelopment) {
+	public WriteInsurancePanel(#InsuranceDevelopmentImpl insuranceDevelopment) {
 		this.insuranceDevelopment = insuranceDevelopment;
 		
 		this.setBorder(new TitledBorder(new LineBorder(Color.lightGray,1),"보험 설계하기"));

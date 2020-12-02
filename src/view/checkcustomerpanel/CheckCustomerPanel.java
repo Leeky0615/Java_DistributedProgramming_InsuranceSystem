@@ -29,8 +29,8 @@ import view.defaultClass.DefaultPanel;
 public class CheckCustomerPanel extends DefaultPanel {
 	private static final long serialVersionUID = 1L;
 	
-	private CustomerListImpl customerList;
-	private CheckCustomerInfoImpl checkCustomerInfo;
+	#private CustomerListImpl customerList;
+	#private CheckCustomerInfoImpl checkCustomerInfo;
 	private JTextField customerName_t,customerId_t1,customerId_t2;
 	private CustomerTable customerTable;
 	private ActionHandler actionHandler;
@@ -40,8 +40,8 @@ public class CheckCustomerPanel extends DefaultPanel {
 
 	public CheckCustomerPanel(Menu menu) {
 		super(menu);
-		this.customerList = (CustomerListImpl)this.menu.getCustomerList();
-		this.checkCustomerInfo = (CheckCustomerInfoImpl) this.menu.getCheckCustomerInfo();
+		#this.customerList = (CustomerListImpl)this.menu.getCustomerList();
+		#this.checkCustomerInfo = (CheckCustomerInfoImpl) this.menu.getCheckCustomerInfo();
 		this.actionHandler = new ActionHandler();
 		this.mousehandler = new MouseHandler();
 		this.createPanel();

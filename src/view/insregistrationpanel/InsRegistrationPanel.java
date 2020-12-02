@@ -18,10 +18,10 @@ import view.mainFrame.MainFrame;
 
 public class InsRegistrationPanel extends DefaultPanel {
 	private static final long serialVersionUID = 1L;
-	private SalesPersonListImpl salesPersonList;
-	private InsuranceListImpl insuranceList;
-	private CustomerListImpl customerListImpl;
-	private InsuranceRegistrationImpl insuranceRegistration;
+	#private SalesPersonListImpl salesPersonList;
+	#private InsuranceListImpl insuranceList;
+	#private CustomerListImpl customerListImpl;
+	#private InsuranceRegistrationImpl insuranceRegistration;
 	
 	private JTabbedPane jTabbedPane;
 	private RequestPanel requestpanel;

@@ -9,12 +9,12 @@ import view.defaultClass.Default_CustomerTable;
 
 public class CustomerTable extends Default_CustomerTable{
 	private static final long serialVersionUID = 1L;
-	private CustomerListImpl customerList;
+	#private CustomerListImpl customerList;
 	
-	public CustomerTable(CustomerListImpl customerList, ETableStatus insuranceregistration) {
+	public CustomerTable(#CustomerListImpl customerList, ETableStatus insuranceregistration) {
 		super();
 		this.status = insuranceregistration;
-		this.customerList = customerList;
+		#this.customerList = customerList;
 		this.refresh();
 	}
 	

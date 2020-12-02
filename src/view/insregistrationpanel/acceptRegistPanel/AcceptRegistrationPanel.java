@@ -24,8 +24,8 @@ import view.checkcustomerpanel.CustomerTable;
 
 public class AcceptRegistrationPanel extends JPanel {
 	private static final long serialVersionUID = 1L;
-	private InsuranceRegistrationImpl insuranceRegistration;
-	private CustomerListImpl customerList;
+	#private InsuranceRegistrationImpl insuranceRegistration;
+	#private CustomerListImpl customerList;
 
 	private ActionHandler actionHandler;
 	private MouseHandler mousehandler;
@@ -34,7 +34,7 @@ public class AcceptRegistrationPanel extends JPanel {
 	private JButton detailCheckBtn;
 	private JButton refresh;
 
-	public AcceptRegistrationPanel(InsuranceRegistrationImpl insuranceRegistration, CustomerListImpl customerList) {
+	public AcceptRegistrationPanel(#InsuranceRegistrationImpl insuranceRegistration, #CustomerListImpl customerList) {
 		this.insuranceRegistration = insuranceRegistration;
 		this.customerList = customerList;
 		this.mousehandler = new MouseHandler();

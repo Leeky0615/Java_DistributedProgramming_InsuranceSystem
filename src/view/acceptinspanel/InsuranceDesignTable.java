@@ -10,9 +10,9 @@ import view.defaultClass.Default_InsuranceDesignTable;
 public class InsuranceDesignTable extends Default_InsuranceDesignTable {
 	private static final long serialVersionUID = 1L;
 	
-	private InsuranceDesignListImpl insuranceDesignList;
+	#private InsuranceDesignListImpl insuranceDesignList;
 
-	public InsuranceDesignTable(InsuranceDesignListImpl insuranceDesignList, boolean acceptState) {
+	public InsuranceDesignTable(#InsuranceDesignListImpl insuranceDesignList, boolean acceptState) {
 		super();
 		this.insuranceDesignList = insuranceDesignList;
 		this.refresh(acceptState);

@@ -9,9 +9,9 @@ import view.defaultClass.Default_SalesPersonTable;
 public class SalesPersonTable extends Default_SalesPersonTable{
 	private static final long serialVersionUID = 1L;
 	
-	private SalesPersonListImpl salesPersonList;
+	#private SalesPersonListImpl salesPersonList;
 	
-	public SalesPersonTable(SalesPersonListImpl salesPersonList) {
+	public SalesPersonTable(#SalesPersonListImpl salesPersonList) {
 		super();
 		this.salesPersonList = salesPersonList;
 		this.refresh();

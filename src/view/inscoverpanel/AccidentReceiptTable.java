@@ -9,11 +9,11 @@ import view.defaultClass.Default_AccidnetReceiptTable;
 public class AccidentReceiptTable extends Default_AccidnetReceiptTable {
 	private static final long serialVersionUID = 1L;
 	
-	private AccidentReceiptListImpl accidentReceiptList;
+	#private AccidentReceiptListImpl accidentReceiptList;
 	
-	public AccidentReceiptTable(AccidentReceiptListImpl accidentReceiptList) {
+	public AccidentReceiptTable(#AccidentReceiptListImpl accidentReceiptList) {
 		super();
-		this.accidentReceiptList = accidentReceiptList;
+		#this.accidentReceiptList = accidentReceiptList;
 		this.refresh();
 	}
 

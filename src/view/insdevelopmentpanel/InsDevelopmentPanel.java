@@ -13,9 +13,9 @@ import view.insregistrationpanel.searchInsPanel.SearchInsurancePanel;
 
 public class InsDevelopmentPanel extends DefaultPanel{
 	private static final long serialVersionUID = 1L;
-	private InsuranceRegistrationImpl insuranceRegistration;
-	private InsuranceDevelopmentImpl insuranceDevelopment;
-	private InsuranceListImpl insuranceList;
+	#private InsuranceRegistrationImpl insuranceRegistration;
+	#private InsuranceDevelopmentImpl insuranceDevelopment;
+	#private InsuranceListImpl insuranceList;
 
 	private JTabbedPane jTabbedPane;
 	private WriteInsurancePanel writeInsurancePanel;

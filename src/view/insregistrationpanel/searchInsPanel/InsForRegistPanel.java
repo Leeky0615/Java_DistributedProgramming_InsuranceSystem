@@ -23,7 +23,7 @@ import model.service.insuranceRegistration.InsuranceRegistrationImpl;
 public class InsForRegistPanel extends JPanel{
 	private static final long serialVersionUID = 1L;
 	private SearchInsurancePanel searchInsurancePanel;
-	private InsuranceRegistrationImpl insuranceRegistration;
+	#private InsuranceRegistrationImpl insuranceRegistration;
 	
 	private Vector<Object> selectedRow;
 	private Insurance insurance;
@@ -33,7 +33,7 @@ public class InsForRegistPanel extends JPanel{
 	private JPanel basicInfoPanel, detailInfoPanel, btnPanel;
 	private JButton registrationBtn,backBtn;
 	
-	public InsForRegistPanel(SearchInsurancePanel searchInsurancePanel, InsuranceRegistrationImpl insuranceRegistration, Vector<Object> selectedRow) {
+	public InsForRegistPanel(SearchInsurancePanel searchInsurancePanel, #InsuranceRegistrationImpl insuranceRegistration, Vector<Object> selectedRow) {
 		this.insuranceRegistration = insuranceRegistration;
 		this.selectedRow = selectedRow;
 		this.searchInsurancePanel = searchInsurancePanel;

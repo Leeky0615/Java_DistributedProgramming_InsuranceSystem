@@ -25,8 +25,8 @@ public class InsuranceDesignPanel extends JPanel{
 private static final long serialVersionUID = 1L;
 	
 	private Vector<Object> objects;
-	private InsuranceDesignListImpl insuranceDesignList;
-	private AcceptInsuranceDesignImpl acceptInsuranceDesign;
+	#private InsuranceDesignListImpl insuranceDesignList;
+	#private AcceptInsuranceDesignImpl acceptInsuranceDesign;
 	private InsuranceDesign insuranceDesign;
 	private AcceptInsPanel acceptInsPanel;
 	private AcceptedInsPanel acceptedInsPanel;
@@ -39,7 +39,7 @@ private static final long serialVersionUID = 1L;
 
 	private Vector<JLabel> labels;
 	// 보험승인하기(AcceptInsPanel) 패널에서 보험 상세조회를 클릭시 생성되는 Constructor
-	public InsuranceDesignPanel(AcceptInsPanel acceptInsPanel, #AcceptInsuranceDesignImpl acceptInsuranceDesign, InsuranceDesignListImpl insuranceDesignList, Vector<Object> vector) {
+	public InsuranceDesignPanel(AcceptInsPanel acceptInsPanel, #AcceptInsuranceDesignImpl acceptInsuranceDesign, #InsuranceDesignListImpl insuranceDesignList, Vector<Object> vector) {
 		setPreferredSize(new Dimension(601, 521));
 		setLayout(null);
 		
@@ -76,12 +76,12 @@ private static final long serialVersionUID = 1L;
 	}
 	
 	// 승인된 보험 조회하기(AcceptedInsPanel) 패널에서 보험 상세조회를 클릭시 생성되는 Constructor
-	public InsuranceDesignPanel(AcceptedInsPanel acceptedInsPanel, InsuranceDesignListImpl insuranceDesignList, Vector<Object> vector) {
+	public InsuranceDesignPanel(AcceptedInsPanel acceptedInsPanel, #InsuranceDesignListImpl insuranceDesignList, Vector<Object> vector) {
 		setPreferredSize(new Dimension(601, 521));
 		setLayout(null);
 		
 		this.acceptedInsPanel = acceptedInsPanel;	
-		this.insuranceDesignList = insuranceDesignList;
+		#this.insuranceDesignList = insuranceDesignList;
 		this.objects = vector;
 		this.createDefaultPanel();
 		

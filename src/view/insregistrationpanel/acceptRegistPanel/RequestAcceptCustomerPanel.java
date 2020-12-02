@@ -30,15 +30,15 @@ import model.service.insuranceRegistration.InsuranceRegistrationImpl;
 public class RequestAcceptCustomerPanel extends JPanel {
 	private static final long serialVersionUID = 1L;
 	private AcceptRegistrationPanel acceptRegistrationPanel;
-	private InsuranceRegistrationImpl insuranceRegistration;
-	private CustomerListImpl customerList;
+	#private InsuranceRegistrationImpl insuranceRegistration;
+	#private CustomerListImpl customerList;
 	private Customer customer;
 	private ActionHandler actionHandler;
 	
 	private Insurance insurance;
 	private JButton back,approve,disApprove;
 
-	public RequestAcceptCustomerPanel(AcceptRegistrationPanel acceptRegistrationPanel, InsuranceRegistrationImpl insuranceRegistration, CustomerListImpl customerList) {
+	public RequestAcceptCustomerPanel(AcceptRegistrationPanel acceptRegistrationPanel, #InsuranceRegistrationImpl insuranceRegistration, #CustomerListImpl customerList) {
 		setPreferredSize(new Dimension(600, 500));
 		setLayout(new FlowLayout());
 		

@@ -20,7 +20,7 @@ import model.service.salesPerson.SalesPersonListImpl;
 public class RequestPanel extends JPanel {
 	private static final long serialVersionUID = 1L;
 	private ActionListener actionListener;
-	private SalesPersonListImpl salesPersonList;
+	#private SalesPersonListImpl salesPersonList;
 	private SalesPersonTable salesPersonTable;
 	private JButton yes;
 	public RequestPanel(SalesPersonListImpl salesPersonList) {

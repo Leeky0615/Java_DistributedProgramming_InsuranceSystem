@@ -22,7 +22,7 @@ import view.insregistrationpanel.searchInsPanel.SearchInsurancePanel;
 public class InsForDevelopmentPanel extends JPanel{
 	private static final long serialVersionUID = 1L;
 	private SearchInsurancePanel searchInsurancePanel;
-	private InsuranceRegistrationImpl insuranceRegistration;
+	#private InsuranceRegistrationImpl insuranceRegistration;
 	
 	private Vector<Object> selectedRow;
 	private Insurance insurance;
@@ -31,7 +31,7 @@ public class InsForDevelopmentPanel extends JPanel{
 	private JPanel basicInfoPanel, btnPanel;
 	private JButton backBtn;
 	
-	public InsForDevelopmentPanel(SearchInsurancePanel searchInsurancePanel, InsuranceRegistrationImpl insuranceRegistration, Vector<Object> selectedRow) {
+	public InsForDevelopmentPanel(SearchInsurancePanel searchInsurancePanel, #InsuranceRegistrationImpl insuranceRegistration, Vector<Object> selectedRow) {
 		this.insuranceRegistration = insuranceRegistration;
 		this.selectedRow = selectedRow;
 		this.searchInsurancePanel = searchInsurancePanel;

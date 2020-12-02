@@ -19,10 +19,10 @@ import constants.ViewConstants.EButton;
 import constants.ViewConstants.ELogin;
 import constants.ViewConstants.EPanels;
 import constants.ViewConstants.EViewFrame;
-import control.login.Login;
-import control.login.LoginList;
-import control.login.LoginListImpl;
 import main.Menu;
+import model.dto.Login;
+import model.service.login.LoginList;
+import model.service.login.LoginListImpl;
 import view.defaultClass.DefaultPanel;
 
 public class MainFrame extends JFrame {

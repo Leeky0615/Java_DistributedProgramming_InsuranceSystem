@@ -17,9 +17,9 @@ import javax.swing.border.TitledBorder;
 
 import constants.ViewConstants.EMainFrame;
 import constants.ViewConstants.EViewFrame;
-import control.acceptInsuranceDesign.AcceptInsuranceDesignImpl;
-import control.insuranceDevelopment.InsuranceDesignListImpl;
 import main.Menu;
+import model.service.acceptInsuranceDesign.AcceptInsuranceDesignImpl;
+import model.service.insuranceDevelopment.InsuranceDesignListImpl;
 import view.defaultClass.DefaultPanel;
 
 public class AcceptInsPanel extends DefaultPanel {

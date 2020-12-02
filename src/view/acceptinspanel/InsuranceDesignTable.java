@@ -3,8 +3,8 @@ package view.acceptinspanel;
 import java.util.Vector;
 
 import constants.ViewConstants.EApprovalStatus;
-import control.insuranceDevelopment.InsuranceDesign;
-import control.insuranceDevelopment.InsuranceDesignListImpl;
+import model.dto.InsuranceDesign;
+import model.service.insuranceDevelopment.InsuranceDesignListImpl;
 import view.defaultClass.Default_InsuranceDesignTable;
 
 public class InsuranceDesignTable extends Default_InsuranceDesignTable {

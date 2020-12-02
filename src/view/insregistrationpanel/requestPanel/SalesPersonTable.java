@@ -2,8 +2,8 @@ package view.insregistrationpanel.requestPanel;
 
 import java.util.Vector;
 
-import control.salesPerson.SalesPerson;
-import control.salesPerson.SalesPersonListImpl;
+import model.dto.SalesPerson;
+import model.service.salesPerson.SalesPersonListImpl;
 import view.defaultClass.Default_SalesPersonTable;
 
 public class SalesPersonTable extends Default_SalesPersonTable{

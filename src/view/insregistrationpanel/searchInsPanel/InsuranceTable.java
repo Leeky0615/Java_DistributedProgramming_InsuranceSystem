@@ -2,8 +2,8 @@ package view.insregistrationpanel.searchInsPanel;
 
 import java.util.Vector;
 
-import control.insurance.Insurance;
-import control.insurance.InsuranceListImpl;
+import model.dto.Insurance;
+import model.service.insurance.InsuranceListImpl;
 import view.defaultClass.Default_InsuranceTable;
 
 public class InsuranceTable extends Default_InsuranceTable{

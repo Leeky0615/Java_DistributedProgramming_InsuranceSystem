@@ -13,8 +13,8 @@ import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
 
 import constants.ViewConstants.EViewFrame;
-import control.customer.Customer;
-import control.customer.CustomerListImpl;
+import model.dto.Customer;
+import model.service.customer.CustomerListImpl;
 
 public class CustomerInfoPanel extends JPanel {
 	private static final long serialVersionUID = 1L;

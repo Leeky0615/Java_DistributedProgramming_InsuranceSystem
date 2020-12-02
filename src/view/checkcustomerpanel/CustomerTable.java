@@ -3,8 +3,8 @@ package view.checkcustomerpanel;
 import java.util.Vector;
 
 import constants.ViewConstants.ETableStatus;
-import control.customer.Customer;
-import control.customer.CustomerListImpl;
+import model.dto.Customer;
+import model.service.customer.CustomerListImpl;
 import view.defaultClass.Default_CustomerTable;
 
 public class CustomerTable extends Default_CustomerTable{

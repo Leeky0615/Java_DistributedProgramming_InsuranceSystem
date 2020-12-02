@@ -1,9 +1,9 @@
 package constants;
 
-import control.insurance.CancerInsurance;
-import control.insurance.CarInsurance;
-import control.insurance.FireInsurance;
-import control.insurance.Insurance;
+import model.dto.CancerInsurance;
+import model.dto.CarInsurance;
+import model.dto.FireInsurance;
+import model.dto.Insurance;
 
 public class ControlConstants {
 	public ControlConstants() {}

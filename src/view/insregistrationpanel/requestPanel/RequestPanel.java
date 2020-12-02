@@ -15,7 +15,7 @@ import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
 
 import constants.ViewConstants.EMainFrame;
-import control.salesPerson.SalesPersonListImpl;
+import model.service.salesPerson.SalesPersonListImpl;
 
 public class RequestPanel extends JPanel {
 	private static final long serialVersionUID = 1L;

@@ -21,7 +21,7 @@ import javax.swing.border.TitledBorder;
 import constants.ControlConstants.EInsuranceType;
 import constants.ViewConstants.EInsuranceDesign;
 import constants.ViewConstants.EViewFrame;
-import control.insuranceDevelopment.InsuranceDevelopmentImpl;
+import model.service.insuranceDevelopment.InsuranceDevelopmentImpl;
 
 public class WriteInsurancePanel extends JPanel  {
 	private static final long serialVersionUID = 1L;

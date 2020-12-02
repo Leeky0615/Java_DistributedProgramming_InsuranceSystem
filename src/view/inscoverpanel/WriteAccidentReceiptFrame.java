@@ -19,7 +19,7 @@ import javax.swing.border.TitledBorder;
 import constants.ControlConstants.EInsuranceType;
 import constants.ControlConstants.EPaymentMethod;
 import constants.ViewConstants.EViewFrame;
-import control.insuranceCover.InsuranceCoverImpl;
+import model.service.insuranceCover.InsuranceCoverImpl;
 
 public class WriteAccidentReceiptFrame extends JFrame {
 	private static final long serialVersionUID = 1L;

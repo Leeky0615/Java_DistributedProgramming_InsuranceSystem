@@ -21,9 +21,9 @@ import javax.swing.border.TitledBorder;
 import constants.ViewConstants.EMainFrame;
 import constants.ViewConstants.ETableStatus;
 import constants.ViewConstants.EViewFrame;
-import control.checkCustomerInfo.CheckCustomerInfoImpl;
-import control.customer.CustomerListImpl;
 import main.Menu;
+import model.service.checkCustomerInfo.CheckCustomerInfoImpl;
+import model.service.customer.CustomerListImpl;
 import view.defaultClass.DefaultPanel;
 
 public class CheckCustomerPanel extends DefaultPanel {

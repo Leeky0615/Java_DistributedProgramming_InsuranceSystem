@@ -14,9 +14,9 @@ import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
 
 import constants.ViewConstants.EViewFrame;
-import control.accidentReceipt.AccidentReceipt;
-import control.accidentReceipt.AccidentReceiptListImpl;
-import control.insuranceCover.InsuranceCoverImpl;
+import model.service.accidentReceipt.AccidentReceipt;
+import model.service.accidentReceipt.AccidentReceiptListImpl;
+import model.service.insuranceCover.InsuranceCoverImpl;
 
 public class AccidentReceiptPanel extends JPanel{
 	private static final long serialVersionUID = 1L;

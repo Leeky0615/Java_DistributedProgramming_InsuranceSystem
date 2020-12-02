@@ -19,13 +19,13 @@ import constants.ViewConstants.EFireInsurance;
 import constants.ViewConstants.EInsuranceRequest;
 import constants.ViewConstants.EViewFrame;
 import constants.ViewConstants.EcarInsurance;
-import control.customer.Customer;
-import control.customer.CustomerListImpl;
-import control.insurance.CancerInsurance;
-import control.insurance.CarInsurance;
-import control.insurance.FireInsurance;
-import control.insurance.Insurance;
-import control.insuranceRegistration.InsuranceRegistrationImpl;
+import model.dto.CancerInsurance;
+import model.dto.CarInsurance;
+import model.dto.Customer;
+import model.dto.FireInsurance;
+import model.dto.Insurance;
+import model.service.customer.CustomerListImpl;
+import model.service.insuranceRegistration.InsuranceRegistrationImpl;
 
 public class RequestAcceptCustomerPanel extends JPanel {
 	private static final long serialVersionUID = 1L;

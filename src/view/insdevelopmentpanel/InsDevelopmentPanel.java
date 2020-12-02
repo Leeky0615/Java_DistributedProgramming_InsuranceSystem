@@ -4,10 +4,10 @@ import java.awt.BorderLayout;
 
 import javax.swing.JTabbedPane;
 
-import control.insurance.InsuranceListImpl;
-import control.insuranceDevelopment.InsuranceDevelopmentImpl;
-import control.insuranceRegistration.InsuranceRegistrationImpl;
 import main.Menu;
+import model.service.insurance.InsuranceListImpl;
+import model.service.insuranceDevelopment.InsuranceDevelopmentImpl;
+import model.service.insuranceRegistration.InsuranceRegistrationImpl;
 import view.defaultClass.DefaultPanel;
 import view.insregistrationpanel.searchInsPanel.SearchInsurancePanel;
 

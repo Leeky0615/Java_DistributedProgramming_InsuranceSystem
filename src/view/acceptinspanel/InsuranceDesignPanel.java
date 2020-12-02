@@ -16,9 +16,9 @@ import javax.swing.border.TitledBorder;
 
 import constants.ViewConstants.EInsuranceDesign;
 import constants.ViewConstants.EViewFrame;
-import control.acceptInsuranceDesign.AcceptInsuranceDesignImpl;
-import control.insuranceDevelopment.InsuranceDesign;
-import control.insuranceDevelopment.InsuranceDesignListImpl;
+import model.dto.InsuranceDesign;
+import model.service.acceptInsuranceDesign.AcceptInsuranceDesignImpl;
+import model.service.insuranceDevelopment.InsuranceDesignListImpl;
 
 public class InsuranceDesignPanel extends JPanel{
 private static final long serialVersionUID = 1L;

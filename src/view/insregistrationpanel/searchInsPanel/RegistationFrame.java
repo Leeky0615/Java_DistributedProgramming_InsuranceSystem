@@ -11,8 +11,8 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import constants.ControlConstants.EInsuranceType;
-import control.insurance.Insurance;
-import control.insuranceRegistration.InsuranceRegistrationImpl;
+import model.dto.Insurance;
+import model.service.insuranceRegistration.InsuranceRegistrationImpl;
 
 public class RegistationFrame extends JFrame{
 	private static final long serialVersionUID = 1L;

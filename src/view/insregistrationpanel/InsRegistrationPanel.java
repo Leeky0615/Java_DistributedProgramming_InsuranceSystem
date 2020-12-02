@@ -5,11 +5,11 @@ import java.awt.BorderLayout;
 import javax.swing.JTabbedPane;
 
 import constants.ViewConstants.ELogin;
-import control.customer.CustomerListImpl;
-import control.insurance.InsuranceListImpl;
-import control.insuranceRegistration.InsuranceRegistrationImpl;
-import control.salesPerson.SalesPersonListImpl;
 import main.Menu;
+import model.service.customer.CustomerListImpl;
+import model.service.insurance.InsuranceListImpl;
+import model.service.insuranceRegistration.InsuranceRegistrationImpl;
+import model.service.salesPerson.SalesPersonListImpl;
 import view.defaultClass.DefaultPanel;
 import view.insregistrationpanel.acceptRegistPanel.AcceptRegistrationPanel;
 import view.insregistrationpanel.requestPanel.RequestPanel;

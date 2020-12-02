@@ -14,7 +14,7 @@ import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
 
 import constants.ViewConstants.EViewFrame;
-import model.service.accidentReceipt.AccidentReceipt;
+import model.dto.AccidentReceipt;
 import model.service.accidentReceipt.AccidentReceiptListImpl;
 import model.service.insuranceCover.InsuranceCoverImpl;
 

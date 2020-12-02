@@ -1,5 +1,6 @@
 package model.service.accidentReceipt;
 
+import model.dto.AccidentReceipt;
 
 public interface AccidentReceiptList {
 	public boolean add(AccidentReceipt accidentReceipt);

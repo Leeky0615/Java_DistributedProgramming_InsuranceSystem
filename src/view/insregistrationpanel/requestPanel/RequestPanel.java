@@ -47,6 +47,7 @@ public class RequestPanel extends JPanel {
    		this.add(scroll, BorderLayout.CENTER);
 	}
 	
+	##보험영업자에게 면담을 요청하시겠습니까? "예"버튼##
 	private void buttonclick(Object source) {
 		if (source.equals(this.yes)) {
 			JOptionPane.showMessageDialog(this, "면담 신청이 완료되었습니다.");

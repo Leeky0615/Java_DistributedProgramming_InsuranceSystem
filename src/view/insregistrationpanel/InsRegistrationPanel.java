@@ -45,6 +45,7 @@ public class InsRegistrationPanel extends DefaultPanel {
 			this.acceptRegistrationPanel = new AcceptRegistrationPanel(this.insuranceRegistration,this.customerListImpl);
 			this.jTabbedPane.add("가입 승인",this.acceptRegistrationPanel);
 		}else {
+			
 			this.requestpanel = new RequestPanel(this.salesPersonList);
 			this.jTabbedPane.add("면담 요청",this.requestpanel);
 			this.searchInsurancePanel = new SearchInsurancePanel(this.insuranceRegistration, this.insuranceList,"Registration");

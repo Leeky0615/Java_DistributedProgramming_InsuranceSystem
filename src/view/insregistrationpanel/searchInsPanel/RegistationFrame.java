@@ -60,6 +60,8 @@ public class RegistationFrame extends JFrame{
 		panel.add(cancelBtn);
 		this.add(panel, BorderLayout.SOUTH);
 	}
+	
+	##상품가입->고객추가창에서->가입신청버튼클릭
 	public void buttonClick(Object source) {
 		if (source.equals(this.okBtn)) {
 			Vector<Object> infos = new Vector<Object>();

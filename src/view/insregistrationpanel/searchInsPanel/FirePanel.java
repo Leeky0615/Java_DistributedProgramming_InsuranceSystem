@@ -104,6 +104,7 @@ public class FirePanel extends JPanel {
 		paymentDate_t.setColumns(10);
 		add(paymentDate_t);
 		
+		
 		JLabel paymentDate_l = new JLabel("매월 납입일");
 		paymentDate_l.setBounds(247, 79, 74, 20);
 		paymentDate_l.setFont(EViewFrame.eFont.getFont());

@@ -180,7 +180,7 @@ public class InsForRegistPanel extends JPanel{
 		btnPanel.setBounds(12, 433, 576, 37);
 		btnPanel.setBorder(new TitledBorder(new LineBorder(Color.lightGray,1)));
 		
-		backBtn = new JButton("돌아가기");
+		backBtn = new JButton("돌아가기"); ##돌아가기버튼->보험가입tab
 		backBtn.setBounds(12, 1, 552, 35);
 		backBtn.setFont(EViewFrame.eFont.getFont());
 		backBtn.addActionListener(actionHandler);
@@ -188,6 +188,8 @@ public class InsForRegistPanel extends JPanel{
 		btnPanel.add(backBtn);
 		this.add(btnPanel);
 	}
+	
+	##상품가입버튼: 회원정보일치##
 	public void buttonClick(Object source) {
 		if (source.equals(this.registrationBtn)) {
 			String customerName = this.customerName_t.getText();
@@ -195,11 +197,11 @@ public class InsForRegistPanel extends JPanel{
 			if (this.insuranceRegistration.writeCustomerInfomation(customerName, customerId)) {
 				RegistationFrame registrationFrame = new RegistationFrame(this.insuranceRegistration, this.insurance);
 				registrationFrame.setVisible(true);
-			}else {
+			}else { ##상품가입버튼: 회원정보불일치##
 				JOptionPane.showMessageDialog(null, "회원 정보가 일치하지 않습니다. 다시 확인해주세요", "회원 정보 확인", JOptionPane.WARNING_MESSAGE);
 				return;
 			}
-		}else if(source.equals(this.backBtn)){
+		}else if(source.equals(this.backBtn)){ ##돌아가기버튼##
 			this.removeAll();
 			this.searchInsurancePanel.createSelectPanel();
 			this.searchInsurancePanel.createTable();

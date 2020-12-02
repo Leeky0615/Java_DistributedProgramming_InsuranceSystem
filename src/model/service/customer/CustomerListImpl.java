@@ -12,11 +12,9 @@ public class CustomerListImpl implements CustomerList {
 	
 	public CustomerListImpl(){
 		this.customerDao = new CustomerDaoImpl();
-		this.customerList = customerDao.select();
 	}
 
-	public ArrayList<Customer> getCustomerList() {return customerList;}
-	public void setCustomerList(ArrayList<Customer> customerList) {this.customerList = customerList;}
+	public ArrayList<Customer> getCustomerList() {return this.customerList = customerDao.select();}
 
 	public boolean add(Customer customer){
 		this.customerList.add(customer);

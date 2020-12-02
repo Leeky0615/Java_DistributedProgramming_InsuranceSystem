@@ -22,11 +22,11 @@ public class InsuranceDevelopmentImpl implements InsuranceDevelopment{
 	public void designInsurance(Vector<String> infos){
 		InsuranceDesign insuranceDesign = new InsuranceDesign();
 		String insType = infos.get(EInsuranceDesign.insuranceType.ordinal());
-		// ���� ������ ���� ����������
+		
 		if (insType.equals(EInsuranceType.CANCER.getText())) {insuranceDesign.setInsurance(new CancerInsurance());}
 		else if(insType.equals(EInsuranceType.CAR.getText())) {insuranceDesign.setInsurance(new CarInsurance());}
 		else {insuranceDesign.setInsurance(new FireInsurance());}
-		// ���輳�輭�� ���� ������ ���������� ������
+		
 		insuranceDesign.setInsuranceDesignId(Integer.parseInt(infos.get(EInsuranceDesign.insuranceDesignId.ordinal())));
 		insuranceDesign.setWriter(infos.get(EInsuranceDesign.writer.ordinal()));
 		insuranceDesign.getInsurance().setInsuranceName(infos.get(EInsuranceDesign.insuranceName.ordinal()));

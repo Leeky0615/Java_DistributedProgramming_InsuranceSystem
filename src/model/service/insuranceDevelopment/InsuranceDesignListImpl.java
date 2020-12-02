@@ -12,10 +12,8 @@ public class InsuranceDesignListImpl implements InsuranceDesignList {
 
 	public InsuranceDesignListImpl(){
 		this.insuranceDesignDao = new InsuranceDesignDaoImpl();
-		this.insuranceDesignList = this.insuranceDesignDao.select();
 	}
-	public ArrayList<InsuranceDesign> getInsuranceDesignList() {return insuranceDesignList;}
-	public void setInsuranceDesignList(ArrayList<InsuranceDesign> insuranceDesignList) {this.insuranceDesignList = insuranceDesignList;}
+	public ArrayList<InsuranceDesign> getInsuranceDesignList() {return this.insuranceDesignDao.select();}
 	
 	public boolean add(InsuranceDesign insuranceDesign){
 		this.insuranceDesignList.add(insuranceDesign);

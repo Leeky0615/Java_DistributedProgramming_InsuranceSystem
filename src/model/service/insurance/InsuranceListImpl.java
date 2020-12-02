@@ -12,11 +12,9 @@ public class InsuranceListImpl implements InsuranceList {
 
 	public InsuranceListImpl(){
 		this.insuranceDao = new InsuranceDaoImpl();
-		this.insuranceList = this.insuranceDao.select();
 	}
 
-	public ArrayList<Insurance> getInsuranceList() {return insuranceList;}
-	public void setInsuranceList(ArrayList<Insurance> insuranceList) {this.insuranceList = insuranceList;}
+	public ArrayList<Insurance> getInsuranceList() {return this.insuranceList = this.insuranceDao.select();}
 	
 	public boolean add(Insurance insurance){
 		this.insuranceList.add(insurance);

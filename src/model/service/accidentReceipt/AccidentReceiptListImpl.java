@@ -13,11 +13,9 @@ public class AccidentReceiptListImpl implements AccidentReceiptList {
 	
 	public AccidentReceiptListImpl(){
 		this.accidentReceiptDao = new AccidentReceiptDaoImpl();
-		this.accidentReceiptList = accidentReceiptDao.select();
 	}
 
-	public ArrayList<AccidentReceipt> getAccidentReceiptList() {return accidentReceiptList;}
-	public void setAccidentReceiptList(ArrayList<AccidentReceipt> accidentReceiptList) {this.accidentReceiptList = accidentReceiptList;}
+	public ArrayList<AccidentReceipt> getAccidentReceiptList() {return this.accidentReceiptList = accidentReceiptDao.select();}
 
 	public boolean add(AccidentReceipt accidentReceipt){
 		this.accidentReceiptList.add(accidentReceipt);

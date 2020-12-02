@@ -16,9 +16,7 @@ public class InsuranceCoverImpl implements InsuranceCover {
 	public InsuranceCoverImpl(){
 		this.accidentReceiptDao = new AccidentReceiptDaoImpl();
 	}
-	public void associate(AccidentReceiptListImpl accidentReceiptList) {
-		this.accidentReceiptList = accidentReceiptList;
-	}
+	public void associate(AccidentReceiptListImpl accidentReceiptList) {this.accidentReceiptList = accidentReceiptList;}
 	
 	public void acceptAccident(int accidentReceiptId){
 		AccidentReceipt accidentReceipt = this.accidentReceiptList.searchById(accidentReceiptId);

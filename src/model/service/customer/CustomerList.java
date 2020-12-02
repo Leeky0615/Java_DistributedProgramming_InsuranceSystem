@@ -11,5 +11,4 @@ public interface CustomerList{
 	public Customer searchByName(String customerName);
 	public Customer searchById(String customerID);
 	public ArrayList<Customer> getCustomerList();
-	public void setCustomerList(ArrayList<Customer> customerList);
 }

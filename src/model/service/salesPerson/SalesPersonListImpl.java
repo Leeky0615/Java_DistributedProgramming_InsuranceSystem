@@ -10,10 +10,8 @@ public class SalesPersonListImpl implements SalesPersonList{
 	private ArrayList<SalesPerson> salesPersonlist;
 	private SalesPersonDao salesPersonDao;
 	
-	public SalesPersonListImpl() {
-		this.salesPersonDao = new SalesPersonDaoImpl();
-		this.salesPersonlist = salesPersonDao.select();
-	}
-	public ArrayList<SalesPerson> getSalesPersonlist() {return salesPersonlist;}
-	public void setSalesPersonlist(ArrayList<SalesPerson> salesPersonlist) {this.salesPersonlist = salesPersonlist;}
+	public SalesPersonListImpl() {this.salesPersonDao = new SalesPersonDaoImpl();}
+	
+	public ArrayList<SalesPerson> getSalesPersonlist() {return 	this.salesPersonlist = salesPersonDao.select();
+}
 }

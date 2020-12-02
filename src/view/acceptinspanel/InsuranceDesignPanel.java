@@ -16,6 +16,7 @@ import javax.swing.border.TitledBorder;
 
 import constants.ViewConstants.EInsuranceDesign;
 import constants.ViewConstants.EViewFrame;
+import controller.AcceoptInsuranceDesignControl;
 import model.dto.InsuranceDesign;
 import model.service.acceptInsuranceDesign.AcceptInsuranceDesignImpl;
 import model.service.insuranceDevelopment.InsuranceDesignListImpl;
@@ -38,7 +39,7 @@ private static final long serialVersionUID = 1L;
 
 	private Vector<JLabel> labels;
 	// 보험승인하기(AcceptInsPanel) 패널에서 보험 상세조회를 클릭시 생성되는 Constructor
-	public InsuranceDesignPanel(AcceptInsPanel acceptInsPanel, AcceptInsuranceDesignImpl acceptInsuranceDesign, InsuranceDesignListImpl insuranceDesignList, Vector<Object> vector) {
+	public InsuranceDesignPanel(AcceptInsPanel acceptInsPanel, #AcceptInsuranceDesignImpl acceptInsuranceDesign, InsuranceDesignListImpl insuranceDesignList, Vector<Object> vector) {
 		setPreferredSize(new Dimension(601, 521));
 		setLayout(null);
 		

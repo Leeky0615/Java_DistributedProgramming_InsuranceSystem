@@ -1,5 +1,8 @@
 package controller.customer;
 
+import java.util.ArrayList;
+
+import model.service.customer.Customer;
 import model.service.customer.CustomerListImpl;
 
 public class CustomerControllerImpl implements CustomerController {
@@ -11,5 +14,9 @@ public class CustomerControllerImpl implements CustomerController {
 
 	public void connectCtoS(CustomerListImpl customerList) {
 		this.customerList = customerList;
+	}
+
+	public ArrayList<Customer> getCustomerList() {
+		return this.customerList.getCustomerList();
 	}
 }

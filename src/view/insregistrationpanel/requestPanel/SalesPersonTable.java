@@ -3,9 +3,9 @@ package view.insregistrationpanel.requestPanel;
 import java.util.Vector;
 
 import constants.ControllerConstants.EController;
-import controller.FrontController;
 import controller.salesPerson.SalesPersonControllerImpl;
-import model.dto.SalesPerson;
+import main.FrontController;
+import model.service.salesPerson.SalesPerson;
 import view.defaultClass.Default_SalesPersonTable;
 
 public class SalesPersonTable extends Default_SalesPersonTable{

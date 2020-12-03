@@ -1,5 +1,8 @@
 package controller.accidentReceipt;
 
+import java.util.ArrayList;
+
+import model.service.accidentReceipt.AccidentReceipt;
 import model.service.accidentReceipt.AccidentReceiptListImpl;
 
 public class AccidentReceiptControllerImpl implements AccidentReceiptController {
@@ -11,5 +14,9 @@ public class AccidentReceiptControllerImpl implements AccidentReceiptController 
 
 	public void connectCtoS(AccidentReceiptListImpl accidentReceiptList) {
 		this.accidentReceiptList = accidentReceiptList;
+	}
+
+	public ArrayList<AccidentReceipt> getAccidentReceiptList() {
+		return this.accidentReceiptList.getAccidentReceiptList();
 	}
 }

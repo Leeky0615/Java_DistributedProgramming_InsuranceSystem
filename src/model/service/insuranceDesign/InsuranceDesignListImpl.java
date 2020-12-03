@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 import model.dao.insuranceDesign.InsuranceDesignDao;
 import model.dao.insuranceDesign.InsuranceDesignDaoImpl;
-import model.dto.InsuranceDesign;
 
 public class InsuranceDesignListImpl implements InsuranceDesignList {
 	private InsuranceDesignDao insuranceDesignDao;

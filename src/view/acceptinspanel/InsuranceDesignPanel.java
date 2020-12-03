@@ -17,11 +17,9 @@ import javax.swing.border.TitledBorder;
 import constants.ControllerConstants.EController;
 import constants.ViewConstants.EInsuranceDesign;
 import constants.ViewConstants.EViewFrame;
-import controller.FrontController;
 import controller.acceptInsuranceDesign.AcceptInsDesignControllerImpl;
 import controller.insuranceDesign.InsuranceDesignControllerImpl;
-import model.dto.InsuranceDesign;
-import model.service.insuranceDesign.InsuranceDesignListImpl;
+import main.FrontController;
 
 public class InsuranceDesignPanel extends JPanel{
 private static final long serialVersionUID = 1L;

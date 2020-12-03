@@ -1,4 +1,4 @@
-package model.dto;
+package model.service.accidentReceipt;
 
 import constants.ControlConstants.EInsuranceType;
 import constants.ControlConstants.EPaymentMethod;

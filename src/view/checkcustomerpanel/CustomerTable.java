@@ -4,9 +4,9 @@ import java.util.Vector;
 
 import constants.ControllerConstants.EController;
 import constants.ViewConstants.ETableStatus;
-import controller.FrontController;
 import controller.customer.CustomerControllerImpl;
-import model.dto.Customer;
+import main.FrontController;
+import model.service.customer.Customer;
 import view.defaultClass.Default_CustomerTable;
 
 public class CustomerTable extends Default_CustomerTable{

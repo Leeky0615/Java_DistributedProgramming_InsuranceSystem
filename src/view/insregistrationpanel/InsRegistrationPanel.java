@@ -5,7 +5,7 @@ import java.awt.BorderLayout;
 import javax.swing.JTabbedPane;
 
 import constants.ViewConstants.ELogin;
-import controller.FrontController;
+import main.FrontController;
 import view.defaultClass.DefaultPanel;
 import view.insregistrationpanel.acceptRegistPanel.AcceptRegistrationPanel;
 import view.insregistrationpanel.requestPanel.RequestPanel;

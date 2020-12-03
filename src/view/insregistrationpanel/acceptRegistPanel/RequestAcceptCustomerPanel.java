@@ -20,14 +20,14 @@ import constants.ViewConstants.EFireInsurance;
 import constants.ViewConstants.EInsuranceRequest;
 import constants.ViewConstants.EViewFrame;
 import constants.ViewConstants.EcarInsurance;
-import controller.FrontController;
 import controller.customer.CustomerControllerImpl;
 import controller.insuranceRegistration.InsuranceRegistrationControllerImpl;
-import model.dto.CancerInsurance;
-import model.dto.CarInsurance;
-import model.dto.Customer;
-import model.dto.FireInsurance;
-import model.dto.Insurance;
+import main.FrontController;
+import model.service.customer.Customer;
+import model.service.insurance.CancerInsurance;
+import model.service.insurance.CarInsurance;
+import model.service.insurance.FireInsurance;
+import model.service.insurance.Insurance;
 
 public class RequestAcceptCustomerPanel extends JPanel {
 	private static final long serialVersionUID = 1L;

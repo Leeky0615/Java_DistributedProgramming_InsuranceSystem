@@ -2,7 +2,7 @@ package view.defaultClass;
 
 import javax.swing.JPanel;
 
-import controller.FrontController;
+import main.FrontController;
 
 // ���Ǵ� �гε��� SuperClass
 public abstract class DefaultPanel extends JPanel{

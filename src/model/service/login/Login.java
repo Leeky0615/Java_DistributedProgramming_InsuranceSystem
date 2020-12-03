@@ -1,4 +1,4 @@
-package model.dto;
+package model.service.login;
 
 import constants.ViewConstants.ELogin;
 

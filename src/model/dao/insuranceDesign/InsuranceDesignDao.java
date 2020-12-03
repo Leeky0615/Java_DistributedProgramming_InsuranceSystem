@@ -2,8 +2,7 @@ package model.dao.insuranceDesign;
 
 import java.util.ArrayList;
 
-import constants.ViewConstants.EApprovalStatus;
-import model.dto.InsuranceDesign;
+import model.service.insuranceDesign.InsuranceDesign;
 
 public interface InsuranceDesignDao {
 

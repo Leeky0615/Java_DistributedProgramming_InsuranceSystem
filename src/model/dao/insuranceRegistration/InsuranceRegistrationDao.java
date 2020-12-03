@@ -3,9 +3,9 @@ package model.dao.insuranceRegistration;
 import java.util.ArrayList;
 
 import constants.ControlConstants.EInsuranceType;
-import model.dto.Customer;
-import model.dto.Insurance;
-import model.dto.InsuranceDesign;
+import model.service.customer.Customer;
+import model.service.insurance.Insurance;
+import model.service.insuranceDesign.InsuranceDesign;
 
 public interface InsuranceRegistrationDao {
 	public void insert(Insurance insuracne);

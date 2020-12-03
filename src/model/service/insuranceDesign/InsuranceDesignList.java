@@ -2,10 +2,9 @@ package model.service.insuranceDesign;
 
 import java.util.ArrayList;
 
-import model.dto.InsuranceDesign;
-
 
 public interface InsuranceDesignList {
+	public ArrayList<InsuranceDesign> getInsuranceDesignList();
 	public boolean add(InsuranceDesign insuranceDesign);
 	public boolean deleteById(int insuranceDesginId);
 	public boolean deleteByName(String insuranceName);

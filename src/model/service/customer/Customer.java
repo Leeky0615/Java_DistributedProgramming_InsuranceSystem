@@ -1,4 +1,4 @@
-package model.dto;
+package model.service.customer;
 
 import constants.ControlConstants.EIllHistory;
 import constants.ControlConstants.EJob;

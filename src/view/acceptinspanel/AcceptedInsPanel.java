@@ -15,14 +15,10 @@ import javax.swing.JScrollPane;
 import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
 
-import constants.ControllerConstants;
-import constants.ControllerConstants.EController;
 import constants.ViewConstants.EInsuranceDesign;
 import constants.ViewConstants.EMainFrame;
 import constants.ViewConstants.EViewFrame;
-import controller.FrontController;
-import controller.insuranceDesign.InsuranceDesignControllerImpl;
-import model.service.insuranceDesign.InsuranceDesignListImpl;
+import main.FrontController;
 
 public class AcceptedInsPanel extends JPanel {
 	private static final long serialVersionUID = 1L;

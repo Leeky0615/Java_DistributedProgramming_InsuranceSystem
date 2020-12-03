@@ -12,9 +12,9 @@ import javax.swing.JPanel;
 
 import constants.ControlConstants.EInsuranceType;
 import constants.ControllerConstants.EController;
-import controller.FrontController;
 import controller.insuranceRegistration.InsuranceRegistrationControllerImpl;
-import model.dto.Insurance;
+import main.FrontController;
+import model.service.insurance.Insurance;
 
 public class RegistrationFrame extends JFrame{
 	private static final long serialVersionUID = 1L;

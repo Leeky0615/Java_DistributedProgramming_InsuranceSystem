@@ -4,7 +4,7 @@ import java.awt.BorderLayout;
 
 import javax.swing.JTabbedPane;
 
-import controller.FrontController;
+import main.FrontController;
 import view.defaultClass.DefaultPanel;
 import view.insregistrationpanel.searchInsPanel.SearchInsurancePanel;
 

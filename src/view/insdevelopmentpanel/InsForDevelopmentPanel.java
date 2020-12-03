@@ -16,9 +16,9 @@ import javax.swing.border.TitledBorder;
 import constants.ControllerConstants.EController;
 import constants.ViewConstants.EInsuranceHead;
 import constants.ViewConstants.EViewFrame;
-import controller.FrontController;
 import controller.insuranceRegistration.InsuranceRegistrationControllerImpl;
-import model.dto.Insurance;
+import main.FrontController;
+import model.service.insurance.Insurance;
 import view.insregistrationpanel.searchInsPanel.SearchInsurancePanel;
 
 public class InsForDevelopmentPanel extends JPanel{

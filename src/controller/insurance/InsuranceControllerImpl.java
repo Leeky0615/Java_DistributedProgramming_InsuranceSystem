@@ -1,15 +1,20 @@
 package controller.insurance;
 
+import java.util.ArrayList;
+
+import model.service.insurance.Insurance;
 import model.service.insurance.InsuranceListImpl;
 
 public class InsuranceControllerImpl implements InsuranceController {
 	private InsuranceListImpl insuranceList;
 	
-	public InsuranceControllerImpl() {
-		
-	}
+	public InsuranceControllerImpl() {}
 
 	public void connectCtoS(InsuranceListImpl insuranceList) {
 		this.insuranceList = insuranceList;
+	}
+
+	public ArrayList<Insurance> getInsuranceList() {
+		return this.insuranceList.getInsuranceList();
 	}
 }

@@ -20,8 +20,8 @@ import constants.ViewConstants.EButton;
 import constants.ViewConstants.ELogin;
 import constants.ViewConstants.EPanels;
 import constants.ViewConstants.EViewFrame;
-import controller.FrontController;
 import controller.login.LoginControllerImpl;
+import main.FrontController;
 import view.defaultClass.DefaultPanel;
 
 public class MainFrame extends JFrame {

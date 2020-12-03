@@ -1,4 +1,4 @@
-package controller;
+package main;
 
 import controller.acceptInsuranceDesign.AcceptInsDesignController;
 import controller.acceptInsuranceDesign.AcceptInsDesignControllerImpl;
@@ -22,7 +22,6 @@ import controller.login.LoginController;
 import controller.login.LoginControllerImpl;
 import controller.salesPerson.SalesPersonController;
 import controller.salesPerson.SalesPersonControllerImpl;
-import main.MainServices;
 import model.service.acceptInsuranceDesign.AcceptInsuranceDesignImpl;
 import model.service.accidentReceipt.AccidentReceiptListImpl;
 import model.service.checkCustomerInfo.CheckCustomerInfoImpl;

@@ -22,9 +22,8 @@ import constants.ControlConstants.EJob;
 import constants.ControllerConstants.EController;
 import constants.ViewConstants.ECustomer;
 import constants.ViewConstants.EViewFrame;
-import controller.FrontController;
 import controller.checkCustomerInfo.CheckCustomerInfoControllerImpl;
-import model.service.checkCustomerInfo.CheckCustomerInfoImpl;
+import main.FrontController;
 
 public class AddCustomerFrame extends JFrame { //고객추가하기버튼누르는 경우
 	private static final long serialVersionUID = 1L;

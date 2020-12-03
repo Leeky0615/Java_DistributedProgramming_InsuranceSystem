@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import model.dao.Dao;
-import model.dto.AccidentReceipt;
+import model.service.accidentReceipt.AccidentReceipt;
 
 public class AccidentReceiptDaoImpl extends Dao implements AccidentReceiptDao{
 	public AccidentReceiptDaoImpl() {super();}

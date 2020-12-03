@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import model.dao.Dao;
-import model.dto.Login;
+import model.service.login.Login;
 
 public class LoginDaoImpl extends Dao implements LoginDao{
 	public LoginDaoImpl() {super();}

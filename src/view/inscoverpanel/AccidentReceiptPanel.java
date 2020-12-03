@@ -15,10 +15,10 @@ import javax.swing.border.TitledBorder;
 
 import constants.ControllerConstants.EController;
 import constants.ViewConstants.EViewFrame;
-import controller.FrontController;
 import controller.accidentReceipt.AccidentReceiptControllerImpl;
 import controller.insuranceCover.InsuranceCoverControllerImpl;
-import model.dto.AccidentReceipt;
+import main.FrontController;
+import model.service.accidentReceipt.AccidentReceipt;
 
 public class AccidentReceiptPanel extends JPanel{
 	private static final long serialVersionUID = 1L;

@@ -3,9 +3,9 @@ package view.insregistrationpanel.searchInsPanel;
 import java.util.Vector;
 
 import constants.ControllerConstants.EController;
-import controller.FrontController;
 import controller.insurance.InsuranceControllerImpl;
-import model.dto.Insurance;
+import main.FrontController;
+import model.service.insurance.Insurance;
 import view.defaultClass.Default_InsuranceTable;
 
 public class InsuranceTable extends Default_InsuranceTable{

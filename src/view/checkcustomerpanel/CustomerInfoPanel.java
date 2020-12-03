@@ -14,9 +14,9 @@ import javax.swing.border.TitledBorder;
 
 import constants.ControllerConstants.EController;
 import constants.ViewConstants.EViewFrame;
-import controller.FrontController;
 import controller.customer.CustomerControllerImpl;
-import model.dto.Customer;
+import main.FrontController;
+import model.service.customer.Customer;
 
 public class CustomerInfoPanel extends JPanel {
 	private static final long serialVersionUID = 1L;

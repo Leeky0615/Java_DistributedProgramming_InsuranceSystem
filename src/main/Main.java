@@ -1,6 +1,5 @@
 package main;
 
-import controller.FrontController;
 import view.mainFrame.MainFrame;
 
 public class Main {

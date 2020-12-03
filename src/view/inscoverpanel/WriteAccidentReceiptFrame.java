@@ -20,9 +20,8 @@ import constants.ControlConstants.EInsuranceType;
 import constants.ControlConstants.EPaymentMethod;
 import constants.ControllerConstants.EController;
 import constants.ViewConstants.EViewFrame;
-import controller.FrontController;
 import controller.insuranceCover.InsuranceCoverControllerImpl;
-import model.service.insuranceCover.InsuranceCoverImpl;
+import main.FrontController;
 
 public class WriteAccidentReceiptFrame extends JFrame {
 	private static final long serialVersionUID = 1L;

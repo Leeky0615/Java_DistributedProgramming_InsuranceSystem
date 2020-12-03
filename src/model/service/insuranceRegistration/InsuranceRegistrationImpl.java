@@ -8,12 +8,12 @@ import constants.ControlConstants.EInsuranceType;
 import constants.ControlConstants.EPaymentMethod;
 import model.dao.insuranceRegistration.InsuranceRegistrationDao;
 import model.dao.insuranceRegistration.InsuranceRegistrationDaoImpl;
-import model.dto.CancerInsurance;
-import model.dto.CarInsurance;
-import model.dto.Customer;
-import model.dto.FireInsurance;
-import model.dto.Insurance;
+import model.service.customer.Customer;
 import model.service.customer.CustomerListImpl;
+import model.service.insurance.CancerInsurance;
+import model.service.insurance.CarInsurance;
+import model.service.insurance.FireInsurance;
+import model.service.insurance.Insurance;
 import model.service.insurance.InsuranceListImpl;
 import model.service.salesPerson.SalesPersonListImpl;
 

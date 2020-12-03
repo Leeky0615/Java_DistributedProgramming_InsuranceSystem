@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 import model.dao.accidentReceipt.AccidentReceiptDao;
 import model.dao.accidentReceipt.AccidentReceiptDaoImpl;
-import model.dto.AccidentReceipt;
 
 
 public class AccidentReceiptListImpl implements AccidentReceiptList {

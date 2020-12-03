@@ -17,7 +17,7 @@ import javax.swing.border.TitledBorder;
 
 import constants.ViewConstants.EMainFrame;
 import constants.ViewConstants.EViewFrame;
-import controller.FrontController;
+import main.FrontController;
 import view.defaultClass.DefaultPanel;
 
 public class InsCoverPanel extends DefaultPanel{

@@ -1,8 +1,9 @@
 package controller.insuranceDesign;
 
+import java.util.ArrayList;
 import java.util.Vector;
 
-import model.dto.InsuranceDesign;
+import model.service.insuranceDesign.InsuranceDesign;
 import model.service.insuranceDesign.InsuranceDesignList;
 import model.service.insuranceDesign.InsuranceDesignListImpl;
 
@@ -28,5 +29,9 @@ public class InsuranceDesignControllerImpl implements InsuranceDesignController 
 		infos.add(insuranceDesign.getInsurance().getInsuranceType().getText());
 		infos.add(insuranceDesign.getInsurance().getInsuranceDescription());
 		return infos;
+	}
+	
+	public ArrayList<InsuranceDesign> getInsuranceDesignList() {
+		return this.insuranceDesignList.getInsuranceDesignList();
 	}
 }

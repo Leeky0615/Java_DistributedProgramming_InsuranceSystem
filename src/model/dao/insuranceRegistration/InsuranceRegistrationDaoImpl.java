@@ -5,12 +5,12 @@ import java.util.List;
 
 import constants.ControlConstants.EInsuranceType;
 import model.dao.Dao;
-import model.dto.CancerInsurance;
-import model.dto.CarInsurance;
-import model.dto.Customer;
-import model.dto.FireInsurance;
-import model.dto.Insurance;
-import model.dto.InsuranceDesign;
+import model.service.customer.Customer;
+import model.service.insurance.CancerInsurance;
+import model.service.insurance.CarInsurance;
+import model.service.insurance.FireInsurance;
+import model.service.insurance.Insurance;
+import model.service.insuranceDesign.InsuranceDesign;
 
 public class InsuranceRegistrationDaoImpl extends Dao implements InsuranceRegistrationDao{
 	public InsuranceRegistrationDaoImpl() {super();}

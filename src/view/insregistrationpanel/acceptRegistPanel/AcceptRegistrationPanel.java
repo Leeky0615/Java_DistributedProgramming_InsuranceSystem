@@ -18,9 +18,7 @@ import javax.swing.border.TitledBorder;
 import constants.ViewConstants.EMainFrame;
 import constants.ViewConstants.ETableStatus;
 import constants.ViewConstants.EViewFrame;
-import controller.FrontController;
-import model.service.customer.CustomerListImpl;
-import model.service.insuranceRegistration.InsuranceRegistrationImpl;
+import main.FrontController;
 import view.checkcustomerpanel.CustomerTable;
 
 public class AcceptRegistrationPanel extends JPanel {

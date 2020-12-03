@@ -22,7 +22,7 @@ import javax.swing.border.TitledBorder;
 import constants.ControlConstants.EInsuranceType;
 import constants.ViewConstants.EMainFrame;
 import constants.ViewConstants.EViewFrame;
-import controller.FrontController;
+import main.FrontController;
 import view.insdevelopmentpanel.InsForDevelopmentPanel;
 
 public class SearchInsurancePanel extends JPanel {

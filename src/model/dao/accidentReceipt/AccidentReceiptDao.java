@@ -2,7 +2,7 @@ package model.dao.accidentReceipt;
 
 import java.util.ArrayList;
 
-import model.dto.AccidentReceipt;
+import model.service.accidentReceipt.AccidentReceipt;
 
 public interface AccidentReceiptDao {
 	public ArrayList<AccidentReceipt> select();

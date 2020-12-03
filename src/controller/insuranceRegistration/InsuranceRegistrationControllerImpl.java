@@ -3,7 +3,8 @@ package controller.insuranceRegistration;
 import java.util.Vector;
 
 import constants.ControlConstants.EInsuranceType;
-import model.dto.Insurance;
+import model.service.customer.Customer;
+import model.service.insurance.Insurance;
 import model.service.insuranceRegistration.InsuranceRegistrationImpl;
 
 public class InsuranceRegistrationControllerImpl implements InsuranceRegistrationController {
@@ -27,6 +28,22 @@ public class InsuranceRegistrationControllerImpl implements InsuranceRegistratio
 
 	public void request() {
 		this.insuranceRegistration.request();
+	}
+
+	public Insurance searchInsurance(int insuranceId) {
+		return this.insuranceRegistration.searchInsurance(insuranceId);
+	}
+
+	public Insurance getReadyInsurance(int id) {
+		return this.insuranceRegistration.getReadyInsurance(id);
+	}
+
+	public void approve(Customer customer) {
+		this.insuranceRegistration.approve(customer);
+	}
+
+	public void disApprove(EInsuranceType insuranceType, Customer customer) {
+		this.insuranceRegistration.disApprove(insuranceType, customer);
 	}
 
 }

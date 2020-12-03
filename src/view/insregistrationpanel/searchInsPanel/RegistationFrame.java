@@ -12,8 +12,8 @@ import javax.swing.JPanel;
 
 import constants.ControlConstants.EInsuranceType;
 import constants.ControllerConstants.EController;
-import controller.FrontController;
-import model.dto.Insurance;
+import main.FrontController;
+import model.service.insurance.Insurance;
 import model.service.insuranceRegistration.InsuranceRegistrationImpl;
 
 public class RegistationFrame extends JFrame{

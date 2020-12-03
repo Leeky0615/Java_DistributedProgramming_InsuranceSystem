@@ -1,4 +1,4 @@
-package model.dto;
+package model.service.insurance;
 
 public class ContractCondition {
 

@@ -1,7 +1,8 @@
-package model.dto;
+package model.service.insurance;
 
 import constants.ControlConstants.EBuildingType;
 import constants.ControlConstants.EPaymentMethod;
+import model.service.customer.Customer;
 
 public class FireInsurance extends Insurance{
 

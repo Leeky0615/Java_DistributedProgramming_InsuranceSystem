@@ -3,9 +3,9 @@ package view.inscoverpanel;
 import java.util.Vector;
 
 import constants.ControllerConstants.EController;
-import controller.FrontController;
 import controller.accidentReceipt.AccidentReceiptControllerImpl;
-import model.dto.AccidentReceipt;
+import main.FrontController;
+import model.service.accidentReceipt.AccidentReceipt;
 import view.defaultClass.Default_AccidnetReceiptTable;
 
 public class AccidentReceiptTable extends Default_AccidnetReceiptTable {

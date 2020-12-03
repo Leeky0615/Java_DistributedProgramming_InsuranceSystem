@@ -4,10 +4,9 @@ import java.util.Vector;
 
 import constants.ControllerConstants.EController;
 import constants.ViewConstants.EApprovalStatus;
-import controller.FrontController;
 import controller.insuranceDesign.InsuranceDesignControllerImpl;
-import model.dto.InsuranceDesign;
-import model.service.insuranceDesign.InsuranceDesignListImpl;
+import main.FrontController;
+import model.service.insuranceDesign.InsuranceDesign;
 import view.defaultClass.Default_InsuranceDesignTable;
 
 public class InsuranceDesignTable extends Default_InsuranceDesignTable {

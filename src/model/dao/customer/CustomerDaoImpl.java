@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import model.dao.Dao;
-import model.dto.Customer;
+import model.service.customer.Customer;
 
 public class CustomerDaoImpl extends Dao implements CustomerDao{
 	public CustomerDaoImpl() {super();}

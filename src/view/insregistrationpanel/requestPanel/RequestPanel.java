@@ -14,10 +14,8 @@ import javax.swing.JScrollPane;
 import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
 
-import constants.ControllerConstants.EController;
 import constants.ViewConstants.EMainFrame;
-import controller.FrontController;
-import controller.salesPerson.SalesPersonControllerImpl;
+import main.FrontController;
 
 public class RequestPanel extends JPanel {
 	private static final long serialVersionUID = 1L;

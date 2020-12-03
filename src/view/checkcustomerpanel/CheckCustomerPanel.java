@@ -3,7 +3,6 @@ package view.checkcustomerpanel;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridLayout;
-import java.awt.Menu;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
@@ -19,13 +18,10 @@ import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
 
-import constants.ControllerConstants.EController;
 import constants.ViewConstants.EMainFrame;
 import constants.ViewConstants.ETableStatus;
 import constants.ViewConstants.EViewFrame;
-import controller.FrontController;
-import controller.checkCustomerInfo.CheckCustomerInfoControllerImpl;
-import controller.customer.CustomerControllerImpl;
+import main.FrontController;
 import view.defaultClass.DefaultPanel;
 
 public class CheckCustomerPanel extends DefaultPanel {

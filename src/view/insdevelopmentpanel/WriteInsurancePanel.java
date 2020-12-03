@@ -22,8 +22,8 @@ import constants.ControlConstants.EInsuranceType;
 import constants.ControllerConstants.EController;
 import constants.ViewConstants.EInsuranceDesign;
 import constants.ViewConstants.EViewFrame;
-import controller.FrontController;
 import controller.insuranceDevelopment.InsuranceDevelopmentControllerImpl;
+import main.FrontController;
 
 public class WriteInsurancePanel extends JPanel  {
 	private static final long serialVersionUID = 1L;

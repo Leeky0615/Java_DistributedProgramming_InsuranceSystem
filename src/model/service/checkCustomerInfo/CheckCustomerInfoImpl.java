@@ -7,7 +7,7 @@ import constants.ControlConstants.EJob;
 import constants.ViewConstants.ECustomer;
 import model.dao.customer.CustomerDao;
 import model.dao.customer.CustomerDaoImpl;
-import model.service.customer.Customer;
+import model.dto.Customer;
 import model.service.customer.CustomerListImpl;
 
 public class CheckCustomerInfoImpl implements CheckCustomerInfo {

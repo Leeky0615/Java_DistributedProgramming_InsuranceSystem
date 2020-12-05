@@ -2,7 +2,7 @@ package controller.insurance;
 
 import java.util.ArrayList;
 
-import model.service.insurance.Insurance;
+import model.dto.Insurance;
 import model.service.insurance.InsuranceListImpl;
 
 public class InsuranceControllerImpl implements InsuranceController {

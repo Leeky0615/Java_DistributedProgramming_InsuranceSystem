@@ -5,9 +5,9 @@ import java.util.List;
 
 import constants.ViewConstants.EApprovalStatus;
 import model.dao.Dao;
-import model.service.insurance.ContractCondition;
-import model.service.insurance.Insurance;
-import model.service.insuranceDesign.InsuranceDesign;
+import model.dto.ContractCondition;
+import model.dto.Insurance;
+import model.dto.InsuranceDesign;
 
 public class InsuranceDesignDaoImpl extends Dao implements InsuranceDesignDao{
 	public InsuranceDesignDaoImpl() {super();}

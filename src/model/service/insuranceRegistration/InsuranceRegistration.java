@@ -3,9 +3,9 @@ package model.service.insuranceRegistration;
 import java.util.Vector;
 
 import constants.ControlConstants.EInsuranceType;
-import model.service.customer.Customer;
+import model.dto.Customer;
+import model.dto.Insurance;
 import model.service.customer.CustomerListImpl;
-import model.service.insurance.Insurance;
 import model.service.insurance.InsuranceListImpl;
 import model.service.salesPerson.SalesPersonListImpl;
 

@@ -3,8 +3,8 @@ package controller.insuranceRegistration;
 import java.util.Vector;
 
 import constants.ControlConstants.EInsuranceType;
-import model.service.customer.Customer;
-import model.service.insurance.Insurance;
+import model.dto.Customer;
+import model.dto.Insurance;
 import model.service.insuranceRegistration.InsuranceRegistrationImpl;
 
 public class InsuranceRegistrationControllerImpl implements InsuranceRegistrationController {

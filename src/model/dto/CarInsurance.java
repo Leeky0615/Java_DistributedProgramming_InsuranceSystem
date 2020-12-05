@@ -1,8 +1,7 @@
-package model.service.insurance;
+package model.dto;
 
 import constants.ControlConstants.ECarType;
 import constants.ControlConstants.EPaymentMethod;
-import model.service.customer.Customer;
 
 public class CarInsurance extends Insurance{
 	

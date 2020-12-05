@@ -20,7 +20,7 @@ import constants.ViewConstants.EInsuranceHead;
 import constants.ViewConstants.EViewFrame;
 import controller.insuranceRegistration.InsuranceRegistrationControllerImpl;
 import main.FrontController;
-import model.service.insurance.Insurance;
+import model.dto.Insurance;
 
 public class InsForRegistPanel extends JPanel{
 	private static final long serialVersionUID = 1L;

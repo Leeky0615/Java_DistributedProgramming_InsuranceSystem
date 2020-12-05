@@ -14,7 +14,7 @@ import constants.ControlConstants.EInsuranceType;
 import constants.ControllerConstants.EController;
 import controller.insuranceRegistration.InsuranceRegistrationControllerImpl;
 import main.FrontController;
-import model.service.insurance.Insurance;
+import model.dto.Insurance;
 
 public class RegistrationFrame extends JFrame{
 	private static final long serialVersionUID = 1L;

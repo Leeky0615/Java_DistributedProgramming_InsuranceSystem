@@ -18,7 +18,7 @@ import constants.ViewConstants.EViewFrame;
 import controller.accidentReceipt.AccidentReceiptControllerImpl;
 import controller.insuranceCover.InsuranceCoverControllerImpl;
 import main.FrontController;
-import model.service.accidentReceipt.AccidentReceipt;
+import model.dto.AccidentReceipt;
 
 public class AccidentReceiptPanel extends JPanel{
 	private static final long serialVersionUID = 1L;

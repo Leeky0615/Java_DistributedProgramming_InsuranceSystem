@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import model.dao.Dao;
-import model.service.insurance.Insurance;
+import model.dto.Insurance;
 
 public class InsuranceDaoImpl extends Dao implements InsuranceDao{
 	public InsuranceDaoImpl() {super();}

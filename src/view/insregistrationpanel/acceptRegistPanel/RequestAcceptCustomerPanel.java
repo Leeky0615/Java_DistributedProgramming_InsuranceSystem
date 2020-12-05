@@ -23,11 +23,11 @@ import constants.ViewConstants.EcarInsurance;
 import controller.customer.CustomerControllerImpl;
 import controller.insuranceRegistration.InsuranceRegistrationControllerImpl;
 import main.FrontController;
-import model.service.customer.Customer;
-import model.service.insurance.CancerInsurance;
-import model.service.insurance.CarInsurance;
-import model.service.insurance.FireInsurance;
-import model.service.insurance.Insurance;
+import model.dto.CancerInsurance;
+import model.dto.CarInsurance;
+import model.dto.Customer;
+import model.dto.FireInsurance;
+import model.dto.Insurance;
 
 public class RequestAcceptCustomerPanel extends JPanel {
 	private static final long serialVersionUID = 1L;

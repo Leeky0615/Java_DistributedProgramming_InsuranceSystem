@@ -13,7 +13,7 @@ import javax.swing.JPanel;
 import constants.ControlConstants.EInsuranceType;
 import constants.ControllerConstants.EController;
 import main.FrontController;
-import model.service.insurance.Insurance;
+import model.dto.Insurance;
 import model.service.insuranceRegistration.InsuranceRegistrationImpl;
 
 public class RegistationFrame extends JFrame{

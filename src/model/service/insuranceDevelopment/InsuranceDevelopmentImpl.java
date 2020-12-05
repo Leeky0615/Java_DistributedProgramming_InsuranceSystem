@@ -6,10 +6,10 @@ import constants.ControlConstants.EInsuranceType;
 import constants.ViewConstants.EApprovalStatus;
 import constants.ViewConstants.EInsuranceDesign;
 import model.dao.insuranceDesign.InsuranceDesignDaoImpl;
-import model.service.insurance.CancerInsurance;
-import model.service.insurance.CarInsurance;
-import model.service.insurance.FireInsurance;
-import model.service.insuranceDesign.InsuranceDesign;
+import model.dto.CancerInsurance;
+import model.dto.CarInsurance;
+import model.dto.FireInsurance;
+import model.dto.InsuranceDesign;
 import model.service.insuranceDesign.InsuranceDesignList;
 import model.service.insuranceDesign.InsuranceDesignListImpl;
 

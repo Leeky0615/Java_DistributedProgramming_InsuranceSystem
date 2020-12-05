@@ -6,7 +6,7 @@ import constants.ControllerConstants.EController;
 import constants.ViewConstants.EApprovalStatus;
 import controller.insuranceDesign.InsuranceDesignControllerImpl;
 import main.FrontController;
-import model.service.insuranceDesign.InsuranceDesign;
+import model.dto.InsuranceDesign;
 import view.defaultClass.Default_InsuranceDesignTable;
 
 public class InsuranceDesignTable extends Default_InsuranceDesignTable {

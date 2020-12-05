@@ -6,7 +6,7 @@ import constants.ControllerConstants.EController;
 import constants.ViewConstants.ETableStatus;
 import controller.customer.CustomerControllerImpl;
 import main.FrontController;
-import model.service.customer.Customer;
+import model.dto.Customer;
 import view.defaultClass.Default_CustomerTable;
 
 public class CustomerTable extends Default_CustomerTable{

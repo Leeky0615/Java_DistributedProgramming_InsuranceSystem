@@ -7,7 +7,7 @@ import constants.ControlConstants.EPaymentMethod;
 import constants.ViewConstants.EAccidentReceipt;
 import model.dao.accidentReceipt.AccidentReceiptDao;
 import model.dao.accidentReceipt.AccidentReceiptDaoImpl;
-import model.service.accidentReceipt.AccidentReceipt;
+import model.dto.AccidentReceipt;
 import model.service.accidentReceipt.AccidentReceiptListImpl;
 
 public class InsuranceCoverImpl implements InsuranceCover {

@@ -2,6 +2,8 @@ package model.service.accidentReceipt;
 
 import java.util.ArrayList;
 
+import model.dto.AccidentReceipt;
+
 public interface AccidentReceiptList {
 	public ArrayList<AccidentReceipt> getAccidentReceiptList();
 	public boolean add(AccidentReceipt accidentReceipt);

@@ -3,7 +3,7 @@ package controller.insuranceDesign;
 import java.util.ArrayList;
 import java.util.Vector;
 
-import model.service.insuranceDesign.InsuranceDesign;
+import model.dto.InsuranceDesign;
 import model.service.insuranceDesign.InsuranceDesignList;
 import model.service.insuranceDesign.InsuranceDesignListImpl;
 

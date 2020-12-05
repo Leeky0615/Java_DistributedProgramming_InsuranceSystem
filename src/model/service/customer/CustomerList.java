@@ -2,6 +2,8 @@ package model.service.customer;
 
 import java.util.ArrayList;
 
+import model.dto.Customer;
+
 public interface CustomerList{
 	public boolean add(Customer customer);
 	public boolean delete(Customer customer);

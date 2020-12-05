@@ -5,7 +5,7 @@ import java.util.Vector;
 import constants.ControllerConstants.EController;
 import controller.insurance.InsuranceControllerImpl;
 import main.FrontController;
-import model.service.insurance.Insurance;
+import model.dto.Insurance;
 import view.defaultClass.Default_InsuranceTable;
 
 public class InsuranceTable extends Default_InsuranceTable{

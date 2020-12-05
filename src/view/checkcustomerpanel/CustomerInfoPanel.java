@@ -16,7 +16,7 @@ import constants.ControllerConstants.EController;
 import constants.ViewConstants.EViewFrame;
 import controller.customer.CustomerControllerImpl;
 import main.FrontController;
-import model.service.customer.Customer;
+import model.dto.Customer;
 
 public class CustomerInfoPanel extends JPanel {
 	private static final long serialVersionUID = 1L;

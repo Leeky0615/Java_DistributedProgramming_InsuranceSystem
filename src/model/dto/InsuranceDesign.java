@@ -1,7 +1,6 @@
-package model.service.insuranceDesign;
+package model.dto;
 
 import constants.ViewConstants.EApprovalStatus;
-import model.service.insurance.Insurance;
 
 public class InsuranceDesign {
 	private int insuranceDesignId;

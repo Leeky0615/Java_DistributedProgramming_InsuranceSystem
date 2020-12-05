@@ -3,8 +3,8 @@ package model.service.acceptInsuranceDesign;
 import constants.ViewConstants.EApprovalStatus;
 import model.dao.insuranceDesign.InsuranceDesignDao;
 import model.dao.insuranceDesign.InsuranceDesignDaoImpl;
+import model.dto.InsuranceDesign;
 import model.service.insurance.InsuranceListImpl;
-import model.service.insuranceDesign.InsuranceDesign;
 import model.service.insuranceDesign.InsuranceDesignListImpl;
 
 public class AcceptInsuranceDesignImpl implements AcceptInsuranceDesign {

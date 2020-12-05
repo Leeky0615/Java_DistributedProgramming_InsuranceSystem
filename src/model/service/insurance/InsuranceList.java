@@ -2,6 +2,8 @@ package model.service.insurance;
 
 import java.util.ArrayList;
 
+import model.dto.Insurance;
+
 public interface InsuranceList {
 	public ArrayList<Insurance> getInsuranceList();
 	public boolean add(Insurance insurance);

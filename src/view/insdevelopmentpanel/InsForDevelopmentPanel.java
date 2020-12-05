@@ -18,7 +18,7 @@ import constants.ViewConstants.EInsuranceHead;
 import constants.ViewConstants.EViewFrame;
 import controller.insuranceRegistration.InsuranceRegistrationControllerImpl;
 import main.FrontController;
-import model.service.insurance.Insurance;
+import model.dto.Insurance;
 import view.insregistrationpanel.searchInsPanel.SearchInsurancePanel;
 
 public class InsForDevelopmentPanel extends JPanel{

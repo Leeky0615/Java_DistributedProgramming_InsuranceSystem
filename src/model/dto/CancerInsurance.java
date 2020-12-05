@@ -1,7 +1,6 @@
-package model.service.insurance;
+package model.dto;
 
 import constants.ControlConstants.EPaymentMethod;
-import model.service.customer.Customer;
 
 public class CancerInsurance extends Insurance{
 

@@ -2,7 +2,7 @@ package controller.customer;
 
 import java.util.ArrayList;
 
-import model.service.customer.Customer;
+import model.dto.Customer;
 import model.service.customer.CustomerListImpl;
 
 public interface CustomerController {

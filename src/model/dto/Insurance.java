@@ -1,4 +1,4 @@
-package model.service.insurance;
+package model.dto;
 
 import constants.ControlConstants.EInsuranceType;
 

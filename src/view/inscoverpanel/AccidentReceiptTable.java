@@ -5,7 +5,7 @@ import java.util.Vector;
 import constants.ControllerConstants.EController;
 import controller.accidentReceipt.AccidentReceiptControllerImpl;
 import main.FrontController;
-import model.service.accidentReceipt.AccidentReceipt;
+import model.dto.AccidentReceipt;
 import view.defaultClass.Default_AccidnetReceiptTable;
 
 public class AccidentReceiptTable extends Default_AccidnetReceiptTable {

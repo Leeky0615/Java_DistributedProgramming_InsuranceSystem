@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import model.dao.Dao;
-import model.service.salesPerson.SalesPerson;
+import model.dto.SalesPerson;
 
 public class SalesPersonDaoImpl extends Dao implements SalesPersonDao{
 	public SalesPersonDaoImpl() {super();}

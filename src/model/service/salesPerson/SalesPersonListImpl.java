@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import model.dao.salesPerson.SalesPersonDao;
 import model.dao.salesPerson.SalesPersonDaoImpl;
+import model.dto.SalesPerson;
 
 public class SalesPersonListImpl implements SalesPersonList {
 	private SalesPersonDao salesPersonDao;

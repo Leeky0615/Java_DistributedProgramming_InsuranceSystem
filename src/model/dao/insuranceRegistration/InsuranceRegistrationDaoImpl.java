@@ -24,6 +24,24 @@ public class InsuranceRegistrationDaoImpl extends Dao implements InsuranceRegist
 		List<InsuranceDesign> list = session.selectList("InsuranceDesign.Select");
 		return (ArrayList<InsuranceDesign>)list;
 	}
+	/*
+	 *  super클래스(Dao클래스)의 insert()함수 호출
+	 *  -> 파라미터로 객체의 이름과 객체를 보냄.
+	 */
+	public void insert(Insurance insurance) {super.insert(insurance.getClass().getSimpleName(), insurance);}
+	
+	public void update(Customer customer) {super.update(customer.getClass().getSimpleName(), customer);}
+	
+	public void delete(EInsuranceType eInsuranceType, int customerId) {
+			if (eInsuranceType == EInsuranceType.CANCER) {
+				super.update(CancerInsurance.class.getSimpleName(), customerId);
+			}else if(eInsuranceType == EInsuranceType.CAR) {
+				super.update(CarInsurance.class.getSimpleName(), customerId);
+			}else if(eInsuranceType == EInsuranceType.FIRE) {
+				super.update(FireInsurance.class.getSimpleName(), customerId);
+			}
+	}
+	
 	
 	/*  super클래스(Dao클래스)에서 선언한 session(인스턴스변수)의 
 	 *  함수 selectOne()를 사용 -> 파라미터 값을 만족하는 하나의 row의 정보를 담은 객체를 가져옴
@@ -46,22 +64,6 @@ public class InsuranceRegistrationDaoImpl extends Dao implements InsuranceRegist
 		return insurance;
 	}
 	
-	/*
-	 *  super클래스(Dao클래스)의 insert()함수 호출
-	 *  -> 파라미터로 객체의 이름과 객체를 보냄.
-	 */
-	public void insert(Insurance insurance) {super.insert(insurance.getClass().getSimpleName(), insurance);}
 	
-	public void update(Customer customer) {super.update(customer.getClass().getSimpleName(), customer);}
-	
-	public void delete(EInsuranceType eInsuranceType, int customerId) {
-			if (eInsuranceType == EInsuranceType.CANCER) {
-				super.update(CancerInsurance.class.getSimpleName(), customerId);
-			}else if(eInsuranceType == EInsuranceType.CAR) {
-				super.update(CarInsurance.class.getSimpleName(), customerId);
-			}else if(eInsuranceType == EInsuranceType.FIRE) {
-				super.update(FireInsurance.class.getSimpleName(), customerId);
-			}
-	}
 }
 	

@@ -10,28 +10,27 @@ import model.service.insuranceRegistration.InsuranceRegistrationImpl;
 public class InsuranceRegistrationControllerImpl implements InsuranceRegistrationController {
 	private InsuranceRegistrationImpl insuranceRegistration;
 	
-	public InsuranceRegistrationControllerImpl() {
-		
-	}
+	public InsuranceRegistrationControllerImpl() {}
 	
 	public void connectCtoS(InsuranceRegistrationImpl insuranceRegistration) {
 		this.insuranceRegistration = insuranceRegistration;
 	}
 
-	public boolean writeCustomerInfomation(String customerName, String customerId) {
-		return this.insuranceRegistration.writeCustomerInfomation(customerName, customerId);
-	}
-
 	public void writeInsuranceInformation(Insurance requestInsurance, EInsuranceType type, Vector<Object> infos) {
 		this.insuranceRegistration.writeInsuranceInformation(requestInsurance, type, infos);
 	}
-
+	
 	public void request() {
 		this.insuranceRegistration.request();
 	}
+	
+	public boolean checkCustomerInfomation(String customerName, String customerId) {
+		return this.insuranceRegistration.checkCustomerInfomation(customerName, customerId);
+	}
+
 
 	public Insurance searchInsurance(int insuranceId) {
-		return this.insuranceRegistration.searchInsurance(insuranceId);
+		return this.insuranceRegistration.searchInsurance(insuranceId);D
 	}
 
 	public Insurance getReadyInsurance(int id) {

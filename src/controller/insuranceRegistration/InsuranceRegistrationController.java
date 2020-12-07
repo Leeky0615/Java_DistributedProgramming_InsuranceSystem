@@ -9,7 +9,7 @@ import model.service.insuranceRegistration.InsuranceRegistrationImpl;
 
 public interface InsuranceRegistrationController {
 	public void connectCtoS(InsuranceRegistrationImpl insuranceRegistration);
-	public boolean writeCustomerInfomation(String customerName, String customerId);
+	public boolean checkCustomerInfomation(String customerName, String customerId);
 	public void writeInsuranceInformation(Insurance requestInsurance, EInsuranceType type, Vector<Object> infos);
 	public void request();
 	public Insurance searchInsurance(int insuranceId);

@@ -28,10 +28,21 @@ public class InsuranceRegistrationImpl implements InsuranceRegistration {
 	public InsuranceRegistrationImpl(){
 		this.insuranceRegistrationDao = new InsuranceRegistrationDaoImpl();
 	}
+	
 	public void associate(InsuranceListImpl insuranceList, CustomerListImpl customerList, SalesPersonListImpl salesPersonList) {
 		this.insuranceList = insuranceList;
 		this.customerList = customerList;
 		this.salesPersonList = salesPersonList;
+	}
+	
+	public boolean checkCustomerInfomation(String customerName, String customerSID){
+		for (Customer customer : this.customerList.getCustomerList()) {
+			if (customer.getName().equals(customerName) && customer.getCustomerSID().equals(customerSID)) {
+				this.setCustomer(customer);
+				return true;
+			}
+		}
+		return false;
 	}
 	
 	public SalesPersonListImpl getSalesPersonList() {return salesPersonList;}
@@ -48,20 +59,8 @@ public class InsuranceRegistrationImpl implements InsuranceRegistration {
 		this.insuranceRegistrationDao.update(customer);
 		this.insuranceRegistrationDao.delete(eInsuranceType,customer.getId());
 	}
-	public void request(){
-		customer.setRegistrationStatus(true);
-		this.insuranceRegistrationDao.update(customer);
-	}
 	
-	public boolean writeCustomerInfomation(String customerName, String customerSID){
-		for (Customer customer : this.customerList.getCustomerList()) {
-			if (customer.getName().equals(customerName) && customer.getCustomerSID().equals(customerSID)) {
-				this.setCustomer(customer);
-				return true;
-			}
-		}
-		return false;
-	}
+	
 	public void writeInsuranceInformation(Insurance insurance, EInsuranceType type, Vector<Object> infos){
 		if (type == EInsuranceType.CANCER) {
 			insurance = new CancerInsurance();
@@ -71,7 +70,6 @@ public class InsuranceRegistrationImpl implements InsuranceRegistration {
 			this.insuranceRegistrationDao.insert((CancerInsurance) insurance);
 		}else if(type == EInsuranceType.CAR) {
 			insurance = new CarInsurance();
-			System.out.println("insuranceRegistrationDaoImpl : "+insurance.getInsuranceId());
 			((CarInsurance) insurance).setPaymentMethod((EPaymentMethod) infos.get(0));
 			((CarInsurance) insurance).setPaymentDate((int) infos.get(1));
 			((CarInsurance) insurance).setCarNum((int) infos.get(2));
@@ -94,6 +92,12 @@ public class InsuranceRegistrationImpl implements InsuranceRegistration {
 			this.insuranceRegistrationDao.insert((FireInsurance) insurance);
 		}
 	}
+	
+	public void request(){
+		customer.setRegistrationStatus(true);
+		this.insuranceRegistrationDao.update(customer);
+	}
+	
 	public Insurance getReadyInsurance(int id) {
 		Insurance insurance = this.insuranceRegistrationDao.selectByCancerInsurance(id);
 		if (insurance.getInsuranceId() != 0) {return insurance;}

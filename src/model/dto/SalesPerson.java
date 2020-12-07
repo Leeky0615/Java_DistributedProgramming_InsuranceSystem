@@ -1,4 +1,4 @@
-package model.service.salesPerson;
+package model.dto;
 
 
 public class SalesPerson {

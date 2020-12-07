@@ -38,7 +38,8 @@ public class InsForRegistPanel extends JPanel{
 	
 	public InsForRegistPanel(SearchInsurancePanel searchInsurancePanel, FrontController frontController, Vector<Object> selectedRow) {
 		this.frontController = frontController;
-		this.insuranceRegistrationController = (InsuranceRegistrationControllerImpl) frontController.mappingController(EController.InsuranceRegistrationController.getControllerName());
+		this.insuranceRegistrationController = 
+				(InsuranceRegistrationControllerImpl) frontController.mappingController(EController.InsuranceRegistrationController.getControllerName());
 		this.selectedRow = selectedRow;
 		this.searchInsurancePanel = searchInsurancePanel;
 		
@@ -196,7 +197,7 @@ public class InsForRegistPanel extends JPanel{
 		if (source.equals(this.registrationBtn)) {
 			String customerName = this.customerName_t.getText();
 			String customerId = this.customerId_t1.getText()+"-"+this.customerId_t2.getText();
-			if (this.insuranceRegistrationController.writeCustomerInfomation(customerName, customerId)) {
+			if (this.insuranceRegistrationController.checkCustomerInfomation(customerName, customerId)) {
 				RegistrationFrame registrationFrame = new RegistrationFrame(this.frontController, this.insurance);
 				registrationFrame.setVisible(true);
 			}else {

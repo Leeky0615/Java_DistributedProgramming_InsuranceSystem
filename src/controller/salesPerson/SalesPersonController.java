@@ -2,7 +2,7 @@ package controller.salesPerson;
 
 import java.util.ArrayList;
 
-import model.service.salesPerson.SalesPerson;
+import model.dto.SalesPerson;
 import model.service.salesPerson.SalesPersonListImpl;
 
 public interface SalesPersonController {

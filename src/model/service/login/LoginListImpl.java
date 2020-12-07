@@ -3,6 +3,7 @@ package model.service.login;
 import constants.ViewConstants.ELogin;
 import model.dao.login.LoginDao;
 import model.dao.login.LoginDaoImpl;
+import model.dto.Login;
 
 public class LoginListImpl implements LoginList{
 	private LoginDao loginDao;

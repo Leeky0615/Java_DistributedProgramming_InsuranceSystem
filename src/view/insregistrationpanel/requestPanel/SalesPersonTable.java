@@ -5,7 +5,7 @@ import java.util.Vector;
 import constants.ControllerConstants.EController;
 import controller.salesPerson.SalesPersonControllerImpl;
 import main.FrontController;
-import model.service.salesPerson.SalesPerson;
+import model.dto.SalesPerson;
 import view.defaultClass.Default_SalesPersonTable;
 
 public class SalesPersonTable extends Default_SalesPersonTable{

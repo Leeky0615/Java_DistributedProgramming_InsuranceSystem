@@ -26,7 +26,7 @@ public class CustomerTable extends Default_CustomerTable{
 			Vector<Object> customers = new Vector<Object>();
 			customers.add(customer.getName());
 			customers.add(customer.getCustomerSID());
-			customers.add(customer.isGender());
+			customers.add(customer.isGenderString());
 			customers.add(customer.getAge()+"세");
 			customers.add(customer.getPhoneNum());
 			if (this.status == ETableStatus.insuranceRegistration) {

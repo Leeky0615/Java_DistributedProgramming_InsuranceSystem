@@ -92,6 +92,7 @@ public class InsuranceRegistrationImpl implements InsuranceRegistration {
 			((FireInsurance) insurance).setContractor(this.customer.getName());
 			((FireInsurance) insurance).setInsuranceId(2000);
 			((FireInsurance) insurance).setCustomerId(1);
+			((FireInsurance) insurance).setId(1);
 			this.insuranceRegistrationDao.insert((FireInsurance) insurance);
 		}
 	}

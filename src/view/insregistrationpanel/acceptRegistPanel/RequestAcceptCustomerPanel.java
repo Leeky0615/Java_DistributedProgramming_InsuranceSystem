@@ -63,7 +63,7 @@ public class RequestAcceptCustomerPanel extends JPanel {
 		infos.add(this.customer.getAge());
 		infos.add(this.customer.getPhoneNum());
 		infos.add(this.customer.getJob().getText());
-		infos.add(this.customer.getillHistory().getText());
+		infos.add(this.customer.getIllHistory().getText());
 		infos.add(this.customer.getProperty());
 		return infos;
 	}

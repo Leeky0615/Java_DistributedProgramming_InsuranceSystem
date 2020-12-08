@@ -93,7 +93,7 @@ public class CustomerInfoPanel extends JPanel {
 		JLabel jLabel5 = new JLabel();
 		jLabel5.setBounds(5, 237, 275, 45);
 		jLabel5.setFont(EViewFrame.eFont.getFont());
-		jLabel5.setText("병력 : "+this.customer.getillHistory());
+		jLabel5.setText("병력 : "+this.customer.getIllHistory());
 		information.add(jLabel5);
 		JLabel jLabel7 = new JLabel();
 		jLabel7.setBounds(5, 281, 275, 45);

@@ -29,7 +29,6 @@ public class InsuranceRegistrationDaoImpl extends Dao implements InsuranceRegist
 	 *  -> 파라미터로 객체의 이름과 객체를 보냄.
 	 */
 	public void insert(Insurance insurance) {super.insert(insurance.getClass().getSimpleName(), insurance);}
-	
 	public void update(Customer customer) {super.update(customer.getClass().getSimpleName(), customer);}
 	
 	public void delete(EInsuranceType eInsuranceType, int customerId) {
@@ -50,17 +49,17 @@ public class InsuranceRegistrationDaoImpl extends Dao implements InsuranceRegist
 	 */
 	public Insurance selectByCancerInsurance(int customerId) {
 		Insurance insurance = new CancerInsurance();
-		insurance = this.session.selectOne("Cancer.Select", customerId);
+		insurance = this.session.selectOne("CancerInsurance.Select", customerId);
 		return insurance;
 	}
 	public Insurance selectByCarInsurance(int customerId) {
 		Insurance insurance = new CarInsurance();
-		insurance = this.session.selectOne("Car.Select", customerId);
+		insurance = this.session.selectOne("CarInsurance.Select", customerId);
 		return insurance;
 	}
 	public Insurance selectByFireInsurance(int customerId) {
 		Insurance insurance = new FireInsurance();
-		insurance = this.session.selectOne("Fire.Select", customerId);
+		insurance = this.session.selectOne("FireInsurance.Select", customerId);
 		return insurance;
 	}
 	

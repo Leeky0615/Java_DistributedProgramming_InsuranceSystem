@@ -73,7 +73,7 @@ public class CustomerInfoPanel extends JPanel {
 		JLabel jLabel2 = new JLabel();
 		jLabel2.setBounds(5, 88, 275, 45);
 		jLabel2.setFont(EViewFrame.eFont.getFont());
-		jLabel2.setText("성별 : "+this.customer.isGender());
+		jLabel2.setText("성별 : "+this.customer.isGenderString());
 		information.add(jLabel2);
 		JLabel jLabel3_1 = new JLabel();
 		jLabel3_1.setText("나이 : "+this.customer.getAge());
@@ -93,7 +93,7 @@ public class CustomerInfoPanel extends JPanel {
 		JLabel jLabel5 = new JLabel();
 		jLabel5.setBounds(5, 237, 275, 45);
 		jLabel5.setFont(EViewFrame.eFont.getFont());
-		jLabel5.setText("병력 : "+this.customer.getillHistory());
+		jLabel5.setText("병력 : "+this.customer.getIllHistory());
 		information.add(jLabel5);
 		JLabel jLabel7 = new JLabel();
 		jLabel7.setBounds(5, 281, 275, 45);

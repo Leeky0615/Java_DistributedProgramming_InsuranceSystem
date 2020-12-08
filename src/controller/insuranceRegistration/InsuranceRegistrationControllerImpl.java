@@ -30,7 +30,7 @@ public class InsuranceRegistrationControllerImpl implements InsuranceRegistratio
 
 
 	public Insurance searchInsurance(int insuranceId) {
-		return this.insuranceRegistration.searchInsurance(insuranceId);D
+		return this.insuranceRegistration.searchInsurance(insuranceId);
 	}
 
 	public Insurance getReadyInsurance(int id) {

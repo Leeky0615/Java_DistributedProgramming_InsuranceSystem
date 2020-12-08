@@ -67,6 +67,7 @@ public class InsuranceRegistrationImpl implements InsuranceRegistration {
 			((CancerInsurance) insurance).setPaymentMethod((EPaymentMethod) infos.get(0));
 			((CancerInsurance) insurance).setPaymentDate((int) infos.get(1));
 			((CancerInsurance) insurance).setInsuranceId(3000);
+			((CancerInsurance) insurance).setCustomerId(1);
 			this.insuranceRegistrationDao.insert((CancerInsurance) insurance);
 		}else if(type == EInsuranceType.CAR) {
 			insurance = new CarInsurance();
@@ -78,6 +79,7 @@ public class InsuranceRegistrationImpl implements InsuranceRegistration {
 			((CarInsurance) insurance).setCarAccidentHistory((boolean) infos.get(5));
 			((CarInsurance) insurance).setDriver(this.customer.getName());
 			((CarInsurance) insurance).setInsuranceId(1000);
+			((CarInsurance) insurance).setCustomerId(1);
 			this.insuranceRegistrationDao.insert((CarInsurance) insurance);
 		}else if(type == EInsuranceType.FIRE) {
 			insurance = new FireInsurance();
@@ -89,6 +91,7 @@ public class InsuranceRegistrationImpl implements InsuranceRegistration {
 			((FireInsurance) insurance).setUnitPrice((int) infos.get(5));
 			((FireInsurance) insurance).setContractor(this.customer.getName());
 			((FireInsurance) insurance).setInsuranceId(2000);
+			((FireInsurance) insurance).setCustomerId(1);
 			this.insuranceRegistrationDao.insert((FireInsurance) insurance);
 		}
 	}
@@ -99,12 +102,10 @@ public class InsuranceRegistrationImpl implements InsuranceRegistration {
 	}
 	
 	public Insurance getReadyInsurance(int id) {
-		Insurance insurance = this.insuranceRegistrationDao.selectByCancerInsurance(id);
-		if (insurance.getInsuranceId() != 0) {return insurance;}
-		Insurance insurance1 = this.insuranceRegistrationDao.selectByCarInsurance(id);
-		if (insurance1.getInsuranceId() != 0) {return insurance1;}
-		Insurance insurance2 = this.insuranceRegistrationDao.selectByFireInsurance(id);
-		if (insurance2.getInsuranceId() != 0) {return insurance2;}
-		return null;
+//		Insurance insurance = this.insuranceRegistrationDao.selectByCancerInsurance(id);
+//		if (insurance.getInsuranceId() != 0) {return insurance;}
+//		Insurance insurance1 = this.insuranceRegistrationDao.selectByCarInsurance(id);
+//		if (insurance1.getInsuranceId() != 0) {return insurance1;}
+		return this.insuranceRegistrationDao.selectByFireInsurance(id);
 	}
 }

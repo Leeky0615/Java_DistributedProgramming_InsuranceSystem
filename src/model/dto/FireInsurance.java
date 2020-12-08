@@ -4,7 +4,8 @@ import constants.ControlConstants.EBuildingType;
 import constants.ControlConstants.EPaymentMethod;
 
 public class FireInsurance extends Insurance{
-
+	
+	private int id;
 	private int age;
 	private int area;
 	private String contractor;
@@ -15,9 +16,15 @@ public class FireInsurance extends Insurance{
 	private EPaymentMethod paymentMethod;
 	private int insuranceId;
 	private int customerId;
+	private Insurance insurance;
 	
+	public Insurance getInsurance() {return insurance;}
+	public void setInsurance(Insurance insurance) {this.insurance = insurance;}
+
 	public FireInsurance(){}
 
+	public int getId() {return id;}
+	public void setId(int id) {this.id = id;}
 	public int getAge() {return age;}
 	public void setAge(int age) {this.age = age;}
 	public int getArea() {return area;}

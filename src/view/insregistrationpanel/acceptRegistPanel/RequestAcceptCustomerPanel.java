@@ -59,17 +59,17 @@ public class RequestAcceptCustomerPanel extends JPanel {
 		Vector<Object> infos = new Vector<Object>();
 		infos.add(this.customer.getName());
 		infos.add(this.customer.getCustomerSID());
-		infos.add(this.customer.isGender());
+		infos.add(this.customer.isGenderString());
 		infos.add(this.customer.getAge());
 		infos.add(this.customer.getPhoneNum());
 		infos.add(this.customer.getJob().getText());
-		infos.add(this.customer.getillHistory().getText());
+		infos.add(this.customer.getIllHistory().getText());
 		infos.add(this.customer.getProperty());
 		return infos;
 	}
 	
 	public Vector<Object> setInsuranceInfos() {
-		insurance = this.insuranceRegistrationController.getReadyInsurance(this.customer.getId());
+		insurance = this.insuranceRegistrationController.getReadyInsurance(1);
 		Vector<Object> infos = new Vector<Object>();
 		infos.add(insurance.getInsuranceId());
 		infos.add(insurance.getInsuranceName());

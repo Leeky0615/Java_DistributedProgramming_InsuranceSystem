@@ -27,11 +27,11 @@ public class Customer {
 	public void setName(String name) {this.name = name;}
 	public String getCustomerSID() {return customerSID;}
 	public void setCustomerSID(String customerSID) {this.customerSID = customerSID;}
-	public int getGender() {
+	public int getGenderString() {
 		if (gender) {return 1;}
 		else {return 0;}
 	}
-	public String isGender() {
+	public String isGenderString() {
 		if (gender) {return "여성";}
 		else {return "남성";}
 	}
@@ -42,12 +42,21 @@ public class Customer {
 	public void setPhoneNum(String phoneNum) {this.phoneNum = phoneNum;}
 	public EJob getJob() {return job;}
 	public void setJob(EJob job) {this.job = job;}
-	public EIllHistory getillHistory() {return illHistory;}
-	public void setillHistory(EIllHistory illHistory) {this.illHistory = illHistory;}
+	public EIllHistory getIllHistory() {
+		return illHistory;
+	}
+
+	public void setIllHistory(EIllHistory illHistory) {
+		this.illHistory = illHistory;
+	}
+
 	public void setProperty(int property) {this.property = property;}
 	public int getProperty() {return property;}
 	public boolean isRegistrationStatus() {return registrationStatus;}
 	public void setRegistrationStatus(boolean registrationStatus) {this.registrationStatus = registrationStatus;}
 	public InsuranceListImpl getInsuranceList() {return InsuranceList;}
 	public void setInsuranceList(InsuranceListImpl insuranceList) {InsuranceList = insuranceList;}
+
+
+
 }

@@ -55,8 +55,8 @@ public class ControlConstants {
 		public String getText() {return this.text;}
 	}
 	public enum EBuildingType{
-		APARTMENT("아파트"),  HOUSE("주택"),  FACTORY("공장"),
-		WAREHOUSE("창고"), BUILDING("빌딩");
+		Apartment("아파트"),  House("주택"),  Factory("공장"),
+		Warehouse("창고"), Buiding("빌딩");
 		private String text;
 		private EBuildingType(String text) {this.text = text;}
 		public String getText() {return this.text;}

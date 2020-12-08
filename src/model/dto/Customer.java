@@ -42,11 +42,11 @@ public class Customer {
 	public void setPhoneNum(String phoneNum) {this.phoneNum = phoneNum;}
 	public EJob getJob() {return job;}
 	public void setJob(EJob job) {this.job = job;}
-	public EIllHistory getIllHistory() {
+	public EIllHistory getillHistory() {
 		return illHistory;
 	}
 
-	public void setIllHistory(EIllHistory illHistory) {
+	public void setillHistory(EIllHistory illHistory) {
 		this.illHistory = illHistory;
 	}
 

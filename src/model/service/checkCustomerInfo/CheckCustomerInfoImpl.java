@@ -46,11 +46,11 @@ public class CheckCustomerInfoImpl implements CheckCustomerInfo {
 				break;
 			case "병력": 
 				switch (value) {
-				case "없음":customer.setIllHistory(EIllHistory.NOTHING);break;
-				case "암":customer.setIllHistory(EIllHistory.CANCER);break;
-				case "혈압":customer.setIllHistory(EIllHistory.BLOODPRESURE);break;
-				case "당뇨":customer.setIllHistory(EIllHistory.GLYCOSURIA);break;
-				case "사고":customer.setIllHistory(EIllHistory.ACCIDENT);break;
+				case "없음":customer.setillHistory(EIllHistory.NOTHING);break;
+				case "암":customer.setillHistory(EIllHistory.CANCER);break;
+				case "혈압":customer.setillHistory(EIllHistory.BLOODPRESURE);break;
+				case "당뇨":customer.setillHistory(EIllHistory.GLYCOSURIA);break;
+				case "사고":customer.setillHistory(EIllHistory.ACCIDENT);break;
 				default:break;
 				}
 				break;

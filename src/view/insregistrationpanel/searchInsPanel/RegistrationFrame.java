@@ -14,13 +14,13 @@ import constants.ControlConstants.EInsuranceType;
 import constants.ControllerConstants.EController;
 import controller.insuranceRegistration.InsuranceRegistrationControllerImpl;
 import main.FrontController;
-import model.dto.Insurance;
+import model.entity.Insurance;
 
 public class RegistrationFrame extends JFrame{
 	private static final long serialVersionUID = 1L;
 	private InsuranceRegistrationControllerImpl insuranceRegistrationController;
 	private Insurance requestInsurance;
-	
+
 	private JButton okBtn,cancelBtn;
 	private ActionHandler actionHandler;
 	private CancerPanel cancerPanel;
@@ -29,14 +29,14 @@ public class RegistrationFrame extends JFrame{
 	public RegistrationFrame(FrontController frontController, Insurance insurance) {
 		this.insuranceRegistrationController = (InsuranceRegistrationControllerImpl) frontController.mappingController(EController.InsuranceRegistrationController.getControllerName());
 		this.requestInsurance = insurance;
-		
+
 		this.setSize(500, 280);
 		this.setTitle("고객추가");
 		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		this.add(this.createPanel(),BorderLayout.CENTER);
 		this.createBtnPanel();
 	}
-	
+
 	private JPanel createPanel() {
 		if (requestInsurance.getInsuranceType() == EInsuranceType.CANCER) {
 			this.cancerPanel = new CancerPanel();
@@ -50,7 +50,7 @@ public class RegistrationFrame extends JFrame{
 		}
 		return null;
 	}
-	
+
 	private void createBtnPanel() {
 		JPanel panel = new JPanel();
 		this.actionHandler = new ActionHandler();

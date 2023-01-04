@@ -6,10 +6,10 @@ import constants.ControlConstants.EInsuranceType;
 import constants.ViewConstants.EApprovalStatus;
 import constants.ViewConstants.EInsuranceDesign;
 import model.dao.insuranceDesign.InsuranceDesignDaoImpl;
-import model.dto.CancerInsurance;
-import model.dto.CarInsurance;
-import model.dto.FireInsurance;
-import model.dto.InsuranceDesign;
+import model.entity.CancerInsurance;
+import model.entity.CarInsurance;
+import model.entity.FireInsurance;
+import model.entity.InsuranceDesign;
 import model.service.insuranceDesign.InsuranceDesignList;
 import model.service.insuranceDesign.InsuranceDesignListImpl;
 
@@ -18,17 +18,17 @@ public class InsuranceDevelopmentImpl implements InsuranceDevelopment{
 	private InsuranceDesignList insuranceDesignList;
 
 	public InsuranceDevelopmentImpl(){this.insuranceDesignDao = new InsuranceDesignDaoImpl();}
-	
+
 	public void associate(InsuranceDesignListImpl insuranceDesignList) {this.insuranceDesignList = insuranceDesignList;}
 
 	public void designInsurance(Vector<String> infos){
 		InsuranceDesign insuranceDesign = new InsuranceDesign();
 		String insType = infos.get(EInsuranceDesign.insuranceType.ordinal());
-		
+
 		if (insType.equals(EInsuranceType.CANCER.getText())) {insuranceDesign.setInsurance(new CancerInsurance());}
 		else if(insType.equals(EInsuranceType.CAR.getText())) {insuranceDesign.setInsurance(new CarInsurance());}
 		else {insuranceDesign.setInsurance(new FireInsurance());}
-		
+
 		insuranceDesign.setInsuranceDesignId(Integer.parseInt(infos.get(EInsuranceDesign.insuranceDesignId.ordinal())));
 		insuranceDesign.setWriter(infos.get(EInsuranceDesign.writer.ordinal()));
 		insuranceDesign.getInsurance().setInsuranceName(infos.get(EInsuranceDesign.insuranceName.ordinal()));
@@ -44,6 +44,6 @@ public class InsuranceDevelopmentImpl implements InsuranceDevelopment{
 		this.insuranceDesignList.add(insuranceDesign);
 		this.insuranceDesignDao.insert(insuranceDesign);
 	}
-	
+
 	public EApprovalStatus requestApproval(){return EApprovalStatus.RequestInsDesign;}
 }

@@ -2,7 +2,7 @@ package controller.accidentReceipt;
 
 import java.util.ArrayList;
 
-import model.dto.AccidentReceipt;
+import model.entity.AccidentReceipt;
 import model.service.accidentReceipt.AccidentReceiptListImpl;
 
 public interface AccidentReceiptController {

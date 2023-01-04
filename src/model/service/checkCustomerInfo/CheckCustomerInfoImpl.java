@@ -7,7 +7,7 @@ import constants.ControlConstants.EJob;
 import constants.ViewConstants.ECustomer;
 import model.dao.customer.CustomerDao;
 import model.dao.customer.CustomerDaoImpl;
-import model.dto.Customer;
+import model.entity.Customer;
 import model.service.customer.CustomerListImpl;
 
 public class CheckCustomerInfoImpl implements CheckCustomerInfo {
@@ -17,7 +17,7 @@ public class CheckCustomerInfoImpl implements CheckCustomerInfo {
 	public CheckCustomerInfoImpl(){
 		this.customerDao = new CustomerDaoImpl();
 	}
-	
+
 	public void associate(CustomerListImpl customerList) {this.customerList = customerList;}
 	public Customer searchCustomerbyId(String customerId){return this.customerList.searchById(customerId);}
 
@@ -28,13 +28,13 @@ public class CheckCustomerInfoImpl implements CheckCustomerInfo {
 			switch (eCustomer.getText()) {
 			case "이름": customer.setName(value);break;
 			case "주민등록번호": customer.setCustomerSID(value);break;
-			case "성별": 
+			case "성별":
 				if (value.equals("남성")) {customer.setGender(false);}
 				else {customer.setGender(true);}
 				break;
 			case "나이":customer.setAge(Integer.parseInt(value));break;
 			case "전화번호": customer.setPhoneNum(value);break;
-			case "직업": 
+			case "직업":
 				switch (value) {
 				case "군인":customer.setJob(EJob.SOLDIER);break;
 				case "경찰":customer.setJob(EJob.POLICE);break;
@@ -44,7 +44,7 @@ public class CheckCustomerInfoImpl implements CheckCustomerInfo {
 				default:break;
 				}
 				break;
-			case "병력": 
+			case "병력":
 				switch (value) {
 				case "없음":customer.setIllHistory(EIllHistory.NOTHING);break;
 				case "암":customer.setIllHistory(EIllHistory.CANCER);break;
@@ -55,7 +55,7 @@ public class CheckCustomerInfoImpl implements CheckCustomerInfo {
 				}
 				break;
 			case "재산": customer.setProperty(Integer.parseInt(value));break;
-			case "지급 방법": 
+			case "지급 방법":
 			default: break;
 			}
 		}

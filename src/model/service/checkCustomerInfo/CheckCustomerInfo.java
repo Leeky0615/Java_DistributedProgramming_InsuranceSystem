@@ -2,7 +2,7 @@ package model.service.checkCustomerInfo;
 
 import java.util.Vector;
 
-import model.dto.Customer;
+import model.entity.Customer;
 import model.service.customer.CustomerListImpl;
 
 public interface CheckCustomerInfo {

@@ -6,20 +6,20 @@ import constants.ControllerConstants.EController;
 import constants.ViewConstants.ETableStatus;
 import controller.customer.CustomerControllerImpl;
 import main.FrontController;
-import model.dto.Customer;
+import model.entity.Customer;
 import view.defaultClass.Default_CustomerTable;
 
 public class CustomerTable extends Default_CustomerTable{
 	private static final long serialVersionUID = 1L;
 	private CustomerControllerImpl customerController;
-	
+
 	public CustomerTable(FrontController frontController, ETableStatus insuranceregistration) {
 		super();
 		this.status = insuranceregistration;
 		this.customerController = (CustomerControllerImpl) frontController.mappingController(EController.CustomerController.getControllerName());
 		this.refresh();
 	}
-	
+
 	public void refresh() {
 		this.rowData.clear();
 		for (Customer customer : this.customerController.getCustomerList()) {

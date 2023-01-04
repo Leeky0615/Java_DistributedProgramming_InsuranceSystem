@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import model.dao.insuranceDesign.InsuranceDesignDao;
 import model.dao.insuranceDesign.InsuranceDesignDaoImpl;
-import model.dto.InsuranceDesign;
+import model.entity.InsuranceDesign;
 
 public class InsuranceDesignListImpl implements InsuranceDesignList {
 	private InsuranceDesignDao insuranceDesignDao;
@@ -14,7 +14,7 @@ public class InsuranceDesignListImpl implements InsuranceDesignList {
 		this.insuranceDesignDao = new InsuranceDesignDaoImpl();
 	}
 	public ArrayList<InsuranceDesign> getInsuranceDesignList() {return this.insuranceDesignDao.select();}
-	
+
 	public boolean add(InsuranceDesign insuranceDesign){
 		this.insuranceDesignList.add(insuranceDesign);
 		return false;
@@ -45,7 +45,7 @@ public class InsuranceDesignListImpl implements InsuranceDesignList {
 		}
 		return null;
 	}
-	
+
 	public ArrayList<InsuranceDesign> searchByWriterName(String writer){
 		ArrayList<InsuranceDesign> insDesignList = new ArrayList<InsuranceDesign>();
 		for(InsuranceDesign insuranceDesign : this.insuranceDesignList) {

@@ -1,13 +1,13 @@
 package constants;
 
-import model.dto.CancerInsurance;
-import model.dto.CarInsurance;
-import model.dto.FireInsurance;
-import model.dto.Insurance;
+import model.entity.CancerInsurance;
+import model.entity.CarInsurance;
+import model.entity.FireInsurance;
+import model.entity.Insurance;
 
 public class ControlConstants {
 	public ControlConstants() {}
-	
+
 	// Accident Receipt & ContractCondition
 	public interface EInsurance{
 		public String getText();
@@ -31,7 +31,7 @@ public class ControlConstants {
 		private EPaymentMethod(String text) {this.text = text;}
 		public String getText() {return this.text;}
 	}
-	
+
 	// Customer
 	public enum EJob{
 		SOLDIER("군인"),  POLICE("경찰"),  FIREMAN("소방관"),

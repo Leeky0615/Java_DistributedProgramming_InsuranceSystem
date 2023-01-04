@@ -27,16 +27,16 @@ import view.defaultClass.DefaultPanel;
 public class MainFrame extends JFrame {
 	private static final long serialVersionUID = 1L;
 	public static ELogin user = null;
-	private Vector<DefaultPanel> panels;
+	private final Vector<DefaultPanel> panels;
 	private ButtonPanel buttonPanel;
 	private LoginPanel loginPanel;
 	private BackBtnPanel backBtnPanel;
 	private DefaultPanel currentPanel;
-	private ActionHandler actionHandler;
-	private FrontController frontController;
-	private LoginControllerImpl loginController;
+	private final ActionHandler actionHandler;
+	private final FrontController frontController;
+	private final LoginControllerImpl loginController;
 	private JLabel imageLabel;
-	
+
 	public MainFrame(FrontController frontController) {
 		super();
 		this.setThema();
@@ -48,14 +48,14 @@ public class MainFrame extends JFrame {
 		this.setLayout(new BorderLayout());
 		this.frontController = frontController;
 		this.loginController = (LoginControllerImpl) frontController.mappingController(EController.LoginController.getControllerName());
-		
+
 		this.actionHandler = new ActionHandler();
 		this.panels = new Vector<DefaultPanel>();
-		
+
 		this.createLoginPanel();
 		this.createButtonPanel();
 	}
-	
+
 	// 테마 설정 메소드
 	public void setThema() {
 		try {
@@ -74,23 +74,23 @@ public class MainFrame extends JFrame {
 	private void createDefaultPanels() {
 		this.backBtnPanel = new BackBtnPanel(actionHandler);
 		this.add(backBtnPanel, BorderLayout.SOUTH);
-		
+
 		this.imageLabel = new JLabel(setImage());
 		this.add(this.imageLabel, BorderLayout.CENTER);
-		
+
 		// 프로그램에서 사용되는 패널들을 사용하기위해 패널벡터를 만들어 넣어놈.
 		for(EPanels ePanel : EPanels.values()) {this.panels.add(this.createPanel(ePanel.getPanel()));}
 	}
-	
+
 	// 메인프레임의 imagelabel에 이미지를 넣기위해 이미지파일을 등록하는 메소드
 	public ImageIcon setImage() {
 		ImageIcon icon = EViewFrame.eImg.getImageIcon();
-		Image originImg = icon.getImage(); 
+		Image originImg = icon.getImage();
 		Image changedImg= originImg.getScaledInstance(600, 530, Image.SCALE_SMOOTH );
 		ImageIcon changedicon = new ImageIcon(changedImg);
 		return changedicon;
 	}
-	
+
 	// Reflection을 이용해 패널을 만들어주는 메소드
 	@SuppressWarnings("rawtypes")
 	public DefaultPanel createPanel(String name) {
@@ -102,7 +102,7 @@ public class MainFrame extends JFrame {
 		}catch (Exception e) {e.printStackTrace();}
 		return null;
 	}
-	
+
 	@SuppressWarnings("deprecation")
 	public ELogin logincheck() {
 		// loginController의 logincheck함수를 실행.
@@ -115,33 +115,26 @@ public class MainFrame extends JFrame {
 		if(name.equals("login")){
 			if(logincheck() == null){
 				JOptionPane.showMessageDialog(null, "등록되지 않은 사용자입니다. 다시 확인해 주세요.", "등록되지 않은 사용자", JOptionPane.WARNING_MESSAGE);
-				return;
 			}else {
 				if (logincheck() == ELogin.developer) {
 					for(JButton button : buttons) {
-						if (button.equals(buttons.get(EButton.insDevelopmentBtn.ordinal()))) {button.setVisible(true);}
-						else {button.setVisible(false);}
+						button.setVisible(button.equals(buttons.get(EButton.insDevelopmentBtn.ordinal())));
 					}
 				}else if(logincheck() == ELogin.customer) {
 					for(JButton button : buttons) {
-						if (button.equals(buttons.get(EButton.insRegistrationBtn.ordinal()))) {button.setVisible(true);}
-						else {button.setVisible(false);}
+						button.setVisible(button.equals(buttons.get(EButton.insRegistrationBtn.ordinal())));
 					}
 				}else if(logincheck() == ELogin.salesman) {
 					for(JButton button : buttons) {
-						if (button.equals(buttons.get(EButton.checkCustomerBtn.ordinal()))) {button.setVisible(true);}
-						else {button.setVisible(false);}
+						button.setVisible(button.equals(buttons.get(EButton.checkCustomerBtn.ordinal())));
 					}
 				}else if(logincheck() == ELogin.underwriter) {
 					for(JButton button : buttons) {
-						if (button.equals(buttons.get(EButton.acceptInsBtn.ordinal())) || button.equals(buttons.get(EButton.insRegistrationBtn.ordinal()))) {
-							button.setVisible(true);
-						}else {button.setVisible(false);}
+						button.setVisible(button.equals(buttons.get(EButton.acceptInsBtn.ordinal())) || button.equals(buttons.get(EButton.insRegistrationBtn.ordinal())));
 					}
 				}else if(logincheck() == ELogin.assessment) {
 					for(JButton button : buttons) {
-						if (button.equals(buttons.get(EButton.insCoverBtn.ordinal()))) {button.setVisible(true);}
-						else {button.setVisible(false);}
+						button.setVisible(button.equals(buttons.get(EButton.insCoverBtn.ordinal())));
 					}
 				}
 				this.createDefaultPanels();
@@ -180,9 +173,9 @@ public class MainFrame extends JFrame {
 			this.remove(this.buttonPanel);
 			// 패널의 크기가 4이면 선택된 패널버튼의 패널을 추가
 			if (this.panels.size() == 4) {this.panels.add(createPanel(name));}
-			/* 
-			 * 위에서 만들어준 패널 벡터에서 값을 하나씩 비교해 
-			 * 선택된 패널의 이름과 같을 시  메인프레임에 패널을 붙여주고 현재패널로 설정 
+			/*
+			 * 위에서 만들어준 패널 벡터에서 값을 하나씩 비교해
+			 * 선택된 패널의 이름과 같을 시  메인프레임에 패널을 붙여주고 현재패널로 설정
 			*/
 			for (DefaultPanel panel : this.panels) {
 				if (panel.getClass().getName().equals("view." + name.toLowerCase() + "." + name)) {
@@ -192,7 +185,7 @@ public class MainFrame extends JFrame {
 			}
 		}
 	}
-	
+
 	public class ActionHandler implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			buttonClick(e.getActionCommand());

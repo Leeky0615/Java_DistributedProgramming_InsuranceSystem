@@ -2,7 +2,7 @@ package model.service.customer;
 
 import java.util.ArrayList;
 
-import model.dto.Customer;
+import model.entity.Customer;
 
 public interface CustomerList{
 	public boolean add(Customer customer);

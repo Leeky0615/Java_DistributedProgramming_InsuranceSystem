@@ -3,7 +3,7 @@ package model.service.login;
 import constants.ViewConstants.ELogin;
 import model.dao.login.LoginDao;
 import model.dao.login.LoginDaoImpl;
-import model.dto.Login;
+import model.entity.Login;
 
 public class LoginListImpl implements LoginList{
 	private LoginDao loginDao;
@@ -11,7 +11,7 @@ public class LoginListImpl implements LoginList{
 	public LoginListImpl() {
 		this.loginDao = new LoginDaoImpl();
 	}
-	
+
 	@Override
 	public ELogin loginCheck(String id,String password) {
 		ELogin userType = null;

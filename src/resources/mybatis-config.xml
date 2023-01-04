@@ -5,16 +5,16 @@
 <configuration>
 <!-- vo 객체들의 풀 네임을 사용하기 번거롭기 때문에 별칭을 등록하는 부분 -->
 <typeAliases>
-		<typeAlias type="model.dto.AccidentReceipt" alias="AccidentReceipt"/>
-		<typeAlias type="model.dto.CancerInsurance" alias="CancerInsurance"/>
-		<typeAlias type="model.dto.CarInsurance" alias="CarInsurance"/>
-		<typeAlias type="model.dto.ContractCondition" alias="ContractCondition"/>
-		<typeAlias type="model.dto.Customer" alias="Customer"/>
-		<typeAlias type="model.dto.FireInsurance" alias="FireInsurance"/>
-		<typeAlias type="model.dto.Insurance" alias="Insurance"/>
-		<typeAlias type="model.dto.InsuranceDesign" alias="InsuranceDesign"/>
-		<typeAlias type="model.dto.Login" alias="Login"/>
-		<typeAlias type="model.dto.SalesPerson" alias="SalesPerson"/>
+		<typeAlias type="model.entity.AccidentReceipt" alias="AccidentReceipt"/>
+		<typeAlias type="model.entity.CancerInsurance" alias="CancerInsurance"/>
+		<typeAlias type="model.entity.CarInsurance" alias="CarInsurance"/>
+		<typeAlias type="model.entity.ContractCondition" alias="ContractCondition"/>
+		<typeAlias type="model.entity.Customer" alias="Customer"/>
+		<typeAlias type="model.entity.FireInsurance" alias="FireInsurance"/>
+		<typeAlias type="model.entity.Insurance" alias="Insurance"/>
+		<typeAlias type="model.entity.InsuranceDesign" alias="InsuranceDesign"/>
+		<typeAlias type="model.entity.Login" alias="Login"/>
+		<typeAlias type="model.entity.SalesPerson" alias="SalesPerson"/>
 	</typeAliases>
 <!--기본적인 DB정보 설정  -->
   <environments default="development">

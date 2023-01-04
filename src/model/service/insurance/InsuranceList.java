@@ -2,7 +2,7 @@ package model.service.insurance;
 
 import java.util.ArrayList;
 
-import model.dto.Insurance;
+import model.entity.Insurance;
 
 public interface InsuranceList {
 	public ArrayList<Insurance> getInsuranceList();

@@ -2,7 +2,7 @@ package model.service.salesPerson;
 
 import java.util.ArrayList;
 
-import model.dto.SalesPerson;
+import model.entity.SalesPerson;
 
 public interface SalesPersonList {
 	public ArrayList<SalesPerson> getSalesPersonlist();

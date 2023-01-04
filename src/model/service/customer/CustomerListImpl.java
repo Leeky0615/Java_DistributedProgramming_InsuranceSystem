@@ -4,12 +4,12 @@ import java.util.ArrayList;
 
 import model.dao.customer.CustomerDao;
 import model.dao.customer.CustomerDaoImpl;
-import model.dto.Customer;
+import model.entity.Customer;
 
 public class CustomerListImpl implements CustomerList {
 	private CustomerDao customerDao;
 	private ArrayList<Customer> customerList;
-	
+
 	public CustomerListImpl(){
 		this.customerDao = new CustomerDaoImpl();
 	}

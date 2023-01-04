@@ -2,7 +2,7 @@ package model.dao.insurance;
 
 import java.util.ArrayList;
 
-import model.dto.Insurance;
+import model.entity.Insurance;
 
 public interface InsuranceDao {
 	public void insert(Insurance insurance);

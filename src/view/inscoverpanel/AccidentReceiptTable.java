@@ -5,14 +5,14 @@ import java.util.Vector;
 import constants.ControllerConstants.EController;
 import controller.accidentReceipt.AccidentReceiptControllerImpl;
 import main.FrontController;
-import model.dto.AccidentReceipt;
+import model.entity.AccidentReceipt;
 import view.defaultClass.Default_AccidnetReceiptTable;
 
 public class AccidentReceiptTable extends Default_AccidnetReceiptTable {
 	private static final long serialVersionUID = 1L;
-	
+
 	private AccidentReceiptControllerImpl accidentReceiptController;
-	
+
 	public AccidentReceiptTable(FrontController frontController) {
 		super();
 		this.accidentReceiptController = (AccidentReceiptControllerImpl) frontController.mappingController(EController.AccidentReceiptController.getControllerName());

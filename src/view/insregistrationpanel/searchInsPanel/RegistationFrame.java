@@ -13,14 +13,14 @@ import javax.swing.JPanel;
 import constants.ControlConstants.EInsuranceType;
 import constants.ControllerConstants.EController;
 import main.FrontController;
-import model.dto.Insurance;
+import model.entity.Insurance;
 import model.service.insuranceRegistration.InsuranceRegistrationImpl;
 
 public class RegistationFrame extends JFrame{
 	private static final long serialVersionUID = 1L;
 	private InsuranceRegistrationImpl insuranceRegistration;
 	private Insurance requestInsurance;
-	
+
 	private JButton okBtn,cancelBtn;
 	private ActionHandler actionHandler;
 	private CancerPanel cancerPanel;
@@ -29,14 +29,14 @@ public class RegistationFrame extends JFrame{
 	public RegistationFrame(FrontController frontController, Insurance insurance) {
 		this.insuranceRegistration = (InsuranceRegistrationImpl) frontController.mappingController(EController.InsuranceRegistrationController.getControllerName());
 		this.requestInsurance = insurance;
-		
+
 		this.setSize(500, 280);
 		this.setTitle("고객추가");
 		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		this.add(this.createPanel(),BorderLayout.CENTER);
 		this.createBtnPanel();
 	}
-	
+
 	private JPanel createPanel() {
 		if (requestInsurance.getInsuranceType() == EInsuranceType.CANCER) {
 			this.cancerPanel = new CancerPanel();
@@ -50,7 +50,7 @@ public class RegistationFrame extends JFrame{
 		}
 		return null;
 	}
-	
+
 	private void createBtnPanel() {
 		JPanel panel = new JPanel();
 		this.actionHandler = new ActionHandler();
@@ -62,7 +62,7 @@ public class RegistationFrame extends JFrame{
 		panel.add(cancelBtn);
 		this.add(panel, BorderLayout.SOUTH);
 	}
-	
+
 	//상품가입->고객추가창에서->가입신청버튼클릭
 	public void buttonClick(Object source) {
 		if (source.equals(this.okBtn)) {

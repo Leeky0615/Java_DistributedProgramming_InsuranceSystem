@@ -2,14 +2,14 @@ package controller.accidentReceipt;
 
 import java.util.ArrayList;
 
-import model.dto.AccidentReceipt;
+import model.entity.AccidentReceipt;
 import model.service.accidentReceipt.AccidentReceiptListImpl;
 
 public class AccidentReceiptControllerImpl implements AccidentReceiptController {
 	private AccidentReceiptListImpl accidentReceiptList;
 
 	public AccidentReceiptControllerImpl() {
-		
+
 	}
 
 	public void connectCtoS(AccidentReceiptListImpl accidentReceiptList) {

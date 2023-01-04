@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import model.dao.insurance.InsuranceDao;
 import model.dao.insurance.InsuranceDaoImpl;
-import model.dto.Insurance;
+import model.entity.Insurance;
 
 public class InsuranceListImpl implements InsuranceList {
 	private InsuranceDao insuranceDao;
@@ -15,7 +15,7 @@ public class InsuranceListImpl implements InsuranceList {
 	}
 
 	public ArrayList<Insurance> getInsuranceList() {return this.insuranceList = this.insuranceDao.select();}
-	
+
 	public boolean add(Insurance insurance){
 		this.insuranceList.add(insurance);
 		return true;

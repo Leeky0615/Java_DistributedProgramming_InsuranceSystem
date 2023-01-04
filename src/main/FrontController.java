@@ -35,69 +35,87 @@ import model.service.login.LoginListImpl;
 import model.service.salesPerson.SalesPersonListImpl;
 
 public class FrontController {
-	private InsuranceDesignController insuranceDesignController;
-	private CustomerController customerController;
-	private InsuranceController insuranceController;
-	private AccidentReceiptController accidentReceiptController;
-	private SalesPersonController salesPersonController;
-	private LoginController loginController;
-	
-	private AcceptInsDesignController acceptInsuranceDesignController;
-	private InsuranceDevelopmentController insuranceDevelopmentController;
-	private InsuranceRegistrationController insuranceRegistrationController;
-	private CheckCustomerInfController checkCustomerInfoController;
-	private InsuranceCoverController insuranceCoverController;
-	
-	private MainServices mainServices;
-	
-	public FrontController(){
-		this.insuranceDesignController = new InsuranceDesignControllerImpl();
-		this.insuranceController = new InsuranceControllerImpl();
-		this.customerController = new CustomerControllerImpl();
-		this.accidentReceiptController = new AccidentReceiptControllerImpl();
-		this.salesPersonController = new SalesPersonControllerImpl();
-		this.loginController = new LoginControllerImpl();
-		
-		this.acceptInsuranceDesignController = new AcceptInsDesignControllerImpl();
-		this.insuranceDevelopmentController = new InsuranceDevelopmentControllerImpl();
-		this.insuranceRegistrationController = new InsuranceRegistrationControllerImpl();
-		this.checkCustomerInfoController = new CheckCustomerInfoControllerImpl();
-		this.insuranceCoverController = new InsuranceCoverControllerImpl();
-	}
-	
-	public void connectCtoS() {
-		this.insuranceDesignController.connectCtoS((InsuranceDesignListImpl) this.mainServices.getInsuranceDesignList());
-		this.insuranceController.connectCtoS((InsuranceListImpl) this.mainServices.getInsuranceList());
-		this.customerController.connectCtoS((CustomerListImpl) this.mainServices.getCustomerList());
-		this.accidentReceiptController.connectCtoS((AccidentReceiptListImpl)this.mainServices.getAccidentReceiptList());
-		this.salesPersonController.connectCtoS((SalesPersonListImpl)this.mainServices.getSalesPersonList());
-		this.loginController.connectCtoS((LoginListImpl)this.mainServices.getLoginlist());
-		
-		this.acceptInsuranceDesignController.connectCtoS((AcceptInsuranceDesignImpl)this.mainServices.getAcceptInsuranceDesign());
-		this.insuranceDevelopmentController.connectCtoS((InsuranceDevelopmentImpl)this.mainServices.getInsuranceDevelopment());
-		this.insuranceRegistrationController.connectCtoS((InsuranceRegistrationImpl)this.mainServices.getInsuranceRegistration());
-		this.checkCustomerInfoController.connectCtoS((CheckCustomerInfoImpl)this.mainServices.getCheckCustomerInfo());
-		this.insuranceCoverController.connectCtoS((InsuranceCoverImpl)this.mainServices.getInsuranceCover());
-	}
-	public void associate(MainServices mainServices) {this.mainServices = mainServices;}
-	
-	public Object mappingController(String className){
-		switch (className) {
-		case "InsuranceDesignController": return this.insuranceDesignController;
-		case "InsuranceController": return this.insuranceController;
-		case "CustomerController": return this.customerController;
-		case "AccidentReceiptController": return this.accidentReceiptController;
-		case "SalesPersonController": return this.salesPersonController;
-		case "LoginController": return this.loginController;
-		case "AcceptInsDesignController": return this.acceptInsuranceDesignController;
-		case "InsuranceDevelopmentController": return this.insuranceDevelopmentController;
-		case "InsuranceRegistrationController": return this.insuranceRegistrationController;
-		case "CheckCustomerInfoController": return this.checkCustomerInfoController;
-		case "InsuranceCoverController": return this.insuranceCoverController;
-		default:break;
-		}
-		return null;
-	}
-	
-	
+    private final InsuranceDesignController insuranceDesignController;
+    private final CustomerController customerController;
+    private final InsuranceController insuranceController;
+    private final AccidentReceiptController accidentReceiptController;
+    private final SalesPersonController salesPersonController;
+    private final LoginController loginController;
+
+    private final AcceptInsDesignController acceptInsuranceDesignController;
+    private final InsuranceDevelopmentController insuranceDevelopmentController;
+    private final InsuranceRegistrationController insuranceRegistrationController;
+    private final CheckCustomerInfController checkCustomerInfoController;
+    private final InsuranceCoverController insuranceCoverController;
+
+    private MainServices mainServices;
+
+    public FrontController() {
+        this.insuranceDesignController = new InsuranceDesignControllerImpl();
+        this.insuranceController = new InsuranceControllerImpl();
+        this.customerController = new CustomerControllerImpl();
+        this.accidentReceiptController = new AccidentReceiptControllerImpl();
+        this.salesPersonController = new SalesPersonControllerImpl();
+        this.loginController = new LoginControllerImpl();
+
+        this.acceptInsuranceDesignController = new AcceptInsDesignControllerImpl();
+        this.insuranceDevelopmentController = new InsuranceDevelopmentControllerImpl();
+        this.insuranceRegistrationController = new InsuranceRegistrationControllerImpl();
+        this.checkCustomerInfoController = new CheckCustomerInfoControllerImpl();
+        this.insuranceCoverController = new InsuranceCoverControllerImpl();
+    }
+
+    /**
+     * 컨트롤러랑 서비스를 연결??
+     */
+    public void connectCtoS() {
+        this.insuranceDesignController.connectCtoS((InsuranceDesignListImpl) this.mainServices.getInsuranceDesignList());
+        this.insuranceController.connectCtoS((InsuranceListImpl) this.mainServices.getInsuranceList());
+        this.customerController.connectCtoS((CustomerListImpl) this.mainServices.getCustomerList());
+        this.accidentReceiptController.connectCtoS((AccidentReceiptListImpl) this.mainServices.getAccidentReceiptList());
+        this.salesPersonController.connectCtoS((SalesPersonListImpl) this.mainServices.getSalesPersonList());
+        this.loginController.connectCtoS((LoginListImpl) this.mainServices.getLoginlist());
+
+        this.acceptInsuranceDesignController.connectCtoS((AcceptInsuranceDesignImpl) this.mainServices.getAcceptInsuranceDesign());
+        this.insuranceDevelopmentController.connectCtoS((InsuranceDevelopmentImpl) this.mainServices.getInsuranceDevelopment());
+        this.insuranceRegistrationController.connectCtoS((InsuranceRegistrationImpl) this.mainServices.getInsuranceRegistration());
+        this.checkCustomerInfoController.connectCtoS((CheckCustomerInfoImpl) this.mainServices.getCheckCustomerInfo());
+        this.insuranceCoverController.connectCtoS((InsuranceCoverImpl) this.mainServices.getInsuranceCover());
+    }
+
+    public void associate(MainServices mainServices) {
+        this.mainServices = mainServices;
+    }
+
+    public Object mappingController(String className) {
+        switch (className) {
+            case "InsuranceDesignController":
+                return this.insuranceDesignController;
+            case "InsuranceController":
+                return this.insuranceController;
+            case "CustomerController":
+                return this.customerController;
+            case "AccidentReceiptController":
+                return this.accidentReceiptController;
+            case "SalesPersonController":
+                return this.salesPersonController;
+            case "LoginController":
+                return this.loginController;
+            case "AcceptInsDesignController":
+                return this.acceptInsuranceDesignController;
+            case "InsuranceDevelopmentController":
+                return this.insuranceDevelopmentController;
+            case "InsuranceRegistrationController":
+                return this.insuranceRegistrationController;
+            case "CheckCustomerInfoController":
+                return this.checkCustomerInfoController;
+            case "InsuranceCoverController":
+                return this.insuranceCoverController;
+            default:
+                break;
+        }
+        return null;
+    }
+
+
 }

@@ -4,13 +4,13 @@ import java.util.ArrayList;
 
 import model.dao.accidentReceipt.AccidentReceiptDao;
 import model.dao.accidentReceipt.AccidentReceiptDaoImpl;
-import model.dto.AccidentReceipt;
+import model.entity.AccidentReceipt;
 
 
 public class AccidentReceiptListImpl implements AccidentReceiptList {
 	private AccidentReceiptDao accidentReceiptDao;
 	private ArrayList<AccidentReceipt> accidentReceiptList;
-	
+
 	public AccidentReceiptListImpl(){
 		this.accidentReceiptDao = new AccidentReceiptDaoImpl();
 	}

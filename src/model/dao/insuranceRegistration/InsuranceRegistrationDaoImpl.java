@@ -5,19 +5,19 @@ import java.util.List;
 
 import constants.ControlConstants.EInsuranceType;
 import model.dao.Dao;
-import model.dto.CancerInsurance;
-import model.dto.CarInsurance;
-import model.dto.Customer;
-import model.dto.FireInsurance;
-import model.dto.Insurance;
-import model.dto.InsuranceDesign;
+import model.entity.CancerInsurance;
+import model.entity.CarInsurance;
+import model.entity.Customer;
+import model.entity.FireInsurance;
+import model.entity.Insurance;
+import model.entity.InsuranceDesign;
 
 public class InsuranceRegistrationDaoImpl extends Dao implements InsuranceRegistrationDao{
 	public InsuranceRegistrationDaoImpl() {super();}
-	
-	/*  super클래스(Dao클래스)에서 선언한 session(인스턴스변수)의 
+
+	/*  super클래스(Dao클래스)에서 선언한 session(인스턴스변수)의
 	 *  함수 selectList()를 사용 -> 테이블에 있는 모든 값을 list에 담음
-	 *  selectList()에 있는 파라미터는 mapper.xml파일에서 
+	 *  selectList()에 있는 파라미터는 mapper.xml파일에서
 	 *  미리 정해둔 Select태그를 이용 -> mapper이름+사용할 태그이름
 	 */
 	public ArrayList<InsuranceDesign> select() {
@@ -30,7 +30,7 @@ public class InsuranceRegistrationDaoImpl extends Dao implements InsuranceRegist
 	 */
 	public void insert(Insurance insurance) {super.insert(insurance.getClass().getSimpleName(), insurance);}
 	public void update(Customer customer) {super.update(customer.getClass().getSimpleName(), customer);}
-	
+
 	public void delete(EInsuranceType eInsuranceType, int customerId) {
 			if (eInsuranceType == EInsuranceType.CANCER) {
 				super.update(CancerInsurance.class.getSimpleName(), customerId);
@@ -40,11 +40,11 @@ public class InsuranceRegistrationDaoImpl extends Dao implements InsuranceRegist
 				super.update(FireInsurance.class.getSimpleName(), customerId);
 			}
 	}
-	
-	
-	/*  super클래스(Dao클래스)에서 선언한 session(인스턴스변수)의 
+
+
+	/*  super클래스(Dao클래스)에서 선언한 session(인스턴스변수)의
 	 *  함수 selectOne()를 사용 -> 파라미터 값을 만족하는 하나의 row의 정보를 담은 객체를 가져옴
-	 *  selectOne()에 있는 파라미터는 mapper.xml파일에서 
+	 *  selectOne()에 있는 파라미터는 mapper.xml파일에서
 	 *  미리 정해둔 Select태그를 이용 -> mapper이름+사용할 태그이름
 	 */
 	public Insurance selectByCancerInsurance(int customerId) {
@@ -62,7 +62,7 @@ public class InsuranceRegistrationDaoImpl extends Dao implements InsuranceRegist
 		insurance = this.session.selectOne("FireInsurance.Select", customerId);
 		return insurance;
 	}
-	
-	
+
+
 }
-	
+

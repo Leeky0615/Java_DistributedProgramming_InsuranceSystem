@@ -18,38 +18,38 @@ import constants.ViewConstants.EViewFrame;
 import controller.accidentReceipt.AccidentReceiptControllerImpl;
 import controller.insuranceCover.InsuranceCoverControllerImpl;
 import main.FrontController;
-import model.dto.AccidentReceipt;
+import model.entity.AccidentReceipt;
 
 public class AccidentReceiptPanel extends JPanel{
 	private static final long serialVersionUID = 1L;
-	
+
 	private Vector<Object> objects;
 	private InsuranceCoverControllerImpl insuranceCoverController;
 	private AccidentReceiptControllerImpl accidentReceiptController;
 	private AccidentReceipt accidentReceipt;
 	private InsCoverPanel insCoverPanel;
-	
+
 	private JPanel information;
 	private ActionHandler actionHandler;
 	private JButton pay,back;
 
 	private JPanel btnPanel;
-	
+
 	public AccidentReceiptPanel(InsCoverPanel insCoverPanel, FrontController frontController, Vector<Object> vector) {
 		setPreferredSize(new Dimension(600, 500));
 		setLayout(null);
-		
+
 		this.insCoverPanel = insCoverPanel;
 		this.insuranceCoverController = (InsuranceCoverControllerImpl) frontController.mappingController(EController.InsuranceCoverController.getControllerName());
 		this.accidentReceiptController = (AccidentReceiptControllerImpl) frontController.mappingController(EController.AccidentReceiptController.getControllerName());
-		
+
 		this.objects = vector;
 		for(AccidentReceipt accidentReceipt : this.accidentReceiptController.getAccidentReceiptList()) {
 			if (accidentReceipt.getAccidentReceiptId() == (Integer)this.objects.get(0)) {
 				this.accidentReceipt = accidentReceipt;
 			}
 		}
-		
+
 		information = new JPanel();
 		information.setLocation(12, 10);
 		information.setSize(576, 302);
@@ -121,7 +121,7 @@ public class AccidentReceiptPanel extends JPanel{
 		jLabel2_1.setBounds(280, 54, 275, 45);
 		information.add(jLabel2_1);
 		this.add(information);
-		
+
 		this.actionHandler = new ActionHandler();
 		btnPanel = new JPanel();
 		btnPanel.setLayout(null);
@@ -139,7 +139,7 @@ public class AccidentReceiptPanel extends JPanel{
 		btnPanel.add(back);
 		this.add(btnPanel);
 	}
-	
+
 	public void buttonClick(Object source) {
 		if (source.equals(this.pay)) {
 			this.insuranceCoverController.acceptAccident(this.accidentReceipt.getAccidentReceiptId());

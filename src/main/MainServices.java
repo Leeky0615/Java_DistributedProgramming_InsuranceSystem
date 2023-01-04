@@ -24,19 +24,19 @@ import model.service.salesPerson.SalesPersonList;
 import model.service.salesPerson.SalesPersonListImpl;
 
 public class MainServices {
-	private InsuranceDesignList insuranceDesignList;
-	private CustomerList customerList;
-	private InsuranceList insuranceList;
-	private AccidentReceiptList accidentReceiptList;
-	private SalesPersonList salesPersonList;
-	private LoginList loginlist;
-	
-	private AcceptInsuranceDesign acceptInsuranceDesign;
-	private InsuranceDevelopment insuranceDevelopment;
-	private InsuranceRegistration insuranceRegistration;
-	private CheckCustomerInfo checkCustomerInfo;
-	private InsuranceCover insuranceCover;
-	
+	private final InsuranceDesignList insuranceDesignList;
+	private final CustomerList customerList;
+	private final InsuranceList insuranceList;
+	private final AccidentReceiptList accidentReceiptList;
+	private final SalesPersonList salesPersonList;
+	private final LoginList loginlist;
+
+	private final AcceptInsuranceDesign acceptInsuranceDesign;
+	private final InsuranceDevelopment insuranceDevelopment;
+	private final InsuranceRegistration insuranceRegistration;
+	private final CheckCustomerInfo checkCustomerInfo;
+	private final InsuranceCover insuranceCover;
+
 	public MainServices(){
 		this.insuranceDesignList = new InsuranceDesignListImpl();
 		this.insuranceList = new InsuranceListImpl();
@@ -44,7 +44,7 @@ public class MainServices {
 		this.accidentReceiptList = new AccidentReceiptListImpl();
 		this.salesPersonList = new SalesPersonListImpl();
 		this.loginlist = new LoginListImpl();
-		
+
 		this.acceptInsuranceDesign = new AcceptInsuranceDesignImpl();
 		this.insuranceDevelopment = new InsuranceDevelopmentImpl();
 		this.insuranceRegistration = new InsuranceRegistrationImpl();

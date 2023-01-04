@@ -8,11 +8,11 @@ import constants.ControlConstants.EInsuranceType;
 import constants.ControlConstants.EPaymentMethod;
 import model.dao.insuranceRegistration.InsuranceRegistrationDao;
 import model.dao.insuranceRegistration.InsuranceRegistrationDaoImpl;
-import model.dto.CancerInsurance;
-import model.dto.CarInsurance;
-import model.dto.Customer;
-import model.dto.FireInsurance;
-import model.dto.Insurance;
+import model.entity.CancerInsurance;
+import model.entity.CarInsurance;
+import model.entity.Customer;
+import model.entity.FireInsurance;
+import model.entity.Insurance;
 import model.service.customer.CustomerListImpl;
 import model.service.insurance.InsuranceListImpl;
 import model.service.salesPerson.SalesPersonListImpl;
@@ -24,17 +24,17 @@ public class InsuranceRegistrationImpl implements InsuranceRegistration {
 	private CustomerListImpl customerList;
 	private SalesPersonListImpl salesPersonList;
 	private InsuranceRegistrationDao insuranceRegistrationDao;
-	
+
 	public InsuranceRegistrationImpl(){
 		this.insuranceRegistrationDao = new InsuranceRegistrationDaoImpl();
 	}
-	
+
 	public void associate(InsuranceListImpl insuranceList, CustomerListImpl customerList, SalesPersonListImpl salesPersonList) {
 		this.insuranceList = insuranceList;
 		this.customerList = customerList;
 		this.salesPersonList = salesPersonList;
 	}
-	
+
 	public boolean checkCustomerInfomation(String customerName, String customerSID){
 		for (Customer customer : this.customerList.getCustomerList()) {
 			if (customer.getName().equals(customerName) && customer.getCustomerSID().equals(customerSID)) {
@@ -44,7 +44,7 @@ public class InsuranceRegistrationImpl implements InsuranceRegistration {
 		}
 		return false;
 	}
-	
+
 	public SalesPersonListImpl getSalesPersonList() {return salesPersonList;}
 	public void setSalesPersonList(SalesPersonListImpl salesPersonList) {this.salesPersonList = salesPersonList;}
 	public Customer getCustomer() {return customer;}
@@ -59,8 +59,8 @@ public class InsuranceRegistrationImpl implements InsuranceRegistration {
 		this.insuranceRegistrationDao.update(customer);
 		this.insuranceRegistrationDao.delete(eInsuranceType,customer.getId());
 	}
-	
-	
+
+
 	public void writeInsuranceInformation(Insurance insurance, EInsuranceType type, Vector<Object> infos){
 		if (type == EInsuranceType.CANCER) {
 			insurance = new CancerInsurance();
@@ -96,12 +96,12 @@ public class InsuranceRegistrationImpl implements InsuranceRegistration {
 			this.insuranceRegistrationDao.insert((FireInsurance) insurance);
 		}
 	}
-	
+
 	public void request(){
 		customer.setRegistrationStatus(true);
 		this.insuranceRegistrationDao.update(customer);
 	}
-	
+
 	public Insurance getReadyInsurance(int id) {
 //		Insurance insurance = this.insuranceRegistrationDao.selectByCancerInsurance(id);
 //		if (insurance.getInsuranceId() != 0) {return insurance;}

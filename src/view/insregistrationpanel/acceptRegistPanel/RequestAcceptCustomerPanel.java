@@ -23,11 +23,11 @@ import constants.ViewConstants.EcarInsurance;
 import controller.customer.CustomerControllerImpl;
 import controller.insuranceRegistration.InsuranceRegistrationControllerImpl;
 import main.FrontController;
-import model.dto.CancerInsurance;
-import model.dto.CarInsurance;
-import model.dto.Customer;
-import model.dto.FireInsurance;
-import model.dto.Insurance;
+import model.entity.CancerInsurance;
+import model.entity.CarInsurance;
+import model.entity.Customer;
+import model.entity.FireInsurance;
+import model.entity.Insurance;
 
 public class RequestAcceptCustomerPanel extends JPanel {
 	private static final long serialVersionUID = 1L;
@@ -36,25 +36,25 @@ public class RequestAcceptCustomerPanel extends JPanel {
 	private CustomerControllerImpl customerController;
 	private Customer customer;
 	private ActionHandler actionHandler;
-	
+
 	private Insurance insurance;
 	private JButton back,approve,disApprove;
 
 	public RequestAcceptCustomerPanel(AcceptRegistrationPanel acceptRegistrationPanel, FrontController frontController) {
 		setPreferredSize(new Dimension(600, 500));
 		setLayout(new FlowLayout());
-		
+
 		this.acceptRegistrationPanel = acceptRegistrationPanel;
 		this.insuranceRegistrationController = (InsuranceRegistrationControllerImpl) frontController.mappingController(EController.InsuranceRegistrationController.getControllerName());
 		this.customerController = (CustomerControllerImpl) frontController.mappingController(EController.CustomerController.getControllerName());
 	}
-	
+
 	public void setSelectedRow(Vector<Object> vector) {
 		for(Customer customer : this.customerController.getCustomerList()) {
 			if (customer.getCustomerSID().equals(vector.get(1))) {this.customer = customer;}
 		}
 	}
-	
+
 	public Vector<Object> setCustomerInfos() {
 		Vector<Object> infos = new Vector<Object>();
 		infos.add(this.customer.getName());
@@ -67,7 +67,7 @@ public class RequestAcceptCustomerPanel extends JPanel {
 		infos.add(this.customer.getProperty());
 		return infos;
 	}
-	
+
 	public Vector<Object> setInsuranceInfos() {
 		insurance = this.insuranceRegistrationController.getReadyInsurance(1);
 		Vector<Object> infos = new Vector<Object>();
@@ -97,13 +97,13 @@ public class RequestAcceptCustomerPanel extends JPanel {
 		}
 		return infos;
 	}
-	
+
 	public void createCustomerInfoPanel() {
 		JPanel customerInfoPanel = new JPanel();
 		customerInfoPanel.setPreferredSize(new Dimension(600, 180));
 		customerInfoPanel.setBorder(new TitledBorder(new LineBorder(Color.lightGray,1),"고객 상세정보"));
 		customerInfoPanel.setLayout(new FlowLayout());
-		
+
 		Vector<Object> infos = setCustomerInfos();
 		for(ECustomer customer : ECustomer.values()) {
 			JLabel label = new JLabel();
@@ -114,14 +114,14 @@ public class RequestAcceptCustomerPanel extends JPanel {
 		}
 		this.add(customerInfoPanel);
 	}
-	
+
 	public void createInsuranceInfoPanel() {
 		JPanel insuranceInfoPanel = new JPanel();
 		insuranceInfoPanel.setPreferredSize(new Dimension(600, 180));
 		insuranceInfoPanel.setLayout(new FlowLayout());
 		insuranceInfoPanel.setBorder(new TitledBorder(new LineBorder(Color.lightGray,1),"보험 상세정보"));
 		add(insuranceInfoPanel);
-		
+
 		Vector<Object> infos = setInsuranceInfos();
 		for(EInsuranceRequest insuranceRequest : EInsuranceRequest.values()) {
 			JLabel label = new JLabel();
@@ -154,26 +154,26 @@ public class RequestAcceptCustomerPanel extends JPanel {
 		}
 		this.add(insuranceInfoPanel);
 	}
-	
+
 	public void createButton() {
 		this.actionHandler = new ActionHandler();
 		JPanel btnPanel = new JPanel();
 		btnPanel.setBorder(new TitledBorder(new LineBorder(Color.lightGray,1)));
 		btnPanel.setLayout(new FlowLayout());
 		btnPanel.setPreferredSize(new Dimension(600, 100));
-		
+
 		approve = new JButton("상품 가입 승인");
 		approve.setFont(EViewFrame.eFont.getFont());
 		approve.setPreferredSize(new Dimension(270, 40));
 		approve.addActionListener(actionHandler);
 		btnPanel.add(approve);
-		
+
 		disApprove = new JButton("상품 가입 미승인");
 		disApprove.setFont(EViewFrame.eFont.getFont());
 		disApprove.setPreferredSize(new Dimension(270, 40));
 		disApprove.addActionListener(actionHandler);
 		btnPanel.add(disApprove);
-		
+
 		back = new JButton("돌아가기");
 		back.setFont(EViewFrame.eFont.getFont());
 		back.setPreferredSize(new Dimension(550, 40));
@@ -181,7 +181,7 @@ public class RequestAcceptCustomerPanel extends JPanel {
 		btnPanel.add(back);
 		this.add(btnPanel);
 	}
-	
+
 	public void buttonClick(Object source) {
 		if (source.equals(this.back)) {
 			this.removeAll();

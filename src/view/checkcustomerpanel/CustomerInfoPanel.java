@@ -16,7 +16,7 @@ import constants.ControllerConstants.EController;
 import constants.ViewConstants.EViewFrame;
 import controller.customer.CustomerControllerImpl;
 import main.FrontController;
-import model.dto.Customer;
+import model.entity.Customer;
 
 public class CustomerInfoPanel extends JPanel {
 	private static final long serialVersionUID = 1L;
@@ -24,7 +24,7 @@ public class CustomerInfoPanel extends JPanel {
 	private CheckCustomerPanel checkCustomerPanel;
 	private CustomerControllerImpl customerController;
 	private Customer customer;
-	
+
 	private JPanel information;
 	private ActionHandler actionHandler;
 	private JButton back;
@@ -33,11 +33,11 @@ public class CustomerInfoPanel extends JPanel {
 	public CustomerInfoPanel(CheckCustomerPanel checkCustomerPanel, FrontController frontController) {
 		setPreferredSize(new Dimension(600, 500));
 		setLayout(null);
-		
+
 		this.customerController = (CustomerControllerImpl) frontController.mappingController(EController.CustomerController.getControllerName());
 		this.checkCustomerPanel = checkCustomerPanel;
 	}
-	
+
 	public Customer setSelectedRow(Vector<Object> vector, String customerName, String customerId) {
 		this.objects = vector;
 		for(Customer customer : this.customerController.getCustomerList()) {
@@ -49,11 +49,11 @@ public class CustomerInfoPanel extends JPanel {
 				if (customer.getCustomerSID().equals(customerId) && customer.getName().equals(customerName)) {
 					this.customer = customer;
 				}
-			}		
+			}
 		}
 		return this.customer;
 	}
-	
+
 	public void createDefaultPanel() {
 		information = new JPanel();
 		information.setLocation(12, 10);
@@ -102,7 +102,7 @@ public class CustomerInfoPanel extends JPanel {
 		information.add(jLabel7);
 		this.add(information);
 	}
-	
+
 	public void createButton() {
 		this.actionHandler = new ActionHandler();
 		btnPanel = new JPanel();
@@ -116,7 +116,7 @@ public class CustomerInfoPanel extends JPanel {
 		btnPanel.add(back);
 		this.add(btnPanel);
 	}
-	
+
 	public void buttonClick(Object source) {
 		if (source.equals(this.back)) {
 			this.removeAll();
@@ -130,5 +130,5 @@ public class CustomerInfoPanel extends JPanel {
 			buttonClick(e.getSource());
 		}
 	}
-	
+
 }

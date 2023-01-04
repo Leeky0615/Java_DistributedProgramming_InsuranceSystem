@@ -2,7 +2,7 @@ package model.dao.customer;
 
 import java.util.ArrayList;
 
-import model.dto.Customer;
+import model.entity.Customer;
 
 public interface CustomerDao {
 	public void insert(Customer customer);

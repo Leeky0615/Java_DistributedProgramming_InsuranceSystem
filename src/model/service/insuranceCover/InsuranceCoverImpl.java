@@ -7,7 +7,7 @@ import constants.ControlConstants.EPaymentMethod;
 import constants.ViewConstants.EAccidentReceipt;
 import model.dao.accidentReceipt.AccidentReceiptDao;
 import model.dao.accidentReceipt.AccidentReceiptDaoImpl;
-import model.dto.AccidentReceipt;
+import model.entity.AccidentReceipt;
 import model.service.accidentReceipt.AccidentReceiptListImpl;
 
 public class InsuranceCoverImpl implements InsuranceCover {
@@ -17,13 +17,13 @@ public class InsuranceCoverImpl implements InsuranceCover {
 		this.accidentReceiptDao = new AccidentReceiptDaoImpl();
 	}
 	public void associate(AccidentReceiptListImpl accidentReceiptList) {this.accidentReceiptList = accidentReceiptList;}
-	
+
 	public void acceptAccident(int accidentReceiptId){
 		AccidentReceipt accidentReceipt = this.accidentReceiptList.searchById(accidentReceiptId);
 		accidentReceipt.setPaymentStatus(true);
 		this.accidentReceiptDao.update(accidentReceipt);
 	}
-	
+
 	public void writeAccientReceipt(Vector<String> accidentReceiptContents){
 		AccidentReceipt accidentReceipt = new AccidentReceipt();
 		for(EAccidentReceipt eAccidentReceipt : EAccidentReceipt.values()) {
@@ -33,7 +33,7 @@ public class InsuranceCoverImpl implements InsuranceCover {
 			case "사고접수서 이름": accidentReceipt.setAccidentReceiptName(value);break;
 			case "고객 이름": accidentReceipt.setCustomerName(value);break;
 			case "고객 주민등록번호":accidentReceipt.setCustomerId(value);break;
-			case "보험 종류": 
+			case "보험 종류":
 				switch (value) {
 				case "자동차 보험":accidentReceipt.setInsuranceType(EInsuranceType.CAR);break;
 				case "암 보험":accidentReceipt.setInsuranceType(EInsuranceType.CANCER);break;
@@ -41,7 +41,7 @@ public class InsuranceCoverImpl implements InsuranceCover {
 				default:break;
 				}
 				break;
-			case "보상 방식": 
+			case "보상 방식":
 				switch (value) {
 				case "현금 지급":accidentReceipt.setPaymentMethod(EPaymentMethod.CASH);	break;
 				case "카드 지급":accidentReceipt.setPaymentMethod(EPaymentMethod.CARD);	break;
@@ -51,7 +51,7 @@ public class InsuranceCoverImpl implements InsuranceCover {
 				break;
 			case "사고 날짜": accidentReceipt.setAccidentDate(value);break;
 			case "병원명": accidentReceipt.setHospitalName(value);break;
-			case "사망 여부": 
+			case "사망 여부":
 				if (value.equals("아니오")) {accidentReceipt.setDeathStatus(false);}
 				else {accidentReceipt.setDeathStatus(true);}
 				break;

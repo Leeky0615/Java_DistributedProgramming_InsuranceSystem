@@ -2,7 +2,7 @@ package controller.insurance;
 
 import java.util.ArrayList;
 
-import model.dto.Insurance;
+import model.entity.Insurance;
 import model.service.insurance.InsuranceListImpl;
 
 public interface InsuranceController {

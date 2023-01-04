@@ -6,12 +6,12 @@ import constants.ControllerConstants.EController;
 import constants.ViewConstants.EApprovalStatus;
 import controller.insuranceDesign.InsuranceDesignControllerImpl;
 import main.FrontController;
-import model.dto.InsuranceDesign;
+import model.entity.InsuranceDesign;
 import view.defaultClass.Default_InsuranceDesignTable;
 
 public class InsuranceDesignTable extends Default_InsuranceDesignTable {
 	private static final long serialVersionUID = 1L;
-	
+
 	private InsuranceDesignControllerImpl insuranceDesignController;
 
 	public InsuranceDesignTable(FrontController frontController, boolean acceptState) {

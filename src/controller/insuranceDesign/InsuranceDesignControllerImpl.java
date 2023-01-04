@@ -3,21 +3,21 @@ package controller.insuranceDesign;
 import java.util.ArrayList;
 import java.util.Vector;
 
-import model.dto.InsuranceDesign;
+import model.entity.InsuranceDesign;
 import model.service.insuranceDesign.InsuranceDesignList;
 import model.service.insuranceDesign.InsuranceDesignListImpl;
 
 public class InsuranceDesignControllerImpl implements InsuranceDesignController {
 	private InsuranceDesignList insuranceDesignList;
 	public InsuranceDesignControllerImpl() {
-		
+
 	}
 	public void connectCtoS(InsuranceDesignListImpl insuranceDesignList) {
 		this.insuranceDesignList = insuranceDesignList;
 	}
 	public Vector<String> getInsuranceInfo(int insuranceDesignId) {
 		InsuranceDesign insuranceDesign = this.insuranceDesignList.searchById(insuranceDesignId);
-		
+
 		Vector<String> infos = new Vector<String>();
 		infos.add(Integer.toString(insuranceDesign.getInsuranceDesignId()));
 		infos.add(insuranceDesign.getWriter());
@@ -30,7 +30,7 @@ public class InsuranceDesignControllerImpl implements InsuranceDesignController 
 		infos.add(insuranceDesign.getInsurance().getInsuranceDescription());
 		return infos;
 	}
-	
+
 	public ArrayList<InsuranceDesign> getInsuranceDesignList() {
 		return this.insuranceDesignList.getInsuranceDesignList();
 	}

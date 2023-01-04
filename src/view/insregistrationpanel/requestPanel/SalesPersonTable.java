@@ -5,14 +5,14 @@ import java.util.Vector;
 import constants.ControllerConstants.EController;
 import controller.salesPerson.SalesPersonControllerImpl;
 import main.FrontController;
-import model.dto.SalesPerson;
+import model.entity.SalesPerson;
 import view.defaultClass.Default_SalesPersonTable;
 
 public class SalesPersonTable extends Default_SalesPersonTable{
 	private static final long serialVersionUID = 1L;
-	
+
 	private SalesPersonControllerImpl salesPersonController;
-	
+
 	public SalesPersonTable(FrontController frontController) {
 		super();
 		this.salesPersonController = (SalesPersonControllerImpl) frontController.mappingController(EController.SalesPersonController.getControllerName());
